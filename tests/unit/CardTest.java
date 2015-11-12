@@ -26,5 +26,12 @@ public class CardTest {
 
     }
 
+    @Test (expected = model.InvalidSuiteException.class)
+    public void cantCreateCardeWithInvalidSuit() throws InvalidSuiteException, InvalidCardNumberException {
+        Card card = new Card(VALID_NUMBER, "FAFAFA", VALID_VALUE);
+
+    }
+
+
 
 }
