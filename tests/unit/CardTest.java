@@ -5,9 +5,7 @@ import model.InvalidCardNumberException;
 import model.InvalidSuiteException;
 import org.junit.*;
 
-/**
- * Created by alexdebian on 11/11/15.
- */
+
 public class CardTest {
 
     private static final Integer VALID_NUMBER = 5;
@@ -32,6 +30,29 @@ public class CardTest {
 
     }
 
+    @Test
+    public void cardReturnsCorrectNumber() throws InvalidSuiteException, InvalidCardNumberException {
+        Card card = new Card(VALID_NUMBER, VALID_SUIT, VALID_VALUE);
+
+        Assert.assertEquals(card.getNumber(), VALID_NUMBER, 0.0001);
+
+    }
+
+    @Test
+    public void cardReturnsCorrectValue() throws InvalidSuiteException, InvalidCardNumberException {
+        Card card = new Card(VALID_NUMBER, VALID_SUIT, VALID_VALUE);
+
+        Assert.assertEquals(card.getValue(), VALID_VALUE, 0.0001);
+
+    }
+
+    @Test
+    public void cardReturnsCorrectSuit() throws InvalidSuiteException, InvalidCardNumberException {
+        Card card = new Card(VALID_NUMBER, VALID_SUIT, VALID_VALUE);
+
+        Assert.assertEquals(card.getSuit(), VALID_SUIT);
+
+    }
 
 
 }
