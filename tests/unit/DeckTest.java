@@ -1,5 +1,7 @@
 package unit;
 
+import model.InvalidCardNumberException;
+import model.InvalidSuiteException;
 import org.junit.Test;
 import model.Deck;
 
@@ -8,8 +10,9 @@ import model.Deck;
  */
 public class DeckTest {
 
+
     @Test
-    public void canInstantiateDeck(){
+    public void canInstantiateDeck() throws InvalidSuiteException, InvalidCardNumberException {
         Deck deck = new Deck();
     }
 
