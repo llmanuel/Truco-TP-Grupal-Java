@@ -10,16 +10,17 @@ import java.util.Arrays;
 public class Card {
     private static final ArrayList<String> VALID_SUITS = new ArrayList<String>(Arrays.asList("ORO", "BASTO", "ESPADA", "COPA")) ;
 
-    private Integer number;
+    private Integer number, value;
     private String suit;
 
-    public Card(Integer number, String suit) throws InvalidCardNumberException, InvalidSuiteException {
+    public Card(Integer number, String suit, Integer value) throws InvalidCardNumberException, InvalidSuiteException {
 
         this.validateNumber(number);
         this.validateSuit(suit);
 
         this.number = number;
         this.suit = suit;
+        this.value = value;
     }
 
     private void validateSuit(String suit) throws InvalidSuiteException {
@@ -34,3 +35,15 @@ public class Card {
         }
 
 }
+
+    public Integer getValue() {
+        return value;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public String getSuit() {
+        return suit;
+    }
