@@ -8,11 +8,20 @@ import org.junit.*;
  */
 public class CardTest {
 
+    private static final Integer VALID_VALUE = 5;
+    private static final String VALID_SUIT = "ORO";
+
     @Test
     public void canInstanciateCard(){
-        Integer valor = 5;
-        String palo = "testValue";
-        Card card = new Card(valor, palo);
+       Card card = new Card(VALID_VALUE, VALID_SUIT);
     }
+
+
+    @Test (expected = model.InvalidCardNumberException.class)
+    public void cantCreateCardeWithHigherValueThan12(){
+        Card card = new Card(14, VALID_SUIT);
+
+    }
+
 
 }
