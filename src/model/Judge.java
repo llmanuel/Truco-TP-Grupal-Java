@@ -9,10 +9,11 @@ public class Judge {
     }
 
     public boolean isFlor(Card... cards) {
-        for (int i = 0; i <= cards.length; i++){
-            if (cards[i].getSuit() != cards[i+1].getSuit())
+        String suit = cards[0].getSuit();
+        for (Card card : cards) {
+            if (!card.getSuit().equals(suit))
                 return false;
         }
-        return false;
+        return true;
     }
 }
