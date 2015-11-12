@@ -1,6 +1,6 @@
-package Unit;
+package unit;
 
-import Model.Croupier;
+import model.Croupier;
 import org.junit.Test;
 
 public class CroupierTest {

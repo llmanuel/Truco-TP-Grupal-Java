@@ -10,7 +10,9 @@ public class CardTest {
 
     @Test
     public void canInstanciateCard(){
-        Card card = new Card();
+        Integer valor = 5;
+        String palo = "testValue";
+        Card card = new Card(valor, palo);
     }
 
 }
