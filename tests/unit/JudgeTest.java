@@ -1,6 +1,7 @@
 package unit;
 
 import model.Card;
+import org.junit.Assert;
 import org.junit.Test;
 import model.Judge;
 
@@ -20,7 +21,10 @@ public class JudgeTest {
         Card card1 = new Card(7, "unPalo");
         Card card2 = new Card(9, "unPalo");
 
-//        judge.
+        Assert.assertFalse(judge.isCardAHigherThanCardB(card1, card2));
+        Assert.assertTrue(judge.isCardAHigherThanCardB(card2, card1));
     }
+
+
 
 }
