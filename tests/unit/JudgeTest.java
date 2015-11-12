@@ -17,7 +17,8 @@ public class JudgeTest {
     Card card3 = new Card(1, "COPA");
     Card card4 = new Card(12, "ORO");
     Card card5 = new Card(7, "BASTO");
-    Card card6 = new Card(6, "ORO");
+    Card card6 = new Card(6, "BASTO");
+    Card card7 = new Card(6, "ORO");
 
 
     @Test
@@ -34,10 +35,11 @@ public class JudgeTest {
     }
 
     @Test
-    public void testsEnvidoCalculation(){
+    public void testsFlor(){
         Judge judge = new Judge();
 
-        judge
+        Assert.assertTrue(judge.isFlor(card2, card5, card6));
+        Assert.assertFalse(judge.isFlor(card3, card5, card6));
     }
 
 }
