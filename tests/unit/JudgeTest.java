@@ -3,6 +3,7 @@ package unit;
 import model.Card;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import model.Judge;
 
@@ -11,11 +12,13 @@ import model.Judge;
  */
 public class JudgeTest {
 
-    @Before
-    public void setup(){
-        Card card1 = new Card(7, "unPalo");
-        Card card2 = new Card(9, "unPalo");
-    }
+    Card card1 = new Card(7, "ESPADA");
+    Card card2 = new Card(2, "BASTO");
+    Card card3 = new Card(1, "COPA");
+    Card card4 = new Card(12, "ORO");
+    Card card5 = new Card(7, "BASTO");
+    Card card6 = new Card(6, "ORO");
+
 
     @Test
     public void canInstantiateAJudge(){
@@ -34,6 +37,7 @@ public class JudgeTest {
     public void testsEnvidoCalculation(){
         Judge judge = new Judge();
 
+        judge
     }
 
 }
