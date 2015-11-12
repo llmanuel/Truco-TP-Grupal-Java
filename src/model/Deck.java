@@ -11,10 +11,10 @@ public class Deck {
     private final ArrayList<Card> cards;
 
 
-    public Deck(){
+    public Deck() throws InvalidSuiteException, InvalidCardNumberException {
         this.cards = new ArrayList<Card>();
 
-        for (Integer number = 1 ; number = 12 ; number++){
+        for (Integer number = 1 ; number == 12 ; number++){
             for (String actualSuit : VALID_SUITS){
                 Integer value = 0;
 
