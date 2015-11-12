@@ -58,21 +58,21 @@ public class TableTest {
         table = new Table(4);
     }
 
-    @Test (expected = InvalidNumberOfPlayersException.class)
+    @Test
     public void buildATableWithTwoPlayers() throws InvalidNumberOfPlayersException{
         table = new Table(2);
         table.letSitThese(TwoPlayers);
         Assert.assertEquals(2,table.getNumberOfPlayers());
     }
 
-    @Test (expected = InvalidNumberOfPlayersException.class)
+    @Test
     public void aTableWithFourPlayers() throws InvalidNumberOfPlayersException{
         table = new Table(4);
         table.letSitThese(FourPlayers);
         Assert.assertEquals(4,table.getNumberOfPlayers());
     }
 
-    @Test (expected = InvalidNumberOfPlayersException.class)
+    @Test
     public void aTableWithSixPlayers() throws InvalidNumberOfPlayersException{
         table = new Table(6);
         table.letSitThese(SixPlayers);

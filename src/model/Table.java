@@ -20,7 +20,7 @@ public class Table {
         if( (Players.size() == 2) || (Players.size() == 4) ||(Players.size() == 6))
         this.PlayersInGame =Players;
 
-        else new InvalidNumberOfPlayersException();
+        else throw (new InvalidNumberOfPlayersException());
     }
 
     public int getNumberOfPlayers() {
