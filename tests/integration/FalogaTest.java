@@ -1,6 +1,4 @@
-package Integration;
-
-import static org.junit.Assert.*;
+package integration;
 
 /**
  * Created by alexdebian on 11/10/15.
