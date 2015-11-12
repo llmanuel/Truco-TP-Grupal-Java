@@ -42,8 +42,8 @@ public class JudgeTest {
     public void correctlyComparesCardsValue(){
         Judge judge = new Judge();
 
-        Assert.assertFalse(judge.isCardAHigherThanCardB(card1, card2));
-        Assert.assertTrue(judge.isCardAHigherThanCardB(card2, card1));
+        Assert.assertTrue(judge.isCardAHigherThanCardB(card1, card2));
+        Assert.assertFalse(judge.isCardAHigherThanCardB(card2, card1));
     }
 
     @Test
