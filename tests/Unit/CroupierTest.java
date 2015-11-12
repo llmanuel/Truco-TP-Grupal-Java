@@ -1,8 +1,11 @@
-import org.junit.Before;
+package Unit;
+
+import Model.Croupier;
+import org.junit.Test;
 
 public class CroupierTest {
-    @Before
-    public void setup(){
-
+    @Test
+    public void testCroupierIsCorrectlyCreated(){
+        Croupier testCroupier = new Croupier();
     }
 }
