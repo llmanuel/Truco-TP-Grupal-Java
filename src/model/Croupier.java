@@ -9,10 +9,10 @@ public class Croupier {
     private Deck deck;
 
 
-    public Hand giveHand() {
+  /*  public Hand giveHand() {
         LinkedList<Card> newCards = new LinkedList<Card>();
 
         
 
-    }
+    }*/
 }
