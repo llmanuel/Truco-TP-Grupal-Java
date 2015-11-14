@@ -1,6 +1,5 @@
 package model;
 
-import kotlin.properties.NULL_VALUE;
 
 /**
  * Created by manuel on 13/11/15.
