@@ -6,6 +6,10 @@ import java.util.LinkedList;
 public class Croupier {
     private Deck deck;
 
+    public Croupier() {
+    	
+    }
+    
     public Hand giveHand() throws InvalidSuiteException, InvalidCardNumberException {
         this.deck = new Deck();
         LinkedList<Card> newCards = new LinkedList<Card>();
