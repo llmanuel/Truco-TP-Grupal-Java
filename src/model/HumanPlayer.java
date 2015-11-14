@@ -6,6 +6,7 @@ package model;
 public class HumanPlayer implements Player {
 
     private int playerId;
+	private Hand hand = null;
 
     public HumanPlayer(int idNumber){
         playerId = idNumber;
@@ -21,4 +22,14 @@ public class HumanPlayer implements Player {
     public int getIdNumber(){
         return playerId;
     }
+
+	public void receiveAHand(Hand hand) {
+		
+		this.hand = hand;
+	}
+
+	public Hand getHand() {
+	
+		return hand;
+	}
 }
