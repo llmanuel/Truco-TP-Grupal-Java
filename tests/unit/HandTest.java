@@ -8,6 +8,10 @@ import model.InvalidSuiteException;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -169,7 +173,7 @@ public class HandTest {
         LinkedList<Card> expectedCards = new LinkedList<Card>();
         expectedCards.add(card2);
         expectedCards.add(card5);
-        Hand expectedHand = new Hand(expectedCards);
+        LinkedList expectedHand = new LinkedList(expectedCards);
 
         LinkedList<Card> cards2 = new LinkedList<Card>();
         cards2.add(card1);
@@ -179,10 +183,13 @@ public class HandTest {
         LinkedList<Card> expectedCards2 = new LinkedList<Card>();
         expectedCards2.add(card3);
         expectedCards2.add(card4);
-        Hand expectedHand2 = new Hand(expectedCards2);
+        LinkedList<Card> expectedHand2 = new LinkedList<Card>(expectedCards2);
 
-        Assert.assertEquals(expectedHand, hand.getCardsOfTheSameSuit());
-        Assert.assertEquals(expectedHand2, hand2.getCardsOfTheSameSuit());
+        LinkedList whatIGet = hand.getCardsOfTheSameSuit();
+        Assert.assertEquals(expectedHand, whatIGet);
+
+        LinkedList whatIGet2 = hand2.getCardsOfTheSameSuit();
+        Assert.assertEquals(expectedHand2, whatIGet2);
     }
 
     @Test
