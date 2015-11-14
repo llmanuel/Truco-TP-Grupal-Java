@@ -8,12 +8,4 @@ public class Judge {
         return (cardA.getValue())>(cardB.getValue());
     }
 
-    public boolean isFlor(Card... cards) {
-        String suit = cards[0].getSuit();
-        for (Card card : cards) {
-            if (!card.getSuit().equals(suit))
-                return false;
-        }
-        return true;
-    }
 }

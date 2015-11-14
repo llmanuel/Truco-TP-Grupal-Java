@@ -46,12 +46,5 @@ public class JudgeTest {
         Assert.assertFalse(judge.isCardAHigherThanCardB(card2, card1));
     }
 
-    @Test
-    public void testsFlor(){
-        Judge judge = new Judge();
-
-        Assert.assertTrue(judge.isFlor(card2, card5, card6));
-        Assert.assertFalse(judge.isFlor(card3, card5, card6));
-    }
 
 }

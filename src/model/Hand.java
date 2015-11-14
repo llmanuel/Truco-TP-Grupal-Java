@@ -10,4 +10,13 @@ public class Hand {
     public Hand(List<Card> cards) {
         this.cards = cards;
     }
+
+    public boolean isFlor() {
+        String suit = cards.get(0).getSuit();
+        for (Card card : cards) {
+            if (!card.getSuit().equals(suit))
+                return false;
+        }
+        return true;
+    }
 }
