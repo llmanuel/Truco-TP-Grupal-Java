@@ -17,6 +17,7 @@ public class HumanPlayer implements Player {
         return 0;
     }
 
+    @Override
     public int getIdNumber(){
         return playerId;
     }
