@@ -6,7 +6,7 @@ package model;
 public class HumanPlayer implements Player {
 
     private int playerId;
-	private Hand hand = null;
+	private Hand hand;
 
     public HumanPlayer(int idNumber){
         playerId = idNumber;
@@ -14,7 +14,6 @@ public class HumanPlayer implements Player {
 
     @Override
     public int calculateEnvido() {
-
         return 0;
     }
 
@@ -23,13 +22,7 @@ public class HumanPlayer implements Player {
         return playerId;
     }
 
-	public void receiveAHand(Hand hand) {
-		
-		this.hand = hand;
-	}
+	public void receiveAHand(Hand hand) { this.hand = hand;	}
 
-	public Hand getHand() {
-	
-		return hand;
-	}
+	public Hand getHand() {	return hand; }
 }
