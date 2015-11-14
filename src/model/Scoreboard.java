@@ -25,8 +25,12 @@ public class Scoreboard {
 		return scores.get(playerId); 
 	}
 
-	public void increseTheScoreOf(int playerID, int score) {
+	public void increseTheScoreOf(int playerID, int score) throws PlayerDoesNotExistsException {
 		
+		if (playerID > this.numberOfPlayers || playerID < 0) {
+			
+			throw new PlayerDoesNotExistsException() ;
+		}
 		int newScore = score + scores.get(playerID);
 		scores.add(playerID, newScore);
 		
