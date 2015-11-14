@@ -25,6 +25,6 @@ public class CroupierTest {
     public void testCroupierCanGiveAHand() throws InvalidSuiteException, InvalidCardNumberException {
 
         Assert.assertThat( croupier.giveHand(), instanceOf( Hand.class ) );
-
     }
+
 }
