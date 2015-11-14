@@ -16,7 +16,7 @@ import model.HumanPlayer;
 public class PlayerAndHandTest {
 
 	@Test
-	public void APlayerCanReceiveAHand() throws Exception {
+	public void PlayerSavesCorrectHand() throws Exception {
 
         Croupier croupier = new Croupier();
         HumanPlayer humanPlayer = new HumanPlayer( 1 );
