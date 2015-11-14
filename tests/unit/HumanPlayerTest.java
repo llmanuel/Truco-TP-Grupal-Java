@@ -35,7 +35,7 @@ public class HumanPlayerTest {
     }
 
     @Test
-    public void aPlayerCanGiveHIsId(){
+    public void aPlayerCanGiveHisId(){
         humanPlayer = new HumanPlayer(1);
         Assert.assertEquals(1, humanPlayer.getIdNumber());
     }
