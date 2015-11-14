@@ -90,9 +90,9 @@ public class TableTest {
 //        table.receiveCard(myCard);
 //    }
 
-    @Test
-    public void theTablesSetsTheGame() throws InvalidNumberOfPlayersException{
-        table = new Table();
-        table.setGame();
-    }
+//    @Test
+//    public void theTablesSetsTheGame() throws InvalidNumberOfPlayersException{
+//        table = new Table();
+//        table.setGame();
+//    }
 }
