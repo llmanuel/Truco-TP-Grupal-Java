@@ -14,11 +14,6 @@ public class CroupierTest {
 
     private Croupier croupier;
 
-    @Before
-    public void setUp() {
-        Croupier croupier = new Croupier();
-    }
-
     @Test
     public void testCroupierCanGiveAHand() throws InvalidSuiteException, InvalidCardNumberException {
         Croupier croupier = new Croupier();
