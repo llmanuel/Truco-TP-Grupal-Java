@@ -7,7 +7,7 @@ public class CpuPlayer implements Player {
 
     private int playerId;
 
-    public void CpuPlayer(int idNumber){
+    public CpuPlayer(int idNumber){
         playerId = idNumber;
     }
 
@@ -16,4 +16,8 @@ public class CpuPlayer implements Player {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+    public int getIdNumber(){
+        return playerId;
+    }
 }

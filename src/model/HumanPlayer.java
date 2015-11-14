@@ -7,7 +7,7 @@ public class HumanPlayer implements Player {
 
     private int playerId;
 
-    public void HumanPlayer(int idNumber){
+    public HumanPlayer(int idNumber){
         playerId = idNumber;
     }
 
@@ -15,5 +15,9 @@ public class HumanPlayer implements Player {
     public int calculateEnvido() {
 
         return 0;
+    }
+
+    public int getIdNumber(){
+        return playerId;
     }
 }

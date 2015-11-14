@@ -18,12 +18,12 @@ public class TableTest {
     LinkedList<Player> SixPlayers;
     @Before
     public void setup(){
-        HumanPlayer myPLayer = new HumanPlayer();
-        HumanPlayer otherPLayer = new HumanPlayer();
-        HumanPlayer charles = new HumanPlayer();
-        HumanPlayer nick = new HumanPlayer();
-        HumanPlayer josh = new HumanPlayer();
-        HumanPlayer robert = new HumanPlayer();
+        HumanPlayer myPLayer = new HumanPlayer(1);
+        HumanPlayer otherPLayer = new HumanPlayer(2);
+        HumanPlayer charles = new HumanPlayer(3);
+        HumanPlayer nick = new HumanPlayer(4);
+        HumanPlayer josh = new HumanPlayer(5);
+        HumanPlayer robert = new HumanPlayer(6);
 
         TwoPlayers = new LinkedList<Player>();
         TwoPlayers.add(myPLayer);

@@ -5,4 +5,6 @@ package model;
  */
 public interface Player {
     int calculateEnvido();
+
+
 }
