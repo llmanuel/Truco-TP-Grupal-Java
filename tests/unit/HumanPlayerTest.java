@@ -33,9 +33,5 @@ public class HumanPlayerTest {
         Player humanPlayer = new HumanPlayer();
     }
 
-    @Test
-    public void testsEnvidoCalculation(){
-        HumanPlayer humanPlayer = new HumanPlayer();
-        Assert.assertEquals(7, humanPlayer.calculateEnvido(card1, card2));
-    }
+    
 }
