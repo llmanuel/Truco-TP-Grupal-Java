@@ -1,5 +1,7 @@
 package model;
 
+import sun.awt.image.ImageWatched;
+
 import java.util.*;
 
 public class Hand {
@@ -24,22 +26,24 @@ public class Hand {
     public int calculateEnvido() {
         if (allSuitsAreDifferent()){
             return (maxCardNumber());
+        }else{
+//           return getEnvidoFrom(getCardsOfTheSameSuit());
         }
-        Hashtable<String, Integer> envidoDictionary = new Hashtable<String, Integer>();
-        for (int i = 0; i < cards.size(); i++){
-            if (envidoDictionary.containsKey(cards.get(i).getSuit())){
-                if (envidoDictionary.get(cards.get(i).getSuit()) <= 21){
-                    envidoDictionary.put(cards.get(i).getSuit(), envidoDictionary.get(cards.get(i).getSuit()) + 20);
-//                    Integer valorViejo = envidoDictionary.get(cards.get(i).getSuit());
-//                    envidoDictionary.put(cards.get(i).getSuit(), valorViejo += 20);
-                    if (cards.get(i).getNumber() < 10){
-                        envidoDictionary.put(cards.get(i).getSuit(), envidoDictionary.get(cards.get(i).getSuit()) + 20);
-//                        Integer valorViejo = envidoDictionary.get(cards.get(i).getSuit());
-//                        envidoDictionary.put(cards.get(i).getSuit(), valorViejo += 20);
-                    }
-                }
-            }
-        }
+//        Hashtable<String, Integer> envidoDictionary = new Hashtable<String, Integer>();
+//        for (int i = 0; i < cards.size(); i++){
+//            if (envidoDictionary.containsKey(cards.get(i).getSuit())){
+//                if (envidoDictionary.get(cards.get(i).getSuit()) <= 21){
+//                    envidoDictionary.put(cards.get(i).getSuit(), envidoDictionary.get(cards.get(i).getSuit()) + 20);
+////                    Integer valorViejo = envidoDictionary.get(cards.get(i).getSuit());
+////                    envidoDictionary.put(cards.get(i).getSuit(), valorViejo += 20);
+//                    if (cards.get(i).getNumber() < 10){
+//                        envidoDictionary.put(cards.get(i).getSuit(), envidoDictionary.get(cards.get(i).getSuit()) + 20);
+////                        Integer valorViejo = envidoDictionary.get(cards.get(i).getSuit());
+////                        envidoDictionary.put(cards.get(i).getSuit(), valorViejo += 20);
+//                    }
+//                }
+//            }
+//        }
         return 0;
     }
 
@@ -70,5 +74,16 @@ public class Hand {
                 searchedMax = cards.get(i).getNumber();
         }
         return searchedMax;
+    }
+
+    public Hand getCardsOfTheSameSuit() {
+        LinkedList<Card> cardsOfTheSameSuit = new LinkedList<Card>();
+        for (int i = 0 ; i< cards.size(); i++){
+//            if (cards.get(i).getSuit() == getMostRepeatedSuit()){
+//                cardsOfTheSameSuit.add(cards.get(i));
+//            }
+        }
+        Hand handOfCardsWithTheSameSuit = new Hand(cardsOfTheSameSuit);
+        return handOfCardsWithTheSameSuit;
     }
 }

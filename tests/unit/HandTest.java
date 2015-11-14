@@ -13,7 +13,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class HandTest {
-    @Test
+    @Test()
     public void canInstatiateHand() throws InvalidSuiteException, InvalidCardNumberException {
         Card card1 = new Card(5, "ORO", 1);
         Card card2 = new Card(7, "ORO", 5);
@@ -151,5 +151,37 @@ public class HandTest {
 
         Assert.assertEquals(7, hand.calculateEnvido());
         Assert.assertEquals(12, hand2.calculateEnvido());
+    }
+
+    @Test
+    public void testGetCardsOfTheSameSuit() throws InvalidSuiteException, InvalidCardNumberException {
+        Card card1 = new Card(5, "BASTO", 1);
+        Card card2 = new Card(7, "ORO", 5);
+        Card card3 = new Card(7, "ESPADA", 6);
+        Card card4 = new Card(12, "ESPADA", 6);
+        Card card5 = new Card(3, "ORO", 5);
+
+        LinkedList<Card> cards = new LinkedList<Card>();
+        cards.add(card1);
+        cards.add(card2);
+        cards.add(card5);
+        Hand hand = new Hand(cards);
+        LinkedList<Card> expectedCards = new LinkedList<Card>();
+        expectedCards.add(card2);
+        expectedCards.add(card5);
+        Hand expectedHand = new Hand(expectedCards);
+
+        LinkedList<Card> cards2 = new LinkedList<Card>();
+        cards2.add(card1);
+        cards2.add(card3);
+        cards2.add(card4);
+        Hand hand2 = new Hand(cards2);
+        LinkedList<Card> expectedCards2 = new LinkedList<Card>();
+        expectedCards2.add(card3);
+        expectedCards2.add(card4);
+        Hand expectedHand2 = new Hand(expectedCards2);
+
+        Assert.assertEquals(expectedHand, hand.getCardsOfTheSameSuit());
+        Assert.assertEquals(expectedHand2, hand2.getCardsOfTheSameSuit());
     }
 }
