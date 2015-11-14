@@ -25,6 +25,5 @@ public class CroupierTest {
 
         Assert.assertThat( croupier.giveHand(), instanceOf( Hand.class ) );
 
-
     }
 }
