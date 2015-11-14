@@ -6,7 +6,7 @@ package model;
 public class CpuPlayer implements Player {
 
 	@Override
-	public int calculateEnvido(Card... cards) {
+	public int calculateEnvido() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

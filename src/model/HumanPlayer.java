@@ -5,7 +5,7 @@ package model;
  */
 public class HumanPlayer implements Player {
     @Override
-    public int calculateEnvido(Card... cards) {
+    public int calculateEnvido() {
 
         return 0;
     }
