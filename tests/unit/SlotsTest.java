@@ -28,9 +28,9 @@ public class SlotsTest {
     @Test
     public void slotsCanReceiveCards()  {
 
-        Assert.assertTrue(slot.receiveFirstCard(first));
-        Assert.assertTrue(slot.receiveSecondCard(second));
-        Assert.assertTrue(slot.receiveThirdCard(thirdCard));
+        Assert.assertTrue(slot.receiveCard(first));
+        Assert.assertTrue(slot.receiveCard(second));
+        Assert.assertTrue(slot.receiveCard(thirdCard));
     }
 
     @Test
@@ -48,25 +48,30 @@ public class SlotsTest {
 
     @Test
     public void slotsReturnsTheFirstCard() throws NotCardThrownException{
-
-        Assert.assertEquals(first.getValue(),slot.getFirstOne().getNumber());
+        slot.receiveCard(first);
+        Assert.assertEquals(first.getNumber(),slot.getFirstOne().getNumber());
     }
 
     @Test
     public void slotsReturnsTheSecondCard() throws NotCardThrownException{
-
-        Assert.assertEquals(first.getValue(),slot.getSecondOne().getNumber());
+        slot.receiveCard(first);
+        slot.receiveCard(second);
+        Assert.assertEquals(second.getNumber(),slot.getSecondOne().getNumber());
     }
 
     @Test
     public void slotsReturnsTheThirdCard() throws NotCardThrownException{
-
-        Assert.assertEquals(first.getValue(),slot.getThirdOne().getNumber());
+        slot.receiveCard(first);
+        slot.receiveCard(second);
+        slot.receiveCard(thirdCard);
+        Assert.assertEquals(thirdCard.getNumber(),slot.getThirdOne().getNumber());
     }
 
-    @Test
-    public void slotsThrowsAwayTheCardsWhenItIsTellToDoSo(){
+    @Test (expected = NotCardThrownException.class)
+    public void slotsThrowsAwayTheCardsWhenItIsTellToDoSo() throws NotCardThrownException {
 
+       slot.receiveCard(first);
        slot.throwCards();
+       Assert.assertEquals(first.getNumber(),slot.getFirstOne().getNumber());
     }
 }

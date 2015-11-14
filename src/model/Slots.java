@@ -1,6 +1,8 @@
 package model;
 
 
+import java.util.LinkedList;
+
 /**
  * Created by manuel on 13/11/15.
  */
@@ -8,26 +10,15 @@ public class Slots {
 
 
     private Player player;
-    private CardSpot firstCard;
-    private CardSpot secondCard;
-    private CardSpot thirdCard;
+    private LinkedList<Card> cards;
 
     public Slots(Player player) {
         this.player = player;
+        cards = new LinkedList<Card>();
     }
 
-    public boolean receiveFirstCard(Card card) {
-        firstCard = new CardSpot(card);
-        return true;
-    }
-
-    public boolean receiveSecondCard(Card card) {
-        secondCard = new CardSpot(card);
-        return true;
-    }
-
-    public boolean receiveThirdCard(Card card) {
-        thirdCard = new CardSpot(card);
+    public boolean receiveCard(Card newCard) {
+        this.cards.addLast(newCard);
         return true;
     }
 
@@ -36,27 +27,26 @@ public class Slots {
     }
 
     public Card getFirstOne() throws NotCardThrownException{
-        if(firstCard.isItInGame())
-            return firstCard.getCard();
+
+        if(!cards.isEmpty())
+            return (cards.getFirst());
         else throw new NotCardThrownException();
     }
 
     public Card getSecondOne() throws NotCardThrownException{
-        if (firstCard.isItInGame())
-            return secondCard.getCard();
+        if(cards.size() == 2)
+           return (cards.get(1));
         else throw new NotCardThrownException();
     }
 
     public Card getThirdOne() throws NotCardThrownException{
-        if(firstCard.isItInGame())
-            return thirdCard.getCard();
+        if(cards.size() == 3)
+            return (cards.getLast());
         else throw new NotCardThrownException();
     }
 
     public void throwCards() {
 
-        this.firstCard.throwCard();
-        this.secondCard.throwCard();
-        this.thirdCard.throwCard();
+        cards = new LinkedList<Card>();
     }
 }
