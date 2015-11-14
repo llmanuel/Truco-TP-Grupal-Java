@@ -12,22 +12,25 @@ public class SlotsTest {
 
     Slots slot;
     HumanPlayer myPlayer;
+    Card first;
+    Card second;
+    Card thirdCard;
 
     @Before
-    public void setup(){
+    public void setup() throws InvalidSuiteException, InvalidCardNumberException {
         myPlayer = new HumanPlayer(1);
         slot = new Slots(myPlayer);
+        first = new Card(1,"ESPADA", 14);
+        second = new Card(1,"ORO", 8);
+        thirdCard = new Card(1,"BASTO", 13);
     }
 
     @Test
-    public void slotsCanReceiveCards() throws InvalidSuiteException, InvalidCardNumberException {
+    public void slotsCanReceiveCards()  {
 
-        Card anyCard = new Card(1,"ESPADA", 14);
-        Card otherCard = new Card(1,"ORO", 8);
-        Card Card = new Card(1,"BASTO", 13);
-        Assert.assertTrue(slot.receiveFirstCard(anyCard));
-        Assert.assertTrue(slot.receiveSecondCard(anyCard));
-        Assert.assertTrue(slot.receiveThirdCard(anyCard));
+        Assert.assertTrue(slot.receiveFirstCard(first));
+        Assert.assertTrue(slot.receiveSecondCard(second));
+        Assert.assertTrue(slot.receiveThirdCard(thirdCard));
     }
 
     @Test
@@ -41,5 +44,29 @@ public class SlotsTest {
 
         HumanPlayer otherPlayer = new HumanPlayer(2);
         Assert.assertFalse(slot.isYourPlayer(otherPlayer));
+    }
+
+    @Test
+    public void slotsReturnsTheFirstCard(){
+
+        Assert.assertEquals(first.getValue(),slot.getFirstOne().getNumber());
+    }
+
+    @Test
+    public void slotsReturnsTheSecondCard(){
+
+        Assert.assertEquals(first.getValue(),slot.getSecondOne().getNumber());
+    }
+
+    @Test
+    public void slotsReturnsTheThirdCard(){
+
+        Assert.assertEquals(first.getValue(),slot.getThirdOne().getNumber());
+    }
+
+    @Test
+    public void slotsThrowsAwayTheCardsWhenItIsTellToDoSo(){
+
+       slot.throwCards();
     }
 }
