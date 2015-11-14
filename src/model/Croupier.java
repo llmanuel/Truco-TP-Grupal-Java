@@ -2,17 +2,25 @@ package model;
 
 import java.util.LinkedList;
 
-/**
- * Created by alexdebian on 11/10/15.
- */
+
 public class Croupier {
     private Deck deck;
 
-
-  /*  public Hand giveHand() {
+    public Hand giveHand() throws InvalidSuiteException, InvalidCardNumberException {
+        this.deck = new Deck();
         LinkedList<Card> newCards = new LinkedList<Card>();
 
-        
+        newCards.add(deck.getCard());
+        newCards.add(deck.getCard());
+        newCards.add(deck.getCard());
 
-    }*/
+        Hand newHand = new Hand( newCards );
+
+        return newHand;
+
+    }
+
+    private void initializeDeck() throws InvalidSuiteException, InvalidCardNumberException {
+        this.deck = new Deck();
+    }
 }
