@@ -12,22 +12,25 @@ public class SlotsTest {
 
     Slots slot;
     HumanPlayer myPlayer;
+    Card first;
+    Card second;
+    Card thirdCard;
 
     @Before
-    public void setup(){
+    public void setup() throws InvalidSuiteException, InvalidCardNumberException {
         myPlayer = new HumanPlayer(1);
         slot = new Slots(myPlayer);
+        first = new Card(1,"ESPADA", 14);
+        second = new Card(1,"ORO", 8);
+        thirdCard = new Card(1,"BASTO", 13);
     }
 
     @Test
-    public void slotsCanReceiveCards() throws InvalidSuiteException, InvalidCardNumberException {
+    public void slotsCanReceiveCards()  {
 
-        Card anyCard = new Card(1,"ESPADA", 14);
-        Card otherCard = new Card(1,"ORO", 8);
-        Card Card = new Card(1,"BASTO", 13);
-        Assert.assertTrue(slot.receiveFirstCard(anyCard));
-        Assert.assertTrue(slot.receiveSecondCard(anyCard));
-        Assert.assertTrue(slot.receiveThirdCard(anyCard));
+        Assert.assertTrue(slot.receiveCard(first));
+        Assert.assertTrue(slot.receiveCard(second));
+        Assert.assertTrue(slot.receiveCard(thirdCard));
     }
 
     @Test
@@ -41,5 +44,34 @@ public class SlotsTest {
 
         HumanPlayer otherPlayer = new HumanPlayer(2);
         Assert.assertFalse(slot.isYourPlayer(otherPlayer));
+    }
+
+    @Test
+    public void slotsReturnsTheFirstCard() throws NotCardThrownException{
+        slot.receiveCard(first);
+        Assert.assertEquals(first.getNumber(),slot.getFirstOne().getNumber());
+    }
+
+    @Test
+    public void slotsReturnsTheSecondCard() throws NotCardThrownException{
+        slot.receiveCard(first);
+        slot.receiveCard(second);
+        Assert.assertEquals(second.getNumber(),slot.getSecondOne().getNumber());
+    }
+
+    @Test
+    public void slotsReturnsTheThirdCard() throws NotCardThrownException{
+        slot.receiveCard(first);
+        slot.receiveCard(second);
+        slot.receiveCard(thirdCard);
+        Assert.assertEquals(thirdCard.getNumber(),slot.getThirdOne().getNumber());
+    }
+
+    @Test (expected = NotCardThrownException.class)
+    public void slotsThrowsAwayTheCardsWhenItIsTellToDoSo() throws NotCardThrownException {
+
+       slot.receiveCard(first);
+       slot.throwCards();
+       Assert.assertEquals(first.getNumber(),slot.getFirstOne().getNumber());
     }
 }

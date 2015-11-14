@@ -53,6 +53,21 @@ public class ScoreboardTest {
     	int score = 2;
     	
     	scoreboard.increseTheScoreOf(playerID , score);
+    }
+    
+    @Test
+    public void PlayerWin() {
+    	
+    	Scoreboard scoreboard = new Scoreboard(numberOfPlayers);
+    	
+    	int playerID = 2;
+    	int score = 30;
+    	
+    	scoreboard.increseTheScoreOf(playerID , score);
+    	
+    	Assert.assertTrue(playerID == scoreboard.lookForAWinner());	
     	
     }
+    	
+    
 }

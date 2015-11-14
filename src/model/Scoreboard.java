@@ -40,6 +40,18 @@ public class Scoreboard {
 		return scores.get(playerID);
 	}
 
+	public int lookForAWinner() {
+		
+		for (int i = 0; i <= numberOfPlayers; i++) {
+			
+			if (scores.get(i) == 30) {
+				
+				return i;
+			}		
+		}
+		return 0;
+	}
+
 
 
 
