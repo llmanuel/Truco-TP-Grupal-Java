@@ -11,7 +11,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HandTest extends TestCase {
+public class HandTest {
     @Test
     public void canInstatiateHand() throws InvalidSuiteException, InvalidCardNumberException {
         Card card1 = new Card(5, "ORO", 1);

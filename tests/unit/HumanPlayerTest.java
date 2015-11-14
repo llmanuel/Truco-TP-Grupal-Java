@@ -30,7 +30,7 @@ public class HumanPlayerTest {
 
     @Test
     public void canInstatiateHumanPlayer(){
-        Player humanPlayer = new HumanPlayer(456);
+        Player humanPlayer = new HumanPlayer();
     }
 
 

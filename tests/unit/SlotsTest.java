@@ -35,11 +35,11 @@ public class SlotsTest {
 
         Assert.assertTrue(slot.isYourPlayer(myPlayer));
     }
-//
-//    @Test
-//    public void slotsReturnsFlaseIfIsNotHIsPlayer() throws InvalidSuiteException, InvalidCardNumberException {
-//
-//        HumanPlayer otherPlayer = new HumanPlayer();
-//        Assert.assertFalse(slot.isYourPlayer(otherPlayer));
-//    }
+
+    @Test
+    public void slotsReturnsFalseIfIsNotHIsPlayer() throws InvalidSuiteException, InvalidCardNumberException {
+
+        HumanPlayer otherPlayer = new HumanPlayer(2);
+        Assert.assertFalse(slot.isYourPlayer(otherPlayer));
+    }
 }

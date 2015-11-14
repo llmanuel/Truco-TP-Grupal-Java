@@ -31,7 +31,7 @@ public class Slots {
         return true;
     }
 
-    public boolean isYourPlayer(HumanPlayer myPlayer) {
-        return (this.player.getIdNumber() == player.getIdNumber());
+    public boolean isYourPlayer(Player myPlayer) {
+        return (this.player.getIdNumber() == myPlayer.getIdNumber());
     }
 }

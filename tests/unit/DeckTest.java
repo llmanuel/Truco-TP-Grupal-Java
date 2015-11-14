@@ -28,4 +28,14 @@ public class DeckTest {
 
     }
 
+    @Test (expected = RuntimeException.class)
+    public void deckCantReturnMoreThan40Cards() throws InvalidSuiteException, InvalidCardNumberException{
+        Deck deck = new Deck();
+
+        for ( int i=1; i < 42; i++){
+            deck.getCard();
+        }
+
+    }
+
 }
