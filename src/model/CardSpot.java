@@ -20,4 +20,8 @@ public class CardSpot {
     public void throwCard() {
         throwable = true;
     }
+
+    public boolean isItInGame() {
+        return (!throwable);
+    }
 }

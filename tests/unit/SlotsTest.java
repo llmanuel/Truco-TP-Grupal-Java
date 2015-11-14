@@ -47,19 +47,19 @@ public class SlotsTest {
     }
 
     @Test
-    public void slotsReturnsTheFirstCard(){
+    public void slotsReturnsTheFirstCard() throws NotCardThrownException{
 
         Assert.assertEquals(first.getValue(),slot.getFirstOne().getNumber());
     }
 
     @Test
-    public void slotsReturnsTheSecondCard(){
+    public void slotsReturnsTheSecondCard() throws NotCardThrownException{
 
         Assert.assertEquals(first.getValue(),slot.getSecondOne().getNumber());
     }
 
     @Test
-    public void slotsReturnsTheThirdCard(){
+    public void slotsReturnsTheThirdCard() throws NotCardThrownException{
 
         Assert.assertEquals(first.getValue(),slot.getThirdOne().getNumber());
     }

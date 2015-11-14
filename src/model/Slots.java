@@ -36,16 +36,22 @@ public class Slots {
         return (this.player.getIdNumber() == myPlayer.getIdNumber());
     }
 
-    public Card getFirstOne() {
-        return firstCard.getCard();
+    public Card getFirstOne() throws NotCardThrownException{
+        if(firstCard.isItInGame())
+            return firstCard.getCard();
+        else throw new NotCardThrownException();
     }
 
-    public Card getSecondOne() {
-        return secondCard.getCard();
+    public Card getSecondOne() throws NotCardThrownException{
+        if (firstCard.isItInGame())
+            return secondCard.getCard();
+        else throw new NotCardThrownException();
     }
 
-    public Card getThirdOne() {
-        return thirdCard.getCard();
+    public Card getThirdOne() throws NotCardThrownException{
+        if(firstCard.isItInGame())
+            return thirdCard.getCard();
+        else throw new NotCardThrownException();
     }
 
     public void throwCards() {
