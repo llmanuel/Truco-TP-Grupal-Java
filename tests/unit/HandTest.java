@@ -129,4 +129,19 @@ public class HandTest {
         Assert.assertEquals(7, hand.maxCardNumber());
         Assert.assertEquals(5, hand2.maxCardNumber());
     }
+
+    @Test
+    public void testCorrectlyCalculatesEnvidoWhenCardsAreAllOfDifferentSuits() throws InvalidSuiteException, InvalidCardNumberException {
+        Card card1 = new Card(5, "BASTO", 1);
+        Card card2 = new Card(7, "ORO", 5);
+        Card card3 = new Card(7, "ESPADA", 6);
+
+        LinkedList<Card> cards = new LinkedList<Card>();
+        cards.add(card1);
+        cards.add(card2);
+        cards.add(card3);
+        Hand hand = new Hand(cards);
+
+        Assert.assertEquals(7, hand.calculateEnvido());
+    }
 }
