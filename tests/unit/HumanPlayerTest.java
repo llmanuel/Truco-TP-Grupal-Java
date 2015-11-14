@@ -16,6 +16,7 @@ public class HumanPlayerTest {
     Card card5;
     Card card6;
     Card card7;
+    HumanPlayer humanPlayer;
 
     @Before
     public void setUp() throws Exception {
@@ -30,8 +31,12 @@ public class HumanPlayerTest {
 
     @Test
     public void canInstatiateHumanPlayer(){
-        Player humanPlayer = new HumanPlayer();
+        humanPlayer = new HumanPlayer(1);
     }
 
-
+    @Test
+    public void aPlayerCanGiveHIsId(){
+        humanPlayer = new HumanPlayer(1);
+        Assert.assertEquals(1, humanPlayer.getIdNumber());
+    }
 }
