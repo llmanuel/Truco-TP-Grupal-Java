@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class HandTest {
@@ -18,7 +19,7 @@ public class HandTest {
         Card card2 = new Card(7, "ORO", 5);
         Card card3 = new Card(7, "ESPADA", 6);
 
-        List<Card> cards = new ArrayList<Card>();
+        LinkedList<Card> cards = new LinkedList<Card>();
         cards.add(card1);
         cards.add(card2);
         cards.add(card3);
@@ -33,8 +34,8 @@ public class HandTest {
         Card card3 = new Card(7, "ESPADA", 6);
         Card card4 = new Card(3, "ORO", 4);
 
-        List<Card> cards = new ArrayList<Card>();
-        List<Card> cards2 = new ArrayList<Card>();
+        LinkedList<Card> cards = new LinkedList<Card>();
+        LinkedList<Card> cards2 = new LinkedList<Card>();
 
         cards.add(card1);
         cards.add(card2);
