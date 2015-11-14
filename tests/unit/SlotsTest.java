@@ -23,4 +23,4 @@ public class SlotsTest {
 //        Card anyCard = new Card(1, "Espada", 14);
 //        slot.receiveFirstCard(anyCard);
 //    }
-//}
+}
