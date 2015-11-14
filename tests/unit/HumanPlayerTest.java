@@ -33,5 +33,5 @@ public class HumanPlayerTest {
         Player humanPlayer = new HumanPlayer();
     }
 
-    
+
 }
