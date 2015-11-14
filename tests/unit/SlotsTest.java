@@ -17,10 +17,10 @@ public class SlotsTest {
         slot = new Slots(myPlayer);
     }
 
-    @Test
-    public void slotsCanReceiveCards() throws InvalidSuiteException, InvalidCardNumberException {
-
-        Card anyCard = new Card(1, "Espada", 14);
-        slot.receiveFirstCard(anyCard);
-    }
+//    @Test
+//    public void slotsCanReceiveCards() throws InvalidSuiteException, InvalidCardNumberException {
+//
+//        Card anyCard = new Card(1, "Espada", 14);
+//        slot.receiveFirstCard(anyCard);
+//    }
 }
