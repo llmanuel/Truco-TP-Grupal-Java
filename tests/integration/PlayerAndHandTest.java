@@ -21,12 +21,10 @@ public class PlayerAndHandTest {
         Croupier croupier = new Croupier();
         HumanPlayer humanPlayer = new HumanPlayer( 1 );
 
-        
-        humanPlayer.receiveAHand(croupier.giveHand());
+        Hand hand =  croupier.giveHand();
 
-        
-        Assert.assertTrue(humanPlayer.getHand() != null);
-    
+        humanPlayer.receiveAHand(hand);
+        Assert.assertTrue(humanPlayer.getHand() == hand);
 	}
 	
 }
