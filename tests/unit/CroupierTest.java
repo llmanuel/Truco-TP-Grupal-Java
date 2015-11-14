@@ -2,21 +2,29 @@ package unit;
 
 import model.Croupier;
 import model.Hand;
+import model.InvalidCardNumberException;
+import model.InvalidSuiteException;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
 
 public class CroupierTest {
-    @Test
-    public void testCroupierIsCorrectlyCreated(){
-        Croupier testCroupier = new Croupier();
+
+    private Croupier croupier;
+
+    @Before
+    public void setUp() {
+        Croupier croupier = new Croupier();
     }
 
     @Test
-    public void testCroupierCanGiveAHand(){
+    public void testCroupierCanGiveAHand() throws InvalidSuiteException, InvalidCardNumberException {
         Croupier croupier = new Croupier();
 
-        Assert.assertThat(croupier.giveHand(), instanceOf (Hand.class));
+        Assert.assertThat( croupier.giveHand(), instanceOf( Hand.class ) );
+
+
     }
 }
