@@ -8,14 +8,30 @@ public class Slots {
 
     private Player player;
     private Card firstCard;
+    private Card secondCard;
+    private Card thirdCard;
 
     public Slots(Player player) {
         this.player = player;
     }
 
 
-    public void receiveFirstCard(Card Card) {
-
+    public boolean receiveFirstCard(Card Card) {
         firstCard = Card;
+        return true;
+    }
+
+    public boolean receiveSecondCard(Card Card) {
+        secondCard = Card;
+        return true;
+    }
+
+    public boolean receiveThirdCard(Card Card) {
+        thirdCard = Card;
+        return true;
+    }
+
+    public boolean isYourPlayer(HumanPlayer myPlayer) {
+        return (this.player == player);
     }
 }

@@ -7,15 +7,14 @@ import java.util.*;
  */
 public class Deck {
     private static final ArrayList<String> VALID_SUITS = new ArrayList<String>(Arrays.asList("ORO", "BASTO", "ESPADA", "COPA"));
+    private static final int[] VALID_NUMBERS = {1,2,3,4,5,6,7,10,11,12};
     private final LinkedList<Card> cards;
 
 
     public Deck() throws InvalidSuiteException, InvalidCardNumberException {
         this.cards = new LinkedList<Card>();
 
-        int[] numbers = {1,2,3,4,5,6,7,10,11,12};
-
-        for (int number : numbers){
+        for (int number : VALID_NUMBERS){
             for (String actualSuit : VALID_SUITS){
                 int value = 0;
 
@@ -66,19 +65,16 @@ public class Deck {
                     value = 7;
                 }
 
-                if (number != 8 || number != 9 ){
-                    Card newCard = new Card(number, actualSuit, value);
+                Card newCard = new Card(number, actualSuit, value);
+                this.cards.add(newCard);
 
-                    this.cards.add(newCard);
                 }
-
             }
         }
 
-    }
 
-    public Object getCard() {
+    public Card getCard() {
         Collections.shuffle(cards);
-        return cards.pollFirst();
+        return cards.pop();
     }
 }
