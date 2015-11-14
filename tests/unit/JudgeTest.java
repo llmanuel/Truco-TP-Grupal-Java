@@ -1,12 +1,17 @@
 package unit;
 
 import model.Card;
+import model.HumanPlayer;
 import model.InvalidCardNumberException;
+
+import java.util.LinkedList;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import model.Judge;
+import model.Player;
 
 /**
  * Created by alexdebian on 11/11/15.
@@ -45,6 +50,22 @@ public class JudgeTest {
         Assert.assertTrue(judge.isCardAHigherThanCardB(card1, card2));
         Assert.assertFalse(judge.isCardAHigherThanCardB(card2, card1));
     }
-
+    
+    @Test
+    public void correctlyReceivePlayers() {
+    	
+    	Judge judge = new Judge();
+    	HumanPlayer player1 = new HumanPlayer(1);
+    	HumanPlayer player2 = new HumanPlayer(2);    	
+    	LinkedList<Player> players = new LinkedList<Player>();
+    	players.add(player1);
+    	players.add(player2);
+    	
+    	judge.setPlayers(players);
+    	
+    	Assert.assertTrue(!players.isEmpty());
+    	
+    	
+    }
 
 }
