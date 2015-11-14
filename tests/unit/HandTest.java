@@ -51,4 +51,20 @@ public class HandTest {
         Assert.assertFalse(hand.isFlor());
         Assert.assertTrue(hand2.isFlor());
     }
+
+    @Test
+    public void testEnvido(){
+        Card card1 = new Card(5, "ORO", 1);
+        Card card2 = new Card(7, "ORO", 5);
+        Card card3 = new Card(7, "ESPADA", 6);
+
+        LinkedList<Card> cards = new LinkedList<Card>();
+
+        cards.add(card1);
+        cards.add(card2);
+        cards.add(card3);
+
+        Hand hand = new Hand(cards);
+
+    }
 }
