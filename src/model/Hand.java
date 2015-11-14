@@ -9,7 +9,7 @@ public class Hand {
     private LinkedList<Card> cards;
 
     public Hand(LinkedList<Card> cards) {
-        
+
         this.cards = cards;
     }
 
