@@ -1,13 +1,10 @@
 package unit;
 
 
-import model.HumanPlayer;
-import model.InvalidNumberOfPlayersException;
-import model.Player;
+import model.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import model.Table;
 
 import java.util.LinkedList;
 
@@ -55,26 +52,26 @@ public class TableTest {
     @Test
     public void canInstantiateTable(){
 
-        table = new Table(4);
+        table = new Table();
     }
 
     @Test
     public void buildATableWithTwoPlayers() throws InvalidNumberOfPlayersException{
-        table = new Table(2);
+        table = new Table();
         table.letSitThese(TwoPlayers);
         Assert.assertEquals(2,table.getNumberOfPlayers());
     }
 
     @Test
     public void aTableWithFourPlayers() throws InvalidNumberOfPlayersException{
-        table = new Table(4);
+        table = new Table();
         table.letSitThese(FourPlayers);
         Assert.assertEquals(4,table.getNumberOfPlayers());
     }
 
     @Test
     public void aTableWithSixPlayers() throws InvalidNumberOfPlayersException{
-        table = new Table(6);
+        table = new Table();
         table.letSitThese(SixPlayers);
         Assert.assertEquals(6,table.getNumberOfPlayers());
     }
@@ -82,7 +79,20 @@ public class TableTest {
     @Test (expected = InvalidNumberOfPlayersException.class)
     public void aTableCantHaveANotPairNumber() throws InvalidNumberOfPlayersException{
 
-        table = new Table(6);
+        table = new Table();
         table.letSitThese(ThreePlayers);
+    }
+
+//    @Test
+//    public void aTableCanReceiveACard() throws InvalidNumberOfPlayersException, InvalidSuiteException, InvalidCardNumberException {
+//        table = new Table();
+//        Card myCard = new Card( 1, "Espada", 14);
+//        table.receiveCard(myCard);
+//    }
+
+    @Test
+    public void theTablesSetsTheGame() throws InvalidNumberOfPlayersException{
+        table = new Table();
+        table.setGame();
     }
 }
