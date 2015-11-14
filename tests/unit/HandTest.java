@@ -52,19 +52,81 @@ public class HandTest {
         Assert.assertTrue(hand2.isFlor());
     }
 
+//    @Test
+//    public void testEnvido() throws InvalidSuiteException, InvalidCardNumberException {
+//        Card card1 = new Card(5, "ORO", 1);
+//        Card card2 = new Card(7, "ORO", 5);
+//        Card card3 = new Card(7, "ESPADA", 6);
+//
+//        LinkedList<Card> cards = new LinkedList<Card>();
+//
+//        cards.add(card1);
+//        cards.add(card2);
+//        cards.add(card3);
+//
+//        Hand hand = new Hand(cards);
+//
+//        Assert.assertEquals(27, hand.calculateEnvido());
+//    }
+
+//    @Test
+//    public void testGetNumberOfCardsWithSameSuit() throws InvalidSuiteException, InvalidCardNumberException {
+//        Card card1 = new Card(5, "ORO", 1);
+//        Card card2 = new Card(7, "ORO", 5);
+//        Card card3 = new Card(7, "ESPADA", 6);
+//
+//        LinkedList<Card> cards = new LinkedList<Card>();
+//
+//        cards.add(card1);
+//        cards.add(card2);
+//        cards.add(card3);
+//
+//        Hand hand = new Hand(cards);
+//
+//        Assert.assertEquals(2, hand.getNumberOfCardsWithSameSuit());
+//    }
+
     @Test
-    public void testEnvido(){
-        Card card1 = new Card(5, "ORO", 1);
+    public void testAllSuitsAreDifferent() throws InvalidSuiteException, InvalidCardNumberException {
+        Card card1 = new Card(5, "BASTO", 1);
         Card card2 = new Card(7, "ORO", 5);
         Card card3 = new Card(7, "ESPADA", 6);
 
         LinkedList<Card> cards = new LinkedList<Card>();
-
         cards.add(card1);
         cards.add(card2);
         cards.add(card3);
-
         Hand hand = new Hand(cards);
 
+        LinkedList<Card> cards2 = new LinkedList<Card>();
+        cards2.add(card1);
+        cards2.add(card1);
+        cards2.add(card3);
+        Hand hand2 = new Hand(cards2);
+
+        Assert.assertTrue(hand.allSuitsAreDifferent());
+        Assert.assertFalse(hand2.allSuitsAreDifferent());
+    }
+
+    @Test
+    public void testMaxCardNumber() throws InvalidSuiteException, InvalidCardNumberException {
+        Card card1 = new Card(5, "BASTO", 1);
+        Card card2 = new Card(7, "ORO", 5);
+        Card card3 = new Card(7, "ESPADA", 6);
+
+        LinkedList<Card> cards = new LinkedList<Card>();
+        cards.add(card1);
+        cards.add(card2);
+        cards.add(card3);
+        Hand hand = new Hand(cards);
+
+        LinkedList<Card> cards2 = new LinkedList<Card>();
+        cards2.add(card1);
+        cards2.add(card1);
+        cards2.add(card1);
+        Hand hand2 = new Hand(cards2);
+
+        Assert.assertEquals(7, hand.maxCardNumber());
+        Assert.assertEquals(5, hand2.maxCardNumber());
     }
 }
