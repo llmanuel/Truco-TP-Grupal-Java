@@ -5,9 +5,20 @@ package model;
  */
 public class CpuPlayer implements Player {
 
+    private int playerId;
+
+    public CpuPlayer(int idNumber){
+        playerId = idNumber;
+    }
+
 	@Override
 	public int calculateEnvido() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+    @Override
+    public int getIdNumber(){
+        return playerId;
+    }
 }

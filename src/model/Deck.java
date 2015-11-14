@@ -68,9 +68,9 @@ public class Deck {
                 Card newCard = new Card(number, actualSuit, value);
                 this.cards.add(newCard);
 
-                }
             }
         }
+    }
 
 
     public Card getCard() {
