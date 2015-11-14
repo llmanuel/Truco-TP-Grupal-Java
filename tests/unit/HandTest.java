@@ -184,4 +184,28 @@ public class HandTest {
         Assert.assertEquals(expectedHand, hand.getCardsOfTheSameSuit());
         Assert.assertEquals(expectedHand2, hand2.getCardsOfTheSameSuit());
     }
+
+    @Test
+    public void testGetMostRepeatedSuit() throws InvalidSuiteException, InvalidCardNumberException {
+        Card card1 = new Card(5, "BASTO", 1);
+        Card card2 = new Card(7, "ORO", 5);
+        Card card3 = new Card(7, "ESPADA", 6);
+        Card card4 = new Card(12, "ESPADA", 6);
+        Card card5 = new Card(3, "ORO", 5);
+
+        LinkedList<Card> cards = new LinkedList<Card>();
+        cards.add(card1);
+        cards.add(card2);
+        cards.add(card5);
+        Hand hand = new Hand(cards);
+
+        LinkedList<Card> cards2 = new LinkedList<Card>();
+        cards2.add(card1);
+        cards2.add(card3);
+        cards2.add(card4);
+        Hand hand2 = new Hand(cards2);
+
+        Assert.assertEquals("ORO", hand.getMostRepeatedSuit());
+        Assert.assertEquals("ESPADA", hand2.getMostRepeatedSuit());
+    }
 }
