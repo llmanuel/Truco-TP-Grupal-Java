@@ -135,6 +135,7 @@ public class HandTest {
         Card card1 = new Card(5, "BASTO", 1);
         Card card2 = new Card(7, "ORO", 5);
         Card card3 = new Card(7, "ESPADA", 6);
+        Card card4 = new Card(12, "ESPADA", 6);
 
         LinkedList<Card> cards = new LinkedList<Card>();
         cards.add(card1);
@@ -142,6 +143,13 @@ public class HandTest {
         cards.add(card3);
         Hand hand = new Hand(cards);
 
+        LinkedList<Card> cards2 = new LinkedList<Card>();
+        cards2.add(card1);
+        cards2.add(card2);
+        cards2.add(card4);
+        Hand hand2 = new Hand(cards2);
+
         Assert.assertEquals(7, hand.calculateEnvido());
+        Assert.assertEquals(12, hand2.calculateEnvido());
     }
 }
