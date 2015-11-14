@@ -13,13 +13,13 @@ import model.Judge;
  */
 public class JudgeTest {
 
-        Card card1;
-        Card card2;
-        Card card3;
-        Card card4;
-        Card card5;
-        Card card6;
-        Card card7;
+    Card card1;
+    Card card2;
+    Card card3;
+    Card card4;
+    Card card5;
+    Card card6;
+    Card card7;
 
 
     @Before
