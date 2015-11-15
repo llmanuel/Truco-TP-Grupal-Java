@@ -84,8 +84,9 @@ public class TableTest {
     }
 
 //    @Test
-//    public void aTableCanReceiveACard() throws InvalidNumberOfPlayersException, InvalidSuiteException, InvalidCardNumberException {
+//    public void aTableCanReceiveACardOnlyFromAPlayer() throws InvalidNumberOfPlayersException, InvalidSuiteException, InvalidCardNumberException {
 //        table = new Table();
+//        table.letSitThese(TwoPlayers);
 //        Card myCard = new Card( 1, "Espada", 14);
 //        table.receiveCard(myCard);
 //    }

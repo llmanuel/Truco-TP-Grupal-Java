@@ -45,6 +45,12 @@ public class Slots {
         else throw new NotCardThrownException();
     }
 
+    public Card getLastOne() throws NotCardThrownException{
+        if(!cards.isEmpty())
+            return (cards.getLast());
+        else throw new NotCardThrownException();
+    }
+
     public void throwCards() {
 
         cards = new LinkedList<Card>();
