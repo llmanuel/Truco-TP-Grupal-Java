@@ -9,7 +9,9 @@ public class Judge {
 	
 	LinkedList<Player> players = new LinkedList<Player>();
 	int maximunValueOfEnvido = 0;
-	int winnerEnvido;
+	int envidoWinner = 0;
+	int florWinner;
+	Table table;
 	
 	public Judge() {
 		
@@ -20,12 +22,35 @@ public class Judge {
     }
 
 	public void setPlayers(LinkedList<Player> players) {
-			this.players = players;
-	}
-
-	public LinkedList<Player> getPlayers(){
-		return this.players;
+		
+		this.players = players;
+		
 	}
     
+	public void setWinnerOfEnvido() {
+		
+		for (Player actualPlayer :players) {
+			
+			if (actualPlayer.calculateEnvido() > this.maximunValueOfEnvido) {
+				
+				this.envidoWinner = actualPlayer.getIdNumber();
+			}
+		}
+	}
+	
+	public int setWinnerOfTheRound(LinkedList<Slots> slots) { //corregir
+		
+		int maximunCardInRound = 0;
+		int roundWinner = 0;
+		
+		for (Slots slot :slots) {
+			
+			if (slot.getCardValue() > maximunCardInRound) {
+				
+				roundWinner = slot.getPlayerId();
+			}
+		}
+		return roundWinner;
+	}
     
 }
