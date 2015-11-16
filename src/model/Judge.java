@@ -20,9 +20,11 @@ public class Judge {
     }
 
 	public void setPlayers(LinkedList<Player> players) {
-		
-		this.players = players;
-		
+			this.players = players;
+	}
+
+	public LinkedList<Player> getPlayers(){
+		return this.players;
 	}
     
     
