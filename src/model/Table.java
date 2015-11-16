@@ -35,4 +35,13 @@ public class Table {
             slotsInGame.add(newSlot);
         }
     }
+
+    public Card whichCardThrow(Player thisPlayer) throws NotCardThrownException, PlayerDoesNotExistsException {
+        for (Slots actualSlot: slotsInGame){
+            if(actualSlot.isYourPlayer(thisPlayer)){
+                return actualSlot.getLastOne();
+            }
+        }
+        throw new PlayerDoesNotExistsException();
+    }
 }
