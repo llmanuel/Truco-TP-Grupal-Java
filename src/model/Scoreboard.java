@@ -15,7 +15,6 @@ public class Scoreboard {
 		this.numberOfPlayers = numberofplayers;
 
 		for (int i = 0; i <= numberOfPlayers ; i++){
-
 			scores.add(i, 0);
 		}
 	}
