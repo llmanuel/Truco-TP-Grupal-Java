@@ -32,5 +32,4 @@ public class HumanPlayer implements Player {
 
 	public Hand getHand() {	return hand; }
 
-
 }
