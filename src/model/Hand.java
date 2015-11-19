@@ -1,15 +1,13 @@
 package model;
 
-import sun.awt.image.ImageWatched;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Hand {
-    /*Se llama hand a las tres cartas que posee el jugador*/
+    /* We call Hand to the three cards that a player possess */
     private LinkedList<Card> cards;
 
     public Hand(LinkedList<Card> cards) {
-
         this.cards = cards;
     }
 
@@ -20,14 +18,13 @@ public class Hand {
                 return false;
         }
         return true;
-//        return cards.size() == getNumberOfCardsWithSameSuit();
     }
 
     public int calculateEnvido() {
         if (allSuitsAreDifferent()){
             return (maxCardNumber());
         }else{
-           return getEnvidoFrom(getCardsOfTheSameSuit());
+            return getEnvidoFrom(getCardsOfTheSameSuit());
         }
     }
 
