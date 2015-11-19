@@ -14,10 +14,10 @@ import static org.hamcrest.CoreMatchers.instanceOf;
 public class TableTest {
 
     Table table;
-    LinkedList<Player> TwoPlayers;
-    LinkedList<Player> ThreePlayers;
-    LinkedList<Player> FourPlayers;
-    LinkedList<Player> SixPlayers;
+    CircularLinkedList<Player> TwoPlayers;
+    CircularLinkedList<Player> ThreePlayers;
+    CircularLinkedList<Player> FourPlayers;
+    CircularLinkedList<Player> SixPlayers;
     @Before
     public void setup(){
         HumanPlayer myPLayer = new HumanPlayer(1);
@@ -27,29 +27,29 @@ public class TableTest {
         HumanPlayer josh = new HumanPlayer(5);
         HumanPlayer robert = new HumanPlayer(6);
 
-        TwoPlayers = new LinkedList<Player>();
-        TwoPlayers.add(myPLayer);
-        TwoPlayers.add(otherPLayer);
+        TwoPlayers = new CircularLinkedList<Player>();
+        TwoPlayers.addLast(myPLayer);
+        TwoPlayers.addLast(otherPLayer);
 
-        ThreePlayers = new LinkedList<Player>();
-        ThreePlayers.add(myPLayer);
-        ThreePlayers.add(otherPLayer);
-        ThreePlayers.add(charles);
+        ThreePlayers = new CircularLinkedList<Player>();
+        ThreePlayers.addLast(myPLayer);
+        ThreePlayers.addLast(otherPLayer);
+        ThreePlayers.addLast(charles);
 
 
-        FourPlayers = new LinkedList<Player>();
-        FourPlayers.add(myPLayer);
-        FourPlayers.add(otherPLayer);
-        FourPlayers.add(charles);
-        FourPlayers.add(nick);
+        FourPlayers = new CircularLinkedList<Player>();
+        FourPlayers.addLast(myPLayer);
+        FourPlayers.addLast(otherPLayer);
+        FourPlayers.addLast(charles);
+        FourPlayers.addLast(nick);
 
-        SixPlayers = new LinkedList<Player>();
-        SixPlayers.add(myPLayer);
-        SixPlayers.add(otherPLayer);
-        SixPlayers.add(charles);
-        SixPlayers.add(nick);
-        SixPlayers.add(josh);
-        SixPlayers.add(robert);
+        SixPlayers = new CircularLinkedList<Player>();
+        SixPlayers.addLast(myPLayer);
+        SixPlayers.addLast(otherPLayer);
+        SixPlayers.addLast(charles);
+        SixPlayers.addLast(nick);
+        SixPlayers.addLast(josh);
+        SixPlayers.addLast(robert);
     }
     @Test
     public void canInstantiateTable(){

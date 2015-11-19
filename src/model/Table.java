@@ -7,13 +7,13 @@ import java.util.LinkedList;
  */
 public class Table {
 
-    private LinkedList<Player> PlayersInGame;
+    private CircularLinkedList<Player> PlayersInGame;
     private LinkedList<Slot> slotInGame;
 
 
-    public void letSitThese(LinkedList<Player> Players) throws InvalidNumberOfPlayersException{
+    public void letSitThese(CircularLinkedList<Player> Players) throws InvalidNumberOfPlayersException{
 
-        if( (Players.size() == 2) || (Players.size() == 4) ||(Players.size() == 6))
+        if( (Players.getSize() == 2) || (Players.getSize() == 4) ||(Players.getSize() == 6))
         this.PlayersInGame =Players;
 
 
@@ -21,18 +21,18 @@ public class Table {
     }
 
     public int getNumberOfPlayers() {
-        return (PlayersInGame.size());
+        return (PlayersInGame.getSize());
     }
 
 
     public void setGame() {
-        this.createSlots(this.PlayersInGame.size());
+        this.createSlots(this.PlayersInGame.getSize());
     }
 
     private void createSlots(int size) {
         slotInGame = new LinkedList<Slot>();
-        for (Player player: PlayersInGame){
-            Slot newSlot = new Slot(player);
+        for (int i = 0; i == PlayersInGame.getSize() ; i++){
+            Slot newSlot = new Slot(PlayersInGame.get(i));
             slotInGame.add(newSlot);
         }
     }
