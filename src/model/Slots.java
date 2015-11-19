@@ -7,8 +7,6 @@ import java.util.LinkedList;
  * Created by manuel on 13/11/15.
  */
 public class Slots {
-
-
     private Player player;
     private LinkedList<Card> cards;
 
@@ -54,5 +52,9 @@ public class Slots {
     public void throwCards() {
 
         cards = new LinkedList<Card>();
+    }
+
+    public Player getPlayer() {
+        return this.player;
     }
 }
