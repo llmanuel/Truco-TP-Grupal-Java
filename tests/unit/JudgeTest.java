@@ -1,9 +1,6 @@
 package unit;
 
-import model.Card;
-import model.HumanPlayer;
-import model.Judge;
-import model.Player;
+import model.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,6 +19,7 @@ public class JudgeTest {
     Card card5;
     Card card6;
     Card card7;
+    Scoreboard scoreboard;
 
 
     @Before
@@ -33,16 +31,18 @@ public class JudgeTest {
         card5 = new Card(7, "BASTO", 3);
         card6 = new Card(6, "BASTO", 2);
         card7 = new Card(6, "ORO", 1);
+        this.scoreboard = new Scoreboard(2);
+
     }
 
     @Test
     public void canInstantiateAJudge(){
-        Judge judge = new Judge();
+        Judge judge = new Judge(this.scoreboard);
     }
 
     @Test
     public void correctlyComparesCardsValue(){
-        Judge judge = new Judge();
+        Judge judge = new Judge(this.scoreboard);
 
         Assert.assertTrue(judge.isCardAHigherThanCardB(card1, card2));
         Assert.assertFalse(judge.isCardAHigherThanCardB(card2, card1));
@@ -51,7 +51,7 @@ public class JudgeTest {
     @Test
     public void correctlyReceivePlayers() {
     	
-    	Judge judge = new Judge();
+    	Judge judge = new Judge(this.scoreboard);
     	HumanPlayer player1 = new HumanPlayer(1);
     	HumanPlayer player2 = new HumanPlayer(2);    	
     	LinkedList<Player> players = new LinkedList<Player>();

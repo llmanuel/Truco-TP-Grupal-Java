@@ -5,7 +5,12 @@ import java.util.LinkedList;
 public class Judge {
 	
 	private LinkedList<Player> players = new LinkedList<Player>();
-    private Table table;
+    private Scoreboard scoreboard;
+
+    public Judge(Scoreboard scoreboard){
+        this.scoreboard = scoreboard;
+    }
+
 
     public void setPlayers(LinkedList<Player> players) {
         this.players = players;
