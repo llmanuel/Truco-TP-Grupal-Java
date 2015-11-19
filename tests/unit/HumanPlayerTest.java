@@ -39,4 +39,6 @@ public class HumanPlayerTest {
         humanPlayer = new HumanPlayer(1);
         Assert.assertEquals(1, humanPlayer.getIdNumber());
     }
+
+
 }
