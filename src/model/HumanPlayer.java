@@ -7,6 +7,7 @@ public class HumanPlayer implements Player {
 
     private int playerId;
 	private Hand hand;
+    private Slot slot;
 
     public HumanPlayer(int idNumber){
         playerId = idNumber;
@@ -23,7 +24,9 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void setSlot()
+    public void setSlot(Slot newSlot){
+        this.slot = newSlot;
+    }
 
 	public void receiveAHand(Hand hand) { this.hand = hand;	}
 
