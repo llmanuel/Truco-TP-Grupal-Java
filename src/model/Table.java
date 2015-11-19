@@ -4,6 +4,7 @@ import model.Exceptions.InvalidNumberOfPlayersException;
 import model.Exceptions.NotCardThrownException;
 import model.Exceptions.PlayerDoesNotExistsException;
 
+import javax.print.attribute.standard.PrinterLocation;
 import java.util.LinkedList;
 
 /**
@@ -53,6 +54,27 @@ public class Table {
     public LinkedList<Slot> getSlots(){
         return this.slotInGame;
     }
+
+//    public void iterateThePlayersFrom(Player theFirst){
+//        boolean youCanPlay = false;
+//        int everyBodyPLayed = 0;
+//        for (Player actualPlayer: PlayersInGame){
+//            if (actualPlayer == theFirst){
+//                youCanPlay = true;
+//            }
+//            if(youCanPlay) {
+//                actualPlayer.PlayYourWill();
+//                everyBodyPLayed = everyBodyPLayed + 1;
+//            }
+//        }
+//        if(everyBodyPLayed != PlayersInGame.size()){
+//            Player actualPlayer = PlayersInGame.getFirst();
+//            while (actualPlayer != theFirst){
+//                actualPlayer.PlayYourWill();
+//
+//            }
+//        }
+//    }
 
     public void declareWinner(CanHaveScore member) {
     }
