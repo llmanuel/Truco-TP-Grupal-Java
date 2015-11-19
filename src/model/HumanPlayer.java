@@ -26,16 +26,12 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void setHand(Hand newHand) {
-        this.hand = newHand;
-    }
-
-    @Override
     public void playCard(Card cardToPlay) {
        this.slot.receiveCard( this.hand.getCard(cardToPlay) );
     }
 
-    public void receiveAHand(Hand hand) { this.hand = hand;	}
+    @Override
+    public void setHand(Hand hand) { this.hand = hand;	}
 
 	public Hand getHand() {	return hand; }
 
