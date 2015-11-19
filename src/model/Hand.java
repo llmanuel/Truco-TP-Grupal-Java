@@ -28,7 +28,7 @@ public class Hand {
         }
     }
 
-    private boolean allSuitsAreDifferent() {
+    public boolean allSuitsAreDifferent() {
         ArrayList<String> suits = new ArrayList<String>();
         for (Card card : cards) {
             if (!suits.contains(card.getSuit()))
@@ -37,7 +37,7 @@ public class Hand {
         return (cards.size() == suits.size());
     }
 
-    private int maxCardNumber() {
+    public int maxCardNumber() {
         int searchedMax = 0;
         for(int i = 0; i < cards.size(); i++){
             if(cards.get(i).getNumber() > searchedMax)
@@ -46,7 +46,7 @@ public class Hand {
         return searchedMax;
     }
 
-    private LinkedList getCardsOfTheSameSuit() {
+    public LinkedList getCardsOfTheSameSuit() {
         LinkedList<Card> cardsOfTheSameSuit = new LinkedList<Card>();
         for (int i = 0 ; i< cards.size(); i++){
             if (cards.get(i).getSuit() == getMostRepeatedSuit()){
@@ -57,7 +57,7 @@ public class Hand {
         return handOfCardsWithTheSameSuit;
     }
 
-    private String getMostRepeatedSuit() {
+    public String getMostRepeatedSuit() {
         /*se presupone que por lo menos dos cartas son del mismo palo*/
         if(cards.get(0).getSuit() == cards.get(1).getSuit()){
             return cards.get(0).getSuit();
@@ -66,7 +66,7 @@ public class Hand {
         }
     }
 
-    private Integer getEnvidoFrom(LinkedList<Card> cards) {
+    public Integer getEnvidoFrom(LinkedList<Card> cards) {
         int sumatoriaEnvido = 20;
         for(int i = 0; i < cards.size(); i++){
             if (cards.get(i).getNumber() < 10){
