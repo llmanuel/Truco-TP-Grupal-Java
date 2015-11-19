@@ -1,5 +1,6 @@
 import model.*;
 import org.junit.Before;
+import org.junit.Test;
 
 import java.util.LinkedList;
 
@@ -25,7 +26,7 @@ public class TableAndJudge {
         FourPlayers.add(nick);
 
 
-        this.scoreboard = new Scoreboard( 4 )
+        this.scoreboard = new Scoreboard( 4 );
 
         this.table = new Table();
         this.table.letSitThese( FourPlayers );
@@ -35,7 +36,16 @@ public class TableAndJudge {
 
     }
 
-    
+    @Test (expected = NotCardThrownException.class)
+    public void judgeThrowsExceptionWhenNoCardHasBeenThrown() throws NotCardThrownException {
+        Games actualGame = new Truco();
+        this.judge.setWinnerOfTheRound( this.table.getSlots(), actualGame);
+    }
+
+    @Test
+    public void tableCanPassSlotsAndGameToJudgeCorrectly(){
+
+    }
 
 
 }
