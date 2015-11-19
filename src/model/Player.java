@@ -5,5 +5,5 @@ public interface Player {
     int calculateEnvido();
     int getIdNumber();
     void setSlot(Slot newSlot);
-    void getHand(Hand newHand);
+    void setHand(Hand newHand);
 }

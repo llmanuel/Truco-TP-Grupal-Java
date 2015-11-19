@@ -28,7 +28,12 @@ public class HumanPlayer implements Player {
         this.slot = newSlot;
     }
 
-	public void receiveAHand(Hand hand) { this.hand = hand;	}
+    @Override
+    public void setHand(Hand newHand) {
+        this.hand = newHand;
+    }
+
+    public void receiveAHand(Hand hand) { this.hand = hand;	}
 
 	public Hand getHand() {	return hand; }
 

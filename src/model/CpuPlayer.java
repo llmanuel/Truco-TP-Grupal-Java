@@ -26,7 +26,7 @@ public class CpuPlayer implements Player {
     }
 
     @Override
-    public void getHand(Hand newHand){
+    public void setHand(Hand newHand){
         this.hand = newHand;
     }
 }
