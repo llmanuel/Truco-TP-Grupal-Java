@@ -21,6 +21,11 @@ public class CpuPlayer implements Player {
     }
 
     @Override
+    public void playCard(Card cardToPlay) {
+        this.slot.receiveCard( this.hand.getCard(cardToPlay) );
+    }
+
+    @Override
     public int getIdNumber(){
         return playerId;
     }
