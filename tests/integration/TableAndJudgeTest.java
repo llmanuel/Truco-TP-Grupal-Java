@@ -10,7 +10,7 @@ public class TableAndJudgeTest {
     private Table table;
     private Judge judge;
     private Scoreboard scoreboard;
-    private LinkedList<Player> FourPlayers;
+    private CircularLinkedList<Player> FourPlayers;
 
     @Before
     public void setup() throws InvalidNumberOfPlayersException {
@@ -19,11 +19,11 @@ public class TableAndJudgeTest {
         HumanPlayer charles = new HumanPlayer(3);
         HumanPlayer nick = new HumanPlayer(4);
 
-        FourPlayers = new LinkedList<Player>();
-        FourPlayers.add(myPLayer);
-        FourPlayers.add(otherPLayer);
-        FourPlayers.add(charles);
-        FourPlayers.add(nick);
+        FourPlayers = new CircularLinkedList<Player>();
+        FourPlayers.addLast(myPLayer);
+        FourPlayers.addLast(otherPLayer);
+        FourPlayers.addLast(charles);
+        FourPlayers.addLast(nick);
 
 
         this.scoreboard = new Scoreboard( 4 );
