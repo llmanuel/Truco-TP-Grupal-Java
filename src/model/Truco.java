@@ -1,6 +1,6 @@
 package model;
 
-public class Truco extends Games {
+public class Truco implements Games {
     int points = 2;
 
     @Override
