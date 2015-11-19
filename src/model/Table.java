@@ -87,8 +87,8 @@ public class Table {
         }
         i = i + 1;
         if (PlayersInGame.get(i) != null)
-            cursor = PlayersInGame.get(i);
-        else  cursor = PlayersInGame.getFirst();
+            setCursorAt(PlayersInGame.get(i));
+        else  setCursorAt(PlayersInGame.getFirst());
     }
 
 //    public void iterateThePlayersFrom(Player theFirst){

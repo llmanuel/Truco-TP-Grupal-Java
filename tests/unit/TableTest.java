@@ -19,12 +19,16 @@ public class TableTest {
     LinkedList<Player> ThreePlayers;
     LinkedList<Player> FourPlayers;
     LinkedList<Player> SixPlayers;
+    HumanPlayer myPLayer;
+    HumanPlayer otherPLayer;
+    HumanPlayer charles;
+    HumanPlayer nick;
     @Before
     public void setup(){
-        HumanPlayer myPLayer = new HumanPlayer(1);
-        HumanPlayer otherPLayer = new HumanPlayer(2);
-        HumanPlayer charles = new HumanPlayer(3);
-        HumanPlayer nick = new HumanPlayer(4);
+         myPLayer = new HumanPlayer(1);
+         otherPLayer = new HumanPlayer(2);
+         charles = new HumanPlayer(3);
+         nick = new HumanPlayer(4);
         HumanPlayer josh = new HumanPlayer(5);
         HumanPlayer robert = new HumanPlayer(6);
 
@@ -94,6 +98,22 @@ public class TableTest {
 
 
     }
+
+    /*
+     * Iteration between PLayers
+     */
+
+//    @Test
+//    public void tableiteratesBetweenPLayersCorrectlyBeginningAtTheFirstOfTheList() throws InvalidNumberOfPlayersException {
+//        table = new Table();
+//        table.letSitThese( FourPlayers );
+//        table.setGame();
+//
+//        table.setRoundBeginner(myPLayer);
+//        Assert.assertThat( table.getSlots(), instanceOf( LinkedList.class  ));
+//
+//
+//    }
 
 //    @Test
 //    public void aTableCanReceiveACardOnlyFromAPlayer() throws InvalidNumberOfPlayersException, InvalidSuiteException, InvalidCardNumberException {
