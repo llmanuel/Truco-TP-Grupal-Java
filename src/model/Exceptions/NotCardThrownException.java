@@ -1,4 +1,4 @@
-package model;
+package model.Exceptions;
 
 /**
  * Created by manuel on 14/11/15.

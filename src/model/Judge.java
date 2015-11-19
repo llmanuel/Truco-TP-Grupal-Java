@@ -1,5 +1,7 @@
 package model;
 
+import model.Exceptions.NotCardThrownException;
+
 import java.util.LinkedList;
 
 public class Judge {

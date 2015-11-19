@@ -1,6 +1,8 @@
 package model;
 
 
+import model.Exceptions.NotCardThrownException;
+
 import java.util.LinkedList;
 
 /**
@@ -24,7 +26,7 @@ public class Slot {
         return (this.player.getIdNumber() == myPlayer.getIdNumber());
     }
 
-    public Card getFirstOne() throws NotCardThrownException{
+    public Card getFirstOne() throws NotCardThrownException {
 
         if(!cards.isEmpty())
             return (cards.getFirst());

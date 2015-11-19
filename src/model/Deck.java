@@ -1,5 +1,8 @@
 package model;
 
+import model.Exceptions.InvalidCardNumberException;
+import model.Exceptions.InvalidSuiteException;
+
 import java.util.*;
 
 /**

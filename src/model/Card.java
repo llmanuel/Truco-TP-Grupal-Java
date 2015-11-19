@@ -1,6 +1,9 @@
 package model;
 
 
+import model.Exceptions.InvalidCardNumberException;
+import model.Exceptions.InvalidSuiteException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 

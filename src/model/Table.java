@@ -1,5 +1,9 @@
 package model;
 
+import model.Exceptions.InvalidNumberOfPlayersException;
+import model.Exceptions.NotCardThrownException;
+import model.Exceptions.PlayerDoesNotExistsException;
+
 import java.util.LinkedList;
 
 /**
@@ -11,7 +15,7 @@ public class Table {
     private LinkedList<Slot> slotInGame;
 
 
-    public void letSitThese(CircularLinkedList<Player> Players) throws InvalidNumberOfPlayersException{
+    public void letSitThese(CircularLinkedList<Player> Players) throws InvalidNumberOfPlayersException {
 
         if( (Players.getSize() == 2) || (Players.getSize() == 4) ||(Players.getSize() == 6))
         this.PlayersInGame =Players;
