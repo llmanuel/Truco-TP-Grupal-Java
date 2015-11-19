@@ -14,7 +14,7 @@ public class HumanPlayer implements Player {
 
     @Override
     public int calculateEnvido() {
-        return 0;
+        return this.hand.calculateEnvido();
     }
 
     @Override
