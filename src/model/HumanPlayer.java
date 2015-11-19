@@ -1,8 +1,5 @@
 package model;
 
-/**
- * Created by alexdebian on 11/10/15.
- */
 public class HumanPlayer implements Player {
 
     private int playerId;
