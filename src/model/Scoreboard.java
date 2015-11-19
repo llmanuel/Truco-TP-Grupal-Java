@@ -1,62 +1,47 @@
 package model;
 
+import model.Exceptions.CanHaveScoreDoesntExistException;
 import model.Exceptions.PlayerDoesNotExistsException;
 
 import java.util.LinkedList;
 
-/**
- * Created by alexdebian on 11/10/15.
- */
 public class Scoreboard {
 
-	private Integer numberOfPlayers;
-	private LinkedList<Integer> scores = new LinkedList<Integer>();
+    private  LinkedList<Score> scores;
+    private Table table;
 
-	public Scoreboard(Integer numberofplayers) {
 
-		this.numberOfPlayers = numberofplayers;
+    public Scoreboard(LinkedList<CanHaveScore> players, Table table) {
+		for(CanHaveScore canHaveScoreActual : players){
+            this.scores.add(new Score(canHaveScoreActual));
+        }
 
-		for (int i = 0; i <= numberOfPlayers ; i++){
-			scores.add(i, 0);
-		}
+        this.table = table;
 	}
 
-	public int getScoreOfPlayer(Integer playerId) {
-
-		return scores.get(playerId);
+	public int getPointsOf(CanHaveScore whomWantedScoreIs) throws CanHaveScoreDoesntExistException {
+        return  this.getScore(whomWantedScoreIs).getScore();
 	}
 
-	public void increseTheScoreOf(int playerID, int score) throws PlayerDoesNotExistsException {
+    private Score getScore(CanHaveScore whomWantedScoreIs) throws CanHaveScoreDoesntExistException {
+        for (Score scoreActual : this.scores)
+            if (scoreActual.getMember() == whomWantedScoreIs) {
+                return scoreActual;
+            }
+        throw new CanHaveScoreDoesntExistException();
+    }
 
-		if (playerID > this.numberOfPlayers || playerID < 0) {
-
-			throw new PlayerDoesNotExistsException() ;
-		}
-		int newScore = score + scores.get(playerID);
-		scores.add(playerID, newScore);
-
+    public void increaseTheScoreOf(CanHaveScore whomScoreGonnaBeIncreased, int scoreIncrease) throws CanHaveScoreDoesntExistException {
+        this.getScore( whomScoreGonnaBeIncreased ).increaseScoreBy(scoreIncrease);
+        this.didAnyoneWinAlready();
 	}
 
-	public int getScoreOfPlayer(int playerID) {
-		return scores.get(playerID);
-	}
-
-	public int lookForAWinner() {
-		
-		for (int i = 0; i <= numberOfPlayers; i++) {
-			
-			if (scores.get(i) == 30) {
-				
-				return i;
-			}		
-		}
-		return 0;
-	}
-
-
-
-
-
-
+    private void didAnyoneWinAlready() {
+        for(Score actualScore : this.scores){
+            if (actualScore.getScore() >= 30){
+                this.table.declareWinner(actualScore.getMember());
+            }
+        }
+    }
 
 }
