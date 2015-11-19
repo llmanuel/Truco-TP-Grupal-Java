@@ -22,7 +22,12 @@ public class HumanPlayer implements Player {
         return playerId;
     }
 
+    @Override
+    public void setSlot()
+
 	public void receiveAHand(Hand hand) { this.hand = hand;	}
 
 	public Hand getHand() {	return hand; }
+
+
 }
