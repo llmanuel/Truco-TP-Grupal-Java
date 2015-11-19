@@ -3,7 +3,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class PlayerAndSlot {
+public class PlayerAndSlotTest {
     Player player;
     Slot slot;
     Croupier croupier;

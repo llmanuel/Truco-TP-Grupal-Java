@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.LinkedList;
 
-public class TableAndJudge {
+public class TableAndJudgeTest {
 
 
     private Table table;
