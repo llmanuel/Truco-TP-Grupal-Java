@@ -81,4 +81,8 @@ public class Hand {
         this.cards.remove( cards.indexOf( cardToPlay ) );
         return cardToReturn;
     }
+
+    public LinkedList<Card> getCards() {
+        return this.cards;
+    }
 }
