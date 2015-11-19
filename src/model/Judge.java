@@ -8,12 +8,6 @@ public class Judge {
     private Table table;
 
 
-	int florWinner;
-
-	public Judge() {
-		
-	}
-	
     public boolean isCardAHigherThanCardB(Card cardA, Card cardB) {
         return (cardA.getValue())>(cardB.getValue());
     }
@@ -32,22 +26,19 @@ public class Judge {
                 maximunValueOfEnvido = actualPlayer.calculateEnvido();
             }
 		}
-
 	}
 	
-	public int setWinnerOfTheRound(LinkedList<Slots> slots) { //corregir
+	public void setWinnerOfTheRound(LinkedList<Slots> slots) throws NotCardThrownException { //corregir
+		int maximumCardInRound = 0;
+		Player roundWinner ;
 		
-		int maximunCardInRound = 0;
-		int roundWinner = 0;
-		
-		for (Slots slot :slots) {
-			
-			if (slot.getCardValue() > maximunCardInRound) {
-				
-				roundWinner = slot.getPlayerId();
+		for (Slots actualSlot : slots) {
+			if (actualSlot.getLastOne().getValue() > maximumCardInRound) {
+				maximumCardInRound = actualSlot.getLastOne().getValue();
+				roundWinner = actualSlot.getPlayer();
 			}
 		}
-		return roundWinner;
+
 	}
     
 }
