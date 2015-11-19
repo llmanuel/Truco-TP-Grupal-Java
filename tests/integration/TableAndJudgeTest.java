@@ -1,8 +1,12 @@
+package integration;
+
 import model.*;
 import model.Exceptions.InvalidNumberOfPlayersException;
 import model.Exceptions.NotCardThrownException;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.LinkedList;
 
 public class TableAndJudgeTest {
 
@@ -10,7 +14,7 @@ public class TableAndJudgeTest {
     private Table table;
     private Judge judge;
     private Scoreboard scoreboard;
-    private CircularLinkedList<Player> FourPlayers;
+    private LinkedList<Player> FourPlayers;
 
     @Before
     public void setup() throws InvalidNumberOfPlayersException {
@@ -19,7 +23,7 @@ public class TableAndJudgeTest {
         HumanPlayer charles = new HumanPlayer(3);
         HumanPlayer nick = new HumanPlayer(4);
 
-        FourPlayers = new CircularLinkedList<Player>();
+        FourPlayers = new LinkedList<Player>();
         FourPlayers.addLast(myPLayer);
         FourPlayers.addLast(otherPLayer);
         FourPlayers.addLast(charles);
