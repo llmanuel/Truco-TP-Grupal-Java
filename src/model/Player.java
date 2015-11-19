@@ -7,4 +7,5 @@ public interface Player {
     void setSlot(Slot newSlot);
     void setHand(Hand newHand);
     void playCard(Card cardToPlay);
+    Hand getHand();
 }

@@ -26,6 +26,11 @@ public class CpuPlayer implements Player {
     }
 
     @Override
+    public Hand getHand() {
+        return this.hand;
+    }
+
+    @Override
     public int getIdNumber(){
         return playerId;
     }
