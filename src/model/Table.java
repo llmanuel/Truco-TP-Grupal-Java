@@ -8,7 +8,7 @@ import java.util.LinkedList;
 public class Table {
 
     private LinkedList<Player> PlayersInGame;
-    private LinkedList<Slots> slotsInGame;
+    private LinkedList<Slot> slotInGame;
 
 
     public void letSitThese(LinkedList<Player> Players) throws InvalidNumberOfPlayersException{
@@ -30,15 +30,15 @@ public class Table {
     }
 
     private void createSlots(int size) {
-        slotsInGame = new LinkedList<Slots>();
+        slotInGame = new LinkedList<Slot>();
         for (Player player: PlayersInGame){
-            Slots newSlot = new Slots(player);
-            slotsInGame.add(newSlot);
+            Slot newSlot = new Slot(player);
+            slotInGame.add(newSlot);
         }
     }
 
     public Card whichCardThrow(Player thisPlayer) throws NotCardThrownException, PlayerDoesNotExistsException {
-        for (Slots actualSlot: slotsInGame){
+        for (Slot actualSlot: slotInGame){
             if(actualSlot.isYourPlayer(thisPlayer)){
                 return actualSlot.getLastOne();
             }
@@ -46,7 +46,7 @@ public class Table {
         throw new PlayerDoesNotExistsException();
     }
 
-    public LinkedList<Slots> getSlots(){
-        return this.slotsInGame;
+    public LinkedList<Slot> getSlots(){
+        return this.slotInGame;
     }
 }
