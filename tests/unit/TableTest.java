@@ -8,6 +8,8 @@ import org.junit.Test;
 
 import java.util.LinkedList;
 
+import static org.hamcrest.CoreMatchers.instanceOf;
+
 
 public class TableTest {
 
@@ -51,7 +53,6 @@ public class TableTest {
     }
     @Test
     public void canInstantiateTable(){
-
         table = new Table();
     }
 
@@ -81,6 +82,16 @@ public class TableTest {
 
         table = new Table();
         table.letSitThese(ThreePlayers);
+    }
+
+    @Test
+    public void tableRuturnsSlotsCorrectly() throws InvalidNumberOfPlayersException {
+        table = new Table();
+        table.letSitThese( FourPlayers );
+        table.setGame();
+        Assert.assertThat( table.getSlots(), instanceOf( LinkedList.class  ));
+
+
     }
 
 //    @Test
