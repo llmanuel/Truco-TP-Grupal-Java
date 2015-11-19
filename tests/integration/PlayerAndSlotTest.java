@@ -1,4 +1,7 @@
 import model.*;
+import model.Exceptions.InvalidCardNumberException;
+import model.Exceptions.InvalidSuiteException;
+import model.Exceptions.NotCardThrownException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

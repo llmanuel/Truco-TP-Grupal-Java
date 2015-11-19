@@ -1,6 +1,6 @@
 package unit;
 
-import model.PlayerDoesNotExistsException;
+import model.Exceptions.PlayerDoesNotExistsException;
 import model.Scoreboard;
 import org.junit.Assert;
 import org.junit.Test;

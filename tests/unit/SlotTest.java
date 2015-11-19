@@ -1,6 +1,9 @@
 package unit;
 
 import model.*;
+import model.Exceptions.InvalidCardNumberException;
+import model.Exceptions.InvalidSuiteException;
+import model.Exceptions.NotCardThrownException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -47,7 +50,7 @@ public class SlotTest {
     }
 
     @Test
-    public void slotsReturnsTheFirstCard() throws NotCardThrownException{
+    public void slotsReturnsTheFirstCard() throws NotCardThrownException {
         slot.receiveCard(first);
         Assert.assertEquals(first.getNumber(),slot.getFirstOne().getNumber());
     }

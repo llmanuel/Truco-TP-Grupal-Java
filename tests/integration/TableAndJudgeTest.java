@@ -1,8 +1,8 @@
 import model.*;
+import model.Exceptions.InvalidNumberOfPlayersException;
+import model.Exceptions.NotCardThrownException;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.LinkedList;
 
 public class TableAndJudgeTest {
 

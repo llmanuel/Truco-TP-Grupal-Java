@@ -1,8 +1,8 @@
 package unit;
 
 import model.Card;
-import model.InvalidCardNumberException;
-import model.InvalidSuiteException;
+import model.Exceptions.InvalidCardNumberException;
+import model.Exceptions.InvalidSuiteException;
 import org.junit.*;
 
 
@@ -18,13 +18,13 @@ public class CardTest {
     }
 
 
-    @Test (expected = model.InvalidCardNumberException.class)
+    @Test (expected = InvalidCardNumberException.class)
     public void cantCreateCardeWithHigherValueThan12() throws InvalidSuiteException, InvalidCardNumberException {
         Card card = new Card(14, VALID_SUIT, VALID_VALUE);
 
     }
 
-    @Test (expected = model.InvalidSuiteException.class)
+    @Test (expected = InvalidSuiteException.class)
     public void cantCreateCardeWithInvalidSuit() throws InvalidSuiteException, InvalidCardNumberException {
         Card card = new Card(VALID_NUMBER, "FAFAFA", VALID_VALUE);
 

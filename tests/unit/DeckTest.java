@@ -1,9 +1,8 @@
 package unit;
 
-import junit.framework.Assert;
 import model.Card;
-import model.InvalidCardNumberException;
-import model.InvalidSuiteException;
+import model.Exceptions.InvalidCardNumberException;
+import model.Exceptions.InvalidSuiteException;
 import org.junit.Test;
 import model.Deck;
 

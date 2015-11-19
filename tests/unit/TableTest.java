@@ -2,6 +2,7 @@ package unit;
 
 
 import model.*;
+import model.Exceptions.InvalidNumberOfPlayersException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -57,7 +58,7 @@ public class TableTest {
     }
 
     @Test
-    public void buildATableWithTwoPlayers() throws InvalidNumberOfPlayersException{
+    public void buildATableWithTwoPlayers() throws InvalidNumberOfPlayersException {
         table = new Table();
         table.letSitThese(TwoPlayers);
         Assert.assertEquals(2,table.getNumberOfPlayers());
