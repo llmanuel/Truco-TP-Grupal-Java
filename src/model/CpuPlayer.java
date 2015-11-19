@@ -1,11 +1,10 @@
 package model;
 
-/**
- * Created by alexdebian on 11/10/15.
- */
 public class CpuPlayer implements Player {
 
     private int playerId;
+    private Hand hand;
+    private Slot slot;
 
     public CpuPlayer(int idNumber){
         playerId = idNumber;
@@ -13,12 +12,21 @@ public class CpuPlayer implements Player {
 
 	@Override
 	public int calculateEnvido() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.hand.calculateEnvido();
 	}
+
+    @Override
+    public void setSlot(Slot actualSlot){
+        this.slot = actualSlot;
+    }
 
     @Override
     public int getIdNumber(){
         return playerId;
+    }
+
+    @Override
+    public void getHand(Hand newHand){
+        this.hand = newHand;
     }
 }
