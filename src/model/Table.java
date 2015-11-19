@@ -53,4 +53,7 @@ public class Table {
     public LinkedList<Slot> getSlots(){
         return this.slotInGame;
     }
+
+    public void declareWinner(CanHaveScore member) {
+    }
 }
