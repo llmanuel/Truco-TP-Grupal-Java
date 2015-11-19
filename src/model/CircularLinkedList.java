@@ -10,91 +10,81 @@ package model;
 
 import java.util.*;
 
-public class CircularLinkedList<AnyType>
-{
+public class CircularLinkedList<AnyType> implements Iterator<AnyType> {
     private Node<AnyType> head;
+    private Node<AnyType> cursor;
+    private int size;
 
     /**
-     *  Constructs an empty list
+     * Constructs an empty list
      */
-    public CircularLinkedList()
-    {
+    public CircularLinkedList() {
         head = null;
     }
+
     /**
-     *  Returns true if the list is empty
-     *
+     * Returns true if the list is empty
      */
-    public boolean isEmpty()
-    {
+    public boolean isEmpty() {
         return head == null;
     }
+
     /**
-     *  Inserts a new node at the beginning of this list.
-     *
+     * Inserts a new node at the beginning of this list.
      */
-    public void addFirst(AnyType item)
-    {
+    private void addFirst(AnyType item) {
         head = new Node<AnyType>(item);
         head.setNext(head);
+        cursor = head;
+        size = 1;
     }
+
     /**
-     *  Returns the first element in the list.
-     *
+     * Returns the first element in the list.
      */
-    public AnyType getFirst()
-    {
-        if(head == null) throw new NoSuchElementException();
+    public AnyType getFirst() {
+        if (head == null) throw new NoSuchElementException();
 
         return head.data;
     }
-    /**
-     *  Removes the first element in the list. Unless there is only one element in the list
-     *
-     */
-    public AnyType removeFirst()
-    {
-        AnyType tmp = getFirst();
-        head = head.next;
-        return tmp;
-    }
-    /**
-     *  Inserts a new node to the end of this list.
-     *
-     */
-    public void addLast(AnyType item)
-    {
-        if( head == null)
-            addFirst(item);
-        else
-        {
-            Node<AnyType> tmp = head;
-            while(tmp.next != head) tmp = tmp.next;
-            Node<AnyType> stillTheHead = head;
 
-            tmp.next = new Node<AnyType>(item);
-            tmp.setNext(stillTheHead);
+    public int getSize() {
+        return size;
+    }
+
+    /**
+     * Inserts a new node to the end of this list.
+     */
+    public void addLast(AnyType item) {
+        if (head == null)
+            addFirst(item);
+        else {
+            Node<AnyType> tmp = head;
+            while (tmp.next != head) tmp = tmp.next;
+
+            Node<AnyType> newOne = new Node<AnyType>(item);
+            newOne.setNext(tmp.next);
+            tmp.setNext(newOne);
+            size = size +1;
         }
     }
+
     /**
-     *  Returns the last element in the list.
-     *
+     * Returns the last element in the list.
      */
-    public AnyType getLast()
-    {
-        if(head == null) throw new NoSuchElementException();
+    public AnyType getLast() {
+        if (head == null) throw new NoSuchElementException();
 
         Node<AnyType> tmp = head;
-        while(tmp.next != head) tmp = tmp.next;
+        while (tmp.next != head) tmp = tmp.next;
 
         return tmp.data;
     }
+
     /**
-     *  Removes all nodes from the list.
-     *
+     * Removes all nodes from the list.
      */
-    public void clear()
-    {
+    public void clear() {
         head = null;
     }
     /**
@@ -108,34 +98,31 @@ public class CircularLinkedList<AnyType>
 //
 //        return false;
 //    }
+
     /**
-     *  Returns the data at the specified position in the list.
-     *
+     * Returns the data at the specified position in the list.
      */
-    public AnyType get(int pos)
-    {
+    public AnyType get(int pos) {
         if (head == null) throw new IndexOutOfBoundsException();
 
         Node<AnyType> tmp = head;
-        for (int k = 0; k < pos; k++) tmp = tmp.next;
+        for (int k = 1; k < pos; k++) tmp = tmp.next;
 
         return tmp.data;
     }
 
     /**
-     *  Inserts a new node after a node containing the key. Except when you have only one Node
-     *
+     * Inserts a new node after a node containing the key. Except when you have only one Node
      */
-    public void insertAfter(AnyType key, AnyType toInsert)
-    {
+    public void insertAfter(AnyType key, AnyType toInsert) {
         Node<AnyType> tmp = head;
         Node<AnyType> theOneNextToTmp = tmp.next;
-        while((tmp != null && !tmp.data.equals(key)) && (tmp.next != head)) tmp = tmp.next;
+        while ((tmp != null && !tmp.data.equals(key)) && (tmp.next != head)) tmp = tmp.next;
 
-        if(tmp != null)
+        if (tmp != null)
             theOneNextToTmp = tmp.next;
-            tmp.next = new Node<AnyType>(toInsert);
-            tmp.next.setNext(theOneNextToTmp);
+        tmp.next = new Node<AnyType>(toInsert);
+        tmp.next.setNext(theOneNextToTmp);
     }
     /**
      *  Inserts a new node before a node containing the key.
@@ -163,114 +150,81 @@ public class CircularLinkedList<AnyType>
 //        if(cur != null)
 //            prev.next = new Node<AnyType>(toInsert, cur);
 //    }
+
     /**
-     *  Removes the first occurrence of the specified element in this list.
-     *
+     * Removes the first occurrence of the specified element in this list.
      */
-    public void remove(AnyType key)
-    {
-        if(head == null)
+    public void remove(AnyType key) {
+        if (head == null)
             throw new RuntimeException("cannot delete");
 
-        if( head.data.equals(key) )
-        {
+        if (head.data.equals(key)) {
             head = head.next;
             return;
         }
 
-        Node<AnyType> cur  = head;
+        Node<AnyType> cur = head;
         Node<AnyType> prev = null;
 
-        while(cur != null && !cur.data.equals(key) )
-        {
+        while (cur != null && !cur.data.equals(key)) {
             prev = cur;
             cur = cur.next;
         }
 
-        if(cur == null)
+        if (cur == null)
             throw new RuntimeException("cannot delete");
 
         //delete cur node
         prev.next = cur.next;
     }
+
     /**
-     *  Returns a deep copy of the list
-     *  Complexity: O(n^2)
+     * Returns a deep copy of the list
+     * Complexity: O(n^2)
      */
-    public CircularLinkedList<AnyType> copy1()
-    {
+    public CircularLinkedList<AnyType> copy1() {
         CircularLinkedList<AnyType> twin = new CircularLinkedList<AnyType>();
         Node<AnyType> tmp = head;
-        while((tmp != null) && (tmp.next != head))
-        {
-            twin.addLast( tmp.data );
+        while ((tmp != null) && (tmp.next != head)) {
+            twin.addLast(tmp.data);
             tmp = tmp.next;
         }
 
         return twin;
     }
-    /**
-     *  Returns a deep copy of the list
-     *  Complexity: O(n)
-     */
-//    public CircularLinkedList<AnyType> copy2()
-//    {
-//        CircularLinkedList<AnyType> twin = new CircularLinkedList<AnyType>();
-//        Node<AnyType> tmp = head;
-//        while(tmp != null)
-//        {
-//            twin.addFirst( tmp.data );
-//            tmp = tmp.next;
-//        }
-//
-//        return twin.reverse();
-//    }
-    /**
-     *  Reverses the list
-     *  Complewxity: O(n)
-     */
-//    public CircularLinkedList<AnyType> reverse()
-//    {
-//        CircularLinkedList<AnyType> list = new CircularLinkedList<AnyType>();
-//        Node<AnyType> tmp = head;
-//        while(tmp != null)
-//        {
-//            list.addFirst( tmp.data );
-//            tmp = tmp.next;
-//        }
-//        return list;
-//    }
-    /**
-     *  Returns a deep copy of the immutable list
-     *  It uses a tail reference.
-     *  Complexity: O(n)
-     */
-//    public CircularLinkedList<AnyType> copy3()
-//    {
-//        CircularLinkedList<AnyType> twin = new CircularLinkedList<AnyType>();
-//        Node<AnyType> tmp = head;
-//        if(head==null) return null;
-//        twin.head = new Node<AnyType>(head.data, null);
-//        Node<AnyType> tmpTwin = twin.head;
-//        while(tmp.next != null)
-//        {
-//            tmp = tmp.next;
-//            tmpTwin.next = new Node<AnyType>(tmp.data, null);
-//            tmpTwin = tmpTwin.next;
-//        }
-//
-//        return twin;
-//    }
+
+    private void moveCursor(){
+        cursor = cursor.next;
+    }
+    public void restartFromBegining() {
+        cursor = head;
+    }
+
+    @Override
+    public boolean hasNext() {
+        return (cursor.next != head);
+    }
+
+    @Override
+    public AnyType next() {
+        Node<AnyType> tmp = cursor;
+        this.moveCursor();
+        return tmp.data;
+    }
+
+
+}
+
 
     /*******************************************************
      *
      *  The Node class
      *
      ********************************************************/
-    private static class Node<AnyType>
+    class Node<AnyType>
     {
-        private AnyType data;
-        private Node<AnyType> next;
+        public AnyType data;
+        public Node<AnyType> next;
 
         public Node(AnyType data)
         {
@@ -281,24 +235,24 @@ public class CircularLinkedList<AnyType>
             this.next = next;
         }
     }
-    }
 
-    /*******************************************************
-     *
-     *  The Iterator class
-     *
-     ********************************************************/
 
+//    /*******************************************************
+//     *
+//     *  The Iterator class
+//     *
+//     ********************************************************/
+//
 //    public Iterator<AnyType> iterator()
 //    {
-//        return new LinkedListIterator();
+//        return new CicularLinkedListIterator();
 //    }
 //
-//    private class LinkedListIterator  implements Iterator<AnyType>
+//    private class CicularLinkedListIterator  implements Iterator<AnyType>
 //    {
 //        private Node<AnyType> nextNode;
 //
-//        public LinkedListIterator()
+//        public CicularLinkedListIterator()
 //        {
 //            nextNode = head;
 //        }
