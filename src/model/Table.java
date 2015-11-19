@@ -10,6 +10,7 @@ public class Table {
     private LinkedList<Player> PlayersInGame;
     private LinkedList<Slots> slotsInGame;
 
+
     public void letSitThese(LinkedList<Player> Players) throws InvalidNumberOfPlayersException{
 
         if( (Players.size() == 2) || (Players.size() == 4) ||(Players.size() == 6))
@@ -43,5 +44,9 @@ public class Table {
             }
         }
         throw new PlayerDoesNotExistsException();
+    }
+
+    public LinkedList<Slots> getSlots(){
+        return this.slotsInGame;
     }
 }
