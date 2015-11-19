@@ -36,11 +36,11 @@ public class Judge {
 		}
 	}
 	
-	public void setWinnerOfTheRound(LinkedList<Slots> slots) throws NotCardThrownException { //corregir
+	public void setWinnerOfTheRound(LinkedList<Slot> slots, Games actualGame) throws NotCardThrownException { //corregir
 		int maximumCardInRound = 0;
 		Player roundWinner ;
 		
-		for (Slots actualSlot : slots) {
+		for (Slot actualSlot : slots) {
 			if (actualSlot.getLastOne().getValue() > maximumCardInRound) {
 				maximumCardInRound = actualSlot.getLastOne().getValue();
 				roundWinner = actualSlot.getPlayer();
