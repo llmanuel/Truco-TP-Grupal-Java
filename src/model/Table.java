@@ -14,6 +14,8 @@ public class Table {
 
     private LinkedList<Player> PlayersInGame;
     private LinkedList<Slot> slotInGame;
+    private Player cursor;
+    private Player roundBeginner;
 
 
     public void letSitThese(LinkedList<Player> Players) throws InvalidNumberOfPlayersException {
@@ -53,6 +55,40 @@ public class Table {
 
     public LinkedList<Slot> getSlots(){
         return this.slotInGame;
+    }
+
+    private void setCursorAt(Player thisPLayer){
+
+        cursor = thisPLayer;
+    }
+
+    /*
+     * This will also set cursor at the round beginner.
+     */
+    public void setRoundBeginner(Player thisPLayer){
+
+        roundBeginner = thisPLayer;
+        setCursorAt(roundBeginner);
+    }
+
+    /*
+     * Returns the next player to play
+     */
+    public Player nextPlayer(){
+        Player thatPlayer = cursor;
+        this.getTheNextOne();
+        return thatPlayer;
+    }
+
+    private void getTheNextOne() {
+        int i=0;
+        while ((PlayersInGame.get(i) != null) && (cursor != PlayersInGame.get(i))){
+            i = i + 1;
+        }
+        i = i + 1;
+        if (PlayersInGame.get(i) != null)
+            cursor = PlayersInGame.get(i);
+        else  cursor = PlayersInGame.getFirst();
     }
 
 //    public void iterateThePlayersFrom(Player theFirst){
