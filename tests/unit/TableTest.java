@@ -15,10 +15,10 @@ import static org.hamcrest.CoreMatchers.instanceOf;
 public class TableTest {
 
     Table table;
-    CircularLinkedList<Player> TwoPlayers;
-    CircularLinkedList<Player> ThreePlayers;
-    CircularLinkedList<Player> FourPlayers;
-    CircularLinkedList<Player> SixPlayers;
+    LinkedList<Player> TwoPlayers;
+    LinkedList<Player> ThreePlayers;
+    LinkedList<Player> FourPlayers;
+    LinkedList<Player> SixPlayers;
     @Before
     public void setup(){
         HumanPlayer myPLayer = new HumanPlayer(1);
@@ -28,23 +28,23 @@ public class TableTest {
         HumanPlayer josh = new HumanPlayer(5);
         HumanPlayer robert = new HumanPlayer(6);
 
-        TwoPlayers = new CircularLinkedList<Player>();
+        TwoPlayers = new LinkedList<Player>();
         TwoPlayers.addLast(myPLayer);
         TwoPlayers.addLast(otherPLayer);
 
-        ThreePlayers = new CircularLinkedList<Player>();
+        ThreePlayers = new LinkedList<Player>();
         ThreePlayers.addLast(myPLayer);
         ThreePlayers.addLast(otherPLayer);
         ThreePlayers.addLast(charles);
 
 
-        FourPlayers = new CircularLinkedList<Player>();
+        FourPlayers = new LinkedList<Player>();
         FourPlayers.addLast(myPLayer);
         FourPlayers.addLast(otherPLayer);
         FourPlayers.addLast(charles);
         FourPlayers.addLast(nick);
 
-        SixPlayers = new CircularLinkedList<Player>();
+        SixPlayers = new LinkedList<Player>();
         SixPlayers.addLast(myPLayer);
         SixPlayers.addLast(otherPLayer);
         SixPlayers.addLast(charles);
