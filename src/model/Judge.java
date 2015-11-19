@@ -2,17 +2,14 @@ package model;
 
 import java.util.LinkedList;
 
-/**
- * Created by alexdebian on 11/10/15.
- */
 public class Judge {
 	
-	LinkedList<Player> players = new LinkedList<Player>();
-	int maximunValueOfEnvido = 0;
-	int envidoWinner = 0;
+	private LinkedList<Player> players = new LinkedList<Player>();
+    private Table table;
+
+
 	int florWinner;
-	Table table;
-	
+
 	public Judge() {
 		
 	}
@@ -22,20 +19,20 @@ public class Judge {
     }
 
 	public void setPlayers(LinkedList<Player> players) {
-		
 		this.players = players;
-		
 	}
     
 	public void setWinnerOfEnvido() {
-		
-		for (Player actualPlayer :players) {
-			
-			if (actualPlayer.calculateEnvido() > this.maximunValueOfEnvido) {
-				
-				this.envidoWinner = actualPlayer.getIdNumber();
-			}
+		int maximunValueOfEnvido = 0;
+        Player envidoWinner ;
+
+		for (Player actualPlayer : this.players) {
+			if (actualPlayer.calculateEnvido() > maximunValueOfEnvido ) {
+                envidoWinner = actualPlayer;
+                maximunValueOfEnvido = actualPlayer.calculateEnvido();
+            }
 		}
+
 	}
 	
 	public int setWinnerOfTheRound(LinkedList<Slots> slots) { //corregir
