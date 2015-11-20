@@ -132,6 +132,32 @@ public class TableTest {
         Assert.assertEquals(4,table.nextPlayer().getIdNumber());
         Assert.assertEquals(1,table.nextPlayer().getIdNumber());
     }
+
+    @Test
+    public void tableCanIterateAmongPlayersFromTheThirdPlayerInTheList() throws InvalidNumberOfPlayersException {
+        table = new Table();
+        table.letSitThese( FourPlayers );
+        table.setGame();
+        table.setRoundBeginner(charles);
+
+        Assert.assertEquals(3,table.nextPlayer().getIdNumber());
+        Assert.assertEquals(4,table.nextPlayer().getIdNumber());
+        Assert.assertEquals(1,table.nextPlayer().getIdNumber());
+        Assert.assertEquals(2,table.nextPlayer().getIdNumber());
+    }
+
+    @Test
+    public void tableCanIterateAmongPlayersFromTheFourthPlayerInTheList() throws InvalidNumberOfPlayersException {
+        table = new Table();
+        table.letSitThese( FourPlayers );
+        table.setGame();
+        table.setRoundBeginner(nick);
+
+        Assert.assertEquals(4,table.nextPlayer().getIdNumber());
+        Assert.assertEquals(1,table.nextPlayer().getIdNumber());
+        Assert.assertEquals(2,table.nextPlayer().getIdNumber());
+        Assert.assertEquals(3,table.nextPlayer().getIdNumber());
+    }
 //    @Test
 //    public void aTableCanReceiveACardOnlyFromAPlayer() throws InvalidNumberOfPlayersException, InvalidSuiteException, InvalidCardNumberException {
 //        table = new Table();
