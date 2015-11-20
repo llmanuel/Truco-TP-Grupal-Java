@@ -25,10 +25,10 @@ public class TableTest {
     HumanPlayer nick;
     @Before
     public void setup(){
-         myPLayer = new HumanPlayer(1);
-         otherPLayer = new HumanPlayer(2);
-         charles = new HumanPlayer(3);
-         nick = new HumanPlayer(4);
+        myPLayer = new HumanPlayer(1);
+        otherPLayer = new HumanPlayer(2);
+        charles = new HumanPlayer(3);
+        nick = new HumanPlayer(4);
         HumanPlayer josh = new HumanPlayer(5);
         HumanPlayer robert = new HumanPlayer(6);
 
@@ -100,6 +100,12 @@ public class TableTest {
     }
 
 
+
+
+    /*
+     * Iteration between PLayers
+     */
+
     @Test
     public void tableCanIterateAmongPlayersFromTheFirstPlayerInTheList() throws InvalidNumberOfPlayersException {
         table = new Table();
@@ -114,22 +120,18 @@ public class TableTest {
 
     }
 
-    /*
-     * Iteration between PLayers
-     */
+    @Test
+    public void tableCanIterateAmongPlayersFromTheSecondPlayerInTheList() throws InvalidNumberOfPlayersException {
+        table = new Table();
+        table.letSitThese( FourPlayers );
+        table.setGame();
+        table.setRoundBeginner(otherPLayer);
 
-//    @Test
-//    public void tableiteratesBetweenPLayersCorrectlyBeginningAtTheFirstOfTheList() throws InvalidNumberOfPlayersException {
-//        table = new Table();
-//        table.letSitThese( FourPlayers );
-//        table.setGame();
-//
-//        table.setRoundBeginner(myPLayer);
-//        Assert.assertThat( table.getSlots(), instanceOf( LinkedList.class  ));
-//
-//
-//    }
-
+        Assert.assertEquals(2,table.nextPlayer().getIdNumber());
+        Assert.assertEquals(3,table.nextPlayer().getIdNumber());
+        Assert.assertEquals(4,table.nextPlayer().getIdNumber());
+        Assert.assertEquals(1,table.nextPlayer().getIdNumber());
+    }
 //    @Test
 //    public void aTableCanReceiveACardOnlyFromAPlayer() throws InvalidNumberOfPlayersException, InvalidSuiteException, InvalidCardNumberException {
 //        table = new Table();

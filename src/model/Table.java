@@ -84,14 +84,14 @@ public class Table {
      * PreCondition: Must setRoundBeginner() Before using this method
      */
     private void getTheNextOne() {
-        int i=0;
-        while ((PlayersInGame.get(i) != null) && (cursor != PlayersInGame.get(i))){
-            i = i + 1;
-        }
-        i = i + 1;
-        if (PlayersInGame.get(i) != null)
-            setCursorAt(PlayersInGame.get(i));
-        else  setCursorAt(PlayersInGame.getFirst());
+       try {
+           int i = 0;
+           while (cursor != PlayersInGame.get(i)) {
+               i = i + 1;
+           }
+           i = i + 1;
+           setCursorAt(PlayersInGame.get(i));
+       }catch (IndexOutOfBoundsException e){setCursorAt(PlayersInGame.getFirst());}
     }
 
 //    public void iterateThePlayersFrom(Player theFirst){
