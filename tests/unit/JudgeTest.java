@@ -31,7 +31,7 @@ public class JudgeTest {
         card5 = new Card(7, "BASTO", 3);
         card6 = new Card(6, "BASTO", 2);
         card7 = new Card(6, "ORO", 1);
-        this.scoreboard = new Scoreboard(2);
+//        this.scoreboard = new Scoreboard(2);
 
     }
 

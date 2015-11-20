@@ -80,6 +80,9 @@ public class Table {
         return thatPlayer;
     }
 
+    /*
+     * PreCondition: Must setRoundBeginner() Before using this method
+     */
     private void getTheNextOne() {
         int i=0;
         while ((PlayersInGame.get(i) != null) && (cursor != PlayersInGame.get(i))){

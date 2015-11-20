@@ -30,7 +30,7 @@ public class TableAndJudgeTest {
         FourPlayers.addLast(nick);
 
 
-        this.scoreboard = new Scoreboard( 4 );
+//        this.scoreboard = new Scoreboard( 4 );
 
         this.table = new Table();
         this.table.letSitThese( FourPlayers );

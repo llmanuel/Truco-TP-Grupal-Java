@@ -99,6 +99,21 @@ public class TableTest {
 
     }
 
+
+    @Test
+    public void tableCanIterateAmongPlayersFromTheFirstPlayerInTheList() throws InvalidNumberOfPlayersException {
+        table = new Table();
+        table.letSitThese( FourPlayers );
+        table.setGame();
+        table.setRoundBeginner(myPLayer);
+        int i = 1;
+        while (i < 4){
+            Assert.assertEquals(i,table.nextPlayer().getIdNumber());
+            i = i + 1;
+        }
+
+    }
+
     /*
      * Iteration between PLayers
      */
