@@ -62,7 +62,14 @@ public class Table {
         cursor = thisPLayer;
     }
 
+    /**************************
+     *
+     * Here begins the methods for the iteration between the players
+     *
+     **************************/
+
     /*
+     * Sets who's the first to play.
      * This will also set cursor at the round beginner.
      */
     public void setRoundBeginner(Player thisPLayer){
@@ -72,7 +79,8 @@ public class Table {
     }
 
     /*
-     * Returns the next player to play
+     *PreCondition: Must setRoundBeginner() Before using this method.
+     * Returns the next player to play.
      */
     public Player nextPlayer(){
         Player thatPlayer = cursor;
@@ -81,7 +89,7 @@ public class Table {
     }
 
     /*
-     * PreCondition: Must setRoundBeginner() Before using this method
+     * Sets the cursor at the next player to play.
      */
     private void getTheNextOne() {
        try {
@@ -94,6 +102,11 @@ public class Table {
        }catch (IndexOutOfBoundsException e){setCursorAt(PlayersInGame.getFirst());}
     }
 
+    /**************************
+     *
+     * End of iteration methods
+     *
+     *************************/
 //    public void iterateThePlayersFrom(Player theFirst){
 //        boolean youCanPlay = false;
 //        int everyBodyPLayed = 0;
