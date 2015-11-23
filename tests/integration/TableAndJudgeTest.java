@@ -50,7 +50,7 @@ public class TableAndJudgeTest {
 
     @Test (expected = NotCardThrownException.class)
     public void judgeThrowsExceptionWhenNoCardHasBeenThrown() throws NotCardThrownException {
-        Games actualGame = new Truco();
+        Games actualGame = new Truco(this.table);
         this.judge.setWinnerOfTheRound( this.table.getSlots(), actualGame);
     }
 
