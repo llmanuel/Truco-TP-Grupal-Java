@@ -18,12 +18,19 @@ public class Table {
     private Player roundBeginner;
     private Games gameState;
     private Judge judge;
+    private Croupier croupier;
 
     public void Table(){
 
         Games gameState = new NormalRound(this);
-//        Judge judge = new Judge(); hay que meterle el constructor
+        croupier = new Croupier();
     }
+
+    /**************************
+     *
+     * Here begins the methods to set up the table before the game begins
+     *
+     **************************/
 
     public void letSitThese(LinkedList<Player> Players) throws InvalidNumberOfPlayersException {
 
@@ -32,6 +39,11 @@ public class Table {
 
 
         else throw (new InvalidNumberOfPlayersException());
+    }
+
+    public void getAJudge(Judge judge){
+
+        this.judge = judge;
     }
 
     public int getNumberOfPlayers() {
