@@ -76,7 +76,7 @@ public class Hand {
         return sumatoriaEnvido;
     }
 
-    private Card getCard(Card cardToPlay) {
+    public Card getCard(Card cardToPlay) {
         Card cardToReturn =  this.cards.get( cards.indexOf( cardToPlay ) );
         this.cards.remove( cards.indexOf( cardToPlay ) );
         return cardToReturn;
