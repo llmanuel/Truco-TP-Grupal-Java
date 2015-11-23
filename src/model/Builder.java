@@ -20,5 +20,7 @@ public class Builder {
         Scoreboard theScoreboard = new Scoreboard( theCanHaveScorePL, table );
 
         Judge judge = new Judge(theScoreboard);
+
+        table.getAJudge(judge);
     }
 }
