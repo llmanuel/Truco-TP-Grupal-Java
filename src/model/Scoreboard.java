@@ -3,6 +3,7 @@ package model;
 import model.Exceptions.CanHaveScoreDoesntExistException;
 import model.Exceptions.PlayerDoesNotExistsException;
 import model.TableStates.Games;
+import model.TableStates.Truco;
 
 import java.util.LinkedList;
 
@@ -53,5 +54,9 @@ public class Scoreboard {
             players.add( actualScore.getMember() );
         }
         return players;
+    }
+
+    public void playerGaveUpThisGame(CanHaveScore player, Games game) {
+        
     }
 }
