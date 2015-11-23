@@ -10,6 +10,12 @@ public class Vale4 implements Games {
     }
 
     @Override
+    public void raiseBet(){
+
+//        this.theTable.raiseBet();
+    }
+
+    @Override
     public int getPoints(){
         return this.points;
     }
