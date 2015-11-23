@@ -140,8 +140,8 @@ public class Table {
      * Returns the next player to play.
      */
     public Player nextPlayer(){
-        Player thatPlayer = cursor;
         this.getTheNextOne();
+        Player thatPlayer = cursor;
         return thatPlayer;
     }
 
@@ -157,6 +157,11 @@ public class Table {
            i = i + 1;
            setCursorAt( playersInGame.get(i));
        }catch (IndexOutOfBoundsException e){setCursorAt( playersInGame.getFirst());}
+    }
+
+    private Player getCursor(){
+
+        return this.cursor;
     }
 
     /**************************
