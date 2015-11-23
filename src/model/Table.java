@@ -10,7 +10,7 @@ import java.util.LinkedList;
  */
 public class Table {
 
-    private LinkedList<Player> PlayersInGame;
+    private LinkedList<Player> playersInGame;
     private LinkedList<Slot> slotInGame;
     private Player cursor;
     private Player roundBeginner;
@@ -24,25 +24,25 @@ public class Table {
     public void letSitThese(LinkedList<Player> Players) throws InvalidNumberOfPlayersException {
 
         if( (Players.size() == 2) || (Players.size() == 4) ||(Players.size() == 6))
-        this.PlayersInGame =Players;
+        this.playersInGame =Players;
 
 
         else throw (new InvalidNumberOfPlayersException());
     }
 
     public int getNumberOfPlayers() {
-        return (PlayersInGame.size());
+        return (playersInGame.size());
     }
 
 
     public void setGame() {
-        this.createSlots(this.PlayersInGame.size());
+        this.createSlots(this.playersInGame.size());
     }
 
     private void createSlots(int size) {
         slotInGame = new LinkedList<Slot>();
-        for (int i = 0; i == PlayersInGame.size() ; i++){
-            Slot newSlot = new Slot(PlayersInGame.get(i));
+        for (Player actualPlayer : this.playersInGame){
+            Slot newSlot = new Slot( actualPlayer );
             slotInGame.add(newSlot);
         }
     }
@@ -125,12 +125,12 @@ public class Table {
     private void getTheNextOne() {
        try {
            int i = 0;
-           while (cursor != PlayersInGame.get(i)) {
+           while (cursor != playersInGame.get(i)) {
                i = i + 1;
            }
            i = i + 1;
-           setCursorAt(PlayersInGame.get(i));
-       }catch (IndexOutOfBoundsException e){setCursorAt(PlayersInGame.getFirst());}
+           setCursorAt( playersInGame.get(i));
+       }catch (IndexOutOfBoundsException e){setCursorAt( playersInGame.getFirst());}
     }
 
     /**************************
@@ -141,7 +141,7 @@ public class Table {
 //    public void iterateThePlayersFrom(Player theFirst){
 //        boolean youCanPlay = false;
 //        int everyBodyPLayed = 0;
-//        for (Player actualPlayer: PlayersInGame){
+//        for (Player actualPlayer: playersInGame){
 //            if (actualPlayer == theFirst){
 //                youCanPlay = true;
 //            }
@@ -150,8 +150,8 @@ public class Table {
 //                everyBodyPLayed = everyBodyPLayed + 1;
 //            }
 //        }
-//        if(everyBodyPLayed != PlayersInGame.size()){
-//            Player actualPlayer = PlayersInGame.getFirst();
+//        if(everyBodyPLayed != playersInGame.size()){
+//            Player actualPlayer = playersInGame.getFirst();
 //            while (actualPlayer != theFirst){
 //                actualPlayer.PlayYourWill();
 //
