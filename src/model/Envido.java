@@ -2,6 +2,11 @@ package model;
 
 public class Envido implements Games {
     int points = 2;
+    private Table theTable;
+
+    public void Envido(Table theTable){
+        this.theTable = theTable;
+    }
 
     @Override
     public int getPoints(){
