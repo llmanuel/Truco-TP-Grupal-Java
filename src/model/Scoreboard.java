@@ -2,6 +2,7 @@ package model;
 
 import model.Exceptions.CanHaveScoreDoesntExistException;
 import model.Exceptions.PlayerDoesNotExistsException;
+import model.TableStates.Games;
 
 import java.util.LinkedList;
 
@@ -33,8 +34,8 @@ public class Scoreboard {
         throw new CanHaveScoreDoesntExistException();
     }
 
-    public void increaseTheScoreOf(CanHaveScore whomScoreGonnaBeIncreased, int scoreIncrease) throws CanHaveScoreDoesntExistException {
-        this.getScore( whomScoreGonnaBeIncreased ).increaseScoreBy(scoreIncrease);
+    public void increaseTheScoreOf(CanHaveScore whomScoreGonnaBeIncreased, Games actualGame) throws CanHaveScoreDoesntExistException {
+        this.getScore( whomScoreGonnaBeIncreased ).increaseScoreBy(actualGame.getPoints());
         this.didAnyoneWinAlready();
 	}
 
