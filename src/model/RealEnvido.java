@@ -18,4 +18,23 @@ public class RealEnvido implements Games {
     public int getPoints(){
         return this.points;
     }
+
+
+    @Override
+    public void callEnvido(){
+
+//        this.theTable.raiseBet();
+    }
+
+    @Override
+    public void callRealEnvido(){
+
+//        this.theTable.raiseBet();
+    }
+
+    @Override
+    public void callFaltaEnvido(){
+
+//        this.theTable.raiseBet();
+    }
 }

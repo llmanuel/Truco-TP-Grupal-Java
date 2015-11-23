@@ -8,6 +8,32 @@ public class Envido implements Games {
         this.theTable = theTable;
     }
 
+    public void raiseToRealEnvido(){
+//            this.theTable.raiseToRealEnvido();
+    }
+
+    /*
+    * Raises bet 2 points to another Envido
+    */
+
+    @Override
+    public void callEnvido(){
+
+//        this.theTable.raiseBet();
+    }
+
+    @Override
+    public void callRealEnvido(){
+
+//        this.theTable.raiseBet();
+    }
+
+    @Override
+    public void callFaltaEnvido(){
+
+//        this.theTable.raiseBet();
+    }
+
     @Override
     public void raiseBet(){
 
