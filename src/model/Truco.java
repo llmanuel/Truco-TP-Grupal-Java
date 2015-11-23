@@ -13,7 +13,7 @@ public class Truco implements Games {
     @Override
     public void raiseBet(){
 
-        this.theTable.raiseBet(new ReTruco());
+        this.theTable.raiseBet(new ReTruco(theTable));
     }
 
     @Override
