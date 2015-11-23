@@ -4,17 +4,19 @@ import model.Table;
 
 public class Envido implements Games {
     int points;
+    private int lastGamePoints;
     private Table theTable;
 
-    public Envido(Table theTable, int points){
+    public Envido(Table theTable, int points, int lastGamePoints){
         this.theTable = theTable;
         this.points = points;
+        this.lastGamePoints = lastGamePoints;
     }
 
     @Override
     public int giveUp(){
 
-        return (this.getPoints() - 1);
+        return (this.lastGamePoints);
     }
 
     /*
@@ -24,13 +26,13 @@ public class Envido implements Games {
     @Override
     public void callEnvido(){
 
-        this.theTable.raiseBet(new Envido(theTable ,this.getPoints() + 2));
+        this.theTable.raiseBet(new Envido(theTable ,this.getPoints() + 2, this.getPoints()));
     }
 
     @Override
     public void callRealEnvido(){
 
-        this.theTable.raiseBet(new RealEnvido(theTable, 3));
+        this.theTable.raiseBet(new RealEnvido(theTable, 3, this.getPoints()));
     }
 
     @Override
@@ -46,7 +48,7 @@ public class Envido implements Games {
     @Override
     public void raiseBet(){
 
-        this.theTable.raiseBet(new Envido(theTable,this.getPoints() + 2));
+        this.theTable.raiseBet(new Envido(theTable,this.getPoints() + 2, this.getPoints()));
     }
 
     @Override

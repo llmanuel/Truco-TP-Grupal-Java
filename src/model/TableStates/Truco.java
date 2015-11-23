@@ -6,21 +6,23 @@ import model.Table;
 public class Truco implements Games {
     int points = 2;
     private Table theTable;
+    private int lastGamePoints;
 
-    public Truco(Table theTable){
+    public Truco(Table theTable, int lastGamePoints){
         this.theTable = theTable;
+        this.lastGamePoints = lastGamePoints;
     }
 
     @Override
     public int giveUp(){
 
-        return (this.getPoints() - 1);
+        return (this.lastGamePoints);
     }
 
     @Override
     public void raiseBet(){
 
-        this.theTable.raiseBet(new ReTruco(theTable));
+        this.theTable.raiseBet(new ReTruco( theTable, this.getPoints()));
     }
 
     @Override

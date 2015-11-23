@@ -19,6 +19,7 @@ public class Table {
     private Games gameState;
     private Judge judge;
     private Croupier croupier;
+    private Scoreboard scoreboard;
 
     public void Table(){
 
@@ -44,6 +45,11 @@ public class Table {
     public void getAJudge(Judge judge){
 
         this.judge = judge;
+    }
+
+    public void getScoreBoard(Scoreboard scoreboard){
+
+        this.scoreboard = scoreboard;
     }
 
     public int getNumberOfPlayers() {
@@ -110,7 +116,7 @@ public class Table {
     }
 
     public void giveUpGame() {
-//        this.judge.; Le digo al judge que no quisieron
+        this.scoreboard.
     }
 
     /**************************

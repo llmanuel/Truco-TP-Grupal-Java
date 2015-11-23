@@ -24,7 +24,7 @@ public class NormalRound implements Games {
     @Override
     public void raiseBet(){
 
-        this.theTable.raiseBet(new Truco(theTable));
+        this.theTable.raiseBet(new Truco(theTable, this.getPoints()));
     }
 
     @Override
@@ -35,13 +35,13 @@ public class NormalRound implements Games {
     @Override
     public void callEnvido(){
 
-        this.theTable.raiseBet(new Envido( theTable, 2 ));
+        this.theTable.raiseBet(new Envido( theTable, 2 , this.getPoints()));
     }
 
     @Override
     public void callRealEnvido(){
 
-        this.theTable.raiseBet(new RealEnvido( theTable, 3 ));
+        this.theTable.raiseBet(new RealEnvido( theTable, 3 , this.getPoints()));
     }
 
     @Override

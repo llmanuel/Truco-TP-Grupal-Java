@@ -22,5 +22,6 @@ public class Builder {
         Judge judge = new Judge(theScoreboard);
 
         table.getAJudge(judge);
+        table.getScoreBoard(theScoreboard);
     }
 }

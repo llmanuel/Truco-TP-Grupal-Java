@@ -8,15 +8,17 @@ import model.TableStates.Games;
 public class Vale4 implements Games {
     int points = 4;
     private Table theTable;
+    private int lastGamePoints;
 
-    public Vale4(Table theTable){
+    public Vale4(Table theTable, int lastGamePoints){
         this.theTable = theTable;
+        this.lastGamePoints = lastGamePoints;
     }
 
     @Override
     public int giveUp(){
 
-        return (this.getPoints() - 1);
+        return (this.lastGamePoints);
     }
 
     @Override
