@@ -1,5 +1,6 @@
 package model;
 
+import model.Exceptions.InvalidCallException;
 import model.Exceptions.InvalidNumberOfPlayersException;
 import model.Exceptions.NotCardThrownException;
 import model.Exceptions.PlayerDoesNotExistsException;
@@ -16,7 +17,12 @@ public class Table {
     private LinkedList<Slot> slotInGame;
     private Player cursor;
     private Player roundBeginner;
+    private Games gameState;
 
+    public void Table(){
+
+        Games gameState = new NormalRound();
+    }
 
     public void letSitThese(LinkedList<Player> Players) throws InvalidNumberOfPlayersException {
 
@@ -54,6 +60,36 @@ public class Table {
         cursor = thisPLayer;
     }
 
+    /**************************
+     *
+     * Here begins the methods for the calls
+     *
+     **************************/
+
+    public void raiseBet(){
+
+        this.gameState.raiseBet();
+    }
+
+    public void callEnvido() throws InvalidCallException {
+
+        this.gameState.callEnvido();
+    }
+
+    public void callRealEnvido() throws InvalidCallException {
+
+        this.gameState.callRealEnvido();
+    }
+
+    public void callFaltaEnvido() throws InvalidCallException {
+
+        this.gameState.callFaltaEnvido();
+    }
+
+    public int getPoints(){
+
+        return (this.gameState.getPoints());
+    }
     /**************************
      *
      * Here begins the methods for the iteration between the players
