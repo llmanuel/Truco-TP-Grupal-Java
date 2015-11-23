@@ -1,5 +1,6 @@
 package model;
 
+import model.Exceptions.CanHaveScoreDoesntExistException;
 import model.Exceptions.NotCardThrownException;
 import model.TableStates.Games;
 
@@ -39,16 +40,17 @@ public class Judge {
 		}
 	}
 	
-	public void setWinnerOfTheRound(LinkedList<Slot> slots, Games actualGame) throws NotCardThrownException { //corregir
+	public void setWinnerOfTheRound(LinkedList<Slot> slots, Games actualGame) throws NotCardThrownException, CanHaveScoreDoesntExistException { //corregir
 		int maximumCardInRound = 0;
-		Player roundWinner ;
+		CanHaveScore roundWinner = null;
 		
 		for (Slot actualSlot : slots) {
 			if (actualSlot.getLastOne().getValue() > maximumCardInRound) {
 				maximumCardInRound = actualSlot.getLastOne().getValue();
-				roundWinner = actualSlot.getPlayer();
+				roundWinner = (CanHaveScore) actualSlot.getPlayer();
 			}
 		}
+        this.scoreboard.increaseTheScoreOf( roundWinner, actualGame );
 
 	}
 
