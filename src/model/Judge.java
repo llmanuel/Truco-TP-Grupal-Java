@@ -1,6 +1,7 @@
 package model;
 
 import model.Exceptions.NotCardThrownException;
+import model.TableStates.Games;
 
 import java.util.LinkedList;
 

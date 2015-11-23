@@ -1,6 +1,6 @@
 package model;
 
-public class CpuPlayer implements Player {
+public class CpuPlayer implements Player, CanHaveScore {
 
     private int playerId;
     private Hand hand;
