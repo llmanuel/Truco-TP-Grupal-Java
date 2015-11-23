@@ -59,8 +59,10 @@ public class TableAndJudgeTest {
         Games actualGame = new Truco(this.table, 0);
         Card card1 = new Card(1, "BASTO", 1);
         Card card2 = new Card(3, "ORO", 3);
-        fourPlayers.get(1).playCard(card1);
+        fourPlayers.get(0).playCard(card1);
+        fourPlayers.get(1).playCard(card2);
         fourPlayers.get(2).playCard(card2);
+        fourPlayers.get(3).playCard(card2);
 
         boolean exceptionWasThrowed = false;
         try {
