@@ -1,14 +1,14 @@
-package model;
+package model.TableStates;
 
 import model.Exceptions.InvalidGameCallException;
+import model.Table;
 
-public class RealEnvido implements Games {
-    int points;
+public class ReTruco implements Games {
+    int points = 3;
     private Table theTable;
 
-    public RealEnvido(Table theTable, int points){
+    public ReTruco(Table theTable){
         this.theTable = theTable;
-        this.points = points;
     }
 
     @Override
@@ -20,14 +20,13 @@ public class RealEnvido implements Games {
     @Override
     public void raiseBet(){
 
-        this.theTable.raiseBet(new RealEnvido(theTable, getPoints() + 3));
+        this.theTable.raiseBet(new Vale4(theTable));
     }
 
     @Override
     public int getPoints(){
         return this.points;
     }
-
 
     @Override
     public void callEnvido() throws InvalidGameCallException {
@@ -36,14 +35,14 @@ public class RealEnvido implements Games {
     }
 
     @Override
-    public void callRealEnvido(){
+    public void callRealEnvido() throws InvalidGameCallException {
 
-        this.theTable.raiseBet(new RealEnvido(theTable, getPoints() + 3));
+        throw new InvalidGameCallException();
     }
 
     @Override
-    public void callFaltaEnvido(){
+    public void callFaltaEnvido() throws InvalidGameCallException {
 
-        this.theTable.raiseBet(new FaltaEnvido(theTable));
+        throw new InvalidGameCallException();
     }
 }

@@ -1,4 +1,6 @@
-package model;
+package model.TableStates;
+
+import model.Table;
 
 public class Envido implements Games {
     int points;

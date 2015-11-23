@@ -1,6 +1,7 @@
-package model;
+package model.TableStates;
 
 import model.Exceptions.InvalidGameCallException;
+import model.Table;
 
 public class Truco implements Games {
     int points = 2;

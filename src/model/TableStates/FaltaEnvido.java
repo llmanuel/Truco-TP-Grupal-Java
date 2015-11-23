@@ -1,13 +1,17 @@
-package model;
-
+package model.TableStates;
 
 import model.Exceptions.InvalidGameCallException;
+import model.Table;
+import model.TableStates.Games;
 
-public class Vale4 implements Games {
-    int points = 4;
+/**
+ * Created by manuel on 22/11/15.
+ */
+public class FaltaEnvido implements Games {
     private Table theTable;
 
-    public Vale4(Table theTable){
+    public FaltaEnvido(Table theTable){
+
         this.theTable = theTable;
     }
 
@@ -18,32 +22,27 @@ public class Vale4 implements Games {
     }
 
     @Override
-    public void raiseBet() throws InvalidGameCallException {
-
-       throw new InvalidGameCallException();
+    public int getPoints() {
+        return 0;
     }
 
     @Override
-    public int getPoints(){
-        return this.points;
+    public void raiseBet() throws InvalidGameCallException {
+        throw new InvalidGameCallException();
     }
-
 
     @Override
     public void callEnvido() throws InvalidGameCallException {
-
         throw new InvalidGameCallException();
     }
 
     @Override
     public void callRealEnvido() throws InvalidGameCallException {
-
         throw new InvalidGameCallException();
     }
 
     @Override
     public void callFaltaEnvido() throws InvalidGameCallException {
-
         throw new InvalidGameCallException();
     }
 }

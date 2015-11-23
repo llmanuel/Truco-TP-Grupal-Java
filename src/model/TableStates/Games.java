@@ -1,4 +1,4 @@
-package model;
+package model.TableStates;
 
 import model.Exceptions.InvalidGameCallException;
 
