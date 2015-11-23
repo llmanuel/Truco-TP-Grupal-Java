@@ -3,6 +3,7 @@ import model.Exceptions.CanHaveScoreDoesntExistException;
 import model.HumanPlayer;
 import model.Scoreboard;
 import model.Table;
+import model.TableStates.Truco;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -51,9 +52,11 @@ public class ScoreboardTest {
 
         LinkedList<CanHaveScore> players = scoreboard.getPlayers();
 
-        scoreboard.increaseTheScoreOf( players.getFirst(), 5 );
+        Truco truco = new Truco( this.table );
 
-        Assert.assertEquals( 5, scoreboard.getPointsOf( players.getFirst()) , 0.001 );
+        scoreboard.increaseTheScoreOf( players.getFirst(),  truco );
+
+        Assert.assertEquals( 2, scoreboard.getPointsOf( players.getFirst()) , 0.001 );
 
     }
 
