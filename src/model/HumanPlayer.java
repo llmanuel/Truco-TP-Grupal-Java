@@ -1,6 +1,6 @@
 package model;
 
-public class HumanPlayer implements Player {
+public class HumanPlayer implements Player, CanHaveScore {
 
     private int playerId;
 	private Hand hand;
