@@ -46,4 +46,11 @@ public class Scoreboard {
         }
     }
 
+    public LinkedList<CanHaveScore> getPlayers() {
+        LinkedList<CanHaveScore> players = new LinkedList<CanHaveScore>(  );
+        for (Score actualScore : this.scores){
+            players.add( actualScore.getMember() );
+        }
+        return players;
+    }
 }
