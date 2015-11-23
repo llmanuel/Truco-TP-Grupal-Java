@@ -7,12 +7,14 @@ import java.util.LinkedList;
 
 public class Scoreboard {
 
-    private  LinkedList<Score> scores;
+    private LinkedList<Score> scores;
     private Table table;
 
 
     public Scoreboard(LinkedList<CanHaveScore> players, Table table) {
-		for(CanHaveScore canHaveScoreActual : players){
+		this.scores = new LinkedList<Score>();
+
+        for(CanHaveScore canHaveScoreActual : players){
             this.scores.add(new Score(canHaveScoreActual));
         }
 
