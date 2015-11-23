@@ -6,7 +6,7 @@ package model;
 public class FaltaEnvido implements Games {
     private Table theTable;
 
-    public void FaltaEnvido(Table theTable){
+    public FaltaEnvido(Table theTable){
 
         this.theTable = theTable;
     }

@@ -6,14 +6,14 @@ public class ReTruco implements Games {
     int points = 3;
     private Table theTable;
 
-    public void ReTruco(Table theTable){
+    public ReTruco(Table theTable){
         this.theTable = theTable;
     }
 
     @Override
     public void raiseBet(){
 
-//        this.theTable.raiseBet();
+        this.theTable.raiseBet(new Vale4(theTable));
     }
 
     @Override

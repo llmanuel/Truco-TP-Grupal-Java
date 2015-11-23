@@ -6,7 +6,7 @@ public class Truco implements Games {
     int points = 2;
     private Table theTable;
 
-    public void Truco(Table theTable){
+    public Truco(Table theTable){
         this.theTable = theTable;
     }
 
