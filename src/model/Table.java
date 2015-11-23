@@ -3,6 +3,7 @@ package model;
 import model.Exceptions.InvalidGameCallException;
 import model.Exceptions.InvalidNumberOfPlayersException;
 import model.TableStates.Games;
+import model.TableStates.NormalRound;
 
 import java.util.LinkedList;
 
