@@ -116,7 +116,7 @@ public class Table {
     }
 
     public void giveUpGame() {
-        this.scoreboard.
+//        this.scoreboard.
     }
 
     /**************************
