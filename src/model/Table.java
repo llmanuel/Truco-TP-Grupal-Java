@@ -18,10 +18,12 @@ public class Table {
     private Player roundBeginner;
     private Games gameState;
     private Judge judge;
+    private Croupier croupier;
 
     public void Table(){
 
         Games gameState = new NormalRound(this);
+        croupier = new Croupier();
     }
 
     /**************************
@@ -43,6 +45,7 @@ public class Table {
 
         this.judge = judge;
     }
+
     public int getNumberOfPlayers() {
         return (playersInGame.size());
     }
