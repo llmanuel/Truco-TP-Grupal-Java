@@ -1,11 +1,8 @@
 package model;
 
-import model.Exceptions.InvalidCallException;
+import model.Exceptions.InvalidGameCallException;
 import model.Exceptions.InvalidNumberOfPlayersException;
-import model.Exceptions.NotCardThrownException;
-import model.Exceptions.PlayerDoesNotExistsException;
 
-import javax.print.attribute.standard.PrinterLocation;
 import java.util.LinkedList;
 
 /**
@@ -71,17 +68,17 @@ public class Table {
         this.gameState.raiseBet();
     }
 
-    public void callEnvido() throws InvalidCallException {
+    public void callEnvido() throws InvalidGameCallException {
 
         this.gameState.callEnvido();
     }
 
-    public void callRealEnvido() throws InvalidCallException {
+    public void callRealEnvido() throws InvalidGameCallException {
 
         this.gameState.callRealEnvido();
     }
 
-    public void callFaltaEnvido() throws InvalidCallException {
+    public void callFaltaEnvido() throws InvalidGameCallException {
 
         this.gameState.callFaltaEnvido();
     }
@@ -90,6 +87,12 @@ public class Table {
 
         return (this.gameState.getPoints());
     }
+
+    public void raiseBet(Games nextGame) {
+
+        this.gameState = nextGame;
+    }
+
     /**************************
      *
      * Here begins the methods for the iteration between the players
@@ -158,4 +161,5 @@ public class Table {
 
     public void declareWinner(CanHaveScore member) {
     }
+
 }

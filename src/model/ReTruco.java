@@ -1,6 +1,6 @@
 package model;
 
-import model.Exceptions.InvalidCallException;
+import model.Exceptions.InvalidGameCallException;
 
 public class ReTruco implements Games {
     int points = 3;
@@ -22,20 +22,20 @@ public class ReTruco implements Games {
     }
 
     @Override
-    public void callEnvido() throws InvalidCallException {
+    public void callEnvido() throws InvalidGameCallException {
 
-        throw new InvalidCallException();
+        throw new InvalidGameCallException();
     }
 
     @Override
-    public void callRealEnvido() throws InvalidCallException {
+    public void callRealEnvido() throws InvalidGameCallException {
 
-        throw new InvalidCallException();
+        throw new InvalidGameCallException();
     }
 
     @Override
-    public void callFaltaEnvido() throws InvalidCallException {
+    public void callFaltaEnvido() throws InvalidGameCallException {
 
-        throw new InvalidCallException();
+        throw new InvalidGameCallException();
     }
 }

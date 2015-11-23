@@ -15,7 +15,7 @@ public class NormalRound implements Games {
     @Override
     public void raiseBet(){
 
-//        this.theTable.raiseBet();
+        this.theTable.raiseBet(new Truco());
     }
 
     @Override

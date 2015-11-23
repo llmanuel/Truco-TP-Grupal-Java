@@ -1,6 +1,6 @@
 package model;
 
-import model.Exceptions.InvalidCallException;
+import model.Exceptions.InvalidGameCallException;
 
 public class Truco implements Games {
     int points = 2;
@@ -13,7 +13,7 @@ public class Truco implements Games {
     @Override
     public void raiseBet(){
 
-//        this.theTable.raiseBet();
+        this.theTable.raiseBet(new ReTruco());
     }
 
     @Override
@@ -23,20 +23,20 @@ public class Truco implements Games {
 
 
     @Override
-    public void callEnvido() throws InvalidCallException {
+    public void callEnvido() throws InvalidGameCallException {
 
-        throw new InvalidCallException();
+        throw new InvalidGameCallException();
     }
 
     @Override
-    public void callRealEnvido() throws InvalidCallException {
+    public void callRealEnvido() throws InvalidGameCallException {
 
-        throw new InvalidCallException();
+        throw new InvalidGameCallException();
     }
 
     @Override
-    public void callFaltaEnvido() throws InvalidCallException {
+    public void callFaltaEnvido() throws InvalidGameCallException {
 
-        throw new InvalidCallException();
+        throw new InvalidGameCallException();
     }
 }

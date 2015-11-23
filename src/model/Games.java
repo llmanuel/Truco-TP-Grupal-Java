@@ -1,12 +1,12 @@
 package model;
 
-import model.Exceptions.InvalidCallException;
+import model.Exceptions.InvalidGameCallException;
 
 public interface Games {
 
     int getPoints();
     void raiseBet();
-    void callEnvido() throws InvalidCallException;
-    void callRealEnvido() throws InvalidCallException;
-    void callFaltaEnvido() throws InvalidCallException;
+    void callEnvido() throws InvalidGameCallException;
+    void callRealEnvido() throws InvalidGameCallException;
+    void callFaltaEnvido() throws InvalidGameCallException;
 }
