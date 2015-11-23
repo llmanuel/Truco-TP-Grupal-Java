@@ -4,7 +4,7 @@ public class RealEnvido implements Games {
     int points = 3;
     private Table theTable;
 
-    public void RealEnvido(Table theTable){
+    public RealEnvido(Table theTable){
         this.theTable = theTable;
     }
 

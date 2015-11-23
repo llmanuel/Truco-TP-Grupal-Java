@@ -7,14 +7,14 @@ public class Vale4 implements Games {
     int points = 4;
     private Table theTable;
 
-    public void Vale4(Table theTable){
+    public Vale4(Table theTable){
         this.theTable = theTable;
     }
 
     @Override
-    public void raiseBet(){
+    public void raiseBet() throws InvalidGameCallException {
 
-        this.theTable.raiseBet(new Vale4());
+       throw new InvalidGameCallException();
     }
 
     @Override

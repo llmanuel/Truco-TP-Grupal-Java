@@ -7,7 +7,7 @@ public class NormalRound implements Games {
     int points = 1;
     private Table theTable;
 
-    public void FaltaEnvido(Table theTable){
+    public void NormalRound(Table theTable){
 
         this.theTable = theTable;
     }
@@ -15,7 +15,7 @@ public class NormalRound implements Games {
     @Override
     public void raiseBet(){
 
-        this.theTable.raiseBet(new Truco());
+        this.theTable.raiseBet(new Truco(theTable));
     }
 
     @Override
