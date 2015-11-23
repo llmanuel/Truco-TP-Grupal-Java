@@ -1,5 +1,6 @@
-package model;
+package model.TableStates;
 
+import model.Table;
 import model.TableStates.*;
 
 /**
