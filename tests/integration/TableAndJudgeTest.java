@@ -15,6 +15,7 @@ public class TableAndJudgeTest {
     private Judge judge;
     private Scoreboard scoreboard;
     private LinkedList<Player> fourPlayers;
+    private LinkedList<CanHaveScore> fourPlayersScoreboard;
 
     @Before
     public void setup() throws InvalidNumberOfPlayersException {
@@ -29,10 +30,17 @@ public class TableAndJudgeTest {
         fourPlayers.addLast(charles);
         fourPlayers.addLast(nick);
 
-
-//        this.scoreboard = new Scoreboard( 4 );
+        fourPlayersScoreboard = new LinkedList<CanHaveScore>();
+        fourPlayersScoreboard.addLast(myPLayer);
+        fourPlayersScoreboard.addLast(otherPLayer);
+        fourPlayersScoreboard.addLast(charles);
+        fourPlayersScoreboard.addLast(nick);
 
         this.table = new Table();
+
+
+        this.scoreboard = new Scoreboard( fourPlayersScoreboard, this.table );
+
         this.table.letSitThese( fourPlayers );
         this.table.setGame();
 
