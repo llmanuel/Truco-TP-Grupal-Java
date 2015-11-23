@@ -63,7 +63,7 @@ public class Table {
      *
      **************************/
 
-    public void raiseBet(){
+    public void raiseBet() throws InvalidGameCallException {
 
         this.gameState.raiseBet();
     }
