@@ -23,6 +23,7 @@ public class FaltaEnvido implements Games {
 
     @Override
     public int getPoints() {
+        //TODO terminar de pensar como manejar puntos del falta envido
         return 0;
     }
 
