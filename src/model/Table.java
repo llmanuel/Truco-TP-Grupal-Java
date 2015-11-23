@@ -3,6 +3,7 @@ package model;
 import model.Exceptions.InvalidGameCallException;
 import model.Exceptions.InvalidNumberOfPlayersException;
 import model.TableStates.Games;
+import model.TableStates.NormalRound;
 
 import java.util.LinkedList;
 
@@ -21,8 +22,13 @@ public class Table {
     public void Table(){
 
         Games gameState = new NormalRound(this);
-//        Judge judge = new Judge(); hay que meterle el constructor
     }
+
+    /**************************
+     *
+     * Here begins the methods to set up the table before the game begins
+     *
+     **************************/
 
     public void letSitThese(LinkedList<Player> Players) throws InvalidNumberOfPlayersException {
 
@@ -33,6 +39,10 @@ public class Table {
         else throw (new InvalidNumberOfPlayersException());
     }
 
+    public void getAJudge(Judge judge){
+
+        this.judge = judge;
+    }
     public int getNumberOfPlayers() {
         return (playersInGame.size());
     }
