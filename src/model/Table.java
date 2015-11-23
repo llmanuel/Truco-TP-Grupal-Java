@@ -44,14 +44,6 @@ public class Table {
         }
     }
 
-    public Card whichCardThrow(Player thisPlayer) throws NotCardThrownException, PlayerDoesNotExistsException {
-        for (Slot actualSlot: slotInGame){
-            if(actualSlot.isYourPlayer(thisPlayer)){
-                return actualSlot.getLastOne();
-            }
-        }
-        throw new PlayerDoesNotExistsException();
-    }
 
     public LinkedList<Slot> getSlots(){
         return this.slotInGame;
