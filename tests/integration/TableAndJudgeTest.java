@@ -1,6 +1,7 @@
 package integration;
 
 import model.*;
+import model.Exceptions.CanHaveScoreDoesntExistException;
 import model.Exceptions.InvalidNumberOfPlayersException;
 import model.Exceptions.NotCardThrownException;
 import model.TableStates.Games;
@@ -51,7 +52,7 @@ public class TableAndJudgeTest {
     }
 
     @Test (expected = NotCardThrownException.class)
-    public void judgeThrowsExceptionWhenNoCardHasBeenThrown() throws NotCardThrownException {
+    public void judgeThrowsExceptionWhenNoCardHasBeenThrown() throws NotCardThrownException, CanHaveScoreDoesntExistException {
         Games actualGame = new Truco(this.table);
         this.judge.setWinnerOfTheRound( this.table.getSlots(), actualGame);
     }
