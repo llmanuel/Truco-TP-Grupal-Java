@@ -9,7 +9,7 @@ public class Team {
         this.members = newMembers;
     }
 
-    public boolean isMember(Player player1) {
-        return this.members.contains( player1 );
+    public boolean isMember(Player player) {
+        return this.members.contains( player );
     }
 }
