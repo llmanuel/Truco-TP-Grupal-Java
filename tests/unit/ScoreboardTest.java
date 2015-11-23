@@ -1,68 +1,39 @@
 package unit;
 
-import model.Exceptions.PlayerDoesNotExistsException;
+import model.CanHaveScore;
+import model.HumanPlayer;
 import model.Scoreboard;
-import org.junit.Assert;
+import model.Table;
+import org.junit.Before;
 import org.junit.Test;
 
+import java.util.LinkedList;
 
 public class ScoreboardTest {
 
-    private static final Integer numberOfPlayers = 2;
+    private HumanPlayer player1;
+    private HumanPlayer player2;
+    private LinkedList<CanHaveScore> playerList;
+    private Table table;
 
-    /*@Test
-    public void canInstantiateScoreboard() {
-        Scoreboard scoreboard = new Scoreboard(numberOfPlayers);
+    @Before
+    public void setup(){
+        player1 = new HumanPlayer( 1 );
+        player2 = new HumanPlayer( 2 );
+
+        playerList = new LinkedList<CanHaveScore>( );
+        playerList.add( player1 );
+        playerList.add( player2 );
+
+        table = new Table();
     }
 
     @Test
-    public void scoreboardSuccessfulyInitialize() {
-
-        Scoreboard scoreboard = new Scoreboard(numberOfPlayers);
-        int playerID = 2;
-        Assert.assertTrue(0 == scoreboard.getPointsOf(playerID));
+    public void canInstantiateScoreboard(){
+        Scoreboard scoreboard = new Scoreboard( playerList, table );
 
     }
 
-    @Test
-    public void canIncreaseTheScoreOfThePlayer() {
-
-        Scoreboard scoreboard = new Scoreboard(numberOfPlayers);
-
-        int playerID = 2;
-        int score = 2;
-        int oldScore = scoreboard.getPointsOf(playerID);
-
-        scoreboard.increaseTheScoreOf(playerID, score);
-
-        Assert.assertTrue(oldScore + score == scoreboard.getPointsOf(playerID));
-
-    }
-
-    @Test(expected = PlayerDoesNotExistsException.class)
-    public void cantIncreaseTheScoreOfAnInvalidPlayer() throws PlayerDoesNotExistsException {
-
-        Scoreboard scoreboard = new Scoreboard(numberOfPlayers);
-
-        int playerID = 3;
-        int score = 2;
-
-        scoreboard.increaseTheScoreOf(playerID, score);
-    }
-
-    @Test
-    public void PlayerWin() {
-
-        Scoreboard scoreboard = new Scoreboard(numberOfPlayers);
-
-        int playerID = 2;
-        int score = 30;
-
-        scoreboard.increaseTheScoreOf(playerID, score);
-
-        Assert.assertTrue(playerID == scoreboard.lookForAWinner());
-
-    }*/
 
 
 }
