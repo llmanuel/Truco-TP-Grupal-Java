@@ -1,9 +1,8 @@
 import model.*;
-import model.Exceptions.CanHaveScoreDoesntExistException;
-import model.Exceptions.InvalidNumberOfPlayersException;
-import model.Exceptions.NotCardThrownException;
+import model.Exceptions.*;
 import model.TableStates.Games;
 import model.TableStates.Truco;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -56,8 +55,21 @@ public class TableAndJudgeTest {
     }
 
     @Test
-    public void tableCanPassSlotsAndGameToJudgeCorrectly(){
+    public void tableCanPassSlotsAndGameToJudgeCorrectly() throws InvalidSuiteException, InvalidCardNumberException, CanHaveScoreDoesntExistException {
+        Games actualGame = new Truco(this.table, 0);
+        Card card1 = new Card(1, "BASTO", 1);
+        Card card2 = new Card(3, "ORO", 3);
+        fourPlayers.get(1).playCard(card1);
+        fourPlayers.get(2).playCard(card2);
 
+        boolean exceptionWasThrowed = false;
+        try {
+            this.judge.setWinnerOfTheRound( this.table.getSlots(), actualGame);
+        } catch (NotCardThrownException e) {
+            exceptionWasThrowed = true;
+        }
+
+        Assert.assertFalse(exceptionWasThrowed);
     }
 
 
