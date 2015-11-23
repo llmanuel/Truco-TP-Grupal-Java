@@ -9,6 +9,12 @@ public class Envido implements Games {
         this.points = points;
     }
 
+    @Override
+    public int giveUp(){
+
+        return (this.getPoints() - 1);
+    }
+
     /*
     * Raises bet 2 points to another Envido
     */

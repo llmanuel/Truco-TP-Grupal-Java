@@ -15,10 +15,12 @@ public class Table {
     private Player cursor;
     private Player roundBeginner;
     private Games gameState;
+    private Judge judge;
 
     public void Table(){
 
-        Games gameState = new NormalRound();
+        Games gameState = new NormalRound(this);
+//        Judge judge = new Judge(); hay que meterle el constructor
     }
 
     public void letSitThese(LinkedList<Player> Players) throws InvalidNumberOfPlayersException {
@@ -91,6 +93,10 @@ public class Table {
     public void raiseBet(Games nextGame) {
 
         this.gameState = nextGame;
+    }
+
+    public void giveUpGame() {
+//        this.judge.; Le digo al judge que no quisieron
     }
 
     /**************************

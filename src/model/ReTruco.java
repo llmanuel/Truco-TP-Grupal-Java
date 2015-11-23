@@ -11,6 +11,12 @@ public class ReTruco implements Games {
     }
 
     @Override
+    public int giveUp(){
+
+        return (this.getPoints() - 1);
+    }
+
+    @Override
     public void raiseBet(){
 
         this.theTable.raiseBet(new Vale4(theTable));

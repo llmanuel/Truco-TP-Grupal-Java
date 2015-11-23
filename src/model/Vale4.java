@@ -12,6 +12,12 @@ public class Vale4 implements Games {
     }
 
     @Override
+    public int giveUp(){
+
+        return (this.getPoints() - 1);
+    }
+
+    @Override
     public void raiseBet() throws InvalidGameCallException {
 
        throw new InvalidGameCallException();

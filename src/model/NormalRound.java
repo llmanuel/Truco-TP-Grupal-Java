@@ -13,6 +13,12 @@ public class NormalRound implements Games {
     }
 
     @Override
+    public int giveUp(){
+
+        return (this.getPoints() - 1);
+    }
+
+    @Override
     public void raiseBet(){
 
         this.theTable.raiseBet(new Truco(theTable));

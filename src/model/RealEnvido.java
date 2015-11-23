@@ -12,6 +12,12 @@ public class RealEnvido implements Games {
     }
 
     @Override
+    public int giveUp(){
+
+        return (this.getPoints() - 1);
+    }
+
+    @Override
     public void raiseBet(){
 
         this.theTable.raiseBet(new RealEnvido(theTable, getPoints() + 3));
