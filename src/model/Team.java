@@ -2,7 +2,7 @@ package model;
 
 import java.util.LinkedList;
 
-public class Team {
+public class Team implements CanHaveScore{
     LinkedList<Player> members;
 
     public Team(LinkedList<Player> newMembers) {
