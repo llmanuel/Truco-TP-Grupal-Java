@@ -1,5 +1,7 @@
 package model;
 
+import model.Exceptions.InvalidGameCallException;
+
 /**
  * Created by manuel on 22/11/15.
  */
@@ -17,22 +19,22 @@ public class FaltaEnvido implements Games {
     }
 
     @Override
-    public void raiseBet() {
-
+    public void raiseBet() throws InvalidGameCallException {
+        throw new InvalidGameCallException();
     }
 
     @Override
-    public void callEnvido() {
-
+    public void callEnvido() throws InvalidGameCallException {
+        throw new InvalidGameCallException();
     }
 
     @Override
-    public void callRealEnvido() {
-
+    public void callRealEnvido() throws InvalidGameCallException {
+        throw new InvalidGameCallException();
     }
 
     @Override
-    public void callFaltaEnvido() {
-
+    public void callFaltaEnvido() throws InvalidGameCallException {
+        throw new InvalidGameCallException();
     }
 }

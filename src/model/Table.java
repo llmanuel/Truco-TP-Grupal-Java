@@ -110,7 +110,7 @@ public class Table {
     }
 
     /*
-     *PreCondition: Must setRoundBeginner() Before using this method.
+     * PreCondition: Must setRoundBeginner() Before using this method.
      * Returns the next player to play.
      */
     public Player nextPlayer(){

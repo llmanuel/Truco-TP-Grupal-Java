@@ -1,17 +1,20 @@
 package model;
 
+import model.Exceptions.InvalidGameCallException;
+
 public class RealEnvido implements Games {
-    int points = 3;
+    int points;
     private Table theTable;
 
-    public RealEnvido(Table theTable){
+    public RealEnvido(Table theTable, int points){
         this.theTable = theTable;
+        this.points = points;
     }
 
     @Override
     public void raiseBet(){
 
-//        this.theTable.raiseBet();
+        this.theTable.raiseBet(new RealEnvido(theTable, getPoints() + 3));
     }
 
     @Override
@@ -21,20 +24,20 @@ public class RealEnvido implements Games {
 
 
     @Override
-    public void callEnvido(){
+    public void callEnvido() throws InvalidGameCallException {
 
-//        this.theTable.raiseBet();
+        throw new InvalidGameCallException();
     }
 
     @Override
     public void callRealEnvido(){
 
-//        this.theTable.raiseBet();
+        this.theTable.raiseBet(new RealEnvido(theTable, getPoints() + 3));
     }
 
     @Override
     public void callFaltaEnvido(){
 
-//        this.theTable.raiseBet();
+        this.theTable.raiseBet(new FaltaEnvido(theTable));
     }
 }
