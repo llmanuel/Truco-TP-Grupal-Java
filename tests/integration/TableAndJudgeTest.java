@@ -3,6 +3,8 @@ package integration;
 import model.*;
 import model.Exceptions.InvalidNumberOfPlayersException;
 import model.Exceptions.NotCardThrownException;
+import model.TableStates.Games;
+import model.TableStates.Truco;
 import org.junit.Before;
 import org.junit.Test;
 

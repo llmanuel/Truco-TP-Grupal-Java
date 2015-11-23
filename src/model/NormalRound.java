@@ -1,5 +1,7 @@
 package model;
 
+import model.TableStates.*;
+
 /**
  * Created by manuel on 22/11/15.
  */
