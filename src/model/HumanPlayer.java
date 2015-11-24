@@ -5,9 +5,11 @@ public class HumanPlayer implements Player, CanHaveScore {
     private int playerId;
 	private Hand hand;
     private Slot slot;
+    private boolean isMyTurn;
 
     public HumanPlayer(int idNumber){
         playerId = idNumber;
+        isMyTurn = false;
     }
 
     @Override
@@ -28,6 +30,16 @@ public class HumanPlayer implements Player, CanHaveScore {
     @Override
     public void playCard(Card cardToPlay) {
        this.slot.receiveCard( this.hand.getCard(cardToPlay) );
+    }
+
+    @Override
+    public void itsMyTurn() {
+        this.isMyTurn = true;
+    }
+
+    @Override
+    public void turnFinished() {
+        this.isMyTurn = false;
     }
 
     @Override

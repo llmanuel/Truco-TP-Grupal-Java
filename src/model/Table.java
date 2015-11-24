@@ -23,7 +23,7 @@ public class Table {
 
     public void Table(){
 
-        Games gameState = new NormalRound(this);
+        gameState = new NormalRound(this);
         croupier = new Croupier();
     }
 
@@ -66,17 +66,12 @@ public class Table {
         for (Player actualPlayer : this.playersInGame){
             Slot newSlot = new Slot( actualPlayer );
             slotInGame.add(newSlot);
+            actualPlayer.setSlot(newSlot);
         }
     }
 
-
     public LinkedList<Slot> getSlots(){
         return this.slotInGame;
-    }
-
-    private void setCursorAt(Player thisPLayer){
-
-        cursor = thisPLayer;
     }
 
     /**************************
@@ -116,7 +111,8 @@ public class Table {
     }
 
     public void giveUpGame() {
-//        this.scoreboard.
+//        avisar al scoreBoard o al Judge que alguien se rindio y hay q darle los puntos al team corrrespondiente
+        this.gameState = new NormalRound(this);
     }
 
     /**************************
@@ -124,6 +120,11 @@ public class Table {
      * Here begins the methods for the iteration between the players
      *
      **************************/
+
+    private void setCursorAt(Player thisPLayer){
+
+        cursor = thisPLayer;
+    }
 
     /*
      * Sets who's the first to play.
@@ -169,6 +170,7 @@ public class Table {
      * End of iteration methods
      *
      *************************/
+
 //    public void iterateThePlayersFrom(Player theFirst){
 //        boolean youCanPlay = false;
 //        int everyBodyPLayed = 0;
