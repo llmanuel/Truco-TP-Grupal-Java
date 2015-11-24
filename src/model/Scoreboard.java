@@ -57,6 +57,6 @@ public class Scoreboard {
     }
 
     public void playerGaveUpThisGame(CanHaveScore player, Games game) {
-        
+
     }
 }
