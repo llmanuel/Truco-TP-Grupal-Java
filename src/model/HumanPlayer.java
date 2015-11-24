@@ -1,5 +1,7 @@
 package model;
 
+import model.Exceptions.NotYourTurnException;
+
 public class HumanPlayer implements Player, CanHaveScore {
 
     private int playerId;
@@ -28,12 +30,15 @@ public class HumanPlayer implements Player, CanHaveScore {
     }
 
     @Override
-    public void playCard(Card cardToPlay) {
-       this.slot.receiveCard( this.hand.getCard(cardToPlay) );
+    public void playCard(Card cardToPlay) throws NotYourTurnException {
+        if (isMyTurn) {
+            this.slot.receiveCard(this.hand.getCard(cardToPlay));
+        }
+        else throw new NotYourTurnException();
     }
 
     @Override
-    public void itsMyTurn() {
+    public void itsYourTurn() {
         this.isMyTurn = true;
     }
 

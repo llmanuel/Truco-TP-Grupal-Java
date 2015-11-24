@@ -38,7 +38,7 @@ public class CpuPlayer implements Player, CanHaveScore {
     }
 
     @Override
-    public void itsMyTurn() {
+    public void itsYourTurn() {
         this.isMyTurn = true;
     }
 

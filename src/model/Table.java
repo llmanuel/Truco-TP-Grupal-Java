@@ -133,7 +133,8 @@ public class Table {
     public void setRoundBeginner(Player thisPLayer){
 
         roundBeginner = thisPLayer;
-        setCursorAt(roundBeginner);
+        this.setCursorAt(roundBeginner);
+        thisPLayer.itsYourTurn();
     }
 
     /*
@@ -163,6 +164,11 @@ public class Table {
     private Player getCursor(){
 
         return this.cursor;
+    }
+
+    public void finishTurn(){
+        Player nextPlayer = this.nextPlayer();
+        nextPlayer.itsYourTurn();
     }
 
     /**************************
