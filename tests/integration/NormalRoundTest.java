@@ -1,3 +1,4 @@
+package integration;
 
 import model.*;
 import model.Exceptions.*;
@@ -59,7 +60,7 @@ public class NormalRoundTest {
 
     @Test
     public void playersCanPlayCardsInTheirTurn() throws NotYourTurnException, NotCardThrownException {
-        table.setGame();
+        table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
         player1.playCard(card1);
         Slot fristPlayerSlot = table.getSlots().getFirst();
         Card theCardPlayed = fristPlayerSlot.getLastOne();
@@ -69,9 +70,24 @@ public class NormalRoundTest {
     @Test (expected = NotYourTurnException.class)
     public void playersCanTPlayCardsOutOfTheirTurn() throws NotYourTurnException, NotCardThrownException {
         table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
-        player2.playCard(card1);
+        player2.playCard(card4);
+        Slot SecondPlayerSlot = table.getSlots().getFirst();
+        Card theCardPlayed = SecondPlayerSlot.getLastOne();
+        Assert.assertEquals(card4,theCardPlayed);
+    }
+
+    @Test
+    public void whenPlayersFinishThierTurnTheOtherOneCanPlay() throws NotYourTurnException, NotCardThrownException {
+        table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
+        player1.playCard(card1);
         Slot fristPlayerSlot = table.getSlots().getFirst();
         Card theCardPlayed = fristPlayerSlot.getLastOne();
         Assert.assertEquals(card1,theCardPlayed);
+        table.finishTurn();
+
+        player2.playCard(card4);
+        Slot SecondPlayerSlot = table.getSlots().getLast();
+        Card theCardPlayed2 = SecondPlayerSlot.getLastOne();
+        Assert.assertEquals(card4,theCardPlayed2);
     }
 }
