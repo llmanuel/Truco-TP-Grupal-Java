@@ -41,7 +41,7 @@ public class HumanPlayer implements Player, CanHaveScore {
     public void playCard(Card cardToPlay) throws NotYourTurnException {
         if (isMyTurn) {
             this.slot.receiveCard(this.hand.getCard(cardToPlay));
-            this.turnFinished();
+            this.table.finishTurn();
         }
         else throw new NotYourTurnException();
     }

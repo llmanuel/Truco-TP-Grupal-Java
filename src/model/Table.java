@@ -170,6 +170,8 @@ public class Table {
     }
 
     public void finishTurn(){
+        Player actualPlayer = this.getActualPlayer();
+        actualPlayer.turnFinished();
         Player nextPlayer = this.nextPlayer();
         nextPlayer.itsYourTurn();
     }
