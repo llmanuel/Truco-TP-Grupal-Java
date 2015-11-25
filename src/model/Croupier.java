@@ -9,7 +9,7 @@ import java.util.LinkedList;
 public class Croupier {
     private Deck deck;
 
-    public Croupier() throws InvalidSuiteException, InvalidCardNumberException {
+    public Croupier() {
         this.initializeDeck();
     }
 
@@ -26,11 +26,11 @@ public class Croupier {
 
     }
 
-    private void initializeDeck() throws InvalidSuiteException, InvalidCardNumberException {
+    private void initializeDeck() {
         this.deck = new Deck();
     }
 
-    public void prepareForNewRound() throws InvalidSuiteException, InvalidCardNumberException {
+    public void prepareForNewRound() {
 
         this.initializeDeck();
     }

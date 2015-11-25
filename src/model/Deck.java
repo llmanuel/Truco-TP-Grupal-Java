@@ -14,7 +14,7 @@ public class Deck {
     private final LinkedList<Card> cards;
 
 
-    public Deck() throws InvalidSuiteException, InvalidCardNumberException {
+    public Deck() {
         this.cards = new LinkedList<Card>();
 
         for (int number : VALID_NUMBERS){
