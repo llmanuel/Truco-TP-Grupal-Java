@@ -1,8 +1,7 @@
 
 import model.*;
-import model.Exceptions.InvalidCardNumberException;
-import model.Exceptions.InvalidNumberOfPlayersException;
-import model.Exceptions.InvalidSuiteException;
+import model.Exceptions.*;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -59,8 +58,12 @@ public class NormalRoundTest {
     }
 
     @Test
-    public void playersCanOnlyPlayOnTheirTurn(){
+    public void playersCanPlayCardsInTheirTurn() throws NotYourTurnException, NotCardThrownException {
         table.setGame();
+        player1.playCard(card1);
+        Slot fristPlayerSlot = table.getSlots().getFirst();
+        Card theCardPlayed = fristPlayerSlot.getLastOne();
+        Assert.assertEquals(card1,theCardPlayed);
     }
 
 

@@ -2,6 +2,7 @@ import model.*;
 import model.Exceptions.InvalidCardNumberException;
 import model.Exceptions.InvalidSuiteException;
 import model.Exceptions.NotCardThrownException;
+import model.Exceptions.NotYourTurnException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,9 +26,9 @@ public class PlayerAndSlotTest {
     }
 
     @Test
-    public void playerCanPlayACertainCard() throws NotCardThrownException {
+    public void playerCanPlayACertainCard() throws NotCardThrownException, NotYourTurnException {
         Card cardToPlay = this.player.getHand().getCards().getFirst();
-
+        this.player.itsYourTurn();
         this.player.playCard( cardToPlay );
 
         Assert.assertTrue( this.slot.getLastOne() == cardToPlay);
