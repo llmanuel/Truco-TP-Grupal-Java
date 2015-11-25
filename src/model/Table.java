@@ -37,10 +37,10 @@ public class Table {
 
     public void letSitThese(LinkedList<Player> Players) throws InvalidNumberOfPlayersException {
 
-        if( (Players.size() == 2) || (Players.size() == 4) ||(Players.size() == 6))
-        this.playersInGame =Players;
+        if( (Players.size() == 2) || (Players.size() == 4) ||(Players.size() == 6)) {
 
-
+            this.playersInGame = Players;
+        }
         else throw (new InvalidNumberOfPlayersException());
     }
 

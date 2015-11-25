@@ -56,6 +56,10 @@ public class NormalRoundTest {
 
         table = new Table();
         table.letSitThese(playersList);
+
+        player1.sitOnTable(table);
+        player2.sitOnTable(table);
+
     }
 
     @Test
@@ -65,6 +69,19 @@ public class NormalRoundTest {
         Slot fristPlayerSlot = table.getSlots().getFirst();
         Card theCardPlayed = fristPlayerSlot.getLastOne();
         Assert.assertEquals(card1,theCardPlayed);
+    }
+
+    @Test (expected = NotYourTurnException.class)
+    public void playersCanTPlayMoreThanACardInTheirTurn() throws NotYourTurnException, NotCardThrownException {
+        table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
+        player1.playCard(card1);
+        Slot fristPlayerSlot = table.getSlots().getFirst();
+        Card theCardPlayed = fristPlayerSlot.getLastOne();
+        Assert.assertEquals(card1,theCardPlayed);
+
+        player1.playCard(card2);
+        Card theSecondCardPlayed = table.getSlots().getFirst().getLastOne();
+        Assert.assertEquals(card2,theSecondCardPlayed);
     }
 
     @Test (expected = NotYourTurnException.class)
@@ -79,15 +96,17 @@ public class NormalRoundTest {
     @Test
     public void whenPlayersFinishThierTurnTheOtherOneCanPlay() throws NotYourTurnException, NotCardThrownException {
         table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
-        player1.playCard(card1);
+        player1.playCard(card1);/*When a Player plays a Card, it's turn finish automatically*/
         Slot fristPlayerSlot = table.getSlots().getFirst();
         Card theCardPlayed = fristPlayerSlot.getLastOne();
         Assert.assertEquals(card1,theCardPlayed);
-        table.finishTurn();
+
 
         player2.playCard(card4);
         Slot SecondPlayerSlot = table.getSlots().getLast();
         Card theCardPlayed2 = SecondPlayerSlot.getLastOne();
         Assert.assertEquals(card4,theCardPlayed2);
     }
+
+
 }
