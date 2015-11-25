@@ -9,8 +9,8 @@ public class Builder {
         LinkedList<Player> thePlayers = new LinkedList<Player>();
         LinkedList<CanHaveScore> theCanHaveScorePL = new LinkedList<CanHaveScore>();
 
-        int i = 1;
-        while (i <= numberOfPlayers ) {
+        /*creating required n. of players*/
+        for (int i = 1; i <= numberOfPlayers; i++){
             HumanPlayer newPlayer = new HumanPlayer(i);
             thePlayers.add(newPlayer);
             theCanHaveScorePL.add(newPlayer);
