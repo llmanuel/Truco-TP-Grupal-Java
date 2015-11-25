@@ -2,6 +2,7 @@ package model;
 
 import model.Exceptions.NotYourTurnException;
 
+
 public class HumanPlayer implements Player, CanHaveScore {
 
     private int playerId;

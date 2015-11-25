@@ -10,7 +10,6 @@ public class Croupier {
     private Deck deck;
 
     public Hand giveHand() throws InvalidSuiteException, InvalidCardNumberException {
-        this.deck = new Deck();
         LinkedList<Card> newCards = new LinkedList<Card>();
 
         newCards.add(deck.getCard());
@@ -25,5 +24,10 @@ public class Croupier {
 
     private void initializeDeck() throws InvalidSuiteException, InvalidCardNumberException {
         this.deck = new Deck();
+    }
+
+    public void prepareForNewRound() throws InvalidSuiteException, InvalidCardNumberException {
+
+        this.initializeDeck();
     }
 }
