@@ -55,23 +55,44 @@ public class TableAndJudgeTest {
     }
 
     @Test
-    public void tableCanPassSlotsAndGameToJudgeCorrectly() throws InvalidSuiteException, InvalidCardNumberException, CanHaveScoreDoesntExistException {
+    public void tableCanPassSlotsAndGameToJudgeCorrectly() throws InvalidSuiteException, InvalidCardNumberException, CanHaveScoreDoesntExistException, NotYourTurnException {
         Games actualGame = new Truco(this.table, 0);
         Card card1 = new Card(1, "BASTO", 1);
         Card card2 = new Card(3, "ORO", 3);
+        Card card3 = new Card(4, "ORO", 4);
+        Card card4 = new Card(5, "ORO", 5);
+
+        LinkedList<Card> listOfCards = new LinkedList<Card>();
+        listOfCards.add(card1);
+        listOfCards.add(card2);
+        listOfCards.add(card3);
+        listOfCards.add(card4);
+
+        Hand hand = new Hand(listOfCards);
+
+        fourPlayers.get(0).sitOnTable(table);
+        fourPlayers.get(1).sitOnTable(table);
+        fourPlayers.get(2).sitOnTable(table);
+        fourPlayers.get(3).sitOnTable(table);
+
+        fourPlayers.get(0).setHand(hand);
+        fourPlayers.get(1).setHand(hand);
+        fourPlayers.get(2).setHand(hand);
+        fourPlayers.get(3).setHand(hand);
+
         fourPlayers.get(0).playCard(card1);
         fourPlayers.get(1).playCard(card2);
-        fourPlayers.get(2).playCard(card2);
-        fourPlayers.get(3).playCard(card2);
+        fourPlayers.get(2).playCard(card3);
+        fourPlayers.get(3).playCard(card4);
 
-        boolean exceptionWasThrowed = false;
+        boolean exceptionRised = false;
         try {
             this.judge.setWinnerOfTheRound( this.table.getSlots(), actualGame);
         } catch (NotCardThrownException e) {
-            exceptionWasThrowed = true;
+            exceptionRised = true;
         }
 
-        Assert.assertFalse(exceptionWasThrowed);
+        Assert.assertFalse(exceptionRised);
     }
 
 
