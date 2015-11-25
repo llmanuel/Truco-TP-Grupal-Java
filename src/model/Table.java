@@ -40,6 +40,7 @@ public class Table {
         if( (Players.size() == 2) || (Players.size() == 4) ||(Players.size() == 6)) {
 
             this.playersInGame = Players;
+            this.createSlots(this.playersInGame.size());
         }
         else throw (new InvalidNumberOfPlayersException());
     }
@@ -60,7 +61,7 @@ public class Table {
 
 
     public void setGame() {
-        this.createSlots(this.playersInGame.size());
+
         this.setRoundBeginner(this.playersInGame.getFirst());
     }
 
