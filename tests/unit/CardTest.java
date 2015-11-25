@@ -18,17 +18,17 @@ public class CardTest {
     }
 
 
-    @Test (expected = InvalidCardNumberException.class)
-    public void cantCreateCardeWithHigherValueThan12() throws InvalidSuiteException, InvalidCardNumberException {
-        Card card = new Card(14, VALID_SUIT, VALID_VALUE);
-
-    }
-
-    @Test (expected = InvalidSuiteException.class)
-    public void cantCreateCardeWithInvalidSuit() throws InvalidSuiteException, InvalidCardNumberException {
-        Card card = new Card(VALID_NUMBER, "FAFAFA", VALID_VALUE);
-
-    }
+//    @Test (expected = InvalidCardNumberException.class)
+//    public void cantCreateCardeWithHigherValueThan12() throws InvalidSuiteException, InvalidCardNumberException {
+//        Card card = new Card(14, VALID_SUIT, VALID_VALUE);
+//
+//    }
+//
+//    @Test (expected = InvalidSuiteException.class)
+//    public void cantCreateCardeWithInvalidSuit() throws InvalidSuiteException, InvalidCardNumberException {
+//        Card card = new Card(VALID_NUMBER, "FAFAFA", VALID_VALUE);
+//
+//    }
 
     @Test
     public void cardReturnsCorrectNumber() throws InvalidSuiteException, InvalidCardNumberException {

@@ -9,8 +9,11 @@ import java.util.LinkedList;
 public class Croupier {
     private Deck deck;
 
+    public Croupier() {
+        this.initializeDeck();
+    }
+
     public Hand giveHand() throws InvalidSuiteException, InvalidCardNumberException {
-        this.deck = new Deck();
         LinkedList<Card> newCards = new LinkedList<Card>();
 
         newCards.add(deck.getCard());
@@ -23,7 +26,12 @@ public class Croupier {
 
     }
 
-    private void initializeDeck() throws InvalidSuiteException, InvalidCardNumberException {
+    private void initializeDeck() {
         this.deck = new Deck();
+    }
+
+    public void prepareForNewRound() {
+
+        this.initializeDeck();
     }
 }

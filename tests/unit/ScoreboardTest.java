@@ -52,11 +52,23 @@ public class ScoreboardTest {
 
         LinkedList<CanHaveScore> players = scoreboard.getPlayers();
 
-        Truco truco = new Truco( this.table );
+        Truco truco = new Truco( this.table, 0 );
 
         scoreboard.increaseTheScoreOf( players.getFirst(),  truco );
 
         Assert.assertEquals( 2, scoreboard.getPointsOf( players.getFirst()) , 0.001 );
+
+    }
+
+    @Test
+    public void pointsIncreaseCorrectlyWhenGameGaveUp(){
+        Scoreboard scoreboard = new Scoreboard( playerList, table );
+
+        LinkedList<CanHaveScore> players = scoreboard.getPlayers();
+
+        Truco truco = new Truco( this.table, 0 );
+
+        scoreboard.playerGaveUpThisGame(players.getFirst(), truco);
 
     }
 

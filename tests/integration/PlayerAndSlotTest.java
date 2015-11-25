@@ -2,6 +2,7 @@ import model.*;
 import model.Exceptions.InvalidCardNumberException;
 import model.Exceptions.InvalidSuiteException;
 import model.Exceptions.NotCardThrownException;
+import model.Exceptions.NotYourTurnException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,16 +23,18 @@ public class PlayerAndSlotTest {
         this.player.setSlot( this.slot );
 
         this.player.setHand( this.croupier.giveHand() );
+
     }
 
-    @Test
-    public void playerCanPlayACertainCard() throws NotCardThrownException {
-        Card cardToPlay = this.player.getHand().getCards().getFirst();
-
-        this.player.playCard( cardToPlay );
-
-        Assert.assertTrue( this.slot.getLastOne() == cardToPlay);
-    }
+    /*Players Must have a Table to play*/
+//    @Test
+//    public void playerCanPlayACertainCard() throws NotCardThrownException, NotYourTurnException {
+//        Card cardToPlay = this.player.getHand().getCards().getFirst();
+//        this.player.itsYourTurn();
+//        this.player.playCard( cardToPlay );
+//
+//        Assert.assertTrue( this.slot.getLastOne() == cardToPlay);
+//    }
 
 
 }

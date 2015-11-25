@@ -16,10 +16,7 @@ public class Card {
     private Integer number, value;
     private String suit;
 
-    public Card(Integer number, String suit, Integer value) throws InvalidCardNumberException, InvalidSuiteException {
-
-        this.validateNumber(number);
-        this.validateSuit(suit);
+    public Card(Integer number, String suit, Integer value) {
 
         this.number = number;
         this.suit = suit;

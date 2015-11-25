@@ -1,7 +1,9 @@
 package model;
 
+import model.Exceptions.InvalidCardNumberException;
 import model.Exceptions.InvalidGameCallException;
 import model.Exceptions.InvalidNumberOfPlayersException;
+import model.Exceptions.InvalidSuiteException;
 import model.TableStates.Games;
 import model.TableStates.NormalRound;
 
@@ -21,9 +23,9 @@ public class Table {
     private Croupier croupier;
     private Scoreboard scoreboard;
 
-    public void Table(){
+    public void Table() throws InvalidSuiteException, InvalidCardNumberException {
 
-        Games gameState = new NormalRound(this);
+        gameState = new NormalRound(this);
         croupier = new Croupier();
     }
 
@@ -35,10 +37,11 @@ public class Table {
 
     public void letSitThese(LinkedList<Player> Players) throws InvalidNumberOfPlayersException {
 
-        if( (Players.size() == 2) || (Players.size() == 4) ||(Players.size() == 6))
-        this.playersInGame =Players;
+        if( (Players.size() == 2) || (Players.size() == 4) ||(Players.size() == 6)) {
 
-
+            this.playersInGame = Players;
+            this.createSlots(this.playersInGame.size());
+        }
         else throw (new InvalidNumberOfPlayersException());
     }
 
@@ -58,7 +61,8 @@ public class Table {
 
 
     public void setGame() {
-        this.createSlots(this.playersInGame.size());
+
+        this.setRoundBeginner(this.playersInGame.getFirst());
     }
 
     private void createSlots(int size) {
@@ -66,17 +70,12 @@ public class Table {
         for (Player actualPlayer : this.playersInGame){
             Slot newSlot = new Slot( actualPlayer );
             slotInGame.add(newSlot);
+            actualPlayer.setSlot(newSlot);
         }
     }
 
-
     public LinkedList<Slot> getSlots(){
         return this.slotInGame;
-    }
-
-    private void setCursorAt(Player thisPLayer){
-
-        cursor = thisPLayer;
     }
 
     /**************************
@@ -116,7 +115,8 @@ public class Table {
     }
 
     public void giveUpGame() {
-//        this.scoreboard.
+//        avisar al scoreBoard o al Judge que alguien se rindio y hay q darle los puntos al team corrrespondiente
+        this.gameState = new NormalRound(this);
     }
 
     /**************************
@@ -125,14 +125,20 @@ public class Table {
      *
      **************************/
 
+    private void setCursorAt(Player thisPLayer){
+
+        cursor = thisPLayer;
+    }
+
     /*
      * Sets who's the first to play.
      * This will also set cursor at the round beginner.
      */
-    public void setRoundBeginner(Player thisPLayer){
+    public void setRoundBeginner(Player thisPlayer){
 
-        roundBeginner = thisPLayer;
-        setCursorAt(roundBeginner);
+        roundBeginner = thisPlayer;
+        this.setCursorAt(roundBeginner);
+        thisPlayer.itsYourTurn();
     }
 
     /*
@@ -140,8 +146,8 @@ public class Table {
      * Returns the next player to play.
      */
     public Player nextPlayer(){
-        Player thatPlayer = cursor;
         this.getTheNextOne();
+        Player thatPlayer = cursor;
         return thatPlayer;
     }
 
@@ -159,11 +165,24 @@ public class Table {
        }catch (IndexOutOfBoundsException e){setCursorAt( playersInGame.getFirst());}
     }
 
+    public Player getActualPlayer(){
+
+        return this.cursor;
+    }
+
+    public void finishTurn(){
+        Player actualPlayer = this.getActualPlayer();
+        actualPlayer.turnFinished();
+        Player nextPlayer = this.nextPlayer();
+        nextPlayer.itsYourTurn();
+    }
+
     /**************************
      *
      * End of iteration methods
      *
      *************************/
+
 //    public void iterateThePlayersFrom(Player theFirst){
 //        boolean youCanPlay = false;
 //        int everyBodyPLayed = 0;
