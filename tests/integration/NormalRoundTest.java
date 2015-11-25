@@ -1,8 +1,8 @@
+package integration;
 
 import model.*;
-import model.Exceptions.InvalidCardNumberException;
-import model.Exceptions.InvalidNumberOfPlayersException;
-import model.Exceptions.InvalidSuiteException;
+import model.Exceptions.*;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -59,9 +59,35 @@ public class NormalRoundTest {
     }
 
     @Test
-    public void playersCanOnlyPlayOnTheirTurn(){
-        table.setGame();
+    public void playersCanPlayCardsInTheirTurn() throws NotYourTurnException, NotCardThrownException {
+        table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
+        player1.playCard(card1);
+        Slot fristPlayerSlot = table.getSlots().getFirst();
+        Card theCardPlayed = fristPlayerSlot.getLastOne();
+        Assert.assertEquals(card1,theCardPlayed);
     }
 
+    @Test (expected = NotYourTurnException.class)
+    public void playersCanTPlayCardsOutOfTheirTurn() throws NotYourTurnException, NotCardThrownException {
+        table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
+        player2.playCard(card4);
+        Slot SecondPlayerSlot = table.getSlots().getFirst();
+        Card theCardPlayed = SecondPlayerSlot.getLastOne();
+        Assert.assertEquals(card4,theCardPlayed);
+    }
 
+    @Test
+    public void whenPlayersFinishThierTurnTheOtherOneCanPlay() throws NotYourTurnException, NotCardThrownException {
+        table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
+        player1.playCard(card1);
+        Slot fristPlayerSlot = table.getSlots().getFirst();
+        Card theCardPlayed = fristPlayerSlot.getLastOne();
+        Assert.assertEquals(card1,theCardPlayed);
+        table.finishTurn();
+
+        player2.playCard(card4);
+        Slot SecondPlayerSlot = table.getSlots().getLast();
+        Card theCardPlayed2 = SecondPlayerSlot.getLastOne();
+        Assert.assertEquals(card4,theCardPlayed2);
+    }
 }

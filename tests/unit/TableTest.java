@@ -19,40 +19,40 @@ public class TableTest {
     LinkedList<Player> ThreePlayers;
     LinkedList<Player> FourPlayers;
     LinkedList<Player> SixPlayers;
-    HumanPlayer myPLayer;
-    HumanPlayer otherPLayer;
-    HumanPlayer charles;
-    HumanPlayer nick;
+    HumanPlayer firstPlayer;
+    HumanPlayer secondPlayer;
+    HumanPlayer thirdPlayer;
+    HumanPlayer fourthPlayer;
     @Before
     public void setup(){
-        myPLayer = new HumanPlayer(1);
-        otherPLayer = new HumanPlayer(2);
-        charles = new HumanPlayer(3);
-        nick = new HumanPlayer(4);
+        firstPlayer = new HumanPlayer(1);
+        secondPlayer = new HumanPlayer(2);
+        thirdPlayer = new HumanPlayer(3);
+        fourthPlayer = new HumanPlayer(4);
         HumanPlayer josh = new HumanPlayer(5);
         HumanPlayer robert = new HumanPlayer(6);
 
         TwoPlayers = new LinkedList<Player>();
-        TwoPlayers.addLast(myPLayer);
-        TwoPlayers.addLast(otherPLayer);
+        TwoPlayers.addLast(firstPlayer);
+        TwoPlayers.addLast(secondPlayer);
 
         ThreePlayers = new LinkedList<Player>();
-        ThreePlayers.addLast(myPLayer);
-        ThreePlayers.addLast(otherPLayer);
-        ThreePlayers.addLast(charles);
+        ThreePlayers.addLast(firstPlayer);
+        ThreePlayers.addLast(secondPlayer);
+        ThreePlayers.addLast(thirdPlayer);
 
 
         FourPlayers = new LinkedList<Player>();
-        FourPlayers.addLast(myPLayer);
-        FourPlayers.addLast(otherPLayer);
-        FourPlayers.addLast(charles);
-        FourPlayers.addLast(nick);
+        FourPlayers.addLast(firstPlayer);
+        FourPlayers.addLast(secondPlayer);
+        FourPlayers.addLast(thirdPlayer);
+        FourPlayers.addLast(fourthPlayer);
 
         SixPlayers = new LinkedList<Player>();
-        SixPlayers.addLast(myPLayer);
-        SixPlayers.addLast(otherPLayer);
-        SixPlayers.addLast(charles);
-        SixPlayers.addLast(nick);
+        SixPlayers.addLast(firstPlayer);
+        SixPlayers.addLast(secondPlayer);
+        SixPlayers.addLast(thirdPlayer);
+        SixPlayers.addLast(fourthPlayer);
         SixPlayers.addLast(josh);
         SixPlayers.addLast(robert);
     }
@@ -111,8 +111,9 @@ public class TableTest {
         table = new Table();
         table.letSitThese( FourPlayers );
         table.setGame();
-        table.setRoundBeginner(myPLayer);
-        int i = 1;
+        table.setRoundBeginner(firstPlayer);
+        Assert.assertEquals(1,table.getActualPlayer().getIdNumber());
+        int i = 2;
         while (i < 4){
             Assert.assertEquals(i,table.nextPlayer().getIdNumber());
             i = i + 1;
@@ -125,9 +126,9 @@ public class TableTest {
         table = new Table();
         table.letSitThese( FourPlayers );
         table.setGame();
-        table.setRoundBeginner(otherPLayer);
+        table.setRoundBeginner(secondPlayer);
 
-        Assert.assertEquals(2,table.nextPlayer().getIdNumber());
+        Assert.assertEquals(2,table.getActualPlayer().getIdNumber());
         Assert.assertEquals(3,table.nextPlayer().getIdNumber());
         Assert.assertEquals(4,table.nextPlayer().getIdNumber());
         Assert.assertEquals(1,table.nextPlayer().getIdNumber());
@@ -138,9 +139,9 @@ public class TableTest {
         table = new Table();
         table.letSitThese( FourPlayers );
         table.setGame();
-        table.setRoundBeginner(charles);
+        table.setRoundBeginner(thirdPlayer);
 
-        Assert.assertEquals(3,table.nextPlayer().getIdNumber());
+        Assert.assertEquals(3,table.getActualPlayer().getIdNumber());
         Assert.assertEquals(4,table.nextPlayer().getIdNumber());
         Assert.assertEquals(1,table.nextPlayer().getIdNumber());
         Assert.assertEquals(2,table.nextPlayer().getIdNumber());
@@ -151,9 +152,9 @@ public class TableTest {
         table = new Table();
         table.letSitThese( FourPlayers );
         table.setGame();
-        table.setRoundBeginner(nick);
+        table.setRoundBeginner(fourthPlayer);
 
-        Assert.assertEquals(4,table.nextPlayer().getIdNumber());
+        Assert.assertEquals(4,table.getActualPlayer().getIdNumber());
         Assert.assertEquals(1,table.nextPlayer().getIdNumber());
         Assert.assertEquals(2,table.nextPlayer().getIdNumber());
         Assert.assertEquals(3,table.nextPlayer().getIdNumber());

@@ -12,7 +12,7 @@ public class Croupier {
     public Croupier() {
         this.initializeDeck();
     }
-    
+
     public Hand giveHand() throws InvalidSuiteException, InvalidCardNumberException {
         LinkedList<Card> newCards = new LinkedList<Card>();
 

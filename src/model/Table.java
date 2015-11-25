@@ -1,7 +1,9 @@
 package model;
 
+import model.Exceptions.InvalidCardNumberException;
 import model.Exceptions.InvalidGameCallException;
 import model.Exceptions.InvalidNumberOfPlayersException;
+import model.Exceptions.InvalidSuiteException;
 import model.TableStates.Games;
 import model.TableStates.NormalRound;
 
@@ -21,7 +23,7 @@ public class Table {
     private Croupier croupier;
     private Scoreboard scoreboard;
 
-    public void Table(){
+    public void Table() throws InvalidSuiteException, InvalidCardNumberException {
 
         gameState = new NormalRound(this);
         croupier = new Croupier();
@@ -59,6 +61,7 @@ public class Table {
 
     public void setGame() {
         this.createSlots(this.playersInGame.size());
+        this.setRoundBeginner(this.playersInGame.getFirst());
     }
 
     private void createSlots(int size) {
@@ -130,11 +133,11 @@ public class Table {
      * Sets who's the first to play.
      * This will also set cursor at the round beginner.
      */
-    public void setRoundBeginner(Player thisPLayer){
+    public void setRoundBeginner(Player thisPlayer){
 
-        roundBeginner = thisPLayer;
+        roundBeginner = thisPlayer;
         this.setCursorAt(roundBeginner);
-        thisPLayer.itsYourTurn();
+        thisPlayer.itsYourTurn();
     }
 
     /*
@@ -161,12 +164,14 @@ public class Table {
        }catch (IndexOutOfBoundsException e){setCursorAt( playersInGame.getFirst());}
     }
 
-    private Player getCursor(){
+    public Player getActualPlayer(){
 
         return this.cursor;
     }
 
     public void finishTurn(){
+        Player actualPlayer = this.getActualPlayer();
+        actualPlayer.turnFinished();
         Player nextPlayer = this.nextPlayer();
         nextPlayer.itsYourTurn();
     }

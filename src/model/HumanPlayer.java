@@ -9,6 +9,7 @@ public class HumanPlayer implements Player, CanHaveScore {
 	private Hand hand;
     private Slot slot;
     private boolean isMyTurn;
+    private Table table;
 
     public HumanPlayer(int idNumber){
         playerId = idNumber;
@@ -31,9 +32,16 @@ public class HumanPlayer implements Player, CanHaveScore {
     }
 
     @Override
+    public void sitOnTable(Table table) {
+
+        this.table = table;
+    }
+
+    @Override
     public void playCard(Card cardToPlay) throws NotYourTurnException {
         if (isMyTurn) {
             this.slot.receiveCard(this.hand.getCard(cardToPlay));
+            this.table.finishTurn();
         }
         else throw new NotYourTurnException();
     }

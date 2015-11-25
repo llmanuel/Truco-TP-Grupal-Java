@@ -6,6 +6,7 @@ public class CpuPlayer implements Player, CanHaveScore {
     private Hand hand;
     private Slot slot;
     private boolean isMyTurn;
+    private Table table;
 
     public CpuPlayer(int idNumber){
         playerId = idNumber;
@@ -20,6 +21,12 @@ public class CpuPlayer implements Player, CanHaveScore {
     @Override
     public void setSlot(Slot actualSlot){
         this.slot = actualSlot;
+    }
+
+    @Override
+    public void sitOnTable(Table table) {
+
+        this.table = table;
     }
 
     @Override
