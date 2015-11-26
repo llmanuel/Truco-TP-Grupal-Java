@@ -2,7 +2,6 @@ import model.*;
 import model.Exceptions.*;
 import model.TableStates.Games;
 import model.TableStates.Truco;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -71,7 +70,7 @@ public class TableAndJudgeTest {
     }
 
     @Test (expected = NotCardThrownException.class)
-    public void judgeThrowsExceptionWhenNoCardHasBeenThrown() throws NotCardThrownException, CanHaveScoreDoesntExistException {
+    public void judgeThrowsExceptionWhenNoCardHasBeenThrown() throws NotCardThrownException, TeamDoesntExistException {
         Games actualGame = new Truco(this.table, 0);
         this.judge.setWinnerOfTheRound( this.table.getSlots(), actualGame);
     }

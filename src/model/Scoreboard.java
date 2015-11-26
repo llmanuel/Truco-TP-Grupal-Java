@@ -1,6 +1,6 @@
 package model;
 
-import model.Exceptions.CanHaveScoreDoesntExistException;
+import model.Exceptions.TeamDoesntExistException;
 import model.TableStates.Games;
 
 import java.util.LinkedList;
@@ -21,19 +21,19 @@ public class Scoreboard {
         this.table = table;
 	}
 
-	public int getPointsOf(Team whomWantedScoreIs) throws CanHaveScoreDoesntExistException {
+	public int getPointsOf(Team whomWantedScoreIs) throws TeamDoesntExistException {
         return  this.getScore(whomWantedScoreIs).getScore();
 	}
 
-    private Score getScore(Team whomWantedScoreIs) throws CanHaveScoreDoesntExistException {
+    private Score getScore(Team whomWantedScoreIs) throws TeamDoesntExistException {
         for (Score scoreActual : this.scores)
             if (scoreActual.getMember() == whomWantedScoreIs) {
                 return scoreActual;
             }
-        throw new CanHaveScoreDoesntExistException();
+        throw new TeamDoesntExistException();
     }
 
-    public void increaseTheScoreOf(Team whomScoreGonnaBeIncreased, Games actualGame) throws CanHaveScoreDoesntExistException {
+    public void increaseTheScoreOf(Team whomScoreGonnaBeIncreased, Games actualGame) throws TeamDoesntExistException {
         this.getScore( whomScoreGonnaBeIncreased ).increaseScoreBy(actualGame.getPoints());
         this.didAnyoneWinAlready();
 	}

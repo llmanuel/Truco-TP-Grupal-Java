@@ -145,6 +145,9 @@ public class Table {
      */
     public Player nextPlayer(){
         this.getTheNextOne();
+        if (cursor == roundBeginner){
+//            Player nextBeginer = judge.setWinnerOfTheRound(this.getSlots(),this.gameState);
+        }
         Player thatPlayer = cursor;
         return thatPlayer;
     }

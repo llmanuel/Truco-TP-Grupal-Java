@@ -1,9 +1,4 @@
 import model.*;
-import model.Exceptions.CanHaveScoreDoesntExistException;
-import model.TableStates.Truco;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 
 import java.util.LinkedList;
 
@@ -36,7 +31,7 @@ public class ScoreboardTest {
     }
 
     @Test
-    public void scoreboardStartsWithZeroPoints() throws CanHaveScoreDoesntExistException {
+    public void scoreboardStartsWithZeroPoints() throws TeamDoesntExistException {
         Scoreboard scoreboard = new Scoreboard( playerList, table );
 
         LinkedList<CanHaveScore> players = scoreboard.getPlayers();
@@ -47,7 +42,7 @@ public class ScoreboardTest {
     }
 
     @Test
-    public void pointsIncreaseCorrectly() throws CanHaveScoreDoesntExistException {
+    public void pointsIncreaseCorrectly() throws TeamDoesntExistException {
         Scoreboard scoreboard = new Scoreboard( playerList, table );
 
         LinkedList<CanHaveScore> players = scoreboard.getPlayers();
