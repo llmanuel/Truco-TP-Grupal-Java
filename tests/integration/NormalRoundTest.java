@@ -25,6 +25,7 @@ public class NormalRoundTest {
     private Team team2;
     private LinkedList<Team> teamList;
     private Scoreboard scoreboard;
+    private Judge judge;
 
 
     @Before
@@ -78,7 +79,13 @@ public class NormalRoundTest {
         teamList.add( team1 );
         teamList.add( team2 );
 
-        scoreboard = new Scoreboard( teamList, table );
+        this.scoreboard = new Scoreboard( teamList, table );
+
+        this.judge = new Judge( this.scoreboard );
+
+        this.table.setJudge( this.judge );
+        this.table.setScoreBoard( this.scoreboard );
+        
     }
 
 

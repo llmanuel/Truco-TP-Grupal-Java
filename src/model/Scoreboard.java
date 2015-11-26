@@ -21,19 +21,19 @@ public class Scoreboard {
         this.table = table;
 	}
 
-	public int getPointsOf(Team whomWantedScoreIs) throws TeamDoesntExistException {
+	public int getPointsOf(Player whomWantedScoreIs) throws TeamDoesntExistException {
         return  this.getScore(whomWantedScoreIs).getScore();
 	}
 
-    private Score getScore(Team whomWantedScoreIs) throws TeamDoesntExistException {
+    private Score getScore(Player whomWantedScoreIs) throws TeamDoesntExistException {
         for (Score scoreActual : this.scores)
-            if (scoreActual.getMember() == whomWantedScoreIs) {
+            if (scoreActual.getMember().isMember( whomWantedScoreIs ) ) {
                 return scoreActual;
             }
         throw new TeamDoesntExistException();
     }
 
-    public void increaseTheScoreOf(Team whomScoreGonnaBeIncreased, Games actualGame) throws TeamDoesntExistException {
+    public void increaseTheScoreOf(Player whomScoreGonnaBeIncreased, Games actualGame) throws TeamDoesntExistException {
         this.getScore( whomScoreGonnaBeIncreased ).increaseScoreBy(actualGame.getPoints());
         this.didAnyoneWinAlready();
 	}

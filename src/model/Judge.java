@@ -42,18 +42,17 @@ public class Judge {
 	
 	public Player setWinnerOfTheRound(LinkedList<Slot> slots, Games actualGame) throws NotCardThrownException, TeamDoesntExistException { //corregir
 		int maximumCardInRound = 0;
-		Team roundWinner = null;
-        Player playerWhoWon = null;
+		Player roundWinner = null;
 		
 		for (Slot actualSlot : slots) {
 			if (actualSlot.getLastOne().getValue() > maximumCardInRound) {
 				maximumCardInRound = actualSlot.getLastOne().getValue();
-				roundWinner = (Team) actualSlot.getPlayer();
-                playerWhoWon = actualSlot.getPlayer();
+				roundWinner =  actualSlot.getPlayer();
+
 			}
 		}
         this.scoreboard.increaseTheScoreOf( roundWinner, actualGame );
-        return playerWhoWon;
+        return roundWinner;
 	}
 
 
