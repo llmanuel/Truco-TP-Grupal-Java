@@ -12,9 +12,9 @@ import java.util.LinkedList;
 public class HandTest {
     @Test()
     public void canInstatiateHand(){
-        Card card1 = new Card(5, "ORO", 1);
-        Card card2 = new Card(7, "ORO", 5);
-        Card card3 = new Card(7, "ESPADA", 6);
+        Card card1 = new Card(5, "ORO", 2);
+        Card card2 = new Card(7, "ORO", 11);
+        Card card3 = new Card(7, "ESPADA", 12);
 
         LinkedList<Card> cards = new LinkedList<Card>();
         cards.add(card1);
@@ -26,9 +26,9 @@ public class HandTest {
 
     @Test()
     public void canGetCardsFromAHand() throws  DonTHaveThatCardException {
-        Card card1 = new Card(5, "ORO", 1);
-        Card card2 = new Card(7, "ORO", 5);
-        Card card3 = new Card(7, "ESPADA", 6);
+        Card card1 = new Card(5, "ORO", 2);
+        Card card2 = new Card(7, "ORO", 11);
+        Card card3 = new Card(7, "ESPADA", 12);
 
         LinkedList<Card> cards = new LinkedList<Card>();
         cards.add(card1);
@@ -44,9 +44,9 @@ public class HandTest {
 
     @Test (expected = DonTHaveThatCardException.class)
     public void canTGetACardTwoTimesFromAHand() throws DonTHaveThatCardException {
-        Card card1 = new Card(5, "ORO", 1);
-        Card card2 = new Card(7, "ORO", 5);
-        Card card3 = new Card(7, "ESPADA", 6);
+        Card card1 = new Card(5, "ORO", 2);
+        Card card2 = new Card(7, "ORO", 11);
+        Card card3 = new Card(7, "ESPADA", 12);
 
         LinkedList<Card> cards = new LinkedList<Card>();
         cards.add(card1);
@@ -61,10 +61,10 @@ public class HandTest {
 
     @Test
     public void testsFlor() {
-        Card card1 = new Card(5, "ORO", 1);
-        Card card2 = new Card(7, "ORO", 5);
-        Card card3 = new Card(7, "ESPADA", 6);
-        Card card4 = new Card(3, "ORO", 4);
+        Card card1 = new Card(5, "ORO", 2);
+        Card card2 = new Card(7, "ORO", 11);
+        Card card3 = new Card(7, "ESPADA", 12);
+        Card card4 = new Card(3, "ORO", 10);
 
         LinkedList<Card> cards = new LinkedList<Card>();
         LinkedList<Card> cards2 = new LinkedList<Card>();
@@ -86,9 +86,9 @@ public class HandTest {
 
     @Test
     public void testEnvido(){
-        Card card1 = new Card(5, "ORO", 1);
-        Card card2 = new Card(7, "ORO", 5);
-        Card card3 = new Card(7, "ESPADA", 6);
+        Card card1 = new Card(5, "ORO", 2);
+        Card card2 = new Card(7, "ORO", 11);
+        Card card3 = new Card(7, "ESPADA", 12);
 
         LinkedList<Card> cards = new LinkedList<Card>();
 

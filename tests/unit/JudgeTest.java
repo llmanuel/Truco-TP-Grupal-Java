@@ -24,13 +24,13 @@ public class JudgeTest {
 
     @Before
     public void setUp() throws Exception {
-        card1 = new Card(7, "ESPADA", 7);
-        card2 = new Card(2, "BASTO", 6);
-        card3 = new Card(1, "COPA", 5);
-        card4 = new Card(12, "ORO", 4);
-        card5 = new Card(7, "BASTO", 3);
-        card6 = new Card(6, "BASTO", 2);
-        card7 = new Card(6, "ORO", 1);
+        card1 = new Card(7, "ESPADA", 12);
+        card2 = new Card(2, "BASTO", 9);
+        card3 = new Card(1, "COPA", 8);
+        card4 = new Card(12, "ORO", 7);
+        card5 = new Card(7, "BASTO", 4);
+        card6 = new Card(6, "BASTO", 3);
+        card7 = new Card(6, "ORO", 3);
 //        this.scoreboard = new Scoreboard(2);
 
     }
