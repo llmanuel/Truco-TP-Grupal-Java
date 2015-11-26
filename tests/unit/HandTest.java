@@ -1,9 +1,8 @@
 package unit;
 
 import model.Card;
+import model.Exceptions.DonTHaveThatCardException;
 import model.Hand;
-import model.Exceptions.InvalidCardNumberException;
-import model.Exceptions.InvalidSuiteException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,7 +11,7 @@ import java.util.LinkedList;
 
 public class HandTest {
     @Test()
-    public void canInstatiateHand() throws InvalidSuiteException, InvalidCardNumberException {
+    public void canInstatiateHand(){
         Card card1 = new Card(5, "ORO", 1);
         Card card2 = new Card(7, "ORO", 5);
         Card card3 = new Card(7, "ESPADA", 6);
@@ -26,7 +25,7 @@ public class HandTest {
     }
 
     @Test()
-    public void canGetCardsFromAHand() throws InvalidSuiteException, InvalidCardNumberException {
+    public void canGetCardsFromAHand() throws  DonTHaveThatCardException {
         Card card1 = new Card(5, "ORO", 1);
         Card card2 = new Card(7, "ORO", 5);
         Card card3 = new Card(7, "ESPADA", 6);
@@ -43,27 +42,25 @@ public class HandTest {
         Assert.assertEquals(card3,hand.getCard(card3));
     }
 
-//    @Test()
-//    public void canTGetACardTwoTimesFromAHand() throws InvalidSuiteException, InvalidCardNumberException {
-//        Card card1 = new Card(5, "ORO", 1);
-//        Card card2 = new Card(7, "ORO", 5);
-//        Card card3 = new Card(7, "ESPADA", 6);
-//
-//        LinkedList<Card> cards = new LinkedList<Card>();
-//        cards.add(card1);
-//        cards.add(card2);
-//        cards.add(card3);
-//
-//        Hand hand = new Hand(cards);
-//
-//        Assert.assertEquals(card1,hand.getCard(card1));
-//        Assert.assertEquals(card1,hand.getCard(card1));
-//        Assert.assertEquals(card2,hand.getCard(card2));
-//        Assert.assertEquals(card3,hand.getCard(card3));
-//    }
+    @Test (expected = DonTHaveThatCardException.class)
+    public void canTGetACardTwoTimesFromAHand() throws DonTHaveThatCardException {
+        Card card1 = new Card(5, "ORO", 1);
+        Card card2 = new Card(7, "ORO", 5);
+        Card card3 = new Card(7, "ESPADA", 6);
+
+        LinkedList<Card> cards = new LinkedList<Card>();
+        cards.add(card1);
+        cards.add(card2);
+        cards.add(card3);
+
+        Hand hand = new Hand(cards);
+
+        Assert.assertEquals(card1,hand.getCard(card1));
+        Assert.assertEquals(card1,hand.getCard(card1));
+    }
 
     @Test
-    public void testsFlor() throws InvalidSuiteException, InvalidCardNumberException {
+    public void testsFlor() {
         Card card1 = new Card(5, "ORO", 1);
         Card card2 = new Card(7, "ORO", 5);
         Card card3 = new Card(7, "ESPADA", 6);
@@ -88,7 +85,7 @@ public class HandTest {
     }
 
     @Test
-    public void testEnvido() throws InvalidSuiteException, InvalidCardNumberException {
+    public void testEnvido(){
         Card card1 = new Card(5, "ORO", 1);
         Card card2 = new Card(7, "ORO", 5);
         Card card3 = new Card(7, "ESPADA", 6);

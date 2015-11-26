@@ -1,5 +1,7 @@
 package model;
 
+import model.Exceptions.DonTHaveThatCardException;
+
 public class CpuPlayer implements Player, CanHaveScore {
 
     private int playerId;
@@ -30,7 +32,7 @@ public class CpuPlayer implements Player, CanHaveScore {
     }
 
     @Override
-    public void playCard(Card cardToPlay) {
+    public void playCard(Card cardToPlay) throws DonTHaveThatCardException {
         this.slot.receiveCard( this.hand.getCard(cardToPlay) );
     }
 

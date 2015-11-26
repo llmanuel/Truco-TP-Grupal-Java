@@ -1,5 +1,7 @@
 package model;
 
+import model.Exceptions.DonTHaveThatCardException;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -76,10 +78,15 @@ public class Hand {
         return sumatoriaEnvido;
     }
 
-    public Card getCard(Card cardToPlay) {
-        Card cardToReturn =  this.cards.get( cards.indexOf( cardToPlay ) );
-        this.cards.remove( cards.indexOf( cardToPlay ) );
-        return cardToReturn;
+    public Card getCard(Card cardToPlay) throws DonTHaveThatCardException {
+
+        if(cards.indexOf( cardToPlay ) != -1) {
+            Card cardToReturn = this.cards.get(cards.indexOf( cardToPlay ));
+            this.cards.remove(cards.indexOf(cardToPlay));
+            return cardToReturn;
+        }
+        else throw new DonTHaveThatCardException();
+
     }
 
     public LinkedList<Card> getCards() {
