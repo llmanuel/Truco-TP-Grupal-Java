@@ -29,15 +29,15 @@ public class TableAndJudgeTest {
 
         HumanPlayer otherPLayer = new HumanPlayer(2);
         LinkedList<Player> otherPlayerList = new LinkedList<Player>(  );
-        myPlayerList.add( otherPLayer );
+        otherPlayerList.add( otherPLayer );
 
         HumanPlayer charles = new HumanPlayer(3);
         LinkedList<Player> charlesList= new LinkedList<Player>(  );
-        myPlayerList.add( charles );
+        charlesList.add( charles );
 
         HumanPlayer nick = new HumanPlayer(4);
         LinkedList<Player> nickList = new LinkedList<Player>(  );
-        myPlayerList.add( nick );
+        nickList.add( nick );
 
 
         teamMyPlayer = new Team( myPlayerList );
