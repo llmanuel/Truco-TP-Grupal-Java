@@ -4,8 +4,8 @@ public class Score {
     private Team team;
     private int score;
 
-    public Score(Team canHaveScore) {
-        this.team = canHaveScore;
+    public Score(Team team) {
+        this.team = team;
         this.score = 0;
     }
 
@@ -18,6 +18,6 @@ public class Score {
     }
 
     public void increaseScoreBy(int scoreIncrease) {
-        this.score =+ scoreIncrease;
+        this.score += scoreIncrease;
     }
 }
