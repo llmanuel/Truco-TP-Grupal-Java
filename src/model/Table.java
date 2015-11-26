@@ -23,9 +23,8 @@ public class Table {
     private Croupier croupier;
     private Scoreboard scoreboard;
 
-    public void Table() {
+    public Table() {
 
-        gameState = new NormalRound(this);
         croupier = new Croupier();
     }
 
@@ -62,6 +61,7 @@ public class Table {
 
     public void setGame() {
 
+        gameState = new NormalRound(this);
         this.setRoundBeginner(this.playersInGame.getFirst());
     }
 
@@ -212,7 +212,7 @@ public class Table {
     public void declareWinner(Team member) {
     }
 
-    private void handOut() {
+    public void handOut() {
         for(Player actualPlayer: playersInGame){
             actualPlayer.setHand(croupier.giveHand());
         }
@@ -220,6 +220,5 @@ public class Table {
 
     public void beginNextGame() {
         this.handOut();
-        this.gameState = new NormalRound(this);
     }
 }

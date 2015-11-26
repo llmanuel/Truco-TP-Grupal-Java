@@ -101,9 +101,8 @@ public class NormalRoundTest {
         Card cardToPlayPlayer2 = player2Hand.getCards().getFirst();
         player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
 
-        Assert.assertTrue( scoreboard.getPointsOf( team2 ) == 1 );
-
-
+        Assert.assertTrue( scoreboard.getPointsOf( player2 ) == 1 );
+        Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 0 );
 
 
     }

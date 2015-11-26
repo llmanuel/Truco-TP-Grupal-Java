@@ -53,5 +53,6 @@ public class LastsRound implements Games {
     public void nextRound() {
 
         theTable.beginNextGame();
+        this.theTable.raiseBet(new NormalRound(theTable));
     }
 }
