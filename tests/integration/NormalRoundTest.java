@@ -1,5 +1,3 @@
-package integration;
-
 import model.*;
 import model.Exceptions.*;
 import org.junit.Assert;
@@ -79,6 +77,13 @@ public class NormalRoundTest {
         teamList.add( team2 );
 
         scoreboard = new Scoreboard( teamList, table );
+    }
+
+
+    @Test
+    public void normalRoundTest(){
+
+
     }
 
 
