@@ -17,6 +17,12 @@ public class NormalRoundTest {
     private HumanPlayer player2;
     private Table table;
     private LinkedList<Player> playersList;
+    private LinkedList<Player> player1team;
+    private LinkedList<Player> player2team;
+    private Team team1;
+    private Team team2;
+    private LinkedList<Team> teamList;
+    private Scoreboard scoreboard;
 
 
     @Before
@@ -43,7 +49,12 @@ public class NormalRoundTest {
         hand2 = new Hand( hand2Cards );
 
         player1 = new HumanPlayer( 1 );
+        player1team = new LinkedList<Player>( );
+        player1team.add( player1 );
+
         player2 = new HumanPlayer( 2 );
+        player2team = new LinkedList<Player>( );
+        player2team.add( player2 );
 
         player1.setHand( hand1 );
         player2.setHand( hand2 );
@@ -58,6 +69,14 @@ public class NormalRoundTest {
         player1.sitOnTable(table);
         player2.sitOnTable(table);
 
+        team1 = new Team( player1team );
+        team2 = new Team( player2team );
+
+        teamList = new LinkedList<Team>(  );
+        teamList.add( team1 );
+        teamList.add( team2 );
+
+        scoreboard = new Scoreboard( teamList, table );
     }
 
     @Test
