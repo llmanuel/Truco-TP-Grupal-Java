@@ -45,7 +45,7 @@ public class Table {
         else throw (new InvalidNumberOfPlayersException());
     }
 
-    public void getAJudge(Judge judge){
+    public void setJudge(Judge judge){
 
         this.judge = judge;
     }
@@ -212,9 +212,14 @@ public class Table {
     public void declareWinner(Team member) {
     }
 
-    public void handOut() {
+    private void handOut() {
         for(Player actualPlayer: playersInGame){
             actualPlayer.setHand(croupier.giveHand());
         }
+    }
+
+    public void beginNextGame() {
+        this.handOut();
+//        this.
     }
 }

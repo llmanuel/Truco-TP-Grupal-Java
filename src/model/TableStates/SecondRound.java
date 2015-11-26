@@ -1,5 +1,6 @@
 package model.TableStates;
 
+import model.Exceptions.InvalidGameCallException;
 import model.Table;
 
 /**
@@ -30,25 +31,26 @@ public class SecondRound implements Games {
     }
 
     @Override
-    public void callEnvido(){
+    public void callEnvido() throws InvalidGameCallException {
 
-        this.theTable.raiseBet(new Envido( theTable, 2 , this.getPoints()));
+        throw new InvalidGameCallException();
     }
 
     @Override
-    public void callRealEnvido(){
+    public void callRealEnvido() throws InvalidGameCallException {
 
-        this.theTable.raiseBet(new RealEnvido( theTable, 3 , this.getPoints()));
+        throw new InvalidGameCallException();
     }
 
     @Override
-    public void callFaltaEnvido(){
+    public void callFaltaEnvido() throws InvalidGameCallException {
 
-        this.theTable.raiseBet(new FaltaEnvido(theTable));
+        throw new InvalidGameCallException();
     }
 
     @Override
     public void nextRound() {
 
+        this.theTable.raiseBet(new LastsRound(theTable));
     }
 }
