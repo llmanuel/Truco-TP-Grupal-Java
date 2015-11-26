@@ -71,7 +71,9 @@ public class PlayersAndTableTests {
 
         Hand playerHand = player1.getHand();
 
-        player1.playCard(playerHand.getCards().getFirst());
+        Card cardToPlay = playerHand.getCards().getFirst();
+
+        player1.playCard(playerHand.getCard(cardToPlay));
 
         Slot firstPlayerSlot = table.getSlots().getFirst();
 
@@ -86,7 +88,10 @@ public class PlayersAndTableTests {
 
         Hand playerHand = player1.getHand();
 
-        player1.playCard(playerHand.getCards().getFirst());
+        Card cardToPlay = playerHand.getCards().getFirst();
+
+        /*With getCard(), the card used is eliminated from hand*/
+        player1.playCard(playerHand.getCard(cardToPlay));
 
         player1.playCard(playerHand.getCards().getFirst());
 
@@ -94,9 +99,14 @@ public class PlayersAndTableTests {
 
     @Test (expected = NotYourTurnException.class)
     public void playersCanTPlayCardsOutOfTheirTurn() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException {
-        table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
+        table.setGame();
+        /*With setgame() the turn belongs directly to player1 because he is the first on the List*/
+
         Hand playerHand = player2.getHand();
-        player2.playCard(playerHand.getCards().getFirst());
+        Card cardToPlay = playerHand.getCards().getFirst();
+
+        /*With getCard(), the card used is eliminated from hand*/
+        player2.playCard(playerHand.getCard(cardToPlay));
 
         Slot SecondPlayerSlot = table.getSlots().getFirst();
         Card theCardPlayed = SecondPlayerSlot.getLastOne();
@@ -108,15 +118,18 @@ public class PlayersAndTableTests {
         table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
 
         Hand playerHand = player1.getHand();
-//        Card actualCard = playerHand.getCards().getFirst();
-        player1.playCard(playerHand.getCards().getFirst());/*When a Player plays a Card, it's turn finish automatically*/
+        Card cardToPlay = playerHand.getCards().getFirst();
+
+        player1.playCard(playerHand.getCard(cardToPlay));/*When a Player plays a Card, it's turn finish automatically*/
 
         Slot fristPlayerSlot = table.getSlots().getFirst();
         Card theCardPlayed = fristPlayerSlot.getLastOne();
         Assert.assertEquals(card1,theCardPlayed);
 
         Hand player2Hand = player2.getHand();
-        player2.playCard(player2Hand.getCards().getFirst());
+        Card SecondCardToPlay = player2Hand.getCards().getFirst();
+
+        player2.playCard(player2Hand.getCard(SecondCardToPlay));
         Slot SecondPlayerSlot = table.getSlots().getLast();
         Card theCardPlayed2 = SecondPlayerSlot.getLastOne();
         Assert.assertEquals(card4,theCardPlayed2);

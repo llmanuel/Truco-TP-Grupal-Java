@@ -100,5 +100,5 @@ public class HandTest {
 
         Assert.assertEquals(32, hand.calculateEnvido());
     }
-    
+
 }
