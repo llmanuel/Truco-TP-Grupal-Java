@@ -1,7 +1,9 @@
 package model;
 
 import model.Exceptions.DonTHaveThatCardException;
+import model.Exceptions.NotCardThrownException;
 import model.Exceptions.NotYourTurnException;
+import model.Exceptions.TeamDoesntExistException;
 
 
 public class HumanPlayer implements Player {
@@ -39,7 +41,7 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void playCard(Card cardToPlay) throws NotYourTurnException, DonTHaveThatCardException {
+    public void playCard(Card cardToPlay) throws NotYourTurnException, DonTHaveThatCardException, TeamDoesntExistException, NotCardThrownException {
         if (isMyTurn) {
             this.slot.receiveCard(cardToPlay);
             this.table.finishTurn();
