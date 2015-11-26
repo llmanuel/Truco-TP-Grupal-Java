@@ -81,7 +81,7 @@ public class NormalRoundTest {
 
 
     @Test
-    public void normalRoundTest() throws DonTHaveThatCardException, NotYourTurnException, TeamDoesntExistException {
+    public void normalRoundTest() throws DonTHaveThatCardException, NotYourTurnException, TeamDoesntExistException, NotCardThrownException {
         this.table.setGame();
 
         Hand player1Hand = player1.getHand();
