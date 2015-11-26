@@ -1,3 +1,5 @@
+package integration;
+
 import model.*;
 import model.Exceptions.*;
 import org.junit.Assert;
@@ -26,7 +28,7 @@ public class NormalRoundTest {
 
 
     @Before
-    public void setup() throws InvalidSuiteException, InvalidCardNumberException, InvalidNumberOfPlayersException {
+    public void setup() throws  InvalidNumberOfPlayersException {
         card1 = new Card(5, "BASTO", 1);
         card2 = new Card(7, "BASTO", 5);
         card3 = new Card(7, "ESPADA", 6);
@@ -80,7 +82,7 @@ public class NormalRoundTest {
     }
 
     @Test
-    public void playersCanPlayCardsInTheirTurn() throws NotYourTurnException, NotCardThrownException {
+    public void playersCanPlayCardsInTheirTurn() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException {
         /*With setgame() the turn belongs directly to player1 because he is the first on the List*/
         table.setGame();
 
@@ -96,7 +98,7 @@ public class NormalRoundTest {
     }
 
     @Test (expected = NotYourTurnException.class)
-    public void playersCantPlayMoreThanACardInTheirTurn() throws NotYourTurnException, NotCardThrownException {
+    public void playersCantPlayMoreThanACardInTheirTurn() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException {
         table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
 
         Hand playerHand = player1.getHand();
@@ -108,7 +110,7 @@ public class NormalRoundTest {
     }
 
     @Test (expected = NotYourTurnException.class)
-    public void playersCanTPlayCardsOutOfTheirTurn() throws NotYourTurnException, NotCardThrownException {
+    public void playersCanTPlayCardsOutOfTheirTurn() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException {
         table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
         Hand playerHand = player2.getHand();
         player2.playCard(playerHand.getCards().getFirst());
@@ -119,7 +121,7 @@ public class NormalRoundTest {
     }
 
     @Test
-    public void whenPlayersFinishThierTurnTheOtherOneCanPlay() throws NotYourTurnException, NotCardThrownException {
+    public void whenPlayersFinishThierTurnTheOtherOneCanPlay() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException {
         table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
 
         Hand playerHand = player1.getHand();
