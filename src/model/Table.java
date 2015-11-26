@@ -150,6 +150,7 @@ public class Table {
         if (cursor == roundBeginner){
             Player nextBeginner = judge.setWinnerOfTheRound(this.getSlots(),this.gameState);
             this.gameState.nextRound();
+            this.setRoundBeginner(nextBeginner);
             return nextBeginner;
         }
         Player thatPlayer = cursor;
