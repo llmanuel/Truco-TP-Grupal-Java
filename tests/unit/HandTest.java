@@ -25,6 +25,43 @@ public class HandTest {
         Hand hand = new Hand(cards);
     }
 
+    @Test()
+    public void canGetCardsFromAHand() throws InvalidSuiteException, InvalidCardNumberException {
+        Card card1 = new Card(5, "ORO", 1);
+        Card card2 = new Card(7, "ORO", 5);
+        Card card3 = new Card(7, "ESPADA", 6);
+
+        LinkedList<Card> cards = new LinkedList<Card>();
+        cards.add(card1);
+        cards.add(card2);
+        cards.add(card3);
+
+        Hand hand = new Hand(cards);
+
+        Assert.assertEquals(card1,hand.getCard(card1));
+        Assert.assertEquals(card2,hand.getCard(card2));
+        Assert.assertEquals(card3,hand.getCard(card3));
+    }
+
+//    @Test()
+//    public void canTGetACardTwoTimesFromAHand() throws InvalidSuiteException, InvalidCardNumberException {
+//        Card card1 = new Card(5, "ORO", 1);
+//        Card card2 = new Card(7, "ORO", 5);
+//        Card card3 = new Card(7, "ESPADA", 6);
+//
+//        LinkedList<Card> cards = new LinkedList<Card>();
+//        cards.add(card1);
+//        cards.add(card2);
+//        cards.add(card3);
+//
+//        Hand hand = new Hand(cards);
+//
+//        Assert.assertEquals(card1,hand.getCard(card1));
+//        Assert.assertEquals(card1,hand.getCard(card1));
+//        Assert.assertEquals(card2,hand.getCard(card2));
+//        Assert.assertEquals(card3,hand.getCard(card3));
+//    }
+
     @Test
     public void testsFlor() throws InvalidSuiteException, InvalidCardNumberException {
         Card card1 = new Card(5, "ORO", 1);
@@ -66,6 +103,7 @@ public class HandTest {
 
         Assert.assertEquals(32, hand.calculateEnvido());
     }
+
 
 //    @Test
 //    public void testAllSuitsAreDifferent() throws InvalidSuiteException, InvalidCardNumberException {
