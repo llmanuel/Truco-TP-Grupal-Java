@@ -48,4 +48,9 @@ public class Truco implements Games {
 
         throw new InvalidGameCallException();
     }
+
+    @Override
+    public void nextRound() {
+
+    }
 }

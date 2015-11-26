@@ -46,4 +46,9 @@ public class FaltaEnvido implements Games {
     public void callFaltaEnvido() throws InvalidGameCallException {
         throw new InvalidGameCallException();
     }
+
+    @Override
+    public void nextRound() {
+
+    }
 }

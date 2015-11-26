@@ -48,4 +48,9 @@ public class LastsRounds implements Games {
 
         this.theTable.raiseBet(new FaltaEnvido(theTable));
     }
+
+    @Override
+    public void nextRound() {
+
+    }
 }

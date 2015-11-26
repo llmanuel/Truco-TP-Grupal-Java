@@ -49,4 +49,9 @@ public class NormalRound implements Games {
 
         this.theTable.raiseBet(new FaltaEnvido(theTable));
     }
+
+    @Override
+    public void nextRound() {
+
+    }
 }

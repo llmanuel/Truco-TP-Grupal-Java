@@ -41,6 +41,11 @@ public class Envido implements Games {
         this.theTable.raiseBet(new FaltaEnvido(theTable));
     }
 
+    @Override
+    public void nextRound() {
+
+    }
+
     /*
     * Raises bet 2 points to another Envido. In this case, this method does the same thing that callEnvido
     */

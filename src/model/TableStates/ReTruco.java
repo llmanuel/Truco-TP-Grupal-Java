@@ -47,4 +47,9 @@ public class ReTruco implements Games {
 
         throw new InvalidGameCallException();
     }
+
+    @Override
+    public void nextRound() {
+
+    }
 }

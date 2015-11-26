@@ -50,4 +50,9 @@ public class Vale4 implements Games {
 
         throw new InvalidGameCallException();
     }
+
+    @Override
+    public void nextRound() {
+        
+    }
 }
