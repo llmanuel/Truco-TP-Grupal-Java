@@ -3,6 +3,8 @@ package unit;
 
 import model.*;
 import model.Exceptions.InvalidNumberOfPlayersException;
+import model.Exceptions.NotCardThrownException;
+import model.Exceptions.TeamDoesntExistException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -107,7 +109,7 @@ public class TableTest {
      */
 
     @Test
-    public void tableCanIterateAmongPlayersFromTheFirstPlayerInTheList() throws InvalidNumberOfPlayersException {
+    public void tableCanIterateAmongPlayersFromTheFirstPlayerInTheList() throws InvalidNumberOfPlayersException, TeamDoesntExistException, NotCardThrownException {
         table = new Table();
         table.letSitThese( FourPlayers );
         table.setGame();
@@ -122,7 +124,7 @@ public class TableTest {
     }
 
     @Test
-    public void tableCanIterateAmongPlayersFromTheSecondPlayerInTheList() throws InvalidNumberOfPlayersException {
+    public void tableCanIterateAmongPlayersFromTheSecondPlayerInTheList() throws InvalidNumberOfPlayersException, TeamDoesntExistException, NotCardThrownException {
         table = new Table();
         table.letSitThese( FourPlayers );
         table.setGame();
@@ -135,7 +137,7 @@ public class TableTest {
     }
 
     @Test
-    public void tableCanIterateAmongPlayersFromTheThirdPlayerInTheList() throws InvalidNumberOfPlayersException {
+    public void tableCanIterateAmongPlayersFromTheThirdPlayerInTheList() throws InvalidNumberOfPlayersException, TeamDoesntExistException, NotCardThrownException {
         table = new Table();
         table.letSitThese( FourPlayers );
         table.setGame();
@@ -148,7 +150,7 @@ public class TableTest {
     }
 
     @Test
-    public void tableCanIterateAmongPlayersFromTheFourthPlayerInTheList() throws InvalidNumberOfPlayersException {
+    public void tableCanIterateAmongPlayersFromTheFourthPlayerInTheList() throws InvalidNumberOfPlayersException, TeamDoesntExistException, NotCardThrownException {
         table = new Table();
         table.letSitThese( FourPlayers );
         table.setGame();
