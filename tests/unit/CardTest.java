@@ -1,5 +1,3 @@
-package unit;
-
 import model.Card;
 import org.junit.*;
 
