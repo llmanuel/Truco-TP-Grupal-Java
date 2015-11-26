@@ -65,7 +65,7 @@ public class PlayersAndTableTests {
     }
 
     @Test
-    public void playersCanPlayCardsInTheirTurn() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException {
+    public void playersCanPlayCardsInTheirTurn() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException {
         /*With setgame() the turn belongs directly to player1 because he is the first on the List*/
         table.setGame();
 
@@ -83,7 +83,7 @@ public class PlayersAndTableTests {
     }
 
     @Test (expected = NotYourTurnException.class)
-    public void playersCantPlayMoreThanACardInTheirTurn() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException {
+    public void playersCantPlayMoreThanACardInTheirTurn() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException {
         table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
 
         Hand playerHand = player1.getHand();
@@ -98,7 +98,7 @@ public class PlayersAndTableTests {
     }
 
     @Test (expected = NotYourTurnException.class)
-    public void playersCanTPlayCardsOutOfTheirTurn() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException {
+    public void playersCanTPlayCardsOutOfTheirTurn() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException {
         table.setGame();
         /*With setgame() the turn belongs directly to player1 because he is the first on the List*/
 
@@ -114,7 +114,7 @@ public class PlayersAndTableTests {
     }
 
     @Test
-    public void whenPlayersFinishThierTurnTheOtherOneCanPlay() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException {
+    public void whenPlayersFinishThierTurnTheOtherOneCanPlay() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException {
         table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
 
         Hand playerHand = player1.getHand();
@@ -136,7 +136,7 @@ public class PlayersAndTableTests {
     }
 
     @Test
-    public void PlayersCanThrowAllTheirCards() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException {
+    public void PlayersCanThrowAllTheirCards() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException {
         table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
 
         Hand playerHand = player1.getHand();
@@ -162,7 +162,7 @@ public class PlayersAndTableTests {
     }
 
     @Test (expected = DonTHaveThatCardException.class)
-    public void PlayersCanThrowCardsTilTheyHaveNoMore() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException {
+    public void PlayersCanThrowCardsTilTheyHaveNoMore() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException {
         table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
 
         Hand playerHand = player1.getHand();
