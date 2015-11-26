@@ -148,7 +148,9 @@ public class Table {
      */
     public Player nextPlayer() throws TeamDoesntExistException, NotCardThrownException {
         if (this.roundCounter == 3){
+            this.judge.setWinnerOfGame(this.slotInGame,this.gameState);
             beginNextGame();
+            return this.cursor;
         }
         this.getTheNextOne();
         if (cursor == roundBeginner){
@@ -208,8 +210,8 @@ public class Table {
         this.roundCounter = 0;
         this.gameState = new NormalRound(this);
         this.reOrderPlayers();
-        this.setRoundBeginner(this.playersInGame.getFirst());
         this.handOut();
+        this.setRoundBeginner(this.playersInGame.getFirst());
     }
 
     private void reOrderPlayers() {
@@ -224,4 +226,5 @@ public class Table {
     public void increaseRoundCounter() {
         roundCounter = roundCounter + 1;
     }
+    
 }
