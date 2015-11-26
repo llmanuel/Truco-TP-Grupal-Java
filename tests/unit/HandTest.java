@@ -3,8 +3,6 @@ package unit;
 import model.Card;
 import model.Exceptions.DonTHaveThatCardException;
 import model.Hand;
-import model.Exceptions.InvalidCardNumberException;
-import model.Exceptions.InvalidSuiteException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,7 +11,7 @@ import java.util.LinkedList;
 
 public class HandTest {
     @Test()
-    public void canInstatiateHand() throws InvalidSuiteException, InvalidCardNumberException {
+    public void canInstatiateHand(){
         Card card1 = new Card(5, "ORO", 1);
         Card card2 = new Card(7, "ORO", 5);
         Card card3 = new Card(7, "ESPADA", 6);
@@ -62,7 +60,7 @@ public class HandTest {
     }
 
     @Test
-    public void testsFlor() throws InvalidSuiteException, InvalidCardNumberException {
+    public void testsFlor() {
         Card card1 = new Card(5, "ORO", 1);
         Card card2 = new Card(7, "ORO", 5);
         Card card3 = new Card(7, "ESPADA", 6);
@@ -87,7 +85,7 @@ public class HandTest {
     }
 
     @Test
-    public void testEnvido() throws InvalidSuiteException, InvalidCardNumberException {
+    public void testEnvido(){
         Card card1 = new Card(5, "ORO", 1);
         Card card2 = new Card(7, "ORO", 5);
         Card card3 = new Card(7, "ESPADA", 6);
