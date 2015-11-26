@@ -13,6 +13,7 @@ public class NormalRound implements Games {
     public NormalRound(Table theTable){
 
         this.theTable = theTable;
+        this.theTable.handOut();
     }
 
     @Override
