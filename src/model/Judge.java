@@ -40,7 +40,7 @@ public class Judge {
 		}
 	}
 	
-	public Player setWinnerOfTheRound(LinkedList<Slot> slots, Games actualGame) throws NotCardThrownException, TeamDoesntExistException { //corregir
+	public Player setWinnerOfTheRound(LinkedList<Slot> slots) throws NotCardThrownException, TeamDoesntExistException { 
 		int maximumCardInRound = 0;
 		Player roundWinner = null;
 		
@@ -51,7 +51,7 @@ public class Judge {
 
 			}
 		}
-        this.scoreboard.increaseTheScoreOf( roundWinner, actualGame );
+
         return roundWinner;
 	}
 
