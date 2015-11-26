@@ -4,7 +4,7 @@ import model.Exceptions.DonTHaveThatCardException;
 import model.Exceptions.NotYourTurnException;
 
 
-public class HumanPlayer implements Player, CanHaveScore {
+public class HumanPlayer implements Player {
 
     private int playerId;
 	private Hand hand;

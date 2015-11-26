@@ -1,9 +1,7 @@
 package model;
 
 import model.Exceptions.CanHaveScoreDoesntExistException;
-import model.Exceptions.PlayerDoesNotExistsException;
 import model.TableStates.Games;
-import model.TableStates.Truco;
 
 import java.util.LinkedList;
 
@@ -16,18 +14,18 @@ public class Scoreboard {
     public Scoreboard(LinkedList<Team> teams, Table table) {
 		this.scores = new LinkedList<Score>();
 
-        for(CanHaveScore canHaveScoreActual : teams){
+        for(Team canHaveScoreActual : teams){
             this.scores.add(new Score(canHaveScoreActual));
         }
 
         this.table = table;
 	}
 
-	public int getPointsOf(CanHaveScore whomWantedScoreIs) throws CanHaveScoreDoesntExistException {
+	public int getPointsOf(Team whomWantedScoreIs) throws CanHaveScoreDoesntExistException {
         return  this.getScore(whomWantedScoreIs).getScore();
 	}
 
-    private Score getScore(CanHaveScore whomWantedScoreIs) throws CanHaveScoreDoesntExistException {
+    private Score getScore(Team whomWantedScoreIs) throws CanHaveScoreDoesntExistException {
         for (Score scoreActual : this.scores)
             if (scoreActual.getMember() == whomWantedScoreIs) {
                 return scoreActual;
@@ -35,7 +33,7 @@ public class Scoreboard {
         throw new CanHaveScoreDoesntExistException();
     }
 
-    public void increaseTheScoreOf(CanHaveScore whomScoreGonnaBeIncreased, Games actualGame) throws CanHaveScoreDoesntExistException {
+    public void increaseTheScoreOf(Team whomScoreGonnaBeIncreased, Games actualGame) throws CanHaveScoreDoesntExistException {
         this.getScore( whomScoreGonnaBeIncreased ).increaseScoreBy(actualGame.getPoints());
         this.didAnyoneWinAlready();
 	}
@@ -48,15 +46,15 @@ public class Scoreboard {
         }
     }
 
-    public LinkedList<CanHaveScore> getPlayers() {
-        LinkedList<CanHaveScore> players = new LinkedList<CanHaveScore>(  );
+    public LinkedList<Team> getPlayers() {
+        LinkedList<Team> players = new LinkedList<Team>(  );
         for (Score actualScore : this.scores){
             players.add( actualScore.getMember() );
         }
         return players;
     }
 
-    public void playerGaveUpThisGame(CanHaveScore player, Games game) {
+    public void playerGaveUpThisGame(Team player, Games game) {
 
 
     }

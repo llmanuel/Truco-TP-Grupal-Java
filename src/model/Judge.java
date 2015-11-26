@@ -42,12 +42,12 @@ public class Judge {
 	
 	public void setWinnerOfTheRound(LinkedList<Slot> slots, Games actualGame) throws NotCardThrownException, CanHaveScoreDoesntExistException { //corregir
 		int maximumCardInRound = 0;
-		CanHaveScore roundWinner = null;
+		Team roundWinner = null;
 		
 		for (Slot actualSlot : slots) {
 			if (actualSlot.getLastOne().getValue() > maximumCardInRound) {
 				maximumCardInRound = actualSlot.getLastOne().getValue();
-				roundWinner = (CanHaveScore) actualSlot.getPlayer();
+				roundWinner = (Team) actualSlot.getPlayer();
 			}
 		}
         this.scoreboard.increaseTheScoreOf( roundWinner, actualGame );

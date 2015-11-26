@@ -1,13 +1,11 @@
 package model;
 
-import model.CanHaveScore;
-
 public class Score {
-    private CanHaveScore canHaveScore;
+    private Team team;
     private int score;
 
-    public Score(CanHaveScore canHaveScore) {
-        this.canHaveScore = canHaveScore;
+    public Score(Team canHaveScore) {
+        this.team = canHaveScore;
         this.score = 0;
     }
 
@@ -15,8 +13,8 @@ public class Score {
         return this.score;
     }
 
-    public CanHaveScore getMember() {
-        return this.canHaveScore;
+    public Team getMember() {
+        return this.team;
     }
 
     public void increaseScoreBy(int scoreIncrease) {

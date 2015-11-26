@@ -2,7 +2,7 @@ package model;
 
 import model.Exceptions.DonTHaveThatCardException;
 
-public class CpuPlayer implements Player, CanHaveScore {
+public class CpuPlayer implements Player{
 
     private int playerId;
     private Hand hand;

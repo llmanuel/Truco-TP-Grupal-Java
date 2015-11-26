@@ -202,7 +202,7 @@ public class Table {
 //        }
 //    }
 
-    public void declareWinner(CanHaveScore member) {
+    public void declareWinner(Team member) {
     }
 
 }
