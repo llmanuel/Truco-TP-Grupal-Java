@@ -29,7 +29,7 @@ public class ScoreboardTest {
         table = new Table();
     }
 
-    @Test
+ /*   @Test
     public void canInstantiateScoreboard(){
         Scoreboard scoreboard = new Scoreboard( playerList, table );
 
@@ -72,6 +72,6 @@ public class ScoreboardTest {
 
     }
 
-
+    */
 
 }
