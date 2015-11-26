@@ -14,8 +14,8 @@ public class Scoreboard {
     public Scoreboard(LinkedList<Team> teams, Table table) {
 		this.scores = new LinkedList<Score>();
 
-        for(Team canHaveScoreActual : teams){
-            this.scores.add(new Score(canHaveScoreActual));
+        for(Team actualTeam : teams){
+            this.scores.add(new Score(actualTeam));
         }
 
         this.table = table;
@@ -49,7 +49,7 @@ public class Scoreboard {
     public LinkedList<Team> getPlayers() {
         LinkedList<Team> players = new LinkedList<Team>(  );
         for (Score actualScore : this.scores){
-            players.add( actualScore.getMember() );
+            players.add( actualScore.getMember());
         }
         return players;
     }
@@ -58,4 +58,23 @@ public class Scoreboard {
 
 
     }
+
+	public double getPointsOf(Team whomWantedScoreIs) throws TeamDoesntExistException {
+		
+		return  this.getScore(whomWantedScoreIs).getScore();
+
+	}
+
+	public Score getScore(Team whoWantedScoreIs) throws TeamDoesntExistException {
+		
+		for (Score actualScore :scores) {
+			
+			if (actualScore.getMember() == whoWantedScoreIs){
+				
+				return actualScore;
+			}
+		}
+		throw new TeamDoesntExistException();
+	}
+
 }
