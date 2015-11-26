@@ -1,5 +1,3 @@
-package unit;
-
 import model.*;
 import model.Exceptions.NotCardThrownException;
 import org.junit.Assert;
