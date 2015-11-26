@@ -91,7 +91,9 @@ public class NormalRoundTest {
     @Test (expected = NotYourTurnException.class)
     public void playersCanTPlayCardsOutOfTheirTurn() throws NotYourTurnException, NotCardThrownException {
         table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
-        player2.playCard(card4);
+        Hand playerHand = player2.getHand();
+        player2.playCard(playerHand.getCards().getFirst());
+
         Slot SecondPlayerSlot = table.getSlots().getFirst();
         Card theCardPlayed = SecondPlayerSlot.getLastOne();
         Assert.assertEquals(card4,theCardPlayed);
@@ -100,13 +102,17 @@ public class NormalRoundTest {
     @Test
     public void whenPlayersFinishThierTurnTheOtherOneCanPlay() throws NotYourTurnException, NotCardThrownException {
         table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
-        player1.playCard(card1);/*When a Player plays a Card, it's turn finish automatically*/
+
+        Hand playerHand = player1.getHand();
+
+        player1.playCard(playerHand.getCards().getFirst());/*When a Player plays a Card, it's turn finish automatically*/
+
         Slot fristPlayerSlot = table.getSlots().getFirst();
         Card theCardPlayed = fristPlayerSlot.getLastOne();
         Assert.assertEquals(card1,theCardPlayed);
 
-
-        player2.playCard(card4);
+        Hand player2Hand = player2.getHand();
+        player2.playCard(player2Hand.getCards().getFirst());
         Slot SecondPlayerSlot = table.getSlots().getLast();
         Card theCardPlayed2 = SecondPlayerSlot.getLastOne();
         Assert.assertEquals(card4,theCardPlayed2);
