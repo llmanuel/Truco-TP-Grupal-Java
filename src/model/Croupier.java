@@ -1,8 +1,5 @@
 package model;
 
-import model.Exceptions.InvalidCardNumberException;
-import model.Exceptions.InvalidSuiteException;
-
 import java.util.LinkedList;
 
 
@@ -13,7 +10,7 @@ public class Croupier {
         this.initializeDeck();
     }
 
-    public Hand giveHand() throws InvalidSuiteException, InvalidCardNumberException {
+    public Hand giveHand(){
         LinkedList<Card> newCards = new LinkedList<Card>();
 
         newCards.add(deck.getCard());
