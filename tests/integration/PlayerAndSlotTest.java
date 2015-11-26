@@ -1,7 +1,14 @@
 package integration;
 
 import model.*;
+import model.Exceptions.DonTHaveThatCardException;
+import model.Exceptions.NotCardThrownException;
+import model.Exceptions.NotYourTurnException;
+import model.Exceptions.TeamDoesntExistException;
+
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 
 public class PlayerAndSlotTest {
     Player player;
@@ -23,14 +30,14 @@ public class PlayerAndSlotTest {
     }
 
     /*Players Must have a Table to play*/
-//    @Test
-//    public void playerCanPlayACertainCard() throws NotCardThrownException, NotYourTurnException {
-//        Card cardToPlay = this.player.getHand().getCards().getFirst();
-//        this.player.itsYourTurn();
-//        this.player.playCard( cardToPlay );
-//
-//        Assert.assertTrue( this.slot.getLastOne() == cardToPlay);
-//    }
+    @Test
+    public void playerCanPlayACertainCard() throws NotCardThrownException, NotYourTurnException, TeamDoesntExistException, DonTHaveThatCardException {
+        Card cardToPlay = this.player.getHand().getCards().getFirst();
+        this.player.itsYourTurn();
+        this.player.playCard( cardToPlay );
+
+        Assert.assertTrue( this.slot.getLastOne() == cardToPlay);
+    }
 
 
 }
