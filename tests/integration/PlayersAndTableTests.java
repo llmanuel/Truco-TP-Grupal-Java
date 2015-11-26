@@ -108,8 +108,8 @@ public class PlayersAndTableTests {
         table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
 
         Hand playerHand = player1.getHand();
-        Card actualCard = playerHand.getCards().getFirst();
-        player1.playCard(playerHand.getCard(actualCard));/*When a Player plays a Card, it's turn finish automatically*/
+//        Card actualCard = playerHand.getCards().getFirst();
+        player1.playCard(playerHand.getCards().getFirst());/*When a Player plays a Card, it's turn finish automatically*/
 
         Slot fristPlayerSlot = table.getSlots().getFirst();
         Card theCardPlayed = fristPlayerSlot.getLastOne();
