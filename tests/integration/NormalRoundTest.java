@@ -1,5 +1,3 @@
-package integration;
-
 import model.*;
 import model.Exceptions.*;
 import org.junit.Assert;
@@ -64,10 +62,17 @@ public class NormalRoundTest {
 
     @Test
     public void playersCanPlayCardsInTheirTurn() throws NotYourTurnException, NotCardThrownException {
-        table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
-        player1.playCard(card1);
-        Slot fristPlayerSlot = table.getSlots().getFirst();
-        Card theCardPlayed = fristPlayerSlot.getLastOne();
+        /*With setgame() the turn belongs directly to player1 because he is the first on the List*/
+        table.setGame();
+
+        Hand playerHand = player1.getHand();
+
+        player1.playCard(playerHand.getCards().getFirst());
+
+        Slot firstPlayerSlot = table.getSlots().getFirst();
+
+        Card theCardPlayed = firstPlayerSlot.getLastOne();
+
         Assert.assertEquals(card1,theCardPlayed);
     }
 
