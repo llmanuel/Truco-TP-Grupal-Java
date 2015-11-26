@@ -226,5 +226,5 @@ public class Table {
     public void increaseRoundCounter() {
         roundCounter = roundCounter + 1;
     }
-    
+
 }
