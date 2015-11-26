@@ -40,7 +40,7 @@ public class Judge {
 		}
 	}
 	
-	public Player setWinnerOfTheRound(LinkedList<Slot> slots) throws NotCardThrownException, TeamDoesntExistException { 
+	public Player setWinnerOfTheRound(LinkedList<Slot> slots) throws NotCardThrownException, TeamDoesntExistException {
 		int maximumCardInRound = 0;
 		Player roundWinner = null;
 		
@@ -48,12 +48,16 @@ public class Judge {
 			if (actualSlot.getLastOne().getValue() > maximumCardInRound) {
 				maximumCardInRound = actualSlot.getLastOne().getValue();
 				roundWinner =  actualSlot.getPlayer();
-
 			}
 		}
-
         return roundWinner;
 	}
+
+    public void setWinnerOfGame(LinkedList<Slot> slots, Games actualGame){
+        int team1GamesWon = 0;
+        int team2GamesWon = 0;
+
+    }
 
 
 }
