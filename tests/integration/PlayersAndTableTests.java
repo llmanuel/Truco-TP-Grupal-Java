@@ -93,7 +93,7 @@ public class PlayersAndTableTests {
     @Test
     public void playersCanPlayCardsInTheirTurn() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException {
         /*With setgame() the turn belongs directly to player1 because he is the first on the List*/
-        table.setGame();
+        table.setRoundBeginner(player1);
 
         Hand playerHand = player1.getHand();
 
@@ -110,7 +110,7 @@ public class PlayersAndTableTests {
 
     @Test (expected = NotYourTurnException.class)
     public void playersCantPlayMoreThanACardInTheirTurn() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException {
-        table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
+        table.setRoundBeginner(player1);/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
 
         Hand playerHand = player1.getHand();
 
