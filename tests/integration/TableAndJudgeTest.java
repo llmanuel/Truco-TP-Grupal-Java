@@ -1,3 +1,5 @@
+package integration;
+
 import model.*;
 import model.Exceptions.*;
 import model.TableStates.Games;
