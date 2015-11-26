@@ -18,6 +18,6 @@ public class Score {
     }
 
     public void increaseScoreBy(int scoreIncrease) {
-        this.score =+ scoreIncrease;
+        this.score += scoreIncrease;
     }
 }
