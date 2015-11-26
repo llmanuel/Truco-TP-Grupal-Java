@@ -77,16 +77,13 @@ public class NormalRoundTest {
     }
 
     @Test (expected = NotYourTurnException.class)
-    public void playersCanTPlayMoreThanACardInTheirTurn() throws NotYourTurnException, NotCardThrownException {
+    public void playersCantPlayMoreThanACardInTheirTurn() throws NotYourTurnException, NotCardThrownException {
         table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
+
         player1.playCard(card1);
-        Slot fristPlayerSlot = table.getSlots().getFirst();
-        Card theCardPlayed = fristPlayerSlot.getLastOne();
-        Assert.assertEquals(card1,theCardPlayed);
 
         player1.playCard(card2);
-        Card theSecondCardPlayed = table.getSlots().getFirst().getLastOne();
-        Assert.assertEquals(card2,theSecondCardPlayed);
+      
     }
 
     @Test (expected = NotYourTurnException.class)
