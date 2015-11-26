@@ -2,6 +2,8 @@ package model;
 
 import model.Exceptions.InvalidGameCallException;
 import model.Exceptions.InvalidNumberOfPlayersException;
+import model.Exceptions.NotCardThrownException;
+import model.Exceptions.TeamDoesntExistException;
 import model.TableStates.Games;
 import model.TableStates.NormalRound;
 
@@ -143,10 +145,11 @@ public class Table {
      * PreCondition: Must setRoundBeginner() Before using this method.
      * Returns the next player to play.
      */
-    public Player nextPlayer(){
+    public Player nextPlayer() throws TeamDoesntExistException, NotCardThrownException {
         this.getTheNextOne();
         if (cursor == roundBeginner){
-//            Player nextBeginer = judge.setWinnerOfTheRound(this.getSlots(),this.gameState);
+            Player nextBeginer = judge.setWinnerOfTheRound(this.getSlots(),this.gameState);
+            return nextBeginer;
         }
         Player thatPlayer = cursor;
         return thatPlayer;
@@ -171,7 +174,7 @@ public class Table {
         return this.cursor;
     }
 
-    public void finishTurn(){
+    public void finishTurn() throws TeamDoesntExistException, NotCardThrownException {
         Player actualPlayer = this.getActualPlayer();
         actualPlayer.turnFinished();
         Player nextPlayer = this.nextPlayer();
