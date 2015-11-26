@@ -61,7 +61,7 @@ public class ScoreboardTest {
         LinkedList<Team> players = scoreboard.getPlayers();
 
         Assert.assertEquals( 0, scoreboard.getPointsOf( players.getFirst()) , 0.001 );
-        Assert.assertEquals( 0, scoreboard.getPointsOf( players.getLast()) , 0.001 );
+        Assert.assertNotEquals( 2, scoreboard.getPointsOf( players.getLast()) , 0.001 );
 
     }
 
