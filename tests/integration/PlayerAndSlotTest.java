@@ -1,3 +1,5 @@
+package integration;
+
 import model.*;
 import org.junit.Before;
 

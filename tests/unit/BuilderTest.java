@@ -1,3 +1,5 @@
+package unit;
+
 import model.Builder;
 import org.junit.Assert;
 import org.junit.Test;
