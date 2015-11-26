@@ -1,16 +1,15 @@
 package model.TableStates;
 
 import model.Table;
-import model.TableStates.*;
 
 /**
- * Created by manuel on 22/11/15.
+ * Created by manuel on 23/11/15.
  */
-public class NormalRound implements Games {
+public class LastsRound implements Games {
     int points = 1;
     private Table theTable;
 
-    public NormalRound(Table theTable){
+    public LastsRound(Table theTable){
 
         this.theTable = theTable;
     }
@@ -18,7 +17,7 @@ public class NormalRound implements Games {
     @Override
     public int giveUp(){
 
-        return (2);
+        return (1);
     }
 
     @Override
@@ -53,6 +52,5 @@ public class NormalRound implements Games {
     @Override
     public void nextRound() {
 
-        this.theTable.raiseBet(new SecondRound(theTable));
     }
 }

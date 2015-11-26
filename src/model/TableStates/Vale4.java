@@ -53,6 +53,6 @@ public class Vale4 implements Games {
 
     @Override
     public void nextRound() {
-        
+
     }
 }

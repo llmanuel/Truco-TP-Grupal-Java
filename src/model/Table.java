@@ -148,9 +148,9 @@ public class Table {
     public Player nextPlayer() throws TeamDoesntExistException, NotCardThrownException {
         this.getTheNextOne();
         if (cursor == roundBeginner){
-            Player nextBeginer = judge.setWinnerOfTheRound(this.getSlots(),this.gameState);
+            Player nextBeginner = judge.setWinnerOfTheRound(this.getSlots(),this.gameState);
             this.gameState.nextRound();
-            return nextBeginer;
+            return nextBeginner;
         }
         Player thatPlayer = cursor;
         return thatPlayer;
@@ -212,4 +212,9 @@ public class Table {
     public void declareWinner(Team member) {
     }
 
+    public void handOut() {
+        for(Player actualPlayer: playersInGame){
+            actualPlayer.setHand(croupier.giveHand());
+        }
+    }
 }

@@ -3,17 +3,15 @@ package model.TableStates;
 import model.Table;
 
 /**
- * Created by manuel on 23/11/15.
+ * Created by manuel on 26/11/15.
  */
-public class LastsRounds implements Games {
-    int points = 1;
+public class SecondRound implements Games {
     private Table theTable;
+    private int points;
 
-    public LastsRounds(Table theTable){
-
+    public SecondRound(Table theTable) {
         this.theTable = theTable;
     }
-
     @Override
     public int giveUp(){
 
