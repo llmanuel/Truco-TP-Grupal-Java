@@ -2,6 +2,7 @@ package unit;
 
 import model.*;
 import model.Exceptions.TeamDoesntExistException;
+import model.TableStates.Truco;
 
 import java.util.LinkedList;
 
@@ -79,7 +80,7 @@ public class ScoreboardTest {
     }
 
     @Test
-    public void pointsIncreaseCorrectlyWhenGameGaveUp(){
+    public void pointsIncreaseCorrectlyWhenGameGaveUp() throws TeamDoesntExistException{
         Scoreboard scoreboard = new Scoreboard( playerList, table );
 
         LinkedList<Team> players = scoreboard.getPlayers();
@@ -87,6 +88,9 @@ public class ScoreboardTest {
         Truco truco = new Truco( this.table, 0 );
 
         scoreboard.playerGaveUpThisGame(players.getFirst(), truco);
+        
+        Assert.assertEquals( 2, scoreboard.getPointsOf( players.getLast()) , 0.001 );
+        
 
     }
 

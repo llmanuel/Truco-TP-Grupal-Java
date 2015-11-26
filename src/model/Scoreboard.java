@@ -2,6 +2,7 @@ package model;
 
 import model.Exceptions.TeamDoesntExistException;
 import model.TableStates.Games;
+import model.TableStates.Truco;
 
 import java.util.LinkedList;
 
@@ -54,9 +55,15 @@ public class Scoreboard {
         return players;
     }
 
-    public void playerGaveUpThisGame(Team player, Games game) {
-
-
+    public void playerGaveUpThisGame(Team team, Games game) {
+    	
+    	for (Score actualScore :scores){
+    		
+    		if (actualScore.getMember() != team){
+    			
+    			actualScore.increaseScoreBy(game.getPoints());
+    		}
+    	}
     }
 
 	public double getPointsOf(Team whomWantedScoreIs) throws TeamDoesntExistException {
@@ -75,6 +82,24 @@ public class Scoreboard {
 			}
 		}
 		throw new TeamDoesntExistException();
+	}
+
+	public void increaseTheScoreOf(Team team, Games game)throws TeamDoesntExistException {
+		
+		boolean increase = false;
+		for (Score actualScore :scores){
+			
+			if (actualScore.getMember() == team){
+				
+				actualScore.increaseScoreBy(game.getPoints());
+				increase = true;
+			}
+		}
+		if (!increase){
+		
+			throw new TeamDoesntExistException();
+		}
+		
 	}
 
 }
