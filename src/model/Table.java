@@ -22,6 +22,7 @@ public class Table {
     private Judge judge;
     private Croupier croupier;
     private Scoreboard scoreboard;
+    private int roundCounter;
 
     public Table() {
 
@@ -60,7 +61,7 @@ public class Table {
 
 
     public void setGame() {
-
+        this.roundCounter = 0;
         gameState = new NormalRound(this);
         this.setRoundBeginner(this.playersInGame.getFirst());
     }
@@ -146,9 +147,13 @@ public class Table {
      * Returns the next player to play.
      */
     public Player nextPlayer() throws TeamDoesntExistException, NotCardThrownException {
+        if (this.roundCounter == 3){
+            beginNextGame();
+        }
         this.getTheNextOne();
         if (cursor == roundBeginner){
-            Player nextBeginner = judge.setWinnerOfTheRound(this.getSlots(),this.gameState);
+            this.increaseRoundCounter();
+            Player nextBeginner = judge.setWinnerOfTheRound(this.getSlots());
             this.gameState.nextRound();
             this.setRoundBeginner(nextBeginner);
             return nextBeginner;
@@ -189,27 +194,6 @@ public class Table {
      *
      *************************/
 
-//    public void iterateThePlayersFrom(Player theFirst){
-//        boolean youCanPlay = false;
-//        int everyBodyPLayed = 0;
-//        for (Player actualPlayer: playersInGame){
-//            if (actualPlayer == theFirst){
-//                youCanPlay = true;
-//            }
-//            if(youCanPlay) {
-//                actualPlayer.PlayYourWill();
-//                everyBodyPLayed = everyBodyPLayed + 1;
-//            }
-//        }
-//        if(everyBodyPLayed != playersInGame.size()){
-//            Player actualPlayer = playersInGame.getFirst();
-//            while (actualPlayer != theFirst){
-//                actualPlayer.PlayYourWill();
-//
-//            }
-//        }
-//    }
-
     public void declareWinner(Team member) {
     }
 
@@ -220,6 +204,13 @@ public class Table {
     }
 
     public void beginNextGame() {
+
+        this.roundCounter = 0;
+        this.gameState = new NormalRound(this);
         this.handOut();
+    }
+
+    public void increaseRoundCounter() {
+        roundCounter = roundCounter + 1;
     }
 }

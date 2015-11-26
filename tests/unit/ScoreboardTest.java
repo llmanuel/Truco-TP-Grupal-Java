@@ -1,28 +1,49 @@
 package unit;
 
 import model.*;
+import model.Exceptions.TeamDoesntExistException;
 
 import java.util.LinkedList;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 public class ScoreboardTest {
 
     private HumanPlayer player1;
     private HumanPlayer player2;
+    private HumanPlayer player3;
+    private HumanPlayer player4;
+
     private LinkedList<Team> playerList;
     private Table table;
+    
 
-  /* @Before
+  @Before
     public void setup(){
-        HumanPlayer myPlayer = new HumanPlayer(1);
-        LinkedList<Player> myPlayerList= new LinkedList<Player>(  );
-        myPlayerList.add( myPlayer );
+        player1 = new HumanPlayer(1);
+        player2 = new HumanPlayer(2);
+        player3 = new HumanPlayer(3);
+        player4 = new HumanPlayer(4);
+     
+        LinkedList<Player> players1 = new LinkedList<Player>();
+        LinkedList<Player> players2 = new LinkedList<Player>();
+        
+        players1.add(player1);
+        players1.add(player2);
+        
+        players2.add(player3);
+        players2.add(player4);
 
-        HumanPlayer otherPLayer = new HumanPlayer(2);
-        LinkedList<Player> otherPlayerList = new LinkedList<Player>(  );
-        otherPlayerList.add( otherPLayer );
-
-
-
+        Team team1 = new Team(players1);
+        Team team2 = new Team(players2);
+        
+        playerList = new LinkedList<Team>();
+        
+        playerList.add(team1);
+        playerList.add(team2);
+        
         table = new Table();
     }
 
@@ -36,7 +57,7 @@ public class ScoreboardTest {
     public void scoreboardStartsWithZeroPoints() throws TeamDoesntExistException {
         Scoreboard scoreboard = new Scoreboard( playerList, table );
 
-        LinkedList<CanHaveScore> players = scoreboard.getPlayers();
+        LinkedList<Team> players = scoreboard.getPlayers();
 
         Assert.assertEquals( 0, scoreboard.getPointsOf( players.getFirst()) , 0.001 );
         Assert.assertEquals( 0, scoreboard.getPointsOf( players.getLast()) , 0.001 );
@@ -47,7 +68,7 @@ public class ScoreboardTest {
     public void pointsIncreaseCorrectly() throws TeamDoesntExistException {
         Scoreboard scoreboard = new Scoreboard( playerList, table );
 
-        LinkedList<CanHaveScore> players = scoreboard.getPlayers();
+        LinkedList<Team> players = scoreboard.getPlayers();
 
         Truco truco = new Truco( this.table, 0 );
 
@@ -61,7 +82,7 @@ public class ScoreboardTest {
     public void pointsIncreaseCorrectlyWhenGameGaveUp(){
         Scoreboard scoreboard = new Scoreboard( playerList, table );
 
-        LinkedList<CanHaveScore> players = scoreboard.getPlayers();
+        LinkedList<Team> players = scoreboard.getPlayers();
 
         Truco truco = new Truco( this.table, 0 );
 
@@ -69,6 +90,6 @@ public class ScoreboardTest {
 
     }
 
-*/
+
 
 }
