@@ -50,7 +50,7 @@ public class Table {
         this.judge = judge;
     }
 
-    public void getScoreBoard(Scoreboard scoreboard){
+    public void setScoreBoard(Scoreboard scoreboard){
 
         this.scoreboard = scoreboard;
     }
