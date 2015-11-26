@@ -14,6 +14,7 @@ public class NormalRound implements Games {
 
         this.theTable = theTable;
         this.theTable.handOut();
+        this.theTable.increaseRoundCounter();
     }
 
     @Override
@@ -54,6 +55,7 @@ public class NormalRound implements Games {
     @Override
     public void nextRound() {
 
+        this.theTable.increaseRoundCounter();
         this.theTable.raiseBet(new SecondRound(theTable));
     }
 }
