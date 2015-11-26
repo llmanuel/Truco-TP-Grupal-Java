@@ -207,7 +207,18 @@ public class Table {
 
         this.roundCounter = 0;
         this.gameState = new NormalRound(this);
+        this.reOrderPlayers();
+        this.setRoundBeginner(this.playersInGame.getFirst());
         this.handOut();
+    }
+
+    private void reOrderPlayers() {
+        LinkedList<Player> newOrderOfPLayers = new LinkedList<Player>();
+        Player newLastPlayer = playersInGame.pollFirst();
+
+        newOrderOfPLayers.addAll(playersInGame);
+        newOrderOfPLayers.addLast(newLastPlayer);
+        this.playersInGame = newOrderOfPLayers;
     }
 
     public void increaseRoundCounter() {
