@@ -11,10 +11,10 @@ public class ScoreboardTest {
 
     private HumanPlayer player1;
     private HumanPlayer player2;
-    private LinkedList<CanHaveScore> playerList;
+    private LinkedList<Team> playerList;
     private Table table;
 
-    @Before
+  /* @Before
     public void setup(){
         HumanPlayer myPlayer = new HumanPlayer(1);
         LinkedList<Player> myPlayerList= new LinkedList<Player>(  );
@@ -22,12 +22,14 @@ public class ScoreboardTest {
 
         HumanPlayer otherPLayer = new HumanPlayer(2);
         LinkedList<Player> otherPlayerList = new LinkedList<Player>(  );
-        myPlayerList.add( otherPLayer );
+        otherPlayerList.add( otherPLayer );
+
+
 
         table = new Table();
     }
 
- /*   @Test
+    @Test
     public void canInstantiateScoreboard(){
         Scoreboard scoreboard = new Scoreboard( playerList, table );
 
@@ -70,6 +72,6 @@ public class ScoreboardTest {
 
     }
 
-    */
+*/
 
 }

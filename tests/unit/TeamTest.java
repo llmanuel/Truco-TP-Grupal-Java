@@ -1,13 +1,10 @@
 package unit;
 
-import static org.junit.Assert.*;
-
 import model.HumanPlayer;
 import model.Player;
+import model.Team;
 import org.junit.Assert;
 import org.junit.Test;
-
-import model.Team;
 
 import java.util.LinkedList;
 
