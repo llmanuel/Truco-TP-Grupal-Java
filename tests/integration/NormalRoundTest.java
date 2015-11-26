@@ -30,13 +30,13 @@ public class NormalRoundTest {
 
     @Before
     public void setup() throws  InvalidNumberOfPlayersException {
-        card1 = new Card(5, "BASTO", 1);
-        card2 = new Card(7, "BASTO", 5);
-        card3 = new Card(7, "ESPADA", 6);
+        card1 = new Card(5, "BASTO", 2);
+        card2 = new Card(7, "BASTO", 4);
+        card3 = new Card(7, "ESPADA", 12);
 
-        card4 = new Card(12, "ESPADA", 6);
-        card5 = new Card(3, "ORO", 5);
-        card6 = new Card(7, "ORO", 5);
+        card4 = new Card(12, "ESPADA", 7);
+        card5 = new Card(3, "ORO", 10);
+        card6 = new Card(7, "ORO", 11);
         
         hand1Cards = new LinkedList<Card>();
         hand1Cards.add( card1 );
@@ -103,6 +103,18 @@ public class NormalRoundTest {
 
         Assert.assertTrue( scoreboard.getPointsOf( player2 ) == 1 );
         Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 0 );
+
+
+        cardToPlayPlayer1 = player1Hand.getCards().getFirst();
+        player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
+
+
+        cardToPlayPlayer2 = player2Hand.getCards().getFirst();
+        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
+
+        //Assert.assertTrue( scoreboard.getPointsOf( player2 ) == 2 );
+        //Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 0 );
+
 
 
     }
