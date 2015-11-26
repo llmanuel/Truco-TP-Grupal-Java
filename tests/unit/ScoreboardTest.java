@@ -1,8 +1,5 @@
-import model.CanHaveScore;
+import model.*;
 import model.Exceptions.CanHaveScoreDoesntExistException;
-import model.HumanPlayer;
-import model.Scoreboard;
-import model.Table;
 import model.TableStates.Truco;
 import org.junit.Assert;
 import org.junit.Before;
@@ -19,12 +16,13 @@ public class ScoreboardTest {
 
     @Before
     public void setup(){
-        player1 = new HumanPlayer( 1 );
-        player2 = new HumanPlayer( 2 );
+        HumanPlayer myPlayer = new HumanPlayer(1);
+        LinkedList<Player> myPlayerList= new LinkedList<Player>(  );
+        myPlayerList.add( myPlayer );
 
-        playerList = new LinkedList<CanHaveScore>( );
-        playerList.add( player1 );
-        playerList.add( player2 );
+        HumanPlayer otherPLayer = new HumanPlayer(2);
+        LinkedList<Player> otherPlayerList = new LinkedList<Player>(  );
+        myPlayerList.add( otherPLayer );
 
         table = new Table();
     }

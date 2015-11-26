@@ -1,9 +1,7 @@
 package model;
 
-import model.Exceptions.InvalidCardNumberException;
 import model.Exceptions.InvalidGameCallException;
 import model.Exceptions.InvalidNumberOfPlayersException;
-import model.Exceptions.InvalidSuiteException;
 import model.TableStates.Games;
 import model.TableStates.NormalRound;
 
