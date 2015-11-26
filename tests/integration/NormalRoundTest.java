@@ -81,7 +81,20 @@ public class NormalRoundTest {
 
 
     @Test
-    public void normalRoundTest(){
+    public void normalRoundTest() throws DonTHaveThatCardException, NotYourTurnException, TeamDoesntExistException {
+        this.table.setGame();
+
+        Hand player1Hand = player1.getHand();
+        Card cardToPlayPlayer1 = player1Hand.getCards().getFirst();
+        player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
+
+        Hand player2Hand = player2.getHand();
+        Card cardToPlayPlayer2 = player2Hand.getCards().getFirst();
+        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
+
+        Assert.assertTrue( scoreboard.getPointsOf( team2 ) == 1 );
+
+
 
 
     }
