@@ -56,6 +56,19 @@ public class Judge {
     public void setWinnerOfGame(LinkedList<Slot> slots, Games actualGame){
         int team1GamesWon = 0;
         int team2GamesWon = 0;
+        int maximumCardInRound = 0;
+        Player roundWinner = null;
+
+        try{
+            for (Slot actualSlot : slots) {
+                if (actualSlot.getLastOne().getValue() > maximumCardInRound) {
+                    maximumCardInRound = actualSlot.getLastOne().getValue();
+                    roundWinner =  actualSlot.getPlayer();
+                }
+            }
+        } catch (NotCardThrownException e) {
+
+        }
 
     }
 
