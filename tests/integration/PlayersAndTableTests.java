@@ -32,13 +32,13 @@ public class PlayersAndTableTests {
 
     @Before
     public void setup() throws  InvalidNumberOfPlayersException {
-        card1 = new Card(5, "BASTO", 1);
-        card2 = new Card(7, "BASTO", 5);
-        card3 = new Card(7, "ESPADA", 6);
+        card1 = new Card(5, "BASTO", 2);
+        card2 = new Card(7, "BASTO", 4);
+        card3 = new Card(7, "ESPADA", 12);
 
-        card4 = new Card(12, "ESPADA", 6);
-        card5 = new Card(3, "ORO", 5);
-        card6 = new Card(7, "ORO", 5);
+        card4 = new Card(12, "ESPADA", 7);
+        card5 = new Card(3, "ORO", 10);
+        card6 = new Card(7, "ORO", 11);
 
         hand1Cards = new LinkedList<Card>();
         hand1Cards.add( card1 );
@@ -60,9 +60,6 @@ public class PlayersAndTableTests {
         player2 = new HumanPlayer( 2 );
         player2team = new LinkedList<Player>( );
         player2team.add( player2 );
-
-        player1.setHand( hand1 );
-        player2.setHand( hand2 );
 
         playersList = new LinkedList<Player>();
         playersList.add(player1);
@@ -93,7 +90,10 @@ public class PlayersAndTableTests {
     @Test
     public void playersCanPlayCardsInTheirTurn() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException {
         /*With setgame() the turn belongs directly to player1 because he is the first on the List*/
-        table.setRoundBeginner(player1);
+        table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
 
         Hand playerHand = player1.getHand();
 
@@ -103,6 +103,8 @@ public class PlayersAndTableTests {
 
         Slot firstPlayerSlot = table.getSlots().getFirst();
 
+        Assert.assertEquals(player1,firstPlayerSlot.getPlayer());
+
         Card theCardPlayed = firstPlayerSlot.getLastOne();
 
         Assert.assertEquals(card1,theCardPlayed);
@@ -110,7 +112,10 @@ public class PlayersAndTableTests {
 
     @Test (expected = NotYourTurnException.class)
     public void playersCantPlayMoreThanACardInTheirTurn() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException {
-        table.setRoundBeginner(player1);/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
+        table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
 
         Hand playerHand = player1.getHand();
 
@@ -142,6 +147,9 @@ public class PlayersAndTableTests {
     @Test
     public void whenPlayersFinishThierTurnTheOtherOneCanPlay() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException {
         table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
 
         Hand playerHand = player1.getHand();
         Card cardToPlay = playerHand.getCards().getFirst();
@@ -190,6 +198,9 @@ public class PlayersAndTableTests {
     @Test (expected = DonTHaveThatCardException.class)
     public void PlayersCanThrowCardsTilTheyHaveNoMore() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException {
         table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
 
         Hand playerHand = player1.getHand();
         Card cardToPlay = playerHand.getCards().getFirst();
