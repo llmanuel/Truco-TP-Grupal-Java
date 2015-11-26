@@ -10,7 +10,7 @@ public class Croupier {
         this.initializeDeck();
     }
 
-    public Hand giveHand() 
+    public Hand giveHand(){
         LinkedList<Card> newCards = new LinkedList<Card>();
 
         newCards.add(deck.getCard());
