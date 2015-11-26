@@ -1,11 +1,5 @@
 import model.*;
-import model.Exceptions.InvalidCardNumberException;
-import model.Exceptions.InvalidSuiteException;
-import model.Exceptions.NotCardThrownException;
-import model.Exceptions.NotYourTurnException;
-import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
 
 public class PlayerAndSlotTest {
     Player player;

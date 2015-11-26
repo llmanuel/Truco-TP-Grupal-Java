@@ -1,8 +1,6 @@
 package integration;
 
 import model.*;
-import model.Exceptions.InvalidCardNumberException;
-import model.Exceptions.InvalidSuiteException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
