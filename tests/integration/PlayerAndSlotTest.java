@@ -8,7 +8,7 @@ public class PlayerAndSlotTest {
 
 
     @Before
-    public void setup() throws InvalidSuiteException, InvalidCardNumberException {
+    public void setup(){
         this.croupier = new Croupier();
 
         this.player = new HumanPlayer( 1 );

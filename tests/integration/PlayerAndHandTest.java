@@ -14,7 +14,7 @@ public class PlayerAndHandTest {
     private Croupier croupier;
 
     @Before
-    public void setup() throws InvalidSuiteException, InvalidCardNumberException {
+    public void setup()  {
         croupier = new Croupier();
         humanPlayer = new HumanPlayer( 1 );
     }
@@ -28,7 +28,7 @@ public class PlayerAndHandTest {
 	}
 
     @Test
-    public void playerReturnsEnvidoCorrectly() throws InvalidSuiteException, InvalidCardNumberException {
+    public void playerReturnsEnvidoCorrectly()  {
         Card card1 = new Card(5, "BASTO", 1);
         Card card2 = new Card(7, "BASTO", 5);
         Card card3 = new Card(7, "ESPADA", 6);

@@ -13,14 +13,14 @@ public class CroupierTest {
     private Croupier croupier;
 
     @Before
-    public void setup() throws InvalidSuiteException, InvalidCardNumberException {
+    public void setup(){
     	
          croupier = new Croupier();
     }
 
 
     @Test
-    public void testCroupierCanGiveAHand() throws InvalidSuiteException, InvalidCardNumberException {
+    public void testCroupierCanGiveAHand(){
 
         Assert.assertThat( croupier.giveHand(), instanceOf( Hand.class ) );
     }

@@ -21,7 +21,7 @@ public class Table {
     private Croupier croupier;
     private Scoreboard scoreboard;
 
-    public void Table() throws InvalidSuiteException, InvalidCardNumberException {
+    public void Table() {
 
         gameState = new NormalRound(this);
         croupier = new Croupier();

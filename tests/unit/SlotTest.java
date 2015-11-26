@@ -18,7 +18,7 @@ public class SlotTest {
     Card thirdCard;
 
     @Before
-    public void setup() throws InvalidSuiteException, InvalidCardNumberException {
+    public void setup() {
         myPlayer = new HumanPlayer(1);
         slot = new Slot(myPlayer);
         first = new Card(1,"ESPADA", 14);
@@ -35,13 +35,13 @@ public class SlotTest {
     }
 
     @Test
-    public void slotsKnowsItsOwner() throws InvalidSuiteException, InvalidCardNumberException {
+    public void slotsKnowsItsOwner()  {
 
         Assert.assertTrue(slot.isYourPlayer(myPlayer));
     }
 
     @Test
-    public void slotsReturnsFalseIfIsNotHIsPlayer() throws InvalidSuiteException, InvalidCardNumberException {
+    public void slotsReturnsFalseIfIsNotHIsPlayer()  {
 
         HumanPlayer otherPlayer = new HumanPlayer(2);
         Assert.assertFalse(slot.isYourPlayer(otherPlayer));

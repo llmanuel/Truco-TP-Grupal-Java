@@ -11,7 +11,7 @@ public class CardTest {
     private static final Integer VALID_VALUE = 12;
 
     @Test
-    public void canInstanciateCard() throws InvalidSuiteException, InvalidCardNumberException {
+    public void canInstanciateCard()  {
        Card card = new Card(VALID_NUMBER, VALID_SUIT, VALID_VALUE);
     }
 
@@ -29,7 +29,7 @@ public class CardTest {
 //    }
 
     @Test
-    public void cardReturnsCorrectNumber() throws InvalidSuiteException, InvalidCardNumberException {
+    public void cardReturnsCorrectNumber() {
         Card card = new Card(VALID_NUMBER, VALID_SUIT, VALID_VALUE);
 
         Assert.assertEquals(card.getNumber(), VALID_NUMBER, 0.0001);
@@ -37,7 +37,7 @@ public class CardTest {
     }
 
     @Test
-    public void cardReturnsCorrectValue() throws InvalidSuiteException, InvalidCardNumberException {
+    public void cardReturnsCorrectValue()  {
         Card card = new Card(VALID_NUMBER, VALID_SUIT, VALID_VALUE);
 
         Assert.assertEquals(card.getValue(), VALID_VALUE, 0.0001);
@@ -45,7 +45,7 @@ public class CardTest {
     }
 
     @Test
-    public void cardReturnsCorrectSuit() throws InvalidSuiteException, InvalidCardNumberException {
+    public void cardReturnsCorrectSuit() {
         Card card = new Card(VALID_NUMBER, VALID_SUIT, VALID_VALUE);
 
         Assert.assertEquals(card.getSuit(), VALID_SUIT);
