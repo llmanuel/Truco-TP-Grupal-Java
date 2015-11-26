@@ -80,10 +80,12 @@ public class NormalRoundTest {
     public void playersCantPlayMoreThanACardInTheirTurn() throws NotYourTurnException, NotCardThrownException {
         table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
 
-        player1.playCard(card1);
+        Hand playerHand = player1.getHand();
 
-        player1.playCard(card2);
-      
+        player1.playCard(playerHand.getCards().getFirst());
+
+        player1.playCard(playerHand.getCards().getFirst());
+
     }
 
     @Test (expected = NotYourTurnException.class)
