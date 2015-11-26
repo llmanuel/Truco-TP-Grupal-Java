@@ -84,17 +84,22 @@ public class Scoreboard {
 		throw new TeamDoesntExistException();
 	}
 
-	public void increaseTheScoreOf(Team team, Truco truco)throws TeamDoesntExistException {
+	public void increaseTheScoreOf(Team team, Games game)throws TeamDoesntExistException {
 		
+		boolean increase = false;
 		for (Score actualScore :scores){
 			
 			if (actualScore.getMember() == team){
 				
-				actualScore.increaseScoreBy(truco.getPoints());
+				actualScore.increaseScoreBy(game.getPoints());
+				increase = true;
 			}
 		}
+		if (!increase){
 		
-		throw new TeamDoesntExistException();
+			throw new TeamDoesntExistException();
+		}
+		
 	}
 
 }
