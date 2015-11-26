@@ -23,7 +23,7 @@ public class Table {
     private Croupier croupier;
     private Scoreboard scoreboard;
 
-    public void Table() {
+    public Table() {
 
         croupier = new Croupier();
     }
