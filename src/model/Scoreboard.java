@@ -13,10 +13,10 @@ public class Scoreboard {
     private Table table;
 
 
-    public Scoreboard(LinkedList<CanHaveScore> players, Table table) {
+    public Scoreboard(LinkedList<Team> teams, Table table) {
 		this.scores = new LinkedList<Score>();
 
-        for(CanHaveScore canHaveScoreActual : players){
+        for(CanHaveScore canHaveScoreActual : teams){
             this.scores.add(new Score(canHaveScoreActual));
         }
 
@@ -57,6 +57,7 @@ public class Scoreboard {
     }
 
     public void playerGaveUpThisGame(CanHaveScore player, Games game) {
+
 
     }
 }
