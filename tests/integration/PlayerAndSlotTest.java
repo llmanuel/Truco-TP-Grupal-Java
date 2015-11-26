@@ -30,14 +30,14 @@ public class PlayerAndSlotTest {
     }
 
     /*Players Must have a Table to play*/
-    @Test
-    public void playerCanPlayACertainCard() throws NotCardThrownException, NotYourTurnException, TeamDoesntExistException, DonTHaveThatCardException {
-        Card cardToPlay = this.player.getHand().getCards().getFirst();
-        this.player.itsYourTurn();
-        this.player.playCard( cardToPlay );
-
-        Assert.assertTrue( this.slot.getLastOne() == cardToPlay);
-    }
+//    @Test
+//    public void playerCanPlayACertainCard() throws NotCardThrownException, NotYourTurnException, TeamDoesntExistException, DonTHaveThatCardException {
+//        Card cardToPlay = this.player.getHand().getCards().getFirst();
+//        this.player.itsYourTurn();
+//        this.player.playCard( cardToPlay );
+//
+//        Assert.assertTrue( this.slot.getLastOne() == cardToPlay);
+//    }
 
 
 }
