@@ -220,6 +220,6 @@ public class Table {
 
     public void beginNextGame() {
         this.handOut();
-//        this.
+        this.gameState = new NormalRound(this);
     }
 }
