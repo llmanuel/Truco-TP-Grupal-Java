@@ -69,9 +69,9 @@ public class Hand {
 
     private Integer getEnvidoFrom(LinkedList<Card> cards) {
         int sumatoriaEnvido = 20;
-        for(int i = 0; i < cards.size(); i++){
-            if (cards.get(i).getNumber() < 10){
-                sumatoriaEnvido += cards.get(i).getNumber();
+        for (Card card : cards) {
+            if (card.getNumber() < 10) {
+                sumatoriaEnvido += card.getNumber();
             }
         }
         return sumatoriaEnvido;
