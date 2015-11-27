@@ -56,18 +56,22 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void callEnvido() {
+    public void callEnvido() throws NotYourTurnException {
         try {
-            this.table.callEnvido();
+            if(isMyTurn)
+                this.table.callEnvido();
+            else throw new NotYourTurnException();
         } catch (InvalidGameCallException e) {
 
         }
     }
 
     @Override
-    public void callRealEnvido() {
+    public void callRealEnvido() throws NotYourTurnException {
         try {
-            this.table.callRealEnvido();
+            if(isMyTurn)
+                this.table.callRealEnvido();
+            else throw new NotYourTurnException();
         } catch (InvalidGameCallException e) {
 
         }
@@ -75,19 +79,11 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void callFaltaEnvido() {
+    public void callFaltaEnvido() throws NotYourTurnException {
         try {
-            this.table.callFaltaEnvido();
-        } catch (InvalidGameCallException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    @Override
-    public void callTruco() {
-        try {
-            this.table.raiseBet();
+            if(isMyTurn)
+                this.table.callFaltaEnvido();
+            else throw new NotYourTurnException();
         } catch (InvalidGameCallException e) {
             e.printStackTrace();
         }
@@ -95,9 +91,11 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void callReTruco() {
+    public void callTruco() throws NotYourTurnException {
         try {
-            this.table.raiseBet();
+            if(isMyTurn)
+                this.table.raiseBet();
+            else throw new NotYourTurnException();
         } catch (InvalidGameCallException e) {
             e.printStackTrace();
         }
@@ -105,9 +103,11 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void callVale4() {
+    public void callReTruco() throws NotYourTurnException {
         try {
-            this.table.raiseBet();
+            if(isMyTurn)
+                this.table.raiseBet();
+            else throw new NotYourTurnException();
         } catch (InvalidGameCallException e) {
             e.printStackTrace();
         }
@@ -115,9 +115,22 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void giveUp() {
-        this.table.giveUpGame();
+    public void callVale4() throws NotYourTurnException {
+        try {
+            if(isMyTurn)
+                this.table.raiseBet();
+            else throw new NotYourTurnException();
+        } catch (InvalidGameCallException e) {
+            e.printStackTrace();
+        }
 
+    }
+
+    @Override
+    public void giveUp() throws NotYourTurnException {
+        if(isMyTurn)
+            this.table.giveUpGame();
+        else throw new NotYourTurnException();
     }
 
     @Override
@@ -125,9 +138,11 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void acceptCall() {
+    public void acceptCall() throws NotYourTurnException {
         try {
-            this.table.acceptCall();
+            if(isMyTurn)
+                this.table.acceptCall();
+            else throw new NotYourTurnException();
         } catch (TeamDoesntExistException e) {
 
         }
