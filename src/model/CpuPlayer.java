@@ -2,6 +2,7 @@ package model;
 
 import model.Exceptions.DonTHaveThatCardException;
 import model.Exceptions.InvalidGameCallException;
+import model.Exceptions.TeamDoesntExistException;
 
 public class CpuPlayer implements Player {
 
@@ -129,6 +130,11 @@ public class CpuPlayer implements Player {
 
     @Override
     public void acceptCall() {
+        try {
+            this.table.acceptCall();
+        } catch (TeamDoesntExistException e) {
+
+        }
 
     }
 
