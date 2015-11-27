@@ -181,7 +181,7 @@ public class Table {
             this.setRoundBeginner(nextBeginner);
             return nextBeginner;
         }
-        else {
+        else if ((cursor == roundBeginner) && (this.roundCounter == 3)){
             this.judge.setWinnerOfGame(this.slotInGame,this.gameState);
             beginNextGame();
         }

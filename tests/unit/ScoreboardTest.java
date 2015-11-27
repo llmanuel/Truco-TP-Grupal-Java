@@ -85,7 +85,7 @@ public class ScoreboardTest {
 
         LinkedList<Team> players = scoreboard.getPlayers();
 
-        Truco truco = new Truco( this.table, 0 );
+       Truco truco = new Truco( this.table, 2 );
 
         scoreboard.playerGaveUpThisGame(players.getFirst(), truco);
         
