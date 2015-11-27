@@ -125,6 +125,11 @@ public class HumanPlayer implements Player {
     }
 
     @Override
+    public void acceptCall() {
+
+    }
+
+    @Override
     public void setHand(Hand hand) {
         this.hand = hand;
     }
