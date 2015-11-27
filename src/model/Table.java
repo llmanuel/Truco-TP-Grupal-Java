@@ -274,6 +274,8 @@ public class Table {
 
     private void verifyOthersTeamDecision(){
         teamsCursor = this.getTheEnemyTeamOf(this.cursor);
+        /*Finaliza el turno de quien hizo el canto*/
+        this.cursor.turnFinished();
         cursorForCalls = teamsCursor.getFirstMember();
         cursorForCalls.itsYourTurn();
     }
