@@ -299,7 +299,7 @@ public class Table {
     }
 
     public Team getTeamOfActualPlayer(){
-        if (firstTeam.isMember(cursor))
+        if (firstTeam.isMember(this.cursorForCalls))
         return firstTeam;
         else return secondTeam;
     }
