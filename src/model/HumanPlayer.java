@@ -126,7 +126,11 @@ public class HumanPlayer implements Player {
 
     @Override
     public void acceptCall() {
+        try {
+            this.table.acceptCall();
+        } catch (TeamDoesntExistException e) {
 
+        }
     }
 
     @Override
