@@ -17,7 +17,7 @@ public class Table {
     private LinkedList<Player> playersInGame;
     private LinkedList<Slot> slotInGame;
     private Player cursor;
-    private Player teamsCursor;
+    private Team teamsCursor;
     private Player roundBeginner;
     private Games gameState;
     private Judge judge;
@@ -241,13 +241,10 @@ public class Table {
         this.playersInGame = newOrderOfPLayers;
     }
 
-    private void reOrderTeam() {
-        LinkedList<Player> newOrderOfPLayers = new LinkedList<Player>();
+    private void reOrderTeam(Team teamToReorder) {
         Player newLastPlayer = playersInGame.pollFirst();
 
-        newOrderOfPLayers.addAll(playersInGame);
-        newOrderOfPLayers.addLast(newLastPlayer);
-        this.playersInGame = newOrderOfPLayers;
+        teamToReorder.addLast(newLastPlayer);
     }
 
     public void increaseRoundCounter() {
@@ -261,11 +258,9 @@ public class Table {
      *************************/
 
     private void verifyOthersTeamDecision(){
-        Team teamToAnswer = this.getTheEnemyTeamOf(this.cursor);
-        teamsCursor= teamToAnswer.getMember(1);
-        teamsCursor.itsYourTurn();
+        teamsCursor = this.getTheEnemyTeamOf(this.cursor);
+        teamsCursor.getMember(1).itsYourTurn();
     }
-
 
     private Team getTheEnemyTeamOf(Player cursor) {
         if (firstTeam.isMember(cursor))
@@ -273,30 +268,13 @@ public class Table {
         else return firstTeam;
     }
 
-//    public Player nextPlayerOnTheTeam(Team teamToAnswer){
-//        this.getTheNextOneOnTheTeam();
-//        if (teamsCursor == teamToAnswer){
-//            this.increaseRoundCounter();
-//            Player nextBeginner = judge.setWinnerOfTheRound(this.getSlots());
-//            this.gameState.nextRound();
-//            this.setRoundBeginner(nextBeginner);
-//            return nextBeginner;
-//        }
-//        Player thatPlayer = cursor;
-//        return thatPlayer;
-//    }
-//
-//    /*
-//     * Sets the cursor at the next player to play.
-//     */
-//    private void getTheNextOneOnTheTeam() {
-//        try {
-//            int i = 0;
-//            while (teamsCursor != playersInGame.get(i)) {
-//                i = i + 1;
-//            }
-//            i = i + 1;
-//            setCursorAt( playersInGame.get(i));
-//        }catch (IndexOutOfBoundsException e){setCursorAt( playersInGame.getFirst());}
-//    }
+    public Player askNextPlayerOnTheTeam(Team teamToAnswer){
+        this.reOrderTeam(teamToAnswer);
+        Player nextPlayer = teamToAnswer.getMember(1);
+        return nextPlayer;
+    }
+
+    public Team getTeamCursor(){
+        return this.teamsCursor;
+    }
 }
