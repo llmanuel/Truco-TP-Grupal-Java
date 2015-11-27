@@ -8,12 +8,11 @@ import java.util.LinkedList;
 public class Builder {
 
     LinkedList<Player> players = new LinkedList<Player>();
-    Table table = new Table();
+    LinkedList<Team> teams = new LinkedList<Team>();
 
+    Table table = new Table();
     Team team1;
     Team team2;
-
-    LinkedList<Team> teams = new LinkedList<Team>();
     Scoreboard scoreboard;
     Judge judge;
 
@@ -35,7 +34,8 @@ public class Builder {
 
     private void setJudge() {
 
-       judge = new Judge(scoreboard);
+        judge = new Judge(scoreboard);
+        judge.setPlayers(players);
     }
 
     private void setTeams() {
