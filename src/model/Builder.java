@@ -7,7 +7,7 @@ import java.util.LinkedList;
 
 public class Builder {
 
-    LinkedList<Player> players;
+    LinkedList<Player> players = new LinkedList<Player>();
 
     public Builder(int numberOfPlayers) throws InvalidNumberOfPlayersException {
         validateNumberOfPlayers(numberOfPlayers);
