@@ -15,6 +15,17 @@ public interface Player {
     void playCard(Card cardToPlay) throws NotYourTurnException, DonTHaveThatCardException, TeamDoesntExistException, NotCardThrownException;
     void itsYourTurn();
     void turnFinished();
+
+    void callEnvido();
+    void callRealEnvido();
+    void callFaltaEnvido();
+    void callTruco();
+    void callReTruco();
+    void callVale4();
+    void giveUp();
+    void callFlor();
+    
+
     Hand getHand();
 }
 
