@@ -8,10 +8,12 @@ public class ReTruco implements Games {
     int points = 3;
     private Table theTable;
     private int lastGamePoints;
+    private boolean gameWasAccepted;
 
     public ReTruco(Table theTable, int lastGamePoints){
         this.theTable = theTable;
         this.lastGamePoints = lastGamePoints;
+        this.gameWasAccepted = false;
     }
 
     @Override
@@ -57,6 +59,11 @@ public class ReTruco implements Games {
     @Override
     public void acceptCall() throws TeamDoesntExistException {
         this.theTable.getActualPlayer().itsYourTurn();
+    }
+
+    @Override
+    public boolean tellIfTheGameWasAccepted() {
+        return this.gameWasAccepted;
     }
 
     @Override

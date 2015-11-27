@@ -10,10 +10,12 @@ public class Vale4 implements Games {
     int points = 4;
     private Table theTable;
     private int lastGamePoints;
+    private boolean gameWasAccepted;
 
     public Vale4(Table theTable, int lastGamePoints){
         this.theTable = theTable;
         this.lastGamePoints = lastGamePoints;
+        this.gameWasAccepted = false;
     }
 
     @Override
@@ -60,6 +62,11 @@ public class Vale4 implements Games {
     @Override
     public void acceptCall() throws TeamDoesntExistException {
         this.theTable.getActualPlayer().itsYourTurn();
+    }
+
+    @Override
+    public boolean tellIfTheGameWasAccepted() {
+        return this.gameWasAccepted;
     }
 
     @Override

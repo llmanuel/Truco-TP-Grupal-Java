@@ -10,6 +10,7 @@ import model.TableStates.*;
 public class NormalRound implements Games {
     int points = 1;
     private Table theTable;
+    private boolean gameWasAccepted = true;
 
     public NormalRound(Table theTable){
 
@@ -61,6 +62,11 @@ public class NormalRound implements Games {
     @Override
     public void acceptCall() throws TeamDoesntExistException {
 
+    }
+
+    @Override
+    public boolean tellIfTheGameWasAccepted() {
+        return this.gameWasAccepted;
     }
 
     @Override

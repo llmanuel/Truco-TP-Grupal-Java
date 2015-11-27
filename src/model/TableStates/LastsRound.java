@@ -10,6 +10,7 @@ import model.Table;
 public class LastsRound implements Games {
     int points = 1;
     private Table theTable;
+    private boolean gameWasAccepted = true;
 
     public LastsRound(Table theTable){
 
@@ -58,6 +59,11 @@ public class LastsRound implements Games {
     @Override
     public void acceptCall() throws TeamDoesntExistException {
 
+    }
+
+    @Override
+    public boolean tellIfTheGameWasAccepted() {
+        return this.gameWasAccepted;
     }
 
     @Override

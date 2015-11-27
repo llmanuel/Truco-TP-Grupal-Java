@@ -13,5 +13,6 @@ public interface Games {
     void callFaltaEnvido() throws InvalidGameCallException;
     void iDontWannaAnswer();
     void acceptCall() throws TeamDoesntExistException;
+    boolean tellIfTheGameWasAccepted();
     void nextRound();
 }

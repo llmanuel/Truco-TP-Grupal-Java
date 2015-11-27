@@ -7,11 +7,13 @@ public class Envido implements Games {
     int points;
     private int lastGamePoints;
     private Table theTable;
+    private boolean gameWasAccepted;
 
     public Envido(Table theTable, int points, int lastGamePoints){
         this.theTable = theTable;
         this.points = points;
         this.lastGamePoints = lastGamePoints;
+        this.gameWasAccepted = false;
     }
 
     @Override
@@ -50,6 +52,12 @@ public class Envido implements Games {
     @Override
     public void acceptCall() throws TeamDoesntExistException {
         this.theTable.theEnvidoGameWasAccepted();
+        this.gameWasAccepted = true;
+    }
+
+    @Override
+    public boolean tellIfTheGameWasAccepted() {
+        return this.gameWasAccepted;
     }
 
     @Override

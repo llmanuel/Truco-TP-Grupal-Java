@@ -5,6 +5,7 @@ import model.Exceptions.*;
 
 public class HumanPlayer implements Player {
 
+    private boolean gameStateAccepted;
     private int playerId;
     private Hand hand;
     private Slot slot;
@@ -39,7 +40,7 @@ public class HumanPlayer implements Player {
 
     @Override
     public void playCard(Card cardToPlay) throws NotYourTurnException, DonTHaveThatCardException, TeamDoesntExistException, NotCardThrownException {
-        if (isMyTurn) {
+        if ((isMyTurn) && (this.table.tellMeIfCallWasAccepted())) {
             this.slot.receiveCard( cardToPlay );
             this.table.finishTurn();
         } else throw new NotYourTurnException();

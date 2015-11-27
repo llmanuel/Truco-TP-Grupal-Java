@@ -7,10 +7,12 @@ public class Truco implements Games {
     int points = 2;
     private Table theTable;
     private int lastGamePoints;
+    private boolean gameWasAccepted;
 
     public Truco(Table theTable, int lastGamePoints){
         this.theTable = theTable;
         this.lastGamePoints = lastGamePoints;
+        this.gameWasAccepted = false;
     }
 
     @Override
@@ -57,6 +59,12 @@ public class Truco implements Games {
     @Override
     public void acceptCall() {
         this.theTable.getActualPlayer().itsYourTurn();
+        this.gameWasAccepted = true;
+    }
+
+    @Override
+    public boolean tellIfTheGameWasAccepted() {
+        return this.gameWasAccepted;
     }
 
     @Override

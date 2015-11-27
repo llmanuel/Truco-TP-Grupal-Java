@@ -10,10 +10,12 @@ import model.TableStates.Games;
  */
 public class FaltaEnvido implements Games {
     private Table theTable;
+    private boolean gameWasAccepted;
 
     public FaltaEnvido(Table theTable){
 
         this.theTable = theTable;
+        this.gameWasAccepted = false;
     }
 
     @Override
@@ -56,6 +58,11 @@ public class FaltaEnvido implements Games {
     @Override
     public void acceptCall() throws TeamDoesntExistException {
         this.theTable.theEnvidoGameWasAccepted();
+    }
+
+    @Override
+    public boolean tellIfTheGameWasAccepted() {
+        return this.gameWasAccepted;
     }
 
     @Override

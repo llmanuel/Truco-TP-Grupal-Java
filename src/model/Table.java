@@ -289,4 +289,8 @@ public class Table {
     public Team getTeamCursor(){
         return this.teamsCursor;
     }
+
+    public boolean tellMeIfCallWasAccepted(){
+       return this.gameState.tellIfTheGameWasAccepted();
+    }
 }
