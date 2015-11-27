@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import java.util.LinkedList;
 
-public class GameWithTrucoTest {
+public class GameWithTrucoInFirstRoundTest {
     private Card card1,card2,card3,card4,card5,card6;
     private LinkedList<Card> hand1Cards;
     private LinkedList<Card> hand2Cards;
@@ -87,7 +87,13 @@ public class GameWithTrucoTest {
 
     @Test
     public void gameWithTrucoTest(){
-        
+        this.table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+
+
     }
 
 
