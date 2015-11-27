@@ -1,5 +1,6 @@
 import model.*;
-import model.Exceptions.InvalidNumberOfPlayersException;
+import model.Exceptions.*;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -86,15 +87,38 @@ public class GameWithTrucoInFirstRoundTest {
     }
 
     @Test
-    public void gameWithTrucoTest(){
+    public void gameWithTrucoTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
         this.table.setGame();
 
         player1.setHand( hand1 );
         player2.setHand( hand2 );
 
         player1.callTruco();
+        player2.acceptCall();
+
+        Hand player1Hand = player1.getHand();
+        Card cardToPlayPlayer1 = player1Hand.getCards().getFirst();
+        player1.playCard(player1Hand.getCard(card1));
+
+        Hand player2Hand = player2.getHand();
+        Card cardToPlayPlayer2 = player2Hand.getCards().getFirst();
+        player2.playCard(player2Hand.getCard(card4));
+
+        cardToPlayPlayer2 = player2Hand.getCards().getFirst();
+        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
+
+        cardToPlayPlayer1 = player1Hand.getCards().getFirst();
+        player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
 
 
+        cardToPlayPlayer2 = player2Hand.getCards().getFirst();
+        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
+
+        cardToPlayPlayer1 = player1Hand.getCards().getFirst();
+        player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
+
+        Assert.assertTrue( scoreboard.getPointsOf( player2 ) == 2 );
+        Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 0 );
 
     }
 
