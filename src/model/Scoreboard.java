@@ -61,7 +61,7 @@ public class Scoreboard {
     		
     		if (actualScore.getMember() != team){
     			
-    			actualScore.increaseScoreBy(game.getPoints());
+    			actualScore.increaseScoreBy(game.giveUp());
     		}
     	}
     }

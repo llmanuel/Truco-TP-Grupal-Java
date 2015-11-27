@@ -128,6 +128,11 @@ public class CpuPlayer implements Player {
     }
 
     @Override
+    public void acceptCall() {
+
+    }
+
+    @Override
     public void setHand(Hand newHand) {
         this.hand = newHand;
     }

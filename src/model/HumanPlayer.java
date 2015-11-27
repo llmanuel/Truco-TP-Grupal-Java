@@ -5,7 +5,6 @@ import model.Exceptions.*;
 
 public class HumanPlayer implements Player {
 
-    private boolean gameStateAccepted;
     private int playerId;
     private Hand hand;
     private Slot slot;
@@ -123,6 +122,11 @@ public class HumanPlayer implements Player {
 
     @Override
     public void callFlor() {
+    }
+
+    @Override
+    public void acceptCall() {
+
     }
 
     @Override
