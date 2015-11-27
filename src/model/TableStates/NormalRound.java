@@ -56,6 +56,6 @@ public class NormalRound implements Games {
     public void nextRound() {
 
         this.theTable.increaseRoundCounter();
-        this.theTable.raiseBet(new SecondRound(theTable));
+        this.theTable.raiseBet(new LastsRound(theTable));
     }
 }
