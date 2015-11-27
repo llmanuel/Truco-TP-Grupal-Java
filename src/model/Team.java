@@ -1,5 +1,7 @@
 package model;
 
+import model.Exceptions.PlayerDoesNotExistsException;
+
 import java.util.LinkedList;
 
 public class Team {
@@ -23,5 +25,17 @@ public class Team {
 
     public void addLast(Player newLastPlayer) {
         this.members.addLast(newLastPlayer);
+    }
+
+    public Player getMember(int i) throws PlayerDoesNotExistsException {
+
+        for (Player actualPlayer :members) {
+
+            if (actualPlayer.getIdNumber() == i) {
+
+                return actualPlayer;
+            }
+        }
+        throw new PlayerDoesNotExistsException();
     }
 }

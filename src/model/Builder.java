@@ -14,30 +14,47 @@ public class Builder {
     Team team2;
 
     LinkedList<Team> teams = new LinkedList<Team>();
-    Scoreboard scoreboard = new Scoreboard(teams, table);
-    Judge judge = new Judge(scoreboard);
+    Scoreboard scoreboard;
+    Judge judge;
 
     public Builder(int numberOfPlayers) throws InvalidNumberOfPlayersException {
         validateNumberOfPlayers(numberOfPlayers);
         createPlayers(numberOfPlayers);
         setTeams();
         prepareTable();
+        setScoreboard();
+        setJudge();
+
+    }
+
+    private void setScoreboard() {
+
+        scoreboard = new Scoreboard(teams, table);
+
+    }
+
+    private void setJudge() {
+
+       judge = new Judge(scoreboard);
     }
 
     private void setTeams() {
-        LinkedList<Player> team1 = new LinkedList<Player>();
-        LinkedList<Player> team2 = new LinkedList<Player>();
+        LinkedList<Player> playersTeam1 = new LinkedList<Player>();
+        LinkedList<Player> playersTeam2 = new LinkedList<Player>();
 
-        for(int i = 1; i < players.size(); i++){
+        for(int i = 0; i < players.size(); i++){
             if (i%2 == 0){
-                team1.add(players.get(i));
+                playersTeam1.add(players.get(i));
             }else{
-                team2.add(players.get(i));
+                playersTeam2.add(players.get(i));
             }
         }
 
-        this.team1 = new Team(team1);
-        this.team2 = new Team(team2);
+        this.team1 = new Team(playersTeam1);
+        this.team2 = new Team(playersTeam2);
+
+        this.teams.add(team1);
+        this.teams.add(team2);
     }
 
     private void prepareTable() throws InvalidNumberOfPlayersException {
@@ -87,5 +104,15 @@ public class Builder {
         if((numberOfPlayers != 2)&&(numberOfPlayers !=4)&&(numberOfPlayers !=6)){
             throw new InvalidNumberOfPlayersException();
         }
+    }
+
+    public LinkedList<Player> getPlayers() {
+
+        return players;
+    }
+
+    public LinkedList<Team> getTeams() {
+
+        return teams;
     }
 }
