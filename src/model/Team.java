@@ -12,4 +12,8 @@ public class Team {
     public boolean isMember(Player player) {
         return this.members.contains( player );
     }
+
+    public Player getMember(int i){
+        return  (this.members.get(i));
+    }
 }
