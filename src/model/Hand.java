@@ -55,8 +55,7 @@ public class Hand {
                 cardsOfTheSameSuit.add(card);
             }
         }
-        LinkedList handOfCardsWithTheSameSuit = new LinkedList(cardsOfTheSameSuit);
-        return handOfCardsWithTheSameSuit;
+        return new LinkedList(cardsOfTheSameSuit);
     }
 
     private String getMostRepeatedSuit() {
