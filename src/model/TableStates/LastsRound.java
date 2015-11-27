@@ -10,11 +10,12 @@ import model.Table;
 public class LastsRound implements Games {
     int points = 1;
     private Table theTable;
-    private boolean gameWasAccepted = true;
+    private boolean gameWasAccepted;
 
     public LastsRound(Table theTable){
 
         this.theTable = theTable;
+        gameWasAccepted = true;
     }
 
     @Override

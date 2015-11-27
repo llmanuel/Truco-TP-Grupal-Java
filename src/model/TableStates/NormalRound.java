@@ -10,13 +10,14 @@ import model.TableStates.*;
 public class NormalRound implements Games {
     int points = 1;
     private Table theTable;
-    private boolean gameWasAccepted = true;
+    private boolean gameWasAccepted;
 
     public NormalRound(Table theTable){
 
         this.theTable = theTable;
         this.theTable.handOut();
         this.theTable.increaseRoundCounter();
+        gameWasAccepted = true;
     }
 
     @Override
