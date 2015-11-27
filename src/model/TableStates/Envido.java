@@ -52,7 +52,6 @@ public class Envido implements Games {
     @Override
     public void acceptCall() throws TeamDoesntExistException {
         this.theTable.theEnvidoGameWasAccepted();
-        this.gameWasAccepted = true;
     }
 
     @Override
@@ -62,7 +61,7 @@ public class Envido implements Games {
 
     @Override
     public void nextRound() {
-
+        this.theTable.nextRound(new LastsRound(theTable));
     }
 
     /*

@@ -128,6 +128,9 @@ public class Table {
 
     public void theEnvidoGameWasAccepted() throws TeamDoesntExistException {
         this.judge.setWinnerOfEnvido(this.gameState);
+        /*nextRound on Envidos Games will set the game state on LastsRounds*/
+        this.gameState.nextRound();
+        this.cursor.itsYourTurn();
     }
 
     public void nextRound(Games nextGame){

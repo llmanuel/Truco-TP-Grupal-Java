@@ -70,6 +70,6 @@ public class RealEnvido implements Games {
 
     @Override
     public void nextRound() {
-
+        this.theTable.nextRound(new LastsRound(theTable));
     }
 }

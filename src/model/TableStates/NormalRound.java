@@ -72,7 +72,6 @@ public class NormalRound implements Games {
     @Override
     public void nextRound() {
 
-        this.theTable.increaseRoundCounter();
         this.theTable.nextRound(new LastsRound(theTable));
     }
 }

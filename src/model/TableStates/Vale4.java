@@ -61,6 +61,7 @@ public class Vale4 implements Games {
 
     @Override
     public void acceptCall() throws TeamDoesntExistException {
+        this.gameWasAccepted = true;
         this.theTable.getActualPlayer().itsYourTurn();
     }
 
