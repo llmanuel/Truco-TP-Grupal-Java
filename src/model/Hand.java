@@ -51,7 +51,7 @@ public class Hand {
     private LinkedList<Card> getCardsOfTheSameSuit() {
         LinkedList<Card> cardsOfTheSameSuit = new LinkedList<Card>();
         for (Card card : cards) {
-            if (card.getSuit() == getMostRepeatedSuit()) {
+            if (card.getSuit().equals(getMostRepeatedSuit())) {
                 cardsOfTheSameSuit.add(card);
             }
         }
