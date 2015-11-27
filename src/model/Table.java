@@ -113,6 +113,7 @@ public class Table {
     public void raiseBet(Games nextGame) {
 
         this.gameState = nextGame;
+        this.verifyOthersTeamDecision();
     }
 
     public void giveUpGame() {
@@ -233,6 +234,14 @@ public class Table {
 
     public void increaseRoundCounter() {
         roundCounter = roundCounter + 1;
+    }
+
+    /**************************
+     *
+     * Verification of decision when a team makes a call
+     *
+     *************************/
+    private void verifyOthersTeamDecision() {
     }
 
 }
