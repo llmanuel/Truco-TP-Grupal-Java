@@ -173,21 +173,20 @@ public class Table {
      * Returns the next player to play.
      */
     public Player nextPlayer() throws TeamDoesntExistException, NotCardThrownException {
-        if (this.roundCounter == 3){
-            this.judge.setWinnerOfGame(this.slotInGame,this.gameState);
-            beginNextGame();
-            return this.cursor;
-        }
         this.getTheNextOne();
-        if (cursor == roundBeginner){
+        if ((cursor == roundBeginner) && (this.roundCounter != 3)){
             this.increaseRoundCounter();
             Player nextBeginner = judge.setWinnerOfTheRound(this.getSlots());
             this.gameState.nextRound();
             this.setRoundBeginner(nextBeginner);
             return nextBeginner;
         }
-        Player thatPlayer = cursor;
-        return thatPlayer;
+        else {
+            this.judge.setWinnerOfGame(this.slotInGame,this.gameState);
+            beginNextGame();
+        }
+
+        return this.cursor;
     }
 
     /*
