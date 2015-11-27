@@ -16,4 +16,12 @@ public class Team {
     public Player getMember(int i){
         return  (this.members.get(i));
     }
+
+    public Player pollFirst(){
+        return this.members.pollFirst();
+    }
+
+    public void addLast(Player newLastPlayer) {
+        this.members.addLast(newLastPlayer);
+    }
 }
