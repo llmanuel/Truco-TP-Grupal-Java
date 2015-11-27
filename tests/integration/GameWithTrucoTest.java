@@ -1,15 +1,11 @@
-package integration;
-
 import model.*;
-import model.Exceptions.*;
-import org.junit.Assert;
+import model.Exceptions.InvalidNumberOfPlayersException;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.LinkedList;
 
-public class NormalRoundTest {
-
+public class GameWithTrucoTest {
     private Card card1,card2,card3,card4,card5,card6;
     private LinkedList<Card> hand1Cards;
     private LinkedList<Card> hand2Cards;
@@ -29,7 +25,7 @@ public class NormalRoundTest {
 
 
     @Before
-    public void setup() throws  InvalidNumberOfPlayersException {
+    public void setup() throws InvalidNumberOfPlayersException {
         card1 = new Card(5, "BASTO", 2);
         card2 = new Card(7, "BASTO", 4);
         card3 = new Card(7, "ESPADA", 12);
@@ -37,7 +33,7 @@ public class NormalRoundTest {
         card4 = new Card(12, "ESPADA", 7);
         card5 = new Card(3, "ORO", 10);
         card6 = new Card(7, "ORO", 11);
-        
+
         hand1Cards = new LinkedList<Card>();
         hand1Cards.add( card1 );
         hand1Cards.add( card2 );
@@ -87,44 +83,15 @@ public class NormalRoundTest {
         this.table.setTeams( team1, team2 );
 
 
+    }
+
+    @Test
+    public void gameWithTrucoTest(){
         
     }
 
 
-    @Test
-    public void normalRoundTest() throws DonTHaveThatCardException, NotYourTurnException, TeamDoesntExistException, NotCardThrownException {
-        this.table.setGame();
 
-        player1.setHand( hand1 );
-        player2.setHand( hand2 );
-
-        Hand player1Hand = player1.getHand();
-        Card cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(card1));
-
-        Hand player2Hand = player2.getHand();
-        Card cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(card4));
-
-        cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
-
-        cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
-
-
-        cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
-
-        cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
-
-        Assert.assertTrue( scoreboard.getPointsOf( player2 ) == 1 );
-        Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 0 );
-
-
-
-    }
 
 
 }
