@@ -1,6 +1,7 @@
 package unit;
 
 import model.Builder;
+import model.Exceptions.InvalidNumberOfPlayersException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,5 +17,10 @@ public class BuilderTest {
             exceptionNotThrown = false;
         }
         Assert.assertTrue(exceptionNotThrown);
+    }
+
+    @Test (expected = InvalidNumberOfPlayersException.class)
+    public void getErrorWhenTryToInvokeBuilderWithWrongNumberOfPlayers() throws InvalidNumberOfPlayersException {
+        Builder b = new Builder(5);
     }
 }
