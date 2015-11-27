@@ -210,8 +210,16 @@ public class Table {
         this.roundCounter = 0;
         this.gameState = new NormalRound(this);
         this.reOrderPlayers();
+        this.cleanSlots();
         this.handOut();
         this.setRoundBeginner(this.playersInGame.getFirst());
+    }
+
+    private void cleanSlots() {
+
+        for(Slot actualSlot: slotInGame){
+            actualSlot.throwCards();
+        }
     }
 
     private void reOrderPlayers() {

@@ -103,8 +103,6 @@ public class PlayersAndTableTests {
 
         Slot firstPlayerSlot = table.getSlots().getFirst();
 
-        Assert.assertEquals(player1,firstPlayerSlot.getPlayer());
-
         Card theCardPlayed = firstPlayerSlot.getLastOne();
 
         Assert.assertEquals(card1,theCardPlayed);
