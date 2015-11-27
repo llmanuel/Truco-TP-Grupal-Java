@@ -16,15 +16,15 @@ public interface Player {
     void itsYourTurn();
     void turnFinished();
 
-    void callEnvido();
-    void callRealEnvido();
-    void callFaltaEnvido();
-    void callTruco();
-    void callReTruco();
-    void callVale4();
-    void giveUp();
+    void callEnvido() throws NotYourTurnException;
+    void callRealEnvido() throws NotYourTurnException;
+    void callFaltaEnvido() throws NotYourTurnException;
+    void callTruco() throws NotYourTurnException;
+    void callReTruco() throws NotYourTurnException;
+    void callVale4() throws NotYourTurnException;
+    void giveUp() throws NotYourTurnException;
     void callFlor();
-    void acceptCall();
+    void acceptCall() throws NotYourTurnException;
 
     Hand getHand();
 }
