@@ -30,7 +30,7 @@ public class Judge {
         return (cardA.getValue())>(cardB.getValue());
     }
 
-	public Player setWinnerOfEnvido() {
+	public void setWinnerOfEnvido(Games actualGame) throws TeamDoesntExistException {
 		int maximunValueOfEnvido = 0;
         Player envidoWinner = null;
 
@@ -40,7 +40,8 @@ public class Judge {
                 maximunValueOfEnvido = actualPlayer.calculateEnvido();
             }
 		}
-        return envidoWinner;
+        this.scoreboard.increaseTheScoreOf( envidoWinner, actualGame );
+
 	}
 	
 	public Player setWinnerOfTheRound(LinkedList<Slot> slots) throws NotCardThrownException, TeamDoesntExistException {
