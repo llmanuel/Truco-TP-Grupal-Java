@@ -17,8 +17,8 @@ public class Table {
     private LinkedList<Player> playersInGame;
     private LinkedList<Slot> slotInGame;
     private Player cursor;
-    private Team teamsCursor;
     private Player roundBeginner;
+    private Player cursorForCalls;
     private Games gameState;
     private Judge judge;
     private Croupier croupier;
@@ -26,6 +26,7 @@ public class Table {
     private int roundCounter;
     private Team firstTeam;
     private Team secondTeam;
+    private Team teamsCursor;
 
     public Table() {
 
@@ -259,7 +260,8 @@ public class Table {
 
     private void verifyOthersTeamDecision(){
         teamsCursor = this.getTheEnemyTeamOf(this.cursor);
-        teamsCursor.getMember(1).itsYourTurn();
+        cursorForCalls = teamsCursor.getFirstMember();
+        cursorForCalls.itsYourTurn();
     }
 
     private Team getTheEnemyTeamOf(Player cursor) {
@@ -268,10 +270,12 @@ public class Table {
         else return firstTeam;
     }
 
-    public Player askNextPlayerOnTheTeam(Team teamToAnswer){
+    public void askNextPlayerOnTheTeam(Team teamToAnswer){
         this.reOrderTeam(teamToAnswer);
-        Player nextPlayer = teamToAnswer.getMember(1);
-        return nextPlayer;
+        Player nextPlayer = teamToAnswer.getFirstMember();
+        if(nextPlayer == cursorForCalls)
+            this.gameState.giveUp();
+        nextPlayer.itsYourTurn();
     }
 
     public Team getTeamCursor(){
