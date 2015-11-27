@@ -8,7 +8,6 @@ import java.util.LinkedList;
 
 public class Judge {
 
-    private LinkedList<Player> players = new LinkedList<Player>();
     private Scoreboard scoreboard;
     private long[] roundWinsPerTeam;
 
@@ -18,23 +17,16 @@ public class Judge {
     }
 
 
-    public void setPlayers(LinkedList<Player> players) {
-        this.players = players;
-    }
-
-    public LinkedList<Player> getPlayers() {
-        return this.players;
-    }
-
     public boolean isCardAHigherThanCardB(Card cardA, Card cardB) {
         return (cardA.getValue()) > (cardB.getValue());
     }
 
-    public void setWinnerOfEnvido(Games actualGame) throws TeamDoesntExistException {
+    public void setWinnerOfEnvido(LinkedList<Slot> slots, Games actualGame) throws TeamDoesntExistException {
         int maximunValueOfEnvido = 0;
         Player envidoWinner = null;
 
-        for (Player actualPlayer : this.players) {
+        for (Slot actualSlot : slots) {
+            Player actualPlayer = actualSlot.getPlayer();
             if (actualPlayer.calculateEnvido() > maximunValueOfEnvido) {
                 envidoWinner = actualPlayer;
                 maximunValueOfEnvido = actualPlayer.calculateEnvido();

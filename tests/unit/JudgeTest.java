@@ -47,22 +47,6 @@ public class JudgeTest {
         Assert.assertTrue(judge.isCardAHigherThanCardB(card1, card2));
         Assert.assertFalse(judge.isCardAHigherThanCardB(card2, card1));
     }
-    
-    @Test
-    public void correctlyReceivePlayers() {
-    	
-    	Judge judge = new Judge(this.scoreboard);
-    	HumanPlayer player1 = new HumanPlayer(1);
-    	HumanPlayer player2 = new HumanPlayer(2);    	
-    	LinkedList<Player> players = new LinkedList<Player>();
-    	players.add(player1);
-    	players.add(player2);
-    	
-    	judge.setPlayers(players);
-    	
-    	Assert.assertTrue(! judge.getPlayers().isEmpty());
-    	
-    	
-    }
+
 
 }
