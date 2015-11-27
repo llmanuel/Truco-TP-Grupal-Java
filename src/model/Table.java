@@ -48,7 +48,7 @@ public class Table {
         else throw (new InvalidNumberOfPlayersException());
     }
 
-    public void getTeams(Team team1, Team team2){
+    public void Teams(Team team1, Team team2){
 
         this.firstTeam = team1;
         this.secondTeam = team2;
@@ -233,7 +233,7 @@ public class Table {
     }
 
     private void reOrderPlayers() {
-        LinkedList<Player> newOrderOfPLayers = new LinkedList<Player>();
+        LinkedList<> newOrderOfPLayers = new LinkedList<>();
         Player newLastPlayer = playersInGame.pollFirst();
 
         newOrderOfPLayers.addAll(playersInGame);
@@ -252,42 +252,42 @@ public class Table {
      *************************/
 
     private void verifyOthersTeamDecision(){
-        Team teamToAnswer = this.getTheEnemiTeamOf(this.cursor);
+        Team teamToAnswer = this.getTheEnemyTeamOf(this.cursor);
         teamsCursor= teamToAnswer.getMember(1);
         teamsCursor.itsYourTurn();
     }
 
 
-    private Team getTheEnemiTeamOf(Player cursor) {
+    private Team getTheEnemyTeamOf(Player cursor) {
         if (firstTeam.isMember(cursor))
             return secondTeam;
         else return firstTeam;
     }
 
-//    public Player nextPlayerOnTheTeam(Team teamToAnswer){
-//        this.getTheNextOneOnTheTeam();
-//        if (teamsCursor == teamToAnswer){
-//            this.increaseRoundCounter();
-//            Player nextBeginner = judge.setWinnerOfTheRound(this.getSlots());
-//            this.gameState.nextRound();
-//            this.setRoundBeginner(nextBeginner);
-//            return nextBeginner;
-//        }
-//        Player thatPlayer = cursor;
-//        return thatPlayer;
-//    }
-//
-//    /*
-//     * Sets the cursor at the next player to play.
-//     */
-//    private void getTheNextOneOnTheTeam() {
-//        try {
-//            int i = 0;
-//            while (teamsCursor != playersInGame.get(i)) {
-//                i = i + 1;
-//            }
-//            i = i + 1;
-//            setCursorAt( playersInGame.get(i));
-//        }catch (IndexOutOfBoundsException e){setCursorAt( playersInGame.getFirst());}
-//    }
+    public Player nextPlayerOnTheTeam(Team teamToAnswer){
+        this.getTheNextOneOnTheTeam();
+        if (teamsCursor == teamToAnswer){
+            this.increaseRoundCounter();
+            Player nextBeginner = judge.setWinnerOfTheRound(this.getSlots());
+            this.gameState.nextRound();
+            this.setRoundBeginner(nextBeginner);
+            return nextBeginner;
+        }
+        Player thatPlayer = cursor;
+        return thatPlayer;
+    }
+
+    /*
+     * Sets the cursor at the next player to play.
+     */
+    private void getTheNextOneOnTheTeam() {
+        try {
+            int i = 0;
+            while (teamsCursor != playersInGame.get(i)) {
+                i = i + 1;
+            }
+            i = i + 1;
+            setCursorAt( playersInGame.get(i));
+        }catch (IndexOutOfBoundsException e){setCursorAt( playersInGame.getFirst());}
+    }
 }

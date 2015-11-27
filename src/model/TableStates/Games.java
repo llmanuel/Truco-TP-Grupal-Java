@@ -10,5 +10,6 @@ public interface Games {
     void callEnvido() throws InvalidGameCallException;
     void callRealEnvido() throws InvalidGameCallException;
     void callFaltaEnvido() throws InvalidGameCallException;
+    void iDontWannaAnswer();
     void nextRound();
 }
