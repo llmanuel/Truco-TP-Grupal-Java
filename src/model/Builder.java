@@ -23,7 +23,6 @@ public class Builder {
         prepareTable();
         setScoreboard();
         setJudge();
-
     }
 
     private void setScoreboard() {
@@ -59,6 +58,10 @@ public class Builder {
 
     private void prepareTable() throws InvalidNumberOfPlayersException {
         this.table.letSitThese(players);
+        this.table.setJudge(judge);
+        this.table.setScoreBoard(scoreboard);
+        this.table.setTeams(team1, team2);
+        this.table.setGame();
     }
 
     private void createPlayers(int numberOfPlayers) {
