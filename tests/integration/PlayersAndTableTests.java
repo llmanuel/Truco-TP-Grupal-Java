@@ -137,6 +137,7 @@ public class PlayersAndTableTests {
         /*With getCard(), the card used is eliminated from hand*/
         player2.playCard(playerHand.getCard(cardToPlay));
 
+        //lo que sigue es codigo innecesario; la excepcion buscada ya fue lanzada => lo que sigue nunca se ejecuta
         Slot SecondPlayerSlot = table.getSlots().getFirst();
         Card theCardPlayed = SecondPlayerSlot.getLastOne();
         Assert.assertEquals(card4,theCardPlayed);

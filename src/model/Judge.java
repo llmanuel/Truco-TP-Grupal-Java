@@ -14,6 +14,7 @@ public class Judge {
 
     public Judge(Scoreboard scoreboard){
         this.scoreboard = scoreboard;
+        roundWinsPerTeam = new long[]{0, 0};
     }
 
 
@@ -52,7 +53,7 @@ public class Judge {
 				roundWinner =  actualSlot.getPlayer();
 			}
 		}
-        this.roundWinsPerTeam[roundWinner.getIdNumber()]++;
+        this.roundWinsPerTeam[roundWinner.getIdNumber()-1]++;
         return roundWinner;
 	}
 
