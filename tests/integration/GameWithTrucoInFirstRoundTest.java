@@ -124,8 +124,16 @@ public class GameWithTrucoInFirstRoundTest {
 
     }
 
+    @Test
+    public void gameWithNoQuieroTrucoTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+        this.table.setGame();
 
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
 
+        player1.callTruco();
+        player2.giveUp();
 
+    }
 
 }
