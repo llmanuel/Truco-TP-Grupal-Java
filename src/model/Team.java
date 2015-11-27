@@ -13,8 +13,8 @@ public class Team {
         return this.members.contains( player );
     }
 
-    public Player getMember(int i){
-        return  (this.members.get(i));
+    public Player getFirstMember(){
+        return  (this.members.getFirst());
     }
 
     public Player pollFirst(){
