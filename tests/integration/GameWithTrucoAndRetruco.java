@@ -90,11 +90,11 @@ public class GameWithTrucoAndRetruco {
         player1.setHand( hand1 );
         player2.setHand( hand2 );
 
-        player2.callTruco();
-        player1.acceptCall();
-
-        player1.callReTruco();
+        player1.callTruco();
         player2.acceptCall();
+
+        player2.callReTruco();
+        player1.acceptCall();
 
         Hand player1Hand = player1.getHand();
         Card cardToPlayPlayer1 = player1Hand.getCards().getFirst();
