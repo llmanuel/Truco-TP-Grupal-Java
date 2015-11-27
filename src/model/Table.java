@@ -48,7 +48,7 @@ public class Table {
         else throw (new InvalidNumberOfPlayersException());
     }
 
-    public void Teams(Team team1, Team team2){
+    public void setTeams(Team team1, Team team2){
 
         this.firstTeam = team1;
         this.secondTeam = team2;
@@ -233,7 +233,16 @@ public class Table {
     }
 
     private void reOrderPlayers() {
-        LinkedList<> newOrderOfPLayers = new LinkedList<>();
+        LinkedList<Player> newOrderOfPLayers = new LinkedList<Player>();
+        Player newLastPlayer = playersInGame.pollFirst();
+
+        newOrderOfPLayers.addAll(playersInGame);
+        newOrderOfPLayers.addLast(newLastPlayer);
+        this.playersInGame = newOrderOfPLayers;
+    }
+
+    private void reOrderTeam() {
+        LinkedList<Player> newOrderOfPLayers = new LinkedList<Player>();
         Player newLastPlayer = playersInGame.pollFirst();
 
         newOrderOfPLayers.addAll(playersInGame);
