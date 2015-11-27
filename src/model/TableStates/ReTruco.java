@@ -49,6 +49,11 @@ public class ReTruco implements Games {
     }
 
     @Override
+    public void iDontWannaAnswer() {
+
+    }
+
+    @Override
     public void nextRound() {
 
     }

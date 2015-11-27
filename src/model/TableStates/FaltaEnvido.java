@@ -48,6 +48,11 @@ public class FaltaEnvido implements Games {
     }
 
     @Override
+    public void iDontWannaAnswer() {
+
+    }
+
+    @Override
     public void nextRound() {
 
     }

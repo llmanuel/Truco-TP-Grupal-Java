@@ -42,6 +42,11 @@ public class Envido implements Games {
     }
 
     @Override
+    public void iDontWannaAnswer() {
+
+    }
+
+    @Override
     public void nextRound() {
 
     }

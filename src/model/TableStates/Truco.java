@@ -50,6 +50,11 @@ public class Truco implements Games {
     }
 
     @Override
+    public void iDontWannaAnswer() {
+
+    }
+
+    @Override
     public void nextRound() {
 
     }

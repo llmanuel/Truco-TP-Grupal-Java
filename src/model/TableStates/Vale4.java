@@ -52,6 +52,11 @@ public class Vale4 implements Games {
     }
 
     @Override
+    public void iDontWannaAnswer() {
+
+    }
+
+    @Override
     public void nextRound() {
 
     }

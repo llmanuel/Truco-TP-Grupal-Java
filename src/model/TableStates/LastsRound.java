@@ -50,6 +50,11 @@ public class LastsRound implements Games {
     }
 
     @Override
+    public void iDontWannaAnswer() {
+
+    }
+
+    @Override
     public void nextRound() {
 
         theTable.beginNextGame();

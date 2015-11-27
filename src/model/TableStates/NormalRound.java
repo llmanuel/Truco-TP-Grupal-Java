@@ -53,6 +53,11 @@ public class NormalRound implements Games {
     }
 
     @Override
+    public void iDontWannaAnswer() {
+
+    }
+
+    @Override
     public void nextRound() {
 
         this.theTable.increaseRoundCounter();
