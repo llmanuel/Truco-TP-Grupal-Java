@@ -41,9 +41,9 @@ public class Hand {
 
     private int maxCardNumber() {
         int searchedMax = 0;
-        for(int i = 0; i < cards.size(); i++){
-            if(cards.get(i).getNumber() > searchedMax)
-                searchedMax = cards.get(i).getNumber();
+        for (Card card : cards) {
+            if (card.getNumber() > searchedMax)
+                searchedMax = card.getNumber();
         }
         return searchedMax;
     }
