@@ -34,7 +34,6 @@ public class Builder {
     private void setJudge() {
 
         judge = new Judge(scoreboard);
-        judge.setPlayers(players);
     }
 
     private void setTeams() {

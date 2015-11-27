@@ -15,7 +15,7 @@ import java.util.LinkedList;
 public class Table {
 
     private LinkedList<Player> playersInGame;
-    private LinkedList<Slot> slotInGame;
+    private LinkedList<Slot> slotsInGame;
     private Player cursor;
     private Player roundBeginner;
     private Player cursorForCalls;
@@ -77,16 +77,16 @@ public class Table {
     }
 
     private void createSlots(int size) {
-        slotInGame = new LinkedList<Slot>();
+        slotsInGame = new LinkedList<Slot>();
         for (Player actualPlayer : this.playersInGame){
             Slot newSlot = new Slot( actualPlayer );
-            slotInGame.add(newSlot);
+            slotsInGame.add(newSlot);
             actualPlayer.setSlot(newSlot);
         }
     }
 
     public LinkedList<Slot> getSlots(){
-        return this.slotInGame;
+        return this.slotsInGame;
     }
 
     /**************************
@@ -127,7 +127,7 @@ public class Table {
     }
 
     public void theEnvidoGameWasAccepted() throws TeamDoesntExistException {
-        this.judge.setWinnerOfEnvido(this.gameState);
+        this.judge.setWinnerOfEnvido(this.slotsInGame, this.gameState);
         /*nextRound on Envidos Games will set the game state on LastsRounds*/
         this.gameState.nextRound();
         this.cursor.itsYourTurn();
@@ -182,7 +182,7 @@ public class Table {
             return nextBeginner;
         }
         else if ((cursor == roundBeginner) && (this.roundCounter == 3)){
-            this.judge.setWinnerOfGame(this.slotInGame,this.gameState);
+            this.judge.setWinnerOfGame(this.slotsInGame,this.gameState);
             beginNextGame();
         }
 
@@ -242,7 +242,7 @@ public class Table {
 
     private void cleanSlots() {
 
-        for(Slot actualSlot: slotInGame){
+        for(Slot actualSlot: slotsInGame){
             actualSlot.throwCards();
         }
     }
