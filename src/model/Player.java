@@ -24,7 +24,6 @@ public interface Player {
     void callVale4();
     void giveUp();
     void callFlor();
-    
 
     Hand getHand();
 }

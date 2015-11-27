@@ -1,20 +1,17 @@
 package model;
 
-import model.Exceptions.DonTHaveThatCardException;
-import model.Exceptions.NotCardThrownException;
-import model.Exceptions.NotYourTurnException;
-import model.Exceptions.TeamDoesntExistException;
+import model.Exceptions.*;
 
 
 public class HumanPlayer implements Player {
 
     private int playerId;
-	private Hand hand;
+    private Hand hand;
     private Slot slot;
     private boolean isMyTurn;
     private Table table;
 
-    public HumanPlayer(int idNumber){
+    public HumanPlayer(int idNumber) {
         playerId = idNumber;
         isMyTurn = false;
     }
@@ -25,12 +22,12 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public int getIdNumber(){
+    public int getIdNumber() {
         return playerId;
     }
 
     @Override
-    public void setSlot(Slot newSlot){
+    public void setSlot(Slot newSlot) {
         this.slot = newSlot;
     }
 
@@ -43,10 +40,9 @@ public class HumanPlayer implements Player {
     @Override
     public void playCard(Card cardToPlay) throws NotYourTurnException, DonTHaveThatCardException, TeamDoesntExistException, NotCardThrownException {
         if (isMyTurn) {
-            this.slot.receiveCard(cardToPlay);
+            this.slot.receiveCard( cardToPlay );
             this.table.finishTurn();
-        }
-        else throw new NotYourTurnException();
+        } else throw new NotYourTurnException();
     }
 
     @Override
@@ -60,8 +56,81 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void setHand(Hand hand) { this.hand = hand;	}
+    public void callEnvido() {
+        try {
+            this.table.callEnvido();
+        } catch (InvalidGameCallException e) {
 
-	public Hand getHand() {	return hand; }
+        }
+    }
+
+    @Override
+    public void callRealEnvido() {
+        try {
+            this.table.callRealEnvido();
+        } catch (InvalidGameCallException e) {
+
+        }
+
+    }
+
+    @Override
+    public void callFaltaEnvido() {
+        try {
+            this.table.callFaltaEnvido();
+        } catch (InvalidGameCallException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void callTruco() {
+        try {
+            this.table.raiseBet();
+        } catch (InvalidGameCallException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void callReTruco() {
+        try {
+            this.table.raiseBet();
+        } catch (InvalidGameCallException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void callVale4() {
+        try {
+            this.table.raiseBet();
+        } catch (InvalidGameCallException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void giveUp() {
+        this.table.giveUpGame();
+
+    }
+
+    @Override
+    public void callFlor() {
+    }
+
+    @Override
+    public void setHand(Hand hand) {
+        this.hand = hand;
+    }
+
+    public Hand getHand() {
+        return hand;
+    }
 
 }
