@@ -137,8 +137,12 @@ public class Table {
         this.gameState = nextGame;
     }
 
+    public void acceptCall() throws TeamDoesntExistException {
+        this.gameState.acceptCall();
+    }
+
     public void giveUpGame() {
-//        avisar al scoreBoard o al Judge que alguien se rindio y hay q darle los puntos al team corrrespondiente
+        this.scoreboard.playerGaveUpThisGame(this.getTeamCursor(),this.gameState);
         this.gameState = new NormalRound(this);
     }
 
@@ -291,6 +295,12 @@ public class Table {
 
     public Team getTeamCursor(){
         return this.teamsCursor;
+    }
+
+    public Team getTeamOfActualPlayer(){
+        if (firstTeam.isMember(cursor))
+        return firstTeam;
+        else return secondTeam;
     }
 
     public boolean tellMeIfCallWasAccepted(){
