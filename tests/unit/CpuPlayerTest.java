@@ -1,6 +1,9 @@
 import model.Card;
 import model.CpuPlayer;
+import model.Exceptions.DonTHaveThatCardException;
+import model.Exceptions.NotCardThrownException;
 import model.Hand;
+import model.Slot;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -58,5 +61,21 @@ public class CpuPlayerTest {
         CpuPlayer cpuplayer = new CpuPlayer( 1 );
 
         Assert.assertEquals( 1, cpuplayer.getIdNumber(), 0.0001 );
+    }
+
+    @Test
+    public void canPlayACard() throws DonTHaveThatCardException, NotCardThrownException {
+        CpuPlayer cpuplayer = new CpuPlayer( 1 );
+
+        cpuplayer.setHand( hand1 );
+
+        Slot slot = new Slot( cpuplayer );
+
+        cpuplayer.setSlot( slot );
+
+        cpuplayer.playCard( card1 );
+
+        Assert.assertTrue( slot.getLastOne() == card1 );
+
     }
 }
