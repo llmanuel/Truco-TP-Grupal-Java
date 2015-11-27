@@ -43,7 +43,7 @@ public class Envido implements Games {
 
     @Override
     public void iDontWannaAnswer() {
-
+        this.theTable.askNextPlayerOnTheTeam(theTable.getTeamCursor());
     }
 
     @Override
