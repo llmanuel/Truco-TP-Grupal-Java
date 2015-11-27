@@ -1,6 +1,7 @@
 package model.TableStates;
 
 import model.Exceptions.InvalidGameCallException;
+import model.Exceptions.TeamDoesntExistException;
 import model.Table;
 import model.TableStates.Games;
 
@@ -49,7 +50,12 @@ public class FaltaEnvido implements Games {
 
     @Override
     public void iDontWannaAnswer() {
+        this.theTable.askNextPlayerOnTheTeam(theTable.getTeamCursor());
+    }
 
+    @Override
+    public void acceptCall() throws TeamDoesntExistException {
+        this.theTable.theEnvidoGameWasAccepted();
     }
 
     @Override

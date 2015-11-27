@@ -1,6 +1,7 @@
 package model.TableStates;
 
 import model.Exceptions.InvalidGameCallException;
+import model.Exceptions.TeamDoesntExistException;
 import model.Table;
 
 /**
@@ -55,9 +56,13 @@ public class LastsRound implements Games {
     }
 
     @Override
+    public void acceptCall() throws TeamDoesntExistException {
+
+    }
+
+    @Override
     public void nextRound() {
 
-        theTable.beginNextGame();
-        this.theTable.raiseBet(new LastsRound(theTable));
+        this.theTable.nextRound(new LastsRound(theTable));
     }
 }

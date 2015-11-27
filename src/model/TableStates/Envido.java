@@ -1,5 +1,6 @@
 package model.TableStates;
 
+import model.Exceptions.TeamDoesntExistException;
 import model.Table;
 
 public class Envido implements Games {
@@ -44,6 +45,11 @@ public class Envido implements Games {
     @Override
     public void iDontWannaAnswer() {
         this.theTable.askNextPlayerOnTheTeam(theTable.getTeamCursor());
+    }
+
+    @Override
+    public void acceptCall() throws TeamDoesntExistException {
+        this.theTable.theEnvidoGameWasAccepted();
     }
 
     @Override

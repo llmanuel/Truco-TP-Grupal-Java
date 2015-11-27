@@ -1,6 +1,7 @@
 package model.TableStates;
 
 import model.Exceptions.InvalidGameCallException;
+import model.Exceptions.TeamDoesntExistException;
 import model.Table;
 
 public class ReTruco implements Games {
@@ -50,7 +51,12 @@ public class ReTruco implements Games {
 
     @Override
     public void iDontWannaAnswer() {
+        this.theTable.askNextPlayerOnTheTeam(theTable.getTeamCursor());
+    }
 
+    @Override
+    public void acceptCall() throws TeamDoesntExistException {
+        this.theTable.getActualPlayer().itsYourTurn();
     }
 
     @Override

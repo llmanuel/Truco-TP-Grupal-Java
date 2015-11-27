@@ -126,6 +126,14 @@ public class Table {
         this.verifyOthersTeamDecision();
     }
 
+    public void theEnvidoGameWasAccepted() throws TeamDoesntExistException {
+        this.judge.setWinnerOfEnvido(this.gameState);
+    }
+
+    public void nextRound(Games nextGame){
+        this.gameState = nextGame;
+    }
+
     public void giveUpGame() {
 //        avisar al scoreBoard o al Judge que alguien se rindio y hay q darle los puntos al team corrrespondiente
         this.gameState = new NormalRound(this);
@@ -243,7 +251,7 @@ public class Table {
     }
 
     private void reOrderTeam(Team teamToReorder) {
-        Player newLastPlayer = playersInGame.pollFirst();
+        Player newLastPlayer = teamToReorder.pollFirst();
 
         teamToReorder.addLast(newLastPlayer);
     }

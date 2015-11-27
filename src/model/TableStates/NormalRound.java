@@ -1,5 +1,6 @@
 package model.TableStates;
 
+import model.Exceptions.TeamDoesntExistException;
 import model.Table;
 import model.TableStates.*;
 
@@ -58,9 +59,14 @@ public class NormalRound implements Games {
     }
 
     @Override
+    public void acceptCall() throws TeamDoesntExistException {
+
+    }
+
+    @Override
     public void nextRound() {
 
         this.theTable.increaseRoundCounter();
-        this.theTable.raiseBet(new LastsRound(theTable));
+        this.theTable.nextRound(new LastsRound(theTable));
     }
 }

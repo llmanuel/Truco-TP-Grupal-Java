@@ -51,7 +51,12 @@ public class Truco implements Games {
 
     @Override
     public void iDontWannaAnswer() {
+        this.theTable.askNextPlayerOnTheTeam(theTable.getTeamCursor());
+    }
 
+    @Override
+    public void acceptCall() {
+        this.theTable.getActualPlayer().itsYourTurn();
     }
 
     @Override

@@ -2,6 +2,7 @@ package model.TableStates;
 
 
 import model.Exceptions.InvalidGameCallException;
+import model.Exceptions.TeamDoesntExistException;
 import model.Table;
 import model.TableStates.Games;
 
@@ -53,7 +54,12 @@ public class Vale4 implements Games {
 
     @Override
     public void iDontWannaAnswer() {
+        this.theTable.askNextPlayerOnTheTeam(theTable.getTeamCursor());
+    }
 
+    @Override
+    public void acceptCall() throws TeamDoesntExistException {
+        this.theTable.getActualPlayer().itsYourTurn();
     }
 
     @Override

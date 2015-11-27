@@ -1,6 +1,7 @@
 package model.TableStates;
 
 import model.Exceptions.InvalidGameCallException;
+import model.Exceptions.TeamDoesntExistException;
 import model.Table;
 
 public class RealEnvido implements Games {
@@ -21,9 +22,9 @@ public class RealEnvido implements Games {
     }
 
     @Override
-    public void raiseBet(){
+    public void raiseBet() throws InvalidGameCallException {
 
-        this.theTable.raiseBet(new RealEnvido(theTable, getPoints() + 3, this.getPoints()));
+        throw new InvalidGameCallException();
     }
 
     @Override
@@ -52,7 +53,12 @@ public class RealEnvido implements Games {
 
     @Override
     public void iDontWannaAnswer() {
+        this.theTable.askNextPlayerOnTheTeam(theTable.getTeamCursor());
+    }
 
+    @Override
+    public void acceptCall() throws TeamDoesntExistException {
+        this.theTable.theEnvidoGameWasAccepted();
     }
 
     @Override
