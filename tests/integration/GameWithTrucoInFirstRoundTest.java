@@ -92,6 +92,8 @@ public class GameWithTrucoInFirstRoundTest {
         player1.setHand( hand1 );
         player2.setHand( hand2 );
 
+        player1.callTruco();
+
 
 
     }
