@@ -23,6 +23,8 @@ public class Table {
     private Croupier croupier;
     private Scoreboard scoreboard;
     private int roundCounter;
+    private Team firstTeam;
+    private Team secondTeam;
 
     public Table() {
 
@@ -43,6 +45,12 @@ public class Table {
             this.createSlots(this.playersInGame.size());
         }
         else throw (new InvalidNumberOfPlayersException());
+    }
+
+    public void getTeams(Team team1, Team team2){
+
+        this.firstTeam = team1;
+        this.secondTeam = team2;
     }
 
     public void setJudge(Judge judge){
