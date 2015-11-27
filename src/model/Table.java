@@ -142,7 +142,7 @@ public class Table {
     }
 
     public void giveUpGame() {
-        this.scoreboard.playerGaveUpThisGame(this.getTeamCursor(),this.gameState);
+        this.scoreboard.playerGaveUpThisGame(this.getTeamOfActualPlayer(),this.gameState);
         this.gameState = new NormalRound(this);
     }
 
