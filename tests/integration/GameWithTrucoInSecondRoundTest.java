@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import java.util.LinkedList;
 
-public class GameWithTrucoInFirstRoundTest {
+public class GameWithTrucoInSecondRoundTest {
     private Card card1,card2,card3,card4,card5,card6;
     private LinkedList<Card> hand1Cards;
     private LinkedList<Card> hand2Cards;
@@ -93,8 +93,7 @@ public class GameWithTrucoInFirstRoundTest {
         player1.setHand( hand1 );
         player2.setHand( hand2 );
 
-        player1.callTruco();
-        player2.acceptCall();
+
 
         Hand player1Hand = player1.getHand();
         Card cardToPlayPlayer1 = player1Hand.getCards().getFirst();
@@ -103,6 +102,9 @@ public class GameWithTrucoInFirstRoundTest {
         Hand player2Hand = player2.getHand();
         Card cardToPlayPlayer2 = player2Hand.getCards().getFirst();
         player2.playCard(player2Hand.getCard(card4));
+
+        player2.callTruco();
+        player1.acceptCall();
 
         cardToPlayPlayer2 = player2Hand.getCards().getFirst();
         player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
@@ -121,9 +123,5 @@ public class GameWithTrucoInFirstRoundTest {
         Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 0 );
 
     }
-
-
-
-
 
 }
