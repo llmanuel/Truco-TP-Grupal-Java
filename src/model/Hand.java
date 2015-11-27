@@ -48,7 +48,7 @@ public class Hand {
         return searchedMax;
     }
 
-    private LinkedList getCardsOfTheSameSuit() {
+    private LinkedList<Card> getCardsOfTheSameSuit() {
         LinkedList<Card> cardsOfTheSameSuit = new LinkedList<Card>();
         for (int i = 0 ; i< cards.size(); i++){
             if (cards.get(i).getSuit() == getMostRepeatedSuit()){
