@@ -10,6 +10,7 @@ public class Judge {
 	
 	private LinkedList<Player> players = new LinkedList<Player>();
     private Scoreboard scoreboard;
+    private long[] roundWinsPerTeam;
 
     public Judge(Scoreboard scoreboard){
         this.scoreboard = scoreboard;
@@ -28,9 +29,9 @@ public class Judge {
         return (cardA.getValue())>(cardB.getValue());
     }
 
-	public void setWinnerOfEnvido() {
+	public Player setWinnerOfEnvido() {
 		int maximunValueOfEnvido = 0;
-        Player envidoWinner ;
+        Player envidoWinner = null;
 
 		for (Player actualPlayer : this.players) {
 			if (actualPlayer.calculateEnvido() > maximunValueOfEnvido ) {
@@ -38,6 +39,7 @@ public class Judge {
                 maximunValueOfEnvido = actualPlayer.calculateEnvido();
             }
 		}
+        return envidoWinner;
 	}
 	
 	public Player setWinnerOfTheRound(LinkedList<Slot> slots) throws NotCardThrownException, TeamDoesntExistException {
@@ -51,26 +53,21 @@ public class Judge {
 			}
 		}
         return roundWinner;
+        this.roundWinsPerTeam[roundWinner.getIdNumber()]++;
 	}
 
-    public void setWinnerOfGame(LinkedList<Slot> slots, Games actualGame){
-        int team1GamesWon = 0;
-        int team2GamesWon = 0;
-        int maximumCardInRound = 0;
-        Player roundWinner = null;
-
-        try{
-            for (Slot actualSlot : slots) {
-                if (actualSlot.getLastOne().getValue() > maximumCardInRound) {
-                    maximumCardInRound = actualSlot.getLastOne().getValue();
-                    roundWinner =  actualSlot.getPlayer();
-                }
-            }
-        } catch (NotCardThrownException e) {
-
+    public void setWinnerOfGame(LinkedList<Slot> slots, Games actualGame) throws NotCardThrownException, TeamDoesntExistException {
+        if (roundWinsPerTeam[0] > roundWinsPerTeam[1]) {
+            scoreboard.increaseTheScoreOf(slots.get(0).getPlayer() , actualGame);
+        }
+        else
+        {
+            scoreboard.increaseTheScoreOf(slots.get(1).getPlayer() , actualGame);
         }
 
     }
+
+
 
 
 }
