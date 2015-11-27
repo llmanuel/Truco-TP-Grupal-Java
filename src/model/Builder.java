@@ -8,10 +8,16 @@ import java.util.LinkedList;
 public class Builder {
 
     LinkedList<Player> players = new LinkedList<Player>();
+    Table table = new Table();
 
     public Builder(int numberOfPlayers) throws InvalidNumberOfPlayersException {
         validateNumberOfPlayers(numberOfPlayers);
         createPlayers(numberOfPlayers);
+        prepareTable();
+    }
+
+    private void prepareTable() throws InvalidNumberOfPlayersException {
+        this.table.letSitThese(players);
     }
 
     private void createPlayers(int numberOfPlayers) {
