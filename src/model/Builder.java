@@ -10,10 +10,34 @@ public class Builder {
     LinkedList<Player> players = new LinkedList<Player>();
     Table table = new Table();
 
+    Team team1;
+    Team team2;
+
+    LinkedList<Team> teams = new LinkedList<Team>();
+    Scoreboard scoreboard = new Scoreboard(teams, table);
+    Judge judge = new Judge(scoreboard);
+
     public Builder(int numberOfPlayers) throws InvalidNumberOfPlayersException {
         validateNumberOfPlayers(numberOfPlayers);
         createPlayers(numberOfPlayers);
+        setTeams();
         prepareTable();
+    }
+
+    private void setTeams() {
+        LinkedList<Player> team1 = new LinkedList<Player>();
+        LinkedList<Player> team2 = new LinkedList<Player>();
+
+        for(int i = 1; i < players.size(); i++){
+            if (i%2 == 0){
+                team1.add(players.get(i));
+            }else{
+                team2.add(players.get(i));
+            }
+        }
+
+        this.team1 = new Team(team1);
+        this.team2 = new Team(team2);
     }
 
     private void prepareTable() throws InvalidNumberOfPlayersException {
