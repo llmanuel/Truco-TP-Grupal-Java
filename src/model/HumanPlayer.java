@@ -8,12 +8,10 @@ public class HumanPlayer implements Player {
     private int playerId;
     private Hand hand;
     private Slot slot;
-    private boolean isMyTurn;
     private Table table;
 
     public HumanPlayer(int idNumber) {
         playerId = idNumber;
-        isMyTurn = false;
     }
 
     @Override
@@ -39,7 +37,7 @@ public class HumanPlayer implements Player {
 
     @Override
     public void playCard(Card cardToPlay) throws NotYourTurnException, DonTHaveThatCardException, TeamDoesntExistException, NotCardThrownException {
-        if ((isMyTurn) && (this.table.tellMeIfCallWasAccepted())) {
+        if ((this.table.tellMeIfItsMyTurn(this)) && (this.table.tellMeIfCallWasAccepted())) {
             this.slot.receiveCard( cardToPlay );
             this.table.finishTurn();
         } else throw new NotYourTurnException();
@@ -47,19 +45,20 @@ public class HumanPlayer implements Player {
 
     @Override
     public void itsYourTurn() {
-        this.isMyTurn = true;
+
     }
 
     @Override
     public void turnFinished() {
-        this.isMyTurn = false;
+
     }
 
     @Override
-    public void callEnvido() throws NotYourTurnException {
+    public void callEnvido() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException {
         try {
-            if(isMyTurn)
+            if(this.table.tellMeIfItsMyTurn(this)) {
                 this.table.callEnvido();
+            }
             else throw new NotYourTurnException();
         } catch (InvalidGameCallException e) {
 
@@ -67,10 +66,11 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void callRealEnvido() throws NotYourTurnException {
+    public void callRealEnvido() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException {
         try {
-            if(isMyTurn)
+            if(this.table.tellMeIfItsMyTurn(this)) {
                 this.table.callRealEnvido();
+            }
             else throw new NotYourTurnException();
         } catch (InvalidGameCallException e) {
 
@@ -79,10 +79,11 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void callFaltaEnvido() throws NotYourTurnException {
+    public void callFaltaEnvido() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException {
         try {
-            if(isMyTurn)
+            if(this.table.tellMeIfItsMyTurn(this)) {
                 this.table.callFaltaEnvido();
+            }
             else throw new NotYourTurnException();
         } catch (InvalidGameCallException e) {
             e.printStackTrace();
@@ -91,10 +92,11 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void callTruco() throws NotYourTurnException {
+    public void callTruco() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException {
         try {
-            if(isMyTurn)
+            if(this.table.tellMeIfItsMyTurn(this)) {
                 this.table.raiseBet();
+            }
             else throw new NotYourTurnException();
         } catch (InvalidGameCallException e) {
             e.printStackTrace();
@@ -103,10 +105,11 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void callReTruco() throws NotYourTurnException {
+    public void callReTruco() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException {
         try {
-            if(isMyTurn)
+            if(this.table.tellMeIfItsMyTurn(this)) {
                 this.table.raiseBet();
+            }
             else throw new NotYourTurnException();
         } catch (InvalidGameCallException e) {
             e.printStackTrace();
@@ -115,10 +118,11 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void callVale4() throws NotYourTurnException {
+    public void callVale4() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException {
         try {
-            if(isMyTurn)
+            if(this.table.tellMeIfItsMyTurn(this)) {
                 this.table.raiseBet();
+            }
             else throw new NotYourTurnException();
         } catch (InvalidGameCallException e) {
             e.printStackTrace();
@@ -127,9 +131,10 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void giveUp() throws NotYourTurnException {
-        if(isMyTurn)
+    public void giveUp() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException {
+        if(this.table.tellMeIfItsMyTurn(this)) {
             this.table.giveUpGame();
+        }
         else throw new NotYourTurnException();
     }
 
@@ -138,10 +143,11 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void acceptCall() throws NotYourTurnException {
+    public void acceptCall() throws NotYourTurnException, NotCardThrownException {
         try {
-            if(isMyTurn)
+            if(this.table.tellMeIfItsMyTurn(this)) {
                 this.table.acceptCall();
+            }
             else throw new NotYourTurnException();
         } catch (TeamDoesntExistException e) {
 

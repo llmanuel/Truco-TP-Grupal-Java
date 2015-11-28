@@ -16,15 +16,15 @@ public interface Player {
     void itsYourTurn();
     void turnFinished();
 
-    void callEnvido() throws NotYourTurnException;
-    void callRealEnvido() throws NotYourTurnException;
-    void callFaltaEnvido() throws NotYourTurnException;
-    void callTruco() throws NotYourTurnException;
-    void callReTruco() throws NotYourTurnException;
-    void callVale4() throws NotYourTurnException;
-    void giveUp() throws NotYourTurnException;
+    void callEnvido() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException;
+    void callRealEnvido() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException;
+    void callFaltaEnvido() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException;
+    void callTruco() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException;
+    void callReTruco() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException;
+    void callVale4() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException;
+    void giveUp() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException;
     void callFlor();
-    void acceptCall() throws NotYourTurnException;
+    void acceptCall() throws NotYourTurnException, NotCardThrownException;
 
     Hand getHand();
 }

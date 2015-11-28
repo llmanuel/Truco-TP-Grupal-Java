@@ -59,7 +59,7 @@ public class ReTruco implements Games {
     @Override
     public void acceptCall() throws TeamDoesntExistException {
         this.gameWasAccepted = true;
-        this.theTable.getActualPlayer().itsYourTurn();
+        this.theTable.continueWithRound();
     }
 
     @Override

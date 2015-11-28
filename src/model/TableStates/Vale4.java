@@ -4,7 +4,6 @@ package model.TableStates;
 import model.Exceptions.InvalidGameCallException;
 import model.Exceptions.TeamDoesntExistException;
 import model.Table;
-import model.TableStates.Games;
 
 public class Vale4 implements Games {
     int points = 4;
@@ -62,7 +61,7 @@ public class Vale4 implements Games {
     @Override
     public void acceptCall() throws TeamDoesntExistException {
         this.gameWasAccepted = true;
-        this.theTable.getActualPlayer().itsYourTurn();
+        this.theTable.continueWithRound();
     }
 
     @Override

@@ -130,7 +130,7 @@ public class Table {
         this.judge.setWinnerOfEnvido(this.slotsInGame, this.gameState);
         /*nextRound on Envidos Games will set the game state on LastsRounds*/
         this.gameState.nextRound();
-        this.cursor.itsYourTurn();
+        this.setCursorAt(this.cursorForCalls);
     }
 
     public void nextRound(Games nextGame){
@@ -165,7 +165,7 @@ public class Table {
 
         roundBeginner = thisPlayer;
         this.setCursorAt(roundBeginner);
-        thisPlayer.itsYourTurn();
+//        thisPlayer.itsYourTurn();
     }
 
     /*
@@ -203,18 +203,25 @@ public class Table {
        }catch (IndexOutOfBoundsException e){setCursorAt( playersInGame.getFirst());}
     }
 
+    public void continueWithRound(){
+
+        this.setCursorAt(this.cursorForCalls);
+    }
+
     public Player getActualPlayer(){
 
         return this.cursor;
     }
 
     public void finishTurn() throws TeamDoesntExistException, NotCardThrownException {
-        Player actualPlayer = this.getActualPlayer();
-        actualPlayer.turnFinished();
-        Player nextPlayer = this.nextPlayer();
-        nextPlayer.itsYourTurn();
+
+        /*It's the turn of the player who is on cursor*/
+        this.setCursorAt(this.nextPlayer());
     }
 
+    public boolean tellMeIfItsMyTurn(Player askingPlayer){
+        return (this.cursor == askingPlayer);
+    }
     /**************************
      *
      * End of iteration methods
@@ -274,14 +281,13 @@ public class Table {
 
     private void verifyOthersTeamDecision(){
         teamsCursor = this.getTheEnemyTeamOf(this.cursor);
-        /*Finaliza el turno de quien hizo el canto*/
-        this.cursor.turnFinished();
-        cursorForCalls = teamsCursor.getFirstMember();
-        cursorForCalls.itsYourTurn();
+        cursorForCalls = this.cursor;
+        cursor = teamsCursor.getFirstMember();
+//        cursor.itsYourTurn();
     }
 
-    private Team getTheEnemyTeamOf(Player cursor) {
-        if (firstTeam.isMember(cursor))
+    private Team getTheEnemyTeamOf(Player thisPlayer) {
+        if (firstTeam.isMember(thisPlayer))
             return secondTeam;
         else return firstTeam;
     }
@@ -291,7 +297,8 @@ public class Table {
         Player nextPlayer = teamToAnswer.getFirstMember();
         if(nextPlayer == cursorForCalls)
             this.gameState.giveUp();
-        nextPlayer.itsYourTurn();
+        this.cursor = nextPlayer;
+//        nextPlayer.itsYourTurn();
     }
 
     public Team getTeamCursor(){
@@ -299,7 +306,7 @@ public class Table {
     }
 
     public Team getTeamOfActualPlayer(){
-        if (firstTeam.isMember(this.cursorForCalls))
+        if (firstTeam.isMember(this.cursor))
         return firstTeam;
         else return secondTeam;
     }
