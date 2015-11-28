@@ -1,3 +1,5 @@
+package integration;
+
 import model.*;
 import model.Exceptions.*;
 import org.junit.Assert;
@@ -92,13 +94,16 @@ public class GameWithTrucoAndRetruco {
 
         player1.callTruco();
         player2.acceptCall();
-
-        player2.callReTruco();
-        player1.acceptCall();
+        /*aca el turno sigue siendo del player1 porque no tiro ninguna carta*/
 
         Hand player1Hand = player1.getHand();
         Card cardToPlayPlayer1 = player1Hand.getCards().getFirst();
         player1.playCard(player1Hand.getCard(card1));
+
+
+        player2.callReTruco();
+        player1.acceptCall();
+
 
         Hand player2Hand = player2.getHand();
         Card cardToPlayPlayer2 = player2Hand.getCards().getFirst();
@@ -140,11 +145,12 @@ public class GameWithTrucoAndRetruco {
         player2.callTruco();
         player1.acceptCall();
 
+        cardToPlayPlayer2 = player2Hand.getCards().getFirst();
+        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
+
         player1.callReTruco();
         player2.acceptCall();
 
-        cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
 
         cardToPlayPlayer1 = player1Hand.getCards().getFirst();
         player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
@@ -185,12 +191,11 @@ public class GameWithTrucoAndRetruco {
         player2.callTruco();
         player1.acceptCall();
 
-        player1.callReTruco();
-        player2.acceptCall();
-
-
         cardToPlayPlayer2 = player2Hand.getCards().getFirst();
         player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
+
+        player1.callReTruco();
+        player2.acceptCall();
 
         cardToPlayPlayer1 = player1Hand.getCards().getFirst();
         player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
@@ -207,8 +212,8 @@ public class GameWithTrucoAndRetruco {
         player1.setHand( hand1 );
         player2.setHand( hand2 );
 
-        player2.callTruco();
-        player1.acceptCall();
+        player1.callTruco();
+        player2.acceptCall();
 
         Hand player1Hand = player1.getHand();
         Card cardToPlayPlayer1 = player1Hand.getCards().getFirst();
@@ -218,8 +223,9 @@ public class GameWithTrucoAndRetruco {
         Card cardToPlayPlayer2 = player2Hand.getCards().getFirst();
         player2.playCard(player2Hand.getCard(card4));
 
-        player1.callReTruco();
-        player2.acceptCall();
+        /* Aca gana player2 y empieza la ronda El*/
+        player2.callReTruco();
+        player1.acceptCall();
 
         cardToPlayPlayer2 = player2Hand.getCards().getFirst();
         player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
@@ -302,8 +308,8 @@ public class GameWithTrucoAndRetruco {
         cardToPlayPlayer1 = player1Hand.getCards().getFirst();
         player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
 
-        player1.callReTruco();
-        player2.acceptCall();
+        player2.callReTruco();
+        player1.acceptCall();
 
         cardToPlayPlayer2 = player2Hand.getCards().getFirst();
         player2.playCard(player2Hand.getCard(cardToPlayPlayer2));

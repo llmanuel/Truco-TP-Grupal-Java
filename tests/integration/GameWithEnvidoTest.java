@@ -2,6 +2,7 @@ package integration;
 
 import model.*;
 import model.Exceptions.InvalidNumberOfPlayersException;
+import model.Exceptions.NotCardThrownException;
 import model.Exceptions.NotYourTurnException;
 import model.Exceptions.TeamDoesntExistException;
 import org.junit.Assert;
@@ -94,7 +95,7 @@ public class GameWithEnvidoTest {
     }
 
     @Test
-    public void firstPlayerCallEnvidoTest() throws TeamDoesntExistException, NotYourTurnException {
+    public void firstPlayerCallEnvidoTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -108,7 +109,7 @@ public class GameWithEnvidoTest {
     }
 
     @Test
-    public void firstPlayerCallEnvidoAndTheOtherGivesUpTest() throws TeamDoesntExistException, NotYourTurnException {
+    public void firstPlayerCallEnvidoAndTheOtherGivesUpTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
         this.table.setGame();
 
         player1.setHand( hand1 );

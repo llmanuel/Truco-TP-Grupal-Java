@@ -93,8 +93,8 @@ public class GameWithTrucoRetrucoAndVale4 {
         player1.callTruco();
         player2.acceptCall();
 
-        player2.callReTruco();
-        player1.acceptCall();
+        player1.callReTruco();
+        player2.acceptCall();
 
         player1.callVale4();
         player2.acceptCall();
@@ -143,8 +143,8 @@ public class GameWithTrucoRetrucoAndVale4 {
         player2.callTruco();
         player1.acceptCall();
 
-        player1.callReTruco();
-        player2.acceptCall();
+        player2.callReTruco();
+        player1.acceptCall();
 
         player2.callVale4();
         player1.acceptCall();
@@ -191,8 +191,8 @@ public class GameWithTrucoRetrucoAndVale4 {
         player2.callTruco();
         player1.acceptCall();
 
-        player1.callReTruco();
-        player2.acceptCall();
+        player2.callReTruco();
+        player1.acceptCall();
 
         player2.callVale4();
         player1.acceptCall();
