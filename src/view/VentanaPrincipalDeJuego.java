@@ -4,15 +4,15 @@ import model.Builder;
 import model.Exceptions.InvalidNumberOfPlayersException;
 
 public class VentanaPrincipalDeJuego extends javax.swing.JFrame {
-
-    Integer cantidadDeJugadores;
-    Builder builder;
+//
+//    Integer cantidadDeJugadores;
+//    Builder builder;
     /**
      * Creates new form VentanaPrincipalDeJuego
      */
     public VentanaPrincipalDeJuego(Integer cantidadDeJugadores) {
         initComponents();
-        this.cantidadDeJugadores = cantidadDeJugadores;
+//        this.cantidadDeJugadores = cantidadDeJugadores;
     }
 
     /**
