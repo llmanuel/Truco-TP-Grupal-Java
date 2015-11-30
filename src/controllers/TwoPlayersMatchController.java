@@ -83,6 +83,12 @@ public class TwoPlayersMatchController  {
     }
 
 
+    public void drawData() {
+        for (Player actualPlayer : this.table.getPlayers()){
+            this.putPlayerName( actualPlayer );
+            this.changeCardLabel( actualPlayer );
+        }
 
 
+    }
 }

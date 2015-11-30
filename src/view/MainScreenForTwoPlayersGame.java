@@ -31,7 +31,6 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
     private void initComponents() {
 
         //TwoPlayersMatchController twoPlayersController = new TwoPlayersMatchController(this);
-        jButton4 = new javax.swing.JButton();
         carta1Player2 = new javax.swing.JLabel();
         carta2Player2 = new javax.swing.JLabel();
         carta3Player2 = new javax.swing.JLabel();
@@ -46,16 +45,15 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
         botonTruco = new javax.swing.JButton();
         botonAumentarApuestaDeTruco = new javax.swing.JButton();
 
-        jButton4.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Partida de Truco en juego");
-        setName(""); // NOI18N
+        setName("Partida"); // NOI18N
         setPreferredSize(new java.awt.Dimension(1024, 768));
         setResizable(true);
 
         carta1Player2.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        carta1Player2.setText("jLabel1");
+
         carta1Player2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 carta1Player2MouseClicked(evt);
@@ -63,7 +61,7 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
         });
 
         carta2Player2.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        carta2Player2.setText("jLabel2");
+
         carta2Player2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 carta2Player2MouseClicked(evt);
@@ -71,7 +69,7 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
         });
 
         carta3Player2.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        carta3Player2.setText("jLabel3");
+
         carta3Player2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 carta3Player2MouseClicked(evt);
@@ -79,7 +77,7 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
         });
 
         carta3Player1.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        carta3Player1.setText("jLabel3");
+
         carta3Player1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 carta3Player1MouseClicked(evt);
@@ -87,7 +85,7 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
         });
 
         carta1Player1.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        carta1Player1.setText("jLabel1");
+
         carta1Player1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 carta1Player1MouseClicked(evt);
@@ -95,7 +93,7 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
         });
 
         carta2Player1.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        carta2Player1.setText("jLabel2");
+
         carta2Player1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 carta2Player1MouseClicked(evt);
@@ -104,11 +102,11 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
 
         etiquetaPlayer1.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         etiquetaPlayer1.setForeground(new java.awt.Color(102, 102, 102));
-        etiquetaPlayer1.setText("Player1");
+
 
         etiquetaPlayer2.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         etiquetaPlayer2.setForeground(new java.awt.Color(102, 102, 102));
-        etiquetaPlayer2.setText("Player2");
+
 
         faltaEnvido.setText("Falta Envido");
         faltaEnvido.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -216,7 +214,6 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
                                 .addComponent(etiquetaPlayer2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18))
         );
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 

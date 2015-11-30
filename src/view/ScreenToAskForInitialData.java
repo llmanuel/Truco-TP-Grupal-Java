@@ -122,20 +122,35 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
         LinkedList<Team> teams = new LinkedList<Team>(  );
         switch (opcionSeleccionada){
             case textFor2PlayerOption:
+
                 numberOfPlayers = 2;
                 controller.prepareTableFor( 2 );
+
                 MainScreenForTwoPlayersGame mainScreen = new MainScreenForTwoPlayersGame();
-                mainScreen.setController( new TwoPlayersMatchController(mainScreen, controller.getTable()) );
+                TwoPlayersMatchController twoPlayerMatchController = new TwoPlayersMatchController(mainScreen, controller.getTable());
+
+                mainScreen.setController( twoPlayerMatchController );
+
+                twoPlayerMatchController.drawData();
+
+                mainScreen.setVisible( true );
+
                 break;
             case textFor4PlayerOption:
+
                 numberOfPlayers = 4;
                 controller.prepareTableFor( 4 );
+
                 new MainScreenForFourPlayersGame().setVisible(true);
+
                 break;
             case textFor6PlayerOption:
+
                 numberOfPlayers = 6;
                 controller.prepareTableFor( 6 );
+
                 new MainScreenForSixPlayersGame().setVisible(true);
+
                 break;
         }
         dispose();

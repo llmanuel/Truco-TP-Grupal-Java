@@ -314,4 +314,8 @@ public class Table {
     public boolean tellMeIfCallWasAccepted(){
        return this.gameState.tellIfTheGameWasAccepted();
     }
+
+    public LinkedList<Player> getPlayers() {
+        return playersInGame;
+    }
 }
