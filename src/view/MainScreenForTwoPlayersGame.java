@@ -8,6 +8,7 @@ import model.Exceptions.NotYourTurnException;
 import model.Exceptions.TeamDoesntExistException;
 import model.Player;
 
+import java.awt.*;
 import java.util.LinkedList;
 
 public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
@@ -100,11 +101,11 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
             }
         });
 
-        etiquetaPlayer1.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        etiquetaPlayer1.setFont(new java.awt.Font("Arial", Font.BOLD, 18)); // NOI18N
         etiquetaPlayer1.setForeground(new java.awt.Color(102, 102, 102));
 
 
-        etiquetaPlayer2.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        etiquetaPlayer2.setFont(new java.awt.Font("Arial", Font.BOLD, 18)); // NOI18N
         etiquetaPlayer2.setForeground(new java.awt.Color(102, 102, 102));
 
 
@@ -298,7 +299,6 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
     private void botonAumentarApuestaDeTrucoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonAumentarApuestaDeTrucoMouseClicked
         // TODO add your handling code here:
 
-        twoPlayersController.raiseBet();
     }//GEN-LAST:event_botonAumentarApuestaDeTrucoMouseClicked
 
     /**
