@@ -101,7 +101,8 @@ public class TwoPlayersMatchController  {
             e.printStackTrace();
         }
 
-        gameView.changeLabelPosition(table.getActualPlayer().getHand().getCards().indexOf(card) + 1, table.getActualPlayer().getIdNumber());
+        gameView.changeLabelPosition(table.getActualPlayer().getHand().getCards(), table.getActualPlayer(), card);
+
     }
 
     public Player getPlayer() {

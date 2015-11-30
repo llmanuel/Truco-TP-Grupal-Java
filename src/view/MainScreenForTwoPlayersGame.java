@@ -2,6 +2,7 @@ package view;
 
 
 import controllers.TwoPlayersMatchController;
+import model.Card;
 import model.Exceptions.InvalidGameCallException;
 import model.Exceptions.NotCardThrownException;
 import model.Exceptions.NotYourTurnException;
@@ -400,16 +401,17 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
         }
     }
 
-    public void changeLabelPosition(int labelNumber, int idNumber) {
+    public void changeLabelPosition(LinkedList<Card> cards, Player player, Card card) {
 
-        if (idNumber == 1){
+        if (player.getIdNumber() == 1){
 
-            switch (labelNumber){
-                case 1: carta1Player1.setFocusable(true);
+            switch (cards.indexOf(card) + 1){
+                case 1: carta1Player1.setText("jugado");
+                       // carta1Player1.setText();
             }
         } else {
 
-            switch (labelNumber) {
+            switch (cards.indexOf(card) + 1) {
                 case 1:
                     carta1Player2.setFocusable(true);
 
