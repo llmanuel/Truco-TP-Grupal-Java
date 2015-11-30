@@ -10,7 +10,7 @@ import model.Table;
  * Created by lucas on 30/11/15.
  */
 
-public class MatchController {
+public class TwoPlayersMatchController {
 
     private Table table;
 
@@ -53,6 +53,8 @@ public class MatchController {
         table.getActualPlayer().callVale4();
 
     }
+
+    
 
 
 
