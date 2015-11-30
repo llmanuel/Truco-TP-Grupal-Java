@@ -399,5 +399,17 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
             etiquetaPlayer2.setText("Jugador 2");
         }
     }
+
+    public void changeLabelPosition(int labelNumber, int idNumber) {
+
+        if (idNumber == 1){
+
+            switch (labelNumber){
+                case 1: carta1Player1.setFocusable(true);
+            }
+        }
+    }
+
+
     // End of variables declaration//GEN-END:variables
 }

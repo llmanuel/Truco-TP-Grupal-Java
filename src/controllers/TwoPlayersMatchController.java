@@ -100,6 +100,8 @@ public class TwoPlayersMatchController  {
         } catch (NotCardThrownException e) {
             e.printStackTrace();
         }
+
+        gameView.changeLabelPosition(table.getActualPlayer().getHand().getCards().indexOf(card) + 1, table.getActualPlayer().getIdNumber());
     }
 
     public Player getPlayer() {
