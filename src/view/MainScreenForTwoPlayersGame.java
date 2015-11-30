@@ -23,7 +23,7 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TwoPlayersMatchController twoPlayersController = new TwoPlayersMatchController(this);
+        //TwoPlayersMatchController twoPlayersController = new TwoPlayersMatchController(this);
         jButton4 = new javax.swing.JButton();
         carta1Player2 = new javax.swing.JLabel();
         carta2Player2 = new javax.swing.JLabel();
