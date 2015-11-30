@@ -1,11 +1,11 @@
 package view;
 
 
-import controllers.MatchController;
+import controllers.TwoPlayersMatchController;
 
 public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
 
-    private MatchController matchController = new MatchController();
+    private TwoPlayersMatchController twoPlayersMatchController = new TwoPlayersMatchController();
     /**
      * Creates new form VentanaPrincipalDeJuego
      */
