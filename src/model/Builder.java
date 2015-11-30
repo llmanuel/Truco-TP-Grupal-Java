@@ -1,7 +1,9 @@
 package model;
 
 
+import controllers.TwoPlayersMatchController;
 import model.Exceptions.InvalidNumberOfPlayersException;
+import view.MainScreenForTwoPlayersGame;
 
 import java.util.LinkedList;
 
@@ -16,6 +18,9 @@ public class Builder {
     Scoreboard scoreboard;
     Judge judge;
 
+    MainScreenForTwoPlayersGame twoPlayersGame;
+    TwoPlayersMatchController twoPlayersGameController;
+
     public Builder(int numberOfPlayers) throws InvalidNumberOfPlayersException {
         validateNumberOfPlayers(numberOfPlayers);
         createPlayers(numberOfPlayers);
@@ -23,7 +28,30 @@ public class Builder {
         prepareTable();
         setScoreboard();
         setJudge();
+        setView();
     }
+
+    /* Crea solo para 2 jugadores por ahora*/
+    private void setView() {
+
+        int numberOfPlayers = players.size();
+
+        switch (numberOfPlayers){
+            case 2: createTwoPlayersGame();
+                break;
+            case 4: createFourPlayers();
+                break;
+            case 6: createSixPlayers();
+                break;
+        }
+    }
+
+    private void createTwoPlayersGame() {
+
+        twoPlayersGame = new MainScreenForTwoPlayersGame();
+        twoPlayersGameController = new TwoPlayersMatchController(twoPlayersGame , table);
+    }
+
 
     private void setScoreboard() {
 
