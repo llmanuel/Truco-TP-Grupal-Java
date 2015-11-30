@@ -1,14 +1,16 @@
 package view;
 
-import controllers.MatchController;
+
+public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
+
 
 public class PrincipalScreenForTwoPlayersGame extends javax.swing.JFrame {
 
-    private MatchController matchController = new MatchController();
+
     /**
      * Creates new form VentanaPrincipalDeJuego
      */
-    public PrincipalScreenForTwoPlayersGame() {
+    public void MainScreenForTwoPlayersGame() {
         initComponents();
     }
 
@@ -271,20 +273,20 @@ public class PrincipalScreenForTwoPlayersGame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PrincipalScreenForTwoPlayersGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainScreenForTwoPlayersGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PrincipalScreenForTwoPlayersGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainScreenForTwoPlayersGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PrincipalScreenForTwoPlayersGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainScreenForTwoPlayersGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PrincipalScreenForTwoPlayersGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainScreenForTwoPlayersGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PrincipalScreenForTwoPlayersGame().setVisible(true);
+                new MainScreenForTwoPlayersGame().setVisible(true);
             }
         });
 
