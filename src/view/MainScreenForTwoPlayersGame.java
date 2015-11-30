@@ -297,6 +297,8 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
 
     private void botonAumentarApuestaDeTrucoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonAumentarApuestaDeTrucoMouseClicked
         // TODO add your handling code here:
+
+        twoPlayersController.raiseBet();
     }//GEN-LAST:event_botonAumentarApuestaDeTrucoMouseClicked
 
     /**
