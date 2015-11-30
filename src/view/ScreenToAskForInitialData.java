@@ -1,8 +1,10 @@
 package view;
 
 import controllers.InitialDataController;
+import model.Team;
 
 import java.awt.*;
+import java.util.LinkedList;
 
 /**
  * Created by lucas on 27/11/15.
@@ -116,18 +118,21 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String opcionSeleccionada = (String) listaDesplegableDeCantidadDeJugadores.getSelectedItem();
+        LinkedList<Team> teams = new LinkedList<Team>(  );
         switch (opcionSeleccionada){
             case textFor2PlayerOption:
                 numberOfPlayers = 2;
-                controller.prepareTableFor(2);
+                controller.prepareTableFor( 2 );
                 new MainScreenForTwoPlayersGame().setVisible(true);
                 break;
             case textFor4PlayerOption:
                 numberOfPlayers = 4;
+                controller.prepareTableFor( 4 );
                 new MainScreenForFourPlayersGame().setVisible(true);
                 break;
             case textFor6PlayerOption:
                 numberOfPlayers = 6;
+                controller.prepareTableFor( 6 );
                 new MainScreenForSixPlayersGame().setVisible(true);
                 break;
         }
