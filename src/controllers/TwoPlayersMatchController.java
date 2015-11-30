@@ -5,6 +5,7 @@ import model.Exceptions.NotCardThrownException;
 import model.Exceptions.NotYourTurnException;
 import model.Exceptions.TeamDoesntExistException;
 import model.Table;
+import view.MainScreenForTwoPlayersGame;
 
 /**
  * Created by lucas on 30/11/15.
@@ -13,10 +14,17 @@ import model.Table;
 public class TwoPlayersMatchController {
 
     private Table table;
+    private MainScreenForTwoPlayersGame twoPlayersGame;
 
     private void setTable(Table newTable) {
 
         table = newTable;
+    }
+
+    private  void setView(MainScreenForTwoPlayersGame newView) {
+
+        twoPlayersGame = newView;
+
     }
 
     public void callEnvido() throws InvalidGameCallException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
@@ -54,7 +62,12 @@ public class TwoPlayersMatchController {
 
     }
 
-    
+    public void changeCardLabel (){
+
+        String cardName;
+
+
+    }
 
 
 
