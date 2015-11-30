@@ -329,5 +329,10 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
         }
 
     }
+
+    public void setController(TwoPlayersMatchController twoPlayersMatchController) {
+
+        twoPlayersController = twoPlayersMatchController;
+    }
     // End of variables declaration//GEN-END:variables
 }
