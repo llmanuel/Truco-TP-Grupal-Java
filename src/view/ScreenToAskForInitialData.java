@@ -14,6 +14,10 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
     private static final String textFor4PlayerOption = "4 Jugadores";
     private static final String textFor6PlayerOption = "6 Jugadores";
 
+    public Integer getNumberOfPlayers() {
+        return numberOfPlayers;
+    }
+
     Integer numberOfPlayers;
     /**
      * Creates new form TtestUIEditor
