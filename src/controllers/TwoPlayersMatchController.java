@@ -73,7 +73,7 @@ public class TwoPlayersMatchController  {
             namesOfTheCards.add(cardName);
         }
 
-        //gameView.refreshCardsLabels(namesOfTheCards);
+        gameView.refreshCardsLabels(namesOfTheCards);
 
     }
 

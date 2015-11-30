@@ -3,6 +3,8 @@ package view;
 
 import controllers.TwoPlayersMatchController;
 
+import java.util.LinkedList;
+
 public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
     /**
      * Creates new form VentanaPrincipalDeJuego
@@ -310,5 +312,8 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton realEnvido;
     private TwoPlayersMatchController twoPlayersController;
+
+    public void refreshCardsLabels(LinkedList<String> namesOfTheCards) {
+    }
     // End of variables declaration//GEN-END:variables
 }
