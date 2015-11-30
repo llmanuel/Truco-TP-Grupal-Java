@@ -123,7 +123,8 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
             case textFor2PlayerOption:
                 numberOfPlayers = 2;
                 controller.prepareTableFor( 2 );
-                new MainScreenForTwoPlayersGame().setVisible(true);
+                MainScreenForTwoPlayersGame mainScreen = new MainScreenForTwoPlayersGame();
+                mainScreen.setController( new MainScreenForTwoPlayersGame(mainScreen, controller.getTable()) );
                 break;
             case textFor4PlayerOption:
                 numberOfPlayers = 4;
