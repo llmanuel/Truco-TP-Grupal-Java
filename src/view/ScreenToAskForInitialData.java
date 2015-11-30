@@ -117,14 +117,15 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
                 break;
             case textFor4PlayerOption:
                 numberOfPlayers = 4;
+                new MainScreenForFourPlayersGame().setVisible(true);
                 break;
             case textFor6PlayerOption:
                 numberOfPlayers = 6;
+                new MainScreenForSixPlayersGame().setVisible(true);
                 break;
         }
-        System.out.println(numberOfPlayers);
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }
 
     /**
      * @param args the command line arguments
