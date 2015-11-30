@@ -313,7 +313,21 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
     private javax.swing.JButton realEnvido;
     private TwoPlayersMatchController twoPlayersController;
 
-    public void refreshCardsLabels(LinkedList<String> namesOfTheCards) {
+    public void refreshCardsLabels(LinkedList<String> namesOfTheCards, int playerID) {
+
+        if (playerID == 1){
+
+            carta1Player1.setText(namesOfTheCards.get(0));
+            carta2Player1.setText(namesOfTheCards.get(1));
+            carta3Player1.setText(namesOfTheCards.get(2));
+
+        } else {
+
+            carta1Player2.setText(namesOfTheCards.get(0));
+            carta2Player2.setText(namesOfTheCards.get(1));
+            carta3Player2.setText(namesOfTheCards.get(2));
+        }
+
     }
     // End of variables declaration//GEN-END:variables
 }
