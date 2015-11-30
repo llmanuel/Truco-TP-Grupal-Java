@@ -2,7 +2,6 @@ package model;
 
 
 import model.Exceptions.InvalidNumberOfPlayersException;
-import view.MainScreenForTwoPlayersGame;
 
 import javax.swing.*;
 import java.util.LinkedList;
@@ -12,7 +11,7 @@ public class Builder {
     LinkedList<Player> players = new LinkedList<Player>();
     LinkedList<Team> teams = new LinkedList<Team>();
 
-    Table table = new Table();
+    Table table ;
     Team team1;
     Team team2;
     Scoreboard scoreboard;
@@ -23,6 +22,7 @@ public class Builder {
 
     public Builder(int numberOfPlayers) throws InvalidNumberOfPlayersException {
         validateNumberOfPlayers(numberOfPlayers);
+        createTable();
         createPlayers(numberOfPlayers);
         setTeams();
         prepareTable();
@@ -30,7 +30,13 @@ public class Builder {
         setJudge();
     }
 
-     private void setScoreboard() {
+
+
+    private void createTable() {
+        this.table = new Table();
+    }
+
+    private void setScoreboard() {
 
         scoreboard = new Scoreboard(teams, table);
 
@@ -83,8 +89,12 @@ public class Builder {
         Player player1 = new HumanPlayer(1);
         Player player2 = new HumanPlayer(2);
 
+        player1.setTable( this.table );
+        player2.setTable( this.table );
+
         players.add(player1);
         players.add(player2);
+
     }
 
     private void createFourPlayers() {
@@ -92,6 +102,9 @@ public class Builder {
 
         Player player3 = new HumanPlayer(3);
         Player player4 = new HumanPlayer(4);
+
+        player3.setTable( this.table );
+        player4.setTable( this.table );
 
         players.add(player3);
         players.add(player4);
@@ -102,6 +115,9 @@ public class Builder {
 
         Player player5 = new HumanPlayer(5);
         Player player6 = new HumanPlayer(6);
+
+        player5.setTable( this.table );
+        player6.setTable( this.table );
 
         players.add(player5);
         players.add(player6);

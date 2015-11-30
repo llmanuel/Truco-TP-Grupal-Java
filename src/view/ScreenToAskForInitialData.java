@@ -77,7 +77,7 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent( askForPlayersQuantityMessage )
                                                         .addComponent( separator, javax.swing.GroupLayout.PREFERRED_SIZE, WINDOWWIDTH - 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addContainerGap(55, Short.MAX_VALUE))
+                                 .addContainerGap(55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
