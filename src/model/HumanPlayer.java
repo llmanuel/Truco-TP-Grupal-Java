@@ -30,7 +30,7 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void sitOnTable(Table table) {
+    public void setTable(Table table) {
 
         this.table = table;
     }
