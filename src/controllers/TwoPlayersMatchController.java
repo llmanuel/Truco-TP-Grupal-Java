@@ -91,4 +91,7 @@ public class TwoPlayersMatchController  {
 
 
     }
+
+    public void showCard() {
+    }
 }

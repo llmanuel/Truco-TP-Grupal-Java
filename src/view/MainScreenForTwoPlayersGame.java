@@ -155,8 +155,8 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                         .addComponent(carta1Player2)
                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(etiquetaPlayer2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addComponent(etiquetaPlayer1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                .addComponent(etiquetaPlayer2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(etiquetaPlayer1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                 .addGap(184, 184, 184)
                                                 .addComponent(carta2Player2))
                                         .addGroup(layout.createSequentialGroup()
@@ -220,26 +220,38 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
 
     private void carta1Player2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta1Player2MouseClicked
         // TODO add your handling code here:
+
+        twoPlayersController.showCard();
     }//GEN-LAST:event_carta1Player2MouseClicked
 
     private void carta2Player2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta2Player2MouseClicked
         // TODO add your handling code here:
+
+        twoPlayersController.showCard();
     }//GEN-LAST:event_carta2Player2MouseClicked
 
     private void carta3Player2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta3Player2MouseClicked
         // TODO add your handling code here:
+
+        twoPlayersController.showCard();
     }//GEN-LAST:event_carta3Player2MouseClicked
 
     private void carta1Player1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta1Player1MouseClicked
         // TODO add your handling code here:
+
+        twoPlayersController.showCard();
     }//GEN-LAST:event_carta1Player1MouseClicked
 
     private void carta2Player1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta2Player1MouseClicked
         // TODO add your handling code here:
+
+        twoPlayersController.showCard();
     }//GEN-LAST:event_carta2Player1MouseClicked
 
     private void carta3Player1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta3Player1MouseClicked
         // TODO add your handling code here:
+
+        twoPlayersController.showCard();
     }//GEN-LAST:event_carta3Player1MouseClicked
 
     private void botonEnvidoMouseClicked(java.awt.event.MouseEvent evt)  {
