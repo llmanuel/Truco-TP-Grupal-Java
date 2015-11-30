@@ -65,8 +65,8 @@ public class GameWithTrucoInThirdRoundTest {
         table = new Table();
         table.letSitThese(playersList);
 
-        player1.sitOnTable(table);
-        player2.sitOnTable(table);
+        player1.setTable(table);
+        player2.setTable(table);
 
         team1 = new Team( player1team );
         team2 = new Team( player2team );
