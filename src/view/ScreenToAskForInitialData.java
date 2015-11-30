@@ -11,6 +11,8 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
     private static final String textFor2PlayerOption = "2 Jugadores";
     private static final String textFor4PlayerOption = "4 Jugadores";
     private static final String textFor6PlayerOption = "6 Jugadores";
+    private static final int WINDOWWIDTH = 450;
+    private static final int WINDOWHEIGHT = 200 ;
     private InitialDataController controller;
     int numberOfPlayers;
 
@@ -37,10 +39,10 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bienvenido A Truco");
         setName("PantallaBienvenida");
-        setPreferredSize(new java.awt.Dimension(600, 250));
+        setPreferredSize(new java.awt.Dimension(WINDOWWIDTH, WINDOWHEIGHT));
         setResizable(false);
 
-        welcomeMessage.setFont(new java.awt.Font("Arial", Font.BOLD, 36)); // NOI18N
+        welcomeMessage.setFont(new java.awt.Font("Arial", Font.BOLD, 28)); // NOI18N
         welcomeMessage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         welcomeMessage.setText("Bienvenido a Truco");
         welcomeMessage.setAlignmentY(0.0F);
@@ -49,11 +51,7 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
         askForPlayersQuantityMessage.setText("Por favor, seleccione la cantidad de jugadores");
 
         startGameButton.setText("Comenzar Partida");
-        startGameButton.addActionListener( new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        startGameButton.addActionListener( evt -> startGameButtonPressed(evt) );
 
         playerQuantityList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2 Jugadores", "4 Jugadores", "6 Jugadores" }));
         playerQuantityList.setBorder(null);
@@ -78,7 +76,7 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
                                                 .addGap(33, 33, 33)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent( askForPlayersQuantityMessage )
-                                                        .addComponent( separator, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                        .addComponent( separator, javax.swing.GroupLayout.PREFERRED_SIZE, WINDOWWIDTH - 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addContainerGap(55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -100,17 +98,16 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    private void startGameButtonPressed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String option = (String) playerQuantityList.getSelectedItem();
-        LinkedList<Team> teams = new LinkedList<Team>(  );
         switch (option){
             case textFor2PlayerOption:
 
                 numberOfPlayers = 2;
-                controller.prepareTableFor( 2 );
+                controller.prepareTableFor( numberOfPlayers );
 
                 MainScreenForTwoPlayersGame mainScreen = new MainScreenForTwoPlayersGame();
+
                 TwoPlayersMatchController twoPlayerMatchController = new TwoPlayersMatchController(mainScreen, controller.getTable());
 
                 mainScreen.setController( twoPlayerMatchController );
@@ -123,7 +120,7 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
             case textFor4PlayerOption:
 
                 numberOfPlayers = 4;
-                controller.prepareTableFor( 4 );
+                controller.prepareTableFor( numberOfPlayers );
 
                 new MainScreenForFourPlayersGame().setVisible(true);
 
@@ -131,7 +128,7 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
             case textFor6PlayerOption:
 
                 numberOfPlayers = 6;
-                controller.prepareTableFor( 6 );
+                controller.prepareTableFor( numberOfPlayers );
 
                 new MainScreenForSixPlayersGame().setVisible(true);
 
@@ -168,11 +165,7 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ScreenToAskForInitialData().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater( () -> new ScreenToAskForInitialData().setVisible(true) );
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
