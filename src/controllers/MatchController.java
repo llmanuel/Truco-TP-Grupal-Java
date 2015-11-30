@@ -25,7 +25,34 @@ public class MatchController {
 
    }
 
-    
+    public void callRealEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+
+        table.getActualPlayer().callRealEnvido();
+
+    }
+
+    public void callFaltaEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+
+        table.getActualPlayer().callFaltaEnvido();
+
+    }
+
+    public void callTruco() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+
+        table.getActualPlayer().callTruco();
+    }
+
+    public void callReTruco() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+
+        table.getActualPlayer().callReTruco();
+
+    }
+
+    public  void callVale4() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+
+        table.getActualPlayer().callVale4();
+
+    }
 
 
 
