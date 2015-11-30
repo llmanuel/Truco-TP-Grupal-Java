@@ -1,12 +1,16 @@
 package view;
 
+
 public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
+
+
+public class PrincipalScreenForTwoPlayersGame extends javax.swing.JFrame {
 
 
     /**
      * Creates new form VentanaPrincipalDeJuego
      */
-    public MainScreenForTwoPlayersGame() {
+    public void MainScreenForTwoPlayersGame() {
         initComponents();
     }
 
