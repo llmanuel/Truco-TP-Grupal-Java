@@ -1,5 +1,9 @@
 package view;
 
+import controllers.InitialDataController;
+
+import java.awt.*;
+
 /**
  * Created by lucas on 27/11/15.
  */
@@ -13,6 +17,7 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
     private static final String textFor2PlayerOption = "2 Jugadores";
     private static final String textFor4PlayerOption = "4 Jugadores";
     private static final String textFor6PlayerOption = "6 Jugadores";
+    private InitialDataController controller;
 
     public Integer getNumberOfPlayers() {
         return numberOfPlayers;
@@ -40,19 +45,20 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         listaDesplegableDeCantidadDeJugadores = new javax.swing.JComboBox<>();
         separador = new javax.swing.JSeparator();
+        controller = new InitialDataController();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bienvenido A Truco");
         setName("PantallaBienvenida"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(500, 250));
+        setPreferredSize(new java.awt.Dimension(600, 250));
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Arial", 3, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", Font.BOLD, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Bienvenido a Truco");
         jLabel1.setAlignmentY(0.0F);
 
-        jLabel2.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", Font.PLAIN, 14)); // NOI18N
         jLabel2.setText("Por favor, seleccione la cantidad de jugadores");
 
         jButton1.setText("Comenzar Partida");
@@ -113,6 +119,7 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
         switch (opcionSeleccionada){
             case textFor2PlayerOption:
                 numberOfPlayers = 2;
+                controller.prepareTableFor(2);
                 new MainScreenForTwoPlayersGame().setVisible(true);
                 break;
             case textFor4PlayerOption:
