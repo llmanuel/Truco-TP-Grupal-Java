@@ -14,12 +14,12 @@ import view.MainScreenForTwoPlayersGame;
 public class TwoPlayersMatchController {
 
     private Table table;
-    private MainScreenForTwoPlayersGame twoPlayersGame;
+    private MainScreenForTwoPlayersGame gameView;
 
-    public TwoPlayersMatchController(MainScreenForTwoPlayersGame gameView, Table newTable) {
+    public TwoPlayersMatchController(MainScreenForTwoPlayersGame newGameView) {
 
-        table = newTable;
-        twoPlayersGame = gameView;
+        //table = newTable;
+        gameView = newGameView;
     }
 
 
@@ -61,6 +61,8 @@ public class TwoPlayersMatchController {
     public void changeCardLabel (){
 
         String cardName;
+
+        table.getActualPlayer().getHand();
 
 
     }

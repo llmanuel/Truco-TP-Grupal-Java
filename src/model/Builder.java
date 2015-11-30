@@ -1,10 +1,10 @@
 package model;
 
 
-import controllers.TwoPlayersMatchController;
 import model.Exceptions.InvalidNumberOfPlayersException;
 import view.MainScreenForTwoPlayersGame;
 
+import javax.swing.*;
 import java.util.LinkedList;
 
 public class Builder {
@@ -18,8 +18,8 @@ public class Builder {
     Scoreboard scoreboard;
     Judge judge;
 
-    MainScreenForTwoPlayersGame twoPlayersGame;
-    TwoPlayersMatchController twoPlayersGameController;
+    JFrame gameView = new JFrame();
+    //MainScreenForTwoPlayersGame twoPlayersGame;
 
     public Builder(int numberOfPlayers) throws InvalidNumberOfPlayersException {
         validateNumberOfPlayers(numberOfPlayers);
@@ -37,7 +37,7 @@ public class Builder {
         int numberOfPlayers = players.size();
 
         switch (numberOfPlayers){
-            case 2: createTwoPlayersGame();
+            case 2: gameView = new MainScreenForTwoPlayersGame();
                 break;
             case 4: createFourPlayers();
                 break;
@@ -45,13 +45,6 @@ public class Builder {
                 break;
         }
     }
-
-    private void createTwoPlayersGame() {
-
-        twoPlayersGame = new MainScreenForTwoPlayersGame();
-        twoPlayersGameController = new TwoPlayersMatchController(twoPlayersGame , table);
-    }
-
 
     private void setScoreboard() {
 
