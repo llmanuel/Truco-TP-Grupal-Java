@@ -407,6 +407,13 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
             switch (labelNumber){
                 case 1: carta1Player1.setFocusable(true);
             }
+        } else {
+
+            switch (labelNumber) {
+                case 1:
+                    carta1Player2.setFocusable(true);
+
+            }
         }
     }
 
