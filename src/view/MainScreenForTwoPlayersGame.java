@@ -2,6 +2,10 @@ package view;
 
 
 import controllers.TwoPlayersMatchController;
+import model.Exceptions.InvalidGameCallException;
+import model.Exceptions.NotCardThrownException;
+import model.Exceptions.NotYourTurnException;
+import model.Exceptions.TeamDoesntExistException;
 import model.Player;
 
 import java.util.LinkedList;
@@ -240,21 +244,59 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_carta3Player1MouseClicked
 
-    private void botonEnvidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonEnvidoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonEnvidoMouseClicked
+    private void botonEnvidoMouseClicked(java.awt.event.MouseEvent evt)  {
 
-    private void realEnvidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_realEnvidoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_realEnvidoMouseClicked
+        try {
+            twoPlayersController.callEnvido();
+        } catch (InvalidGameCallException e) {
+            e.printStackTrace();
+        } catch (NotYourTurnException e) {
+            e.printStackTrace();
+        } catch (NotCardThrownException e) {
+            e.printStackTrace();
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        }
+    }
 
-    private void faltaEnvidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_faltaEnvidoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_faltaEnvidoMouseClicked
+    private void realEnvidoMouseClicked(java.awt.event.MouseEvent evt)  {
 
-    private void botonTrucoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonTrucoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonTrucoMouseClicked
+        try {
+            twoPlayersController.callRealEnvido();
+        } catch (NotYourTurnException e) {
+            e.printStackTrace();
+        } catch (NotCardThrownException e) {
+            e.printStackTrace();
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void faltaEnvidoMouseClicked(java.awt.event.MouseEvent evt) {
+
+        try {
+            twoPlayersController.callFaltaEnvido();
+        } catch (NotYourTurnException e) {
+            e.printStackTrace();
+        } catch (NotCardThrownException e) {
+            e.printStackTrace();
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void botonTrucoMouseClicked(java.awt.event.MouseEvent evt) {
+
+        try {
+            twoPlayersController.callTruco();
+        } catch (NotYourTurnException e) {
+            e.printStackTrace();
+        } catch (NotCardThrownException e) {
+            e.printStackTrace();
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        }
+    }
 
     private void botonAumentarApuestaDeTrucoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonAumentarApuestaDeTrucoMouseClicked
         // TODO add your handling code here:
