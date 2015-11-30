@@ -4,39 +4,21 @@ package view;
  * Created by lucas on 27/11/15.
  */
 /*
-import javax.swing.*;
-import java.awt.event.KeyEvent;
-
-public class ScreenToAskForInitialData extends JFrame {
-
-
-    public static void main(String[] args) {
-
-        JFrame frame = new JFrame("Configuracion inicial.");
-
-        frame.setVisible(true);
-        frame.setSize(500, 600);
-
-        JCheckBox numberOfPlayers = new JCheckBox("Chin");
-        numberOfPlayers.setMnemonic(KeyEvent.VK_C);
-        numberOfPlayers.setSelected(true);
-
-       // numberOfPlayers.addItemListener(this);
-    }
-}*/
-
-/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 public class ScreenToAskForInitialData extends javax.swing.JFrame {
 
-    private static final String  textoOpcion2Jugadores = "2 Jugadores";
-    private static final String  textoOpcion4Jugadores = "4 Jugadores";
-    private static final String  textoOpcion6Jugadores = "6 Jugadores";
+    private static final String textFor2PlayerOption = "2 Jugadores";
+    private static final String textFor4PlayerOption = "4 Jugadores";
+    private static final String textFor6PlayerOption = "6 Jugadores";
 
-    Integer cantidadDeJugadores;
+    public Integer getNumberOfPlayers() {
+        return numberOfPlayers;
+    }
+
+    Integer numberOfPlayers;
     /**
      * Creates new form TtestUIEditor
      */
@@ -129,18 +111,18 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
         // TODO add your handling code here:
         String opcionSeleccionada = (String) listaDesplegableDeCantidadDeJugadores.getSelectedItem();
         switch (opcionSeleccionada){
-            case textoOpcion2Jugadores:
-                cantidadDeJugadores = 2;
-                new PrincipalScreenForTwoPlayersGame().setVisible(true);
+            case textFor2PlayerOption:
+                numberOfPlayers = 2;
+                new MainScreenForTwoPlayersGame().setVisible(true);
                 break;
-            case textoOpcion4Jugadores:
-                cantidadDeJugadores = 4;
+            case textFor4PlayerOption:
+                numberOfPlayers = 4;
                 break;
-            case textoOpcion6Jugadores:
-                cantidadDeJugadores = 6;
+            case textFor6PlayerOption:
+                numberOfPlayers = 6;
                 break;
         }
-        System.out.println(cantidadDeJugadores);
+        System.out.println(numberOfPlayers);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
