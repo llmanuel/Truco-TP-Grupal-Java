@@ -28,25 +28,9 @@ public class Builder {
         prepareTable();
         setScoreboard();
         setJudge();
-        setView();
     }
 
-    /* Crea solo para 2 jugadores por ahora*/
-    private void setView() {
-
-        int numberOfPlayers = players.size();
-
-        switch (numberOfPlayers){
-            case 2: gameView = new MainScreenForTwoPlayersGame();
-                break;
-            case 4: createFourPlayers();
-                break;
-            case 6: createSixPlayers();
-                break;
-        }
-    }
-
-    private void setScoreboard() {
+     private void setScoreboard() {
 
         scoreboard = new Scoreboard(teams, table);
 
@@ -137,5 +121,9 @@ public class Builder {
     public LinkedList<Team> getTeams() {
 
         return teams;
+    }
+
+    public Table getTable() {
+        return table;
     }
 }
