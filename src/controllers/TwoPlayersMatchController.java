@@ -16,16 +16,12 @@ public class TwoPlayersMatchController {
     private Table table;
     private MainScreenForTwoPlayersGame twoPlayersGame;
 
-    private void setTable(Table newTable) {
+    public TwoPlayersMatchController(MainScreenForTwoPlayersGame gameView, Table newTable) {
 
         table = newTable;
+        twoPlayersGame = gameView;
     }
 
-    private  void setView(MainScreenForTwoPlayersGame newView) {
-
-        twoPlayersGame = newView;
-
-    }
 
     public void callEnvido() throws InvalidGameCallException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
 
