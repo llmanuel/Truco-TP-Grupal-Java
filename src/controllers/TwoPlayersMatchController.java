@@ -1,10 +1,7 @@
 package controllers;
 
 import model.Card;
-import model.Exceptions.InvalidGameCallException;
-import model.Exceptions.NotCardThrownException;
-import model.Exceptions.NotYourTurnException;
-import model.Exceptions.TeamDoesntExistException;
+import model.Exceptions.*;
 import model.Player;
 import model.Table;
 import view.MainScreenForTwoPlayersGame;
@@ -92,6 +89,23 @@ public class TwoPlayersMatchController  {
 
     }
 
-    public void showCard() {
+    public void playCard(Card card) {
+
+        try {
+            table.getActualPlayer().playCard(card);
+        } catch (NotYourTurnException e) {
+            e.printStackTrace();
+        } catch (DonTHaveThatCardException e) {
+            e.printStackTrace();
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        } catch (NotCardThrownException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Player getPlayer() {
+
+        return table.getActualPlayer();
     }
 }

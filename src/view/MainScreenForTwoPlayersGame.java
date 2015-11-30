@@ -221,37 +221,37 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
     private void carta1Player2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta1Player2MouseClicked
         // TODO add your handling code here:
 
-        twoPlayersController.showCard();
+        twoPlayersController.playCard(twoPlayersController.getPlayer().getHand().getCards().get(0));
     }//GEN-LAST:event_carta1Player2MouseClicked
 
     private void carta2Player2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta2Player2MouseClicked
         // TODO add your handling code here:
 
-        twoPlayersController.showCard();
+        twoPlayersController.playCard(twoPlayersController.getPlayer().getHand().getCards().get(1));
     }//GEN-LAST:event_carta2Player2MouseClicked
 
     private void carta3Player2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta3Player2MouseClicked
         // TODO add your handling code here:
 
-        twoPlayersController.showCard();
+        twoPlayersController.playCard(twoPlayersController.getPlayer().getHand().getCards().get(2));
     }//GEN-LAST:event_carta3Player2MouseClicked
 
     private void carta1Player1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta1Player1MouseClicked
         // TODO add your handling code here:
 
-        twoPlayersController.showCard();
+        twoPlayersController.playCard(twoPlayersController.getPlayer().getHand().getCards().get(0));
     }//GEN-LAST:event_carta1Player1MouseClicked
 
     private void carta2Player1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta2Player1MouseClicked
         // TODO add your handling code here:
 
-        twoPlayersController.showCard();
+        twoPlayersController.playCard(twoPlayersController.getPlayer().getHand().getCards().get(1));
     }//GEN-LAST:event_carta2Player1MouseClicked
 
     private void carta3Player1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta3Player1MouseClicked
         // TODO add your handling code here:
 
-        twoPlayersController.showCard();
+        twoPlayersController.playCard(twoPlayersController.getPlayer().getHand().getCards().get(2));
     }//GEN-LAST:event_carta3Player1MouseClicked
 
     private void botonEnvidoMouseClicked(java.awt.event.MouseEvent evt)  {
