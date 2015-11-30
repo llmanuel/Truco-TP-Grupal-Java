@@ -131,7 +131,7 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
         switch (opcionSeleccionada){
             case textoOpcion2Jugadores:
                 cantidadDeJugadores = 2;
-                new VentanaPrincipalDeJuego2Jugadores().setVisible(true);
+                new PrincipalScreenForTwoPlayersGame().setVisible(true);
                 break;
             case textoOpcion4Jugadores:
                 cantidadDeJugadores = 4;
