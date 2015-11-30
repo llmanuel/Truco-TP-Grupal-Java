@@ -2,6 +2,7 @@ package controllers;
 
 import model.Builder;
 import model.Exceptions.InvalidNumberOfPlayersException;
+import model.Table;
 
 public class InitialDataController {
 
@@ -16,4 +17,7 @@ public class InitialDataController {
 
     }
 
+    public Table getTable() {
+        return this.builder.getTable();
+    }
 }
