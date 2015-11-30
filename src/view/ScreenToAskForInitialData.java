@@ -10,11 +10,15 @@ package view;
  */
 public class ScreenToAskForInitialData extends javax.swing.JFrame {
 
-    private static final String  textoOpcion2Jugadores = "2 Jugadores";
-    private static final String  textoOpcion4Jugadores = "4 Jugadores";
-    private static final String  textoOpcion6Jugadores = "6 Jugadores";
+    private static final String textFor2PlayerOption = "2 Jugadores";
+    private static final String textFor4PlayerOption = "4 Jugadores";
+    private static final String textFor6PlayerOption = "6 Jugadores";
 
-    Integer cantidadDeJugadores;
+    public Integer getNumberOfPlayers() {
+        return numberOfPlayers;
+    }
+
+    Integer numberOfPlayers;
     /**
      * Creates new form TtestUIEditor
      */
@@ -107,18 +111,18 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
         // TODO add your handling code here:
         String opcionSeleccionada = (String) listaDesplegableDeCantidadDeJugadores.getSelectedItem();
         switch (opcionSeleccionada){
-            case textoOpcion2Jugadores:
-                cantidadDeJugadores = 2;
+            case textFor2PlayerOption:
+                numberOfPlayers = 2;
                 new MainScreenForTwoPlayersGame().setVisible(true);
                 break;
-            case textoOpcion4Jugadores:
-                cantidadDeJugadores = 4;
+            case textFor4PlayerOption:
+                numberOfPlayers = 4;
                 break;
-            case textoOpcion6Jugadores:
-                cantidadDeJugadores = 6;
+            case textFor6PlayerOption:
+                numberOfPlayers = 6;
                 break;
         }
-        System.out.println(cantidadDeJugadores);
+        System.out.println(numberOfPlayers);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
