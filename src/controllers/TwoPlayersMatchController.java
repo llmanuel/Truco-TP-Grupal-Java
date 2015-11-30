@@ -101,7 +101,7 @@ public class TwoPlayersMatchController  {
             e.printStackTrace();
         }
 
-        gameView.changeLabelPosition(table.getActualPlayer().getHand().getCards(), table.getActualPlayer(), card);
+        gameView.checkSelectedCard(table.getActualPlayer().getHand().getCards(), table.getActualPlayer(), card);
 
     }
 

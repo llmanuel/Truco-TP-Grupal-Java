@@ -401,7 +401,7 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
         }
     }
 
-    public void changeLabelPosition(LinkedList<Card> cards, Player player, Card card) {
+    public void checkSelectedCard(LinkedList<Card> cards, Player player, Card card) {
 
         if (player.getIdNumber() == 1){
 
@@ -413,7 +413,7 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
 
             switch (cards.indexOf(card) + 1) {
                 case 1:
-                    carta1Player2.setFocusable(true);
+                    carta1Player2.setText("jugado");
 
             }
         }
