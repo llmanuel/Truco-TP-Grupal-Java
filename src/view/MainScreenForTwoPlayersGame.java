@@ -40,8 +40,8 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Partida de Truco en juego");
         setName(""); // NOI18N
-        setPreferredSize(new java.awt.Dimension(600, 600));
-        setResizable(false);
+        setPreferredSize(new java.awt.Dimension(1024, 768));
+        setResizable(true);
 
         carta1Player2.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         carta1Player2.setText("jLabel1");
@@ -99,35 +99,35 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
         etiquetaPlayer2.setForeground(new java.awt.Color(102, 102, 102));
         etiquetaPlayer2.setText("Player2");
 
-        faltaEnvido.setLabel("Falta Envido");
+        faltaEnvido.setText("Falta Envido");
         faltaEnvido.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 faltaEnvidoMouseClicked(evt);
             }
         });
 
-        botonEnvido.setLabel("Envido");
+        botonEnvido.setText("Envido");
         botonEnvido.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 botonEnvidoMouseClicked(evt);
             }
         });
 
-        realEnvido.setLabel("Real Envido");
+        realEnvido.setText("Real Envido");
         realEnvido.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 realEnvidoMouseClicked(evt);
             }
         });
 
-        botonTruco.setLabel("Truco");
+        botonTruco.setText("Truco");
         botonTruco.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 botonTrucoMouseClicked(evt);
             }
         });
 
-        botonAumentarApuestaDeTruco.setLabel("Aumentar Apuesta");
+        botonAumentarApuestaDeTruco.setText("Aumentar Apuesta");
         botonAumentarApuestaDeTruco.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 botonAumentarApuestaDeTrucoMouseClicked(evt);
