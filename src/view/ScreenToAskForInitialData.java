@@ -7,7 +7,7 @@ package view;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 
-public class ScreenToAskForInicialData extends JFrame {
+public class ScreenToAskForInitialData extends JFrame {
 
 
     public static void main(String[] args) {
@@ -30,7 +30,7 @@ public class ScreenToAskForInicialData extends JFrame {
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-public class ScreenToAskForInicialData extends javax.swing.JFrame {
+public class ScreenToAskForInitialData extends javax.swing.JFrame {
 
     private static final String  textoOpcion2Jugadores = "2 Jugadores";
     private static final String  textoOpcion4Jugadores = "4 Jugadores";
@@ -40,7 +40,7 @@ public class ScreenToAskForInicialData extends javax.swing.JFrame {
     /**
      * Creates new form TtestUIEditor
      */
-    public ScreenToAskForInicialData() {
+    public ScreenToAskForInitialData() {
         initComponents();
     }
 
@@ -161,20 +161,20 @@ public class ScreenToAskForInicialData extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ScreenToAskForInicialData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ScreenToAskForInitialData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ScreenToAskForInicialData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ScreenToAskForInitialData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ScreenToAskForInicialData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ScreenToAskForInitialData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ScreenToAskForInicialData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ScreenToAskForInitialData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ScreenToAskForInicialData().setVisible(true);
+                new ScreenToAskForInitialData().setVisible(true);
             }
         });
     }
