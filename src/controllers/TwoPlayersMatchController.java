@@ -1,24 +1,28 @@
 package controllers;
 
+import model.Card;
 import model.Exceptions.InvalidGameCallException;
 import model.Exceptions.NotCardThrownException;
 import model.Exceptions.NotYourTurnException;
 import model.Exceptions.TeamDoesntExistException;
+import model.Player;
 import model.Table;
 import view.MainScreenForTwoPlayersGame;
+
+import java.util.LinkedList;
 
 /**
  * Created by lucas on 30/11/15.
  */
 
-public class TwoPlayersMatchController {
+public class TwoPlayersMatchController  {
 
     private Table table;
     private MainScreenForTwoPlayersGame gameView;
 
-    public TwoPlayersMatchController(MainScreenForTwoPlayersGame newGameView) {
+    public TwoPlayersMatchController(MainScreenForTwoPlayersGame newGameView, Table newTable) {
 
-        //table = newTable;
+        table = newTable;
         gameView = newGameView;
     }
 
@@ -58,12 +62,18 @@ public class TwoPlayersMatchController {
 
     }
 
-    public void changeCardLabel (){
+    public void changeCardLabel (Player player){
 
-        String cardName;
+        LinkedList<String> namesOfTheCards = new LinkedList<String>();
+        Card card;
 
-        table.getActualPlayer().getHand();
+        for (Card actualCard : player.getHand().getCards()) {
+            String cardName = new String();
+            cardName = actualCard.getNumber().toString() + " " + actualCard.getSuit();
+            namesOfTheCards.add(cardName);
+        }
 
+        //gameView.refreshCardsLabels(namesOfTheCards);
 
     }
 
