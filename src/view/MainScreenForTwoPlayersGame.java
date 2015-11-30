@@ -2,6 +2,7 @@ package view;
 
 
 import controllers.TwoPlayersMatchController;
+import model.Player;
 
 import java.util.LinkedList;
 
@@ -333,6 +334,17 @@ public class MainScreenForTwoPlayersGame extends javax.swing.JFrame {
     public void setController(TwoPlayersMatchController twoPlayersMatchController) {
 
         twoPlayersController = twoPlayersMatchController;
+    }
+
+    public void setPlayerName(Player player) {
+
+        if(player.getIdNumber() == 1){
+
+            etiquetaPlayer1.setText("Jugador 1");
+        } else {
+
+            etiquetaPlayer2.setText("Jugador 2");
+        }
     }
     // End of variables declaration//GEN-END:variables
 }

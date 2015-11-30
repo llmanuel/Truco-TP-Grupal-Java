@@ -77,6 +77,11 @@ public class TwoPlayersMatchController  {
 
     }
 
+    public void putPlayerName(Player player){
+
+        gameView.setPlayerName(player);
+    }
+
 
 
 
