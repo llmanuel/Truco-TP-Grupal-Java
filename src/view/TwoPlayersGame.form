@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="view.TwoPlayersGame">
+  <grid id="27dc6" binding="rootPanel" layout-manager="GridLayoutManager" row-count="9" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="15" left="15" bottom="15" right="15"/>
+    <constraints>
+      <xy x="20" y="20" width="800" height="600"/>
+    </constraints>
+    <properties>
+      <minimumSize width="800" height="600"/>
+      <preferredSize width="800" height="600"/>
+    </properties>
+    <border type="etched"/>
+    <children>
+      <component id="586ac" class="javax.swing.JButton" binding="envidoButton" default-binding="true">
+        <constraints>
+          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="20"/>
+            <preferred-size width="150" height="20"/>
+            <maximum-size width="150" height="20"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Envido"/>
+        </properties>
+      </component>
+      <component id="c70d1" class="javax.swing.JButton" binding="realEnvidoButton" default-binding="true">
+        <constraints>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="20"/>
+            <preferred-size width="150" height="20"/>
+            <maximum-size width="150" height="20"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Real Envido"/>
+        </properties>
+      </component>
+      <component id="601e4" class="javax.swing.JButton" binding="faltaEnvidoButton" default-binding="true">
+        <constraints>
+          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="20"/>
+            <preferred-size width="150" height="20"/>
+            <maximum-size width="150" height="20"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Falta Envido"/>
+        </properties>
+      </component>
+      <component id="d2908" class="javax.swing.JButton" binding="trucoButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="20"/>
+            <preferred-size width="150" height="20"/>
+            <maximum-size width="150" height="20"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Truco"/>
+        </properties>
+      </component>
+      <component id="d9aa0" class="javax.swing.JButton" binding="retrucoButton" default-binding="true">
+        <constraints>
+          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="20"/>
+            <preferred-size width="150" height="20"/>
+            <maximum-size width="150" height="20"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Retruco"/>
+        </properties>
+      </component>
+      <component id="35004" class="javax.swing.JButton" binding="vale4Button" default-binding="true">
+        <constraints>
+          <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="20"/>
+            <preferred-size width="150" height="20"/>
+            <maximum-size width="150" height="20"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Vale 4"/>
+        </properties>
+      </component>
+      <component id="fa39a" class="javax.swing.JButton" binding="florButton" default-binding="true">
+        <constraints>
+          <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="20"/>
+            <preferred-size width="150" height="20"/>
+            <maximum-size width="150" height="20"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Flor"/>
+        </properties>
+      </component>
+      <component id="c198d" class="javax.swing.JButton" binding="noQuieroButton" default-binding="true">
+        <constraints>
+          <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="20"/>
+            <preferred-size width="150" height="20"/>
+            <maximum-size width="150" height="20"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="No Quiero"/>
+        </properties>
+      </component>
+      <component id="f4360" class="javax.swing.JButton" binding="quieroButton" default-binding="true">
+        <constraints>
+          <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="20"/>
+            <preferred-size width="150" height="20"/>
+            <maximum-size width="150" height="20"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Quiero"/>
+        </properties>
+      </component>
+      <component id="e6c10" class="javax.swing.JLabel" binding="playerInTurnName">
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="PlayerInTurn"/>
+        </properties>
+      </component>
+      <component id="343d8" class="javax.swing.JLabel" binding="firstCardPlayedByOtherPlayer">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="card1PlayedByOther"/>
+        </properties>
+      </component>
+      <component id="dbbb3" class="javax.swing.JLabel" binding="secondCardPlayedByOtherPlayer">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="card2PlayedByOther"/>
+        </properties>
+      </component>
+      <component id="2e0a4" class="javax.swing.JLabel" binding="thirdCardPlayedByOtherPlayer">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="card3PlayedByOther"/>
+        </properties>
+      </component>
+      <component id="2f607" class="javax.swing.JLabel" binding="card3SlotPlayerInTurn">
+        <constraints>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="card3PlayedByPlayerInTurn"/>
+        </properties>
+      </component>
+      <component id="5a82" class="javax.swing.JLabel" binding="card2SlotPlayerInTurn">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="card2PlayedByPlayerInTurn"/>
+        </properties>
+      </component>
+      <component id="12e8a" class="javax.swing.JLabel" binding="card1SlotPlayerInTurn">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="card1PlayerByPlayerInTurn"/>
+        </properties>
+      </component>
+      <component id="ca9c5" class="javax.swing.JLabel" binding="card1PlayerInTurn">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="card1PlayerInTurn"/>
+        </properties>
+      </component>
+      <component id="3bb0e" class="javax.swing.JLabel" binding="card2PlayerInTurn">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="card2PlayerInTurn"/>
+        </properties>
+      </component>
+      <component id="7593" class="javax.swing.JLabel" binding="card3PlayerInTurn">
+        <constraints>
+          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="card3PlayerInTurn"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
