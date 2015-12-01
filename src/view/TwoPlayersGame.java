@@ -7,6 +7,7 @@ import model.Exceptions.NotYourTurnException;
 import model.Exceptions.TeamDoesntExistException;
 import model.Hand;
 import model.Player;
+import model.Slot;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -105,7 +106,56 @@ public class TwoPlayersGame extends JFrame {
                 noQuieroButtonClicked(mouseEvent);
             }
         });
+        meVoyAlMazoButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                meVoyAlMazoButtonClicked();
+            }
+        });
 
+        card1PlayerInTurn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                card1PlayerInTurnClicked(mouseEvent);
+            }
+        });
+        card2PlayerInTurn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                card2PlayerInTurnClicked(mouseEvent);
+            }
+        });
+        card3PlayerInTurn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                card3PlayerInTurnClicked(mouseEvent);
+            }
+        });
+
+    }
+
+    private void card1PlayerInTurnClicked(MouseEvent mouseEvent) {
+        this.controller.playCard(1);
+    }
+
+    private void card2PlayerInTurnClicked(MouseEvent mouseEvent) {
+        this.controller.playCard(2);
+    }
+
+    private void card3PlayerInTurnClicked(MouseEvent mouseEvent) {
+        this.controller.playCard(3);
+    }
+
+    private void meVoyAlMazoButtonClicked() {
+        try {
+            this.controller.giveUpGame();
+        } catch (NotYourTurnException e) {
+            e.printStackTrace();
+        } catch (NotCardThrownException e) {
+            e.printStackTrace();
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        }
     }
 
     private void noQuieroButtonClicked(MouseEvent mouseEvent) {
@@ -211,14 +261,25 @@ public class TwoPlayersGame extends JFrame {
     public void drawCardsPlayerInTurn(Hand playerHand, Player player){
         this.playerInTurnName.setText("Jugador " + player.getIdNumber());
 
-        this.card1SlotPlayerInTurn.setText( playerHand.getCards().get(1).getNumber().toString() + " " + playerHand.getCards().get(1).getSuit() );
-        this.card1SlotPlayerInTurn.setText( playerHand.getCards().get(2).getNumber().toString() + " " + playerHand.getCards().get(2).getSuit() );
-        this.card1SlotPlayerInTurn.setText( playerHand.getCards().get(3).getNumber().toString() + " " + playerHand.getCards().get(3).getSuit() );
+        this.card1PlayerInTurn.setText( playerHand.getCards().get(0).getNumber().toString() + " de " + playerHand.getCards().get(0).getSuit() );
+        this.card2PlayerInTurn.setText( playerHand.getCards().get(1).getNumber().toString() + " de " + playerHand.getCards().get(1).getSuit() );
+        this.card3PlayerInTurn.setText( playerHand.getCards().get(2).getNumber().toString() + " de " + playerHand.getCards().get(2).getSuit() );
 
 
     }
 
-    public void drawSlotPlayerInTurn(){
+    public void drawSlotPlayerInTurn(Slot playerSlot){
+
+        try {
+            this.card1SlotPlayerInTurn.setText( playerSlot.getFirstOne().getNumber().toString() + " de " + playerSlot.getFirstOne().getSuit());
+            this.card2SlotPlayerInTurn.setText( playerSlot.getSecondOne().getNumber().toString() + " de " + playerSlot.getSecondOne().getSuit());
+            this.card3SlotPlayerInTurn.setText( playerSlot.getThirdOne().getNumber().toString() + " de " + playerSlot.getThirdOne().getSuit());
+        } catch (NotCardThrownException e) {
+            this.card1SlotPlayerInTurn.setText(" ");
+            this.card2SlotPlayerInTurn.setText(" ");
+            this.card3SlotPlayerInTurn.setText(" ");
+
+        }
 
     }
 
