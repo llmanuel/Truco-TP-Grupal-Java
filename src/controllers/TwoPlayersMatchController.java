@@ -1,9 +1,6 @@
 package controllers;
 
-import model.Exceptions.InvalidGameCallException;
-import model.Exceptions.NotCardThrownException;
-import model.Exceptions.NotYourTurnException;
-import model.Exceptions.TeamDoesntExistException;
+import model.Exceptions.*;
 import model.Player;
 import model.Table;
 import view.TwoPlayersGame;
@@ -69,6 +66,16 @@ public class TwoPlayersMatchController  {
 
 
     public void playCard(int i) {
-        // TODO
+        try {
+            table.getActualPlayer().playCard( table.getActualPlayer().getHand().getCards().get(i-1) );
+        } catch (NotYourTurnException e) {
+            e.printStackTrace();
+        } catch (DonTHaveThatCardException e) {
+            e.printStackTrace();
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        } catch (NotCardThrownException e) {
+            e.printStackTrace();
+        }
     }
 }
