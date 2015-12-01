@@ -59,5 +59,16 @@ public class TwoPlayersMatchController  {
         return table.getActualPlayer();
     }
 
+    public void drawCardsPlayerInTurn(){
+        this.gameView.drawCardsPlayerInTurn(table.getActualPlayer().getHand() , table.getActualPlayer());
+    }
 
+    public void drawSlotPlayerInTurn(){
+        this.gameView.drawSlotPlayerInTurn( table.getActualPlayer().getSlot());
+    }
+
+
+    public void playCard(int i) {
+        // TODO
+    }
 }
