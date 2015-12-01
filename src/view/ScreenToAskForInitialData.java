@@ -111,6 +111,9 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
 
                 twoPlayersGameView.setController( twoPlayerController );
 
+                twoPlayerController.drawCardsPlayerInTurn();
+                twoPlayerController.drawSlotPlayerInTurn();
+
                 twoPlayersGameView.setVisible(true);
 
                 break;
