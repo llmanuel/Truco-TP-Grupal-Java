@@ -8,13 +8,18 @@ public class InitialDataEntry extends JFrame {
     private JComboBox playerQuantityComboBox;
     private JButton empezarJuegoButton;
     private JLabel welcomeMessageLabel;
+    private JPanel rootPanel;
 
     public InitialDataEntry() {
         empezarJuegoButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                super.mouseClicked(mouseEvent);
+                empezarJuegoButtonClicked(mouseEvent);
             }
         });
+    }
+
+    private void empezarJuegoButtonClicked(MouseEvent mouseEvent) {
+
     }
 }
