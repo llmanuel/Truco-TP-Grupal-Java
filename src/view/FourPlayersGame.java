@@ -22,6 +22,19 @@ public class FourPlayersGame extends JFrame {
     private JButton reTrucoButton;
     private JButton vale4Button;
     private JButton meVoyAlMazoButton;
+    private JLabel card1SlotPlayerSameTeam;
+    private JLabel card2SlotPlayerSameTeam;
+    private JLabel card3SlotPlayerSameTeam;
+    private JLabel card3SlotPlayer1OtherTeam;
+    private JLabel card2SlotPlayer1OtherTeam;
+    private JLabel card1SlotPlayer1OtherTeam;
+    private JLabel card1SlotPlayer2OtherTeam;
+    private JLabel card2SlotPlayer2OtherTeam;
+    private JLabel card3SlotPlayer2OtherTeam;
+    private JLabel card3HandPlayerInTurn;
+    private JLabel card2HandPlayerInTurn;
+    private JLabel card1HandPlayerInTurn;
+    private JLabel idPlayerInTurn;
     private FourPlayersController controller;
 
     public FourPlayersGame() {
