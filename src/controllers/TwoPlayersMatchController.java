@@ -43,10 +43,6 @@ public class TwoPlayersMatchController  {
         table.getActualPlayer().callVale4();
     }
 
-    public Player getPlayer() {
-        return table.getActualPlayer();
-    }
-
     public void callFlor() {
         table.getActualPlayer().callFlor();
     }
@@ -58,4 +54,10 @@ public class TwoPlayersMatchController  {
     public void giveUpGame() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
         table.getActualPlayer().giveUp();
     }
+
+    public Player getPlayer() {
+        return table.getActualPlayer();
+    }
+
+
 }
