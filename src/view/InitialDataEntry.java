@@ -11,6 +11,16 @@ public class InitialDataEntry extends JFrame {
     private JPanel rootPanel;
 
     public InitialDataEntry() {
+        super("Truco");
+
+        setContentPane(rootPanel);
+
+        pack();
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+
+
         empezarJuegoButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
