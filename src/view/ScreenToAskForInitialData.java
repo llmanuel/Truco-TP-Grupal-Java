@@ -122,7 +122,7 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
                 numberOfPlayers = 4;
                 controller.prepareTableFor( numberOfPlayers );
 
-                new MainScreenForFourPlayersGame().setVisible(true);
+                new FourPlayersGame().setVisible(true);
 
                 break;
             case textFor6PlayerOption:
@@ -130,7 +130,7 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
                 numberOfPlayers = 6;
                 controller.prepareTableFor( numberOfPlayers );
 
-                new MainScreenForSixPlayersGame().setVisible(true);
+                new SixPlayersGame().setVisible(true);
 
                 break;
         }
