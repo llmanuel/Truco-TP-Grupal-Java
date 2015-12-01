@@ -2,9 +2,8 @@ package view;
 
 import controllers.InitialDataController;
 import controllers.TwoPlayersMatchController;
-import model.Team;
+
 import java.awt.*;
-import java.util.LinkedList;
 
 public class ScreenToAskForInitialData extends javax.swing.JFrame {
 
@@ -106,15 +105,13 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
                 numberOfPlayers = 2;
                 controller.prepareTableFor( numberOfPlayers );
 
-                MainScreenForTwoPlayersGame mainScreen = new MainScreenForTwoPlayersGame();
+                TwoPlayersGame twoPlayersGameView = new TwoPlayersGame();
 
-                TwoPlayersMatchController twoPlayerMatchController = new TwoPlayersMatchController(mainScreen, controller.getTable());
+                TwoPlayersMatchController twoPlayerController = new TwoPlayersMatchController(twoPlayersGameView, controller.getTable()) ;
 
-                mainScreen.setController( twoPlayerMatchController );
+                twoPlayersGameView.setController( twoPlayerController );
 
-                twoPlayerMatchController.drawData();
-
-                mainScreen.setVisible( true );
+                twoPlayersGameView.setVisible(true);
 
                 break;
             case textFor4PlayerOption:
