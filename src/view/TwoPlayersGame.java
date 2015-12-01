@@ -5,6 +5,8 @@ import model.Exceptions.InvalidGameCallException;
 import model.Exceptions.NotCardThrownException;
 import model.Exceptions.NotYourTurnException;
 import model.Exceptions.TeamDoesntExistException;
+import model.Hand;
+import model.Player;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -206,7 +208,13 @@ public class TwoPlayersGame extends JFrame {
         }
     }
 
-    public void drawCardsPlayerInTurn(){
+    public void drawCardsPlayerInTurn(Hand playerHand, Player player){
+        this.playerInTurnName.setText("Jugador " + player.getIdNumber());
+
+        this.card1SlotPlayerInTurn.setText( playerHand.getCards().get(1).getNumber().toString() + " " + playerHand.getCards().get(1).getSuit() );
+        this.card1SlotPlayerInTurn.setText( playerHand.getCards().get(2).getNumber().toString() + " " + playerHand.getCards().get(2).getSuit() );
+        this.card1SlotPlayerInTurn.setText( playerHand.getCards().get(3).getNumber().toString() + " " + playerHand.getCards().get(3).getSuit() );
+
 
     }
 
