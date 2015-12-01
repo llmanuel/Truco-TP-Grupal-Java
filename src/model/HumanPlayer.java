@@ -163,4 +163,9 @@ public class HumanPlayer implements Player {
         return hand;
     }
 
+    @Override
+    public Slot getSlot() {
+        return this.slot;
+    }
+
 }

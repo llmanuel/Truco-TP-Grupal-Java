@@ -44,6 +44,11 @@ public class CpuPlayer implements Player {
     }
 
     @Override
+    public Slot getSlot() {
+        return this.slot;
+    }
+
+    @Override
     public int getIdNumber() {
         return playerId;
     }

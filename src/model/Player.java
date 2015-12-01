@@ -27,5 +27,7 @@ public interface Player {
     void acceptCall() throws NotYourTurnException, NotCardThrownException;
 
     Hand getHand();
+
+    Slot getSlot();
 }
 
