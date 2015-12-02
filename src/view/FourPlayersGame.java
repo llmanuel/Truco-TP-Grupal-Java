@@ -1,7 +1,7 @@
 package view;
 
 import controllers.FourPlayersController;
-import model.Exceptions.InvalidGameCallException;
+import model.Exceptions.DonTHaveThatCardException;
 import model.Exceptions.NotCardThrownException;
 import model.Exceptions.NotYourTurnException;
 import model.Exceptions.TeamDoesntExistException;
@@ -109,78 +109,68 @@ public class FourPlayersGame extends JFrame {
                 meVoyAlMazoButtonClicked();
             }
         });
-        card3SlotPlayerSameTeam.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent mouseEvent) {
-                super.mouseClicked(mouseEvent);
-            }
-        });
-        card2SlotPlayerSameTeam.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent mouseEvent) {
-                super.mouseClicked(mouseEvent);
-            }
-        });
-        card1SlotPlayerSameTeam.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent mouseEvent) {
-                super.mouseClicked(mouseEvent);
-            }
-        });
-        card1SlotPlayer2OtherTeam.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent mouseEvent) {
-                super.mouseClicked(mouseEvent);
-            }
-        });
-        card2SlotPlayer2OtherTeam.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent mouseEvent) {
-                super.mouseClicked(mouseEvent);
-            }
-        });
-        card3SlotPlayer2OtherTeam.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent mouseEvent) {
-                super.mouseClicked(mouseEvent);
-            }
-        });
-        card3SlotPlayer1OtherTeam.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent mouseEvent) {
-                super.mouseClicked(mouseEvent);
-            }
-        });
-        card2SlotPlayer1OtherTeam.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent mouseEvent) {
-                super.mouseClicked(mouseEvent);
-            }
-        });
-        card1SlotPlayer1OtherTeam.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent mouseEvent) {
-                super.mouseClicked(mouseEvent);
-            }
-        });
+
+
         card1HandPlayerInTurn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                super.mouseClicked(mouseEvent);
+                card1HandPlayerInTurnClicked();
             }
         });
         card2HandPlayerInTurn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                super.mouseClicked(mouseEvent);
+                card2HandPlayerInTurnClicked();
             }
         });
         card3HandPlayerInTurn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                super.mouseClicked(mouseEvent);
+                card3HandPlayerInTurnClicked();
             }
         });
+    }
+
+    private void card3HandPlayerInTurnClicked() {
+        try {
+            this.controller.playCard(3);
+        } catch (NotYourTurnException e) {
+            e.printStackTrace();
+        } catch (DonTHaveThatCardException e) {
+            e.printStackTrace();
+        } catch (NotCardThrownException e) {
+            e.printStackTrace();
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void card2HandPlayerInTurnClicked() {
+        try {
+            this.controller.playCard(2);
+        } catch (NotYourTurnException e) {
+            e.printStackTrace();
+        } catch (DonTHaveThatCardException e) {
+            e.printStackTrace();
+        } catch (NotCardThrownException e) {
+            e.printStackTrace();
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void card1HandPlayerInTurnClicked() {
+        try {
+            this.controller.playCard(1);
+        } catch (NotYourTurnException e) {
+            e.printStackTrace();
+        } catch (DonTHaveThatCardException e) {
+            e.printStackTrace();
+        } catch (NotCardThrownException e) {
+            e.printStackTrace();
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        }
     }
 
     private void meVoyAlMazoButtonClicked() {
@@ -284,15 +274,17 @@ public class FourPlayersGame extends JFrame {
     private void envidoButtonClicked() {
         try {
             this.controller.callEnvido();
-        } catch (InvalidGameCallException e) {
-            e.printStackTrace();
-        } catch (NotYourTurnException e) {
+        }  catch (NotYourTurnException e) {
             e.printStackTrace();
         } catch (NotCardThrownException e) {
             e.printStackTrace();
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setController(FourPlayersController controller) {
+        this.controller = controller;
     }
 }
 
