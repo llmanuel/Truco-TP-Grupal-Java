@@ -17,11 +17,11 @@ public class TwoPlayersMatchController  {
     private Builder builder;
     private LinkedList<Player> players;
 
-    public TwoPlayersMatchController(TwoPlayersGame newGameView, Table newTable) throws InvalidNumberOfPlayersException {
-        table = newTable;
+    public TwoPlayersMatchController(TwoPlayersGame newGameView/*, Table newTable*/) throws InvalidNumberOfPlayersException {
         gameView = newGameView;
         builder = new Builder(2);
         players = builder.getPlayers();
+        this.table = builder.getTable();
     }
 
 
