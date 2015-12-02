@@ -76,9 +76,11 @@ public class InitialDataEntry extends JFrame {
                 break;
             case textFor4PlayersOption:
                 selectedPlayerQuantity = 4;
+                new FourPlayersGame().setVisible(true);
                 break;
             case textFor6PlayersOption:
                 selectedPlayerQuantity = 6;
+                new SixPlayersGame().setVisible(true);
                 break;
         }
         System.out.println(selectedPlayerQuantity);
