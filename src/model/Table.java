@@ -231,6 +231,7 @@ public class Table {
     public void declareWinner(Team member) {
     }
 
+    /**Reparte cartas a los jugadores*/
     public void handOut() {
         for(Player actualPlayer: playersInGame){
             actualPlayer.setHand(croupier.giveHand());
