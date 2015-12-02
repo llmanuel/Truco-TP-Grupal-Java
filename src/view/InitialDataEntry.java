@@ -13,6 +13,8 @@ public class InitialDataEntry extends JFrame {
     public InitialDataEntry() {
         super("Truco");
 
+        welcomeMessageLabel.setFont(new java.awt.Font("Arial", 3, 26));
+
         setContentPane(rootPanel);
 
         pack();
