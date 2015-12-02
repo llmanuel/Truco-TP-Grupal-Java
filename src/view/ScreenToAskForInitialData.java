@@ -1,5 +1,6 @@
 package view;
 
+import controllers.FourPlayersController;
 import controllers.InitialDataController;
 import controllers.TwoPlayersMatchController;
 
@@ -121,6 +122,13 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
 
                 numberOfPlayers = 4;
                 controller.prepareTableFor( numberOfPlayers );
+
+                FourPlayersGame fourPlayersGameView = new FourPlayersGame();
+
+                FourPlayersController fourPlayerController = new FourPlayersController(fourPlayersGameView, controller.getTable()) ;
+
+                fourPlayersGameView.setController( fourPlayerController );
+
 
                 new FourPlayersGame().setVisible(true);
 
