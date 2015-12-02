@@ -9,11 +9,16 @@ public class InitialDataEntry extends JFrame {
     private JButton empezarJuegoButton;
     private JLabel welcomeMessageLabel;
     private JPanel rootPanel;
+    private static final String textFor2PlayersOption = "2 Jugadores";
+    private static final String textFor4PlayersOption = "4 Jugadores";
+    private static final String textFor6PlayersOption = "6 Jugadores";
 
     public InitialDataEntry() {
         super("Truco");
 
         welcomeMessageLabel.setFont(new java.awt.Font("Arial", 3, 26));
+
+        playerQuantityComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { textFor2PlayersOption, textFor4PlayersOption, textFor6PlayersOption }));
 
         setContentPane(rootPanel);
 
@@ -53,7 +58,6 @@ public class InitialDataEntry extends JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ScreenToAskForInitialData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
         /* Create and display the form */
         InitialDataEntry initialDataEntry = new InitialDataEntry();
