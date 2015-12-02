@@ -68,8 +68,8 @@ public class InitialDataEntry extends JFrame {
     }
 
     private void empezarJuegoButtonClicked(MouseEvent mouseEvent) {
-        String opcionSeleccionada = (String) playerQuantityComboBox.getSelectedItem();
-        switch (opcionSeleccionada){
+        String selectedOption = (String) playerQuantityComboBox.getSelectedItem();
+        switch (selectedOption){
             case textFor2PlayersOption:
                 selectedPlayerQuantity = 2;
                 new TwoPlayersGame().setVisible(true);
