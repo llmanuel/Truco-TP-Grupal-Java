@@ -1,5 +1,6 @@
 package controllers;
 
+import model.Exceptions.DonTHaveThatCardException;
 import model.Exceptions.NotCardThrownException;
 import model.Exceptions.NotYourTurnException;
 import model.Exceptions.TeamDoesntExistException;
@@ -50,5 +51,9 @@ public class FourPlayersController {
 
     public void callEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
         table.getActualPlayer().callEnvido();
+    }
+
+    public void playCard(int i) throws NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException {
+        table.getActualPlayer().playCard( table.getActualPlayer().getHand().getCards().get(i-1)  );
     }
 }
