@@ -17,9 +17,6 @@ public class Builder {
     Scoreboard scoreboard;
     Judge judge;
 
-    JFrame gameView = new JFrame();
-    //MainScreenForTwoPlayersGame twoPlayersGame;
-
     public Builder(int numberOfPlayers) throws InvalidNumberOfPlayersException {
         validateNumberOfPlayers(numberOfPlayers);
         createTable();
