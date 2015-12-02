@@ -1,6 +1,8 @@
 package view;
 
 import javax.swing.*;
+import javax.swing.border.SoftBevelBorder;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -12,13 +14,14 @@ public class InitialDataEntry extends JFrame {
     private static final String textFor2PlayersOption = "2 Jugadores";
     private static final String textFor4PlayersOption = "4 Jugadores";
     private static final String textFor6PlayersOption = "6 Jugadores";
+    private Integer selectedPlayerQuantity;
 
     public InitialDataEntry() {
         super("Truco");
 
         welcomeMessageLabel.setFont(new java.awt.Font("Arial", 3, 26));
 
-        playerQuantityComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { textFor2PlayersOption, textFor4PlayersOption, textFor6PlayersOption }));
+        playerQuantityComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{textFor2PlayersOption, textFor4PlayersOption, textFor6PlayersOption}));
 
         setContentPane(rootPanel);
 
@@ -65,6 +68,20 @@ public class InitialDataEntry extends JFrame {
     }
 
     private void empezarJuegoButtonClicked(MouseEvent mouseEvent) {
-
+        String opcionSeleccionada = (String) playerQuantityComboBox.getSelectedItem();
+        switch (opcionSeleccionada){
+            case textFor2PlayersOption:
+                selectedPlayerQuantity = 2;
+                new TwoPlayersGame().setVisible(true);
+                break;
+            case textFor4PlayersOption:
+                selectedPlayerQuantity = 4;
+                break;
+            case textFor6PlayersOption:
+                selectedPlayerQuantity = 6;
+                break;
+        }
+        System.out.println(selectedPlayerQuantity);
+        dispose();
     }
 }
