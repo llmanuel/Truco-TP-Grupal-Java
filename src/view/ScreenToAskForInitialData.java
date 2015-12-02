@@ -3,6 +3,7 @@ package view;
 import controllers.FourPlayersController;
 import controllers.InitialDataController;
 import controllers.TwoPlayersMatchController;
+import model.Exceptions.InvalidNumberOfPlayersException;
 
 import java.awt.*;
 
@@ -51,7 +52,13 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
         askForPlayersQuantityMessage.setText("Por favor, seleccione la cantidad de jugadores");
 
         startGameButton.setText("Comenzar Partida");
-        startGameButton.addActionListener( evt -> startGameButtonPressed(evt) );
+        startGameButton.addActionListener(evt -> {
+            try {
+                startGameButtonPressed(evt);
+            } catch (InvalidNumberOfPlayersException e) {
+                e.printStackTrace();
+            }
+        });
 
         playerQuantityList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2 Jugadores", "4 Jugadores", "6 Jugadores" }));
         playerQuantityList.setBorder(null);
@@ -98,7 +105,7 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void startGameButtonPressed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void startGameButtonPressed(java.awt.event.ActionEvent evt) throws InvalidNumberOfPlayersException {//GEN-FIRST:event_jButton1ActionPerformed
         String option = (String) playerQuantityList.getSelectedItem();
         switch (option){
             case textFor2PlayerOption:
