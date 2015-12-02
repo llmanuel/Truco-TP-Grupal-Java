@@ -115,7 +115,7 @@ public class ScreenToAskForInitialData extends javax.swing.JFrame {
 
                 TwoPlayersGame twoPlayersGameView = new TwoPlayersGame();
 
-                TwoPlayersMatchController twoPlayerController = new TwoPlayersMatchController(twoPlayersGameView, controller.getTable()) ;
+                TwoPlayersMatchController twoPlayerController = new TwoPlayersMatchController(twoPlayersGameView/*, controller.getTable()*/) ;
 
                 twoPlayersGameView.setController( twoPlayerController );
 

@@ -1,10 +1,7 @@
 package view;
 
 import controllers.TwoPlayersMatchController;
-import model.Exceptions.InvalidGameCallException;
-import model.Exceptions.NotCardThrownException;
-import model.Exceptions.NotYourTurnException;
-import model.Exceptions.TeamDoesntExistException;
+import model.Exceptions.*;
 import model.Hand;
 import model.Player;
 import model.Slot;
@@ -41,6 +38,12 @@ public class TwoPlayersGame extends JFrame {
 
     public TwoPlayersGame() {
         super("Truco");
+
+        try {
+            controller = new TwoPlayersMatchController(this);
+        } catch (InvalidNumberOfPlayersException e) {
+            e.printStackTrace();
+        }
 
         setContentPane(rootPanel);
 
