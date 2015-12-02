@@ -1,7 +1,6 @@
 package view;
 
 import javax.swing.*;
-import javax.swing.border.SoftBevelBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -14,13 +13,12 @@ public class InitialDataEntry extends JFrame {
     private static final String textFor2PlayersOption = "2 Jugadores";
     private static final String textFor4PlayersOption = "4 Jugadores";
     private static final String textFor6PlayersOption = "6 Jugadores";
-    private Integer selectedPlayerQuantity;
+    private int selectedPlayerQuantity;
 
     public InitialDataEntry() {
         super("Truco");
 
-        welcomeMessageLabel.setFont(new java.awt.Font("Arial", 3, 26));
-
+        welcomeMessageLabel.setFont(new java.awt.Font("Arial", Font.BOLD, 20));
         playerQuantityComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{textFor2PlayersOption, textFor4PlayersOption, textFor6PlayersOption}));
 
         setContentPane(rootPanel);
@@ -34,7 +32,7 @@ public class InitialDataEntry extends JFrame {
         empezarJuegoButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                empezarJuegoButtonClicked(mouseEvent);
+                empezarJuegoButtonClicked();
             }
         });
     }
@@ -67,20 +65,27 @@ public class InitialDataEntry extends JFrame {
         java.awt.EventQueue.invokeLater(() -> initialDataEntry.setVisible(true));
     }
 
-    private void empezarJuegoButtonClicked(MouseEvent mouseEvent) {
+    private void empezarJuegoButtonClicked() {
         String selectedOption = (String) playerQuantityComboBox.getSelectedItem();
+
         switch (selectedOption){
             case textFor2PlayersOption:
+
                 selectedPlayerQuantity = 2;
                 new TwoPlayersGame().setVisible(true);
+
                 break;
             case textFor4PlayersOption:
+
                 selectedPlayerQuantity = 4;
                 new FourPlayersGame().setVisible(true);
+
                 break;
             case textFor6PlayersOption:
+
                 selectedPlayerQuantity = 6;
                 new SixPlayersGame().setVisible(true);
+
                 break;
         }
         System.out.println(selectedPlayerQuantity);
