@@ -19,11 +19,15 @@ public class FourPlayersController {
         builder = new Builder(4);
         players = builder.getPlayers();
         this.table = builder.getTable();
-        this.startGame();
+        try {
+            this.startGame();
+        } catch (NotCardThrownException e) {
+            e.printStackTrace();
+        }
 
     }
 
-    private void startGame() {
+    private void startGame() throws NotCardThrownException {
        this.drawCardsPlayerInTurn();
        this.drawSlotPlayerInTurn();
       //  this.drawSlotOtherPlayer();
@@ -37,16 +41,11 @@ public class FourPlayersController {
 
     public void drawCardsPlayerInTurn() {
 
-        LinkedList<Player> actualTeam = new LinkedList<Player>();
-        actualTeam.add(table.getActualPlayer());
-
-        if (!(table.getActualPlayer().equals(table.getTeamOfActualPlayer().getMembers().get(0)))) {
-
-            actualTeam.add(table.getTeamOfActualPlayer().getFirstMember());
-        } else {
-            actualTeam.add(table.getTeamOfActualPlayer().getMembers().get(1));
+        try {
+            this.gameView.drawCardsPlayerInTurn(table.getActualPlayer());
+        } catch (NotCardThrownException e) {
+            e.printStackTrace();
         }
-        this.gameView.drawCardsPlayerInTurn(actualTeam);
     }
 
 
