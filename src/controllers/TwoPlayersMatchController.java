@@ -3,6 +3,7 @@ package controllers;
 import model.Builder;
 import model.Exceptions.*;
 import model.Player;
+import model.Slot;
 import model.Table;
 import view.TwoPlayersGame;
 
@@ -20,6 +21,13 @@ public class TwoPlayersMatchController  {
         builder = new Builder(2);
         players = builder.getPlayers();
         this.table = builder.getTable();
+        this.startGame();
+    }
+
+    private void startGame() {
+        this.drawCardsPlayerInTurn();
+        this.drawSlotPlayerInTurn();
+        this.drawSlotOtherPlayer();
     }
 
 
@@ -71,6 +79,11 @@ public class TwoPlayersMatchController  {
         this.gameView.drawSlotPlayerInTurn( table.getActualPlayer().getSlot());
     }
 
+    public void drawSlotOtherPlayer(){
+        this.gameView.drawSlotOtherPlayer( this.getOtherPlayer().getSlot() );
+    }
+
+
 
     public void playCard(int i) {
         try {
@@ -84,5 +97,16 @@ public class TwoPlayersMatchController  {
         } catch (NotCardThrownException e) {
             e.printStackTrace();
         }
+    }
+
+    public Player getOtherPlayer() {
+        Player playerToReturn = null;
+
+        for (Player actualPlayer : this.players){
+            if (! actualPlayer.equals( this.table.getActualPlayer() )){
+                playerToReturn = actualPlayer;
+            }
+        }
+        return playerToReturn;
     }
 }
