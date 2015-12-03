@@ -3,23 +3,19 @@ package controllers;
 import model.Builder;
 import model.Exceptions.*;
 import model.Player;
-import model.Slot;
 import model.Table;
 import view.TwoPlayersGame;
-
-import java.util.LinkedList;
 
 public class TwoPlayersMatchController  {
 
     private Table table;
     private TwoPlayersGame gameView;
     private Builder builder;
-    private LinkedList<Player> players;
+
 
     public TwoPlayersMatchController(TwoPlayersGame newGameView) throws InvalidNumberOfPlayersException {
         gameView = newGameView;
         builder = new Builder(2);
-        players = builder.getPlayers();
         this.table = builder.getTable();
         this.startGame();
     }
@@ -102,7 +98,7 @@ public class TwoPlayersMatchController  {
     public Player getOtherPlayer() {
         Player playerToReturn = null;
 
-        for (Player actualPlayer : this.players){
+        for (Player actualPlayer : this.table.getPlayers()){
             if (! actualPlayer.equals( this.table.getActualPlayer() )){
                 playerToReturn = actualPlayer;
             }
