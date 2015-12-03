@@ -1,5 +1,7 @@
 package view;
 
+import model.Exceptions.NotCardThrownException;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -32,7 +34,11 @@ public class InitialDataEntry extends JFrame {
         empezarJuegoButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                empezarJuegoButtonClicked();
+                try {
+                    empezarJuegoButtonClicked();
+                } catch (NotCardThrownException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
@@ -65,7 +71,7 @@ public class InitialDataEntry extends JFrame {
         java.awt.EventQueue.invokeLater(() -> initialDataEntry.setVisible(true));
     }
 
-    private void empezarJuegoButtonClicked() {
+    private void empezarJuegoButtonClicked() throws NotCardThrownException {
         String selectedOption = (String) playerQuantityComboBox.getSelectedItem();
 
         switch (selectedOption){
