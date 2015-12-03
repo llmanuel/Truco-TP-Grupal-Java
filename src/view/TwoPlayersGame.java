@@ -273,9 +273,20 @@ public class TwoPlayersGame extends JFrame {
     public void drawCardsPlayerInTurn(Hand playerHand, Player player){
         this.playerInTurnName.setText("Jugador " + player.getIdNumber());
 
+        this.clearHandPlayerInTurn();
+
         this.card1PlayerInTurn.setText( playerHand.getCards().get(0).getNumber().toString() + " de " + playerHand.getCards().get(0).getSuit() );
         this.card2PlayerInTurn.setText( playerHand.getCards().get(1).getNumber().toString() + " de " + playerHand.getCards().get(1).getSuit() );
         this.card3PlayerInTurn.setText( playerHand.getCards().get(2).getNumber().toString() + " de " + playerHand.getCards().get(2).getSuit() );
+
+
+    }
+
+    private void clearHandPlayerInTurn() {
+        this.card1PlayerInTurn.setText(" ");
+        this.card2PlayerInTurn.setText(" ");
+        this.card3PlayerInTurn.setText(" ");
+
 
 
     }

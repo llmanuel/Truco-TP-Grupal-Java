@@ -38,7 +38,7 @@ public class HumanPlayer implements Player {
     @Override
     public void playCard(Card cardToPlay) throws NotYourTurnException, DonTHaveThatCardException, TeamDoesntExistException, NotCardThrownException {
         if ((this.table.tellMeIfItsMyTurn(this)) && (this.table.tellMeIfCallWasAccepted())) {
-            this.slot.receiveCard( cardToPlay );
+            this.slot.receiveCard( this.hand.getCard( cardToPlay ) );
             this.table.finishTurn();
         } else throw new NotYourTurnException();
     }
