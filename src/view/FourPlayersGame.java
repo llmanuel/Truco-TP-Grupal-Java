@@ -1,10 +1,7 @@
 package view;
 
 import controllers.FourPlayersController;
-import model.Exceptions.DonTHaveThatCardException;
-import model.Exceptions.NotCardThrownException;
-import model.Exceptions.NotYourTurnException;
-import model.Exceptions.TeamDoesntExistException;
+import model.Exceptions.*;
 import model.Player;
 
 import javax.swing.*;
@@ -42,6 +39,11 @@ public class FourPlayersGame extends JFrame {
     public FourPlayersGame() {
         super("Truco");
 
+        try {
+            controller = new FourPlayersController(this);
+        } catch (InvalidNumberOfPlayersException e) {
+            this.showMessage("Cantidad Invalida de Jugadores.");
+        }
         setContentPane(rootPanel);
 
         pack();
@@ -131,6 +133,10 @@ public class FourPlayersGame extends JFrame {
                 card3HandPlayerInTurnClicked();
             }
         });
+    }
+
+    public void showMessage(String message) {
+        JOptionPane.showMessageDialog( null, message );
     }
 
     private void card3HandPlayerInTurnClicked() {
@@ -276,7 +282,7 @@ public class FourPlayersGame extends JFrame {
     private void envidoButtonClicked() {
         try {
             this.controller.callEnvido();
-        }  catch (NotYourTurnException e) {
+        } catch (NotYourTurnException e) {
             e.printStackTrace();
         } catch (NotCardThrownException e) {
             e.printStackTrace();
@@ -285,18 +291,20 @@ public class FourPlayersGame extends JFrame {
         }
     }
 
-    public void drawCardsPlayerInTurn(LinkedList<Player> playerTeam){
-        this.idPlayerInTurn.setText("Jugador " + playerTeam.get(0) );
+    public void drawCardsPlayerInTurn(LinkedList<Player> playerTeam) {
+        this.idPlayerInTurn.setText("Jugador " + playerTeam.get(0).getIdNumber());
 
-        this.card1HandPlayerInTurn.setText( playerTeam.get(0).getHand().getCards().get(0).getNumber().toString() + " de " + playerTeam.get(0).getHand().getCards().get(0).getSuit() );
-        this.card2HandPlayerInTurn.setText( playerTeam.get(0).getHand().getCards().get(1).getNumber().toString() + " de " + playerTeam.get(0).getHand().getCards().get(1).getSuit() );
-        this.card3HandPlayerInTurn.setText( playerTeam.get(0).getHand().getCards().get(2).getNumber().toString() + " de " + playerTeam.get(0).getHand().getCards().get(2).getSuit() );
+        this.card1HandPlayerInTurn.setText(playerTeam.get(0).getHand().getCards().get(0).getNumber().toString() + " de " + playerTeam.get(0).getHand().getCards().get(0).getSuit());
+        this.card2HandPlayerInTurn.setText(playerTeam.get(0).getHand().getCards().get(1).getNumber().toString() + " de " + playerTeam.get(0).getHand().getCards().get(1).getSuit());
+        this.card3HandPlayerInTurn.setText(playerTeam.get(0).getHand().getCards().get(2).getNumber().toString() + " de " + playerTeam.get(0).getHand().getCards().get(2).getSuit());
 
-        this.card1SlotPlayerSameTeam.setText( playerTeam.get(1).getHand().getCards().get(0).getNumber().toString() + " de " + playerTeam.get(1).getHand().getCards().get(0).getSuit() );
-        this.card2SlotPlayerSameTeam.setText( playerTeam.get(1).getHand().getCards().get(1).getNumber().toString() + " de " + playerTeam.get(1).getHand().getCards().get(1).getSuit() );
-        this.card3SlotPlayerSameTeam.setText( playerTeam.get(1).getHand().getCards().get(2).getNumber().toString() + " de " + playerTeam.get(1).getHand().getCards().get(2).getSuit() );
+        this.card1SlotPlayerSameTeam.setText(playerTeam.get(1).getHand().getCards().get(0).getNumber().toString() + " de " + playerTeam.get(1).getHand().getCards().get(0).getSuit());
+        this.card2SlotPlayerSameTeam.setText(playerTeam.get(1).getHand().getCards().get(1).getNumber().toString() + " de " + playerTeam.get(1).getHand().getCards().get(1).getSuit());
+        this.card3SlotPlayerSameTeam.setText(playerTeam.get(1).getHand().getCards().get(2).getNumber().toString() + " de " + playerTeam.get(1).getHand().getCards().get(2).getSuit());
 
     }
 }
+
+
 
 

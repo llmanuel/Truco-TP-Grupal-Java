@@ -25,9 +25,11 @@ public class FourPlayersController {
 
     private void startGame() {
        this.drawCardsPlayerInTurn();
-      //  this.drawSlotPlayerInTurn();
+     //  this.drawSlotPlayerInTurn();
       //  this.drawSlotOtherPlayer();
     }
+
+
 
     public void drawCardsPlayerInTurn() {
 
