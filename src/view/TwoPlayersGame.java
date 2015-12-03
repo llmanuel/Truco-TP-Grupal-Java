@@ -327,7 +327,7 @@ public class TwoPlayersGame extends JFrame {
 
     }
 
-    public voiddrawSlotOtherPlayer(Slot otherPlayerSlot) {
+    public void drawSlotOtherPlayer(Slot otherPlayerSlot) {
         try {
             this.firstCardPlayedByOtherPlayer.setText( otherPlayerSlot.getFirstOne().getNumber().toString() + " de " + otherPlayerSlot.getFirstOne().getSuit());
         } catch (NotCardThrownException e) {
