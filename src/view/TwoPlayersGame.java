@@ -285,5 +285,17 @@ public class TwoPlayersGame extends JFrame {
         }
 
     }
-    
+
+    public void drawSlotOtherPlayer(Slot otherPlayerSlot) {
+        try {
+            this.firstCardPlayedByOtherPlayer.setText( otherPlayerSlot.getFirstOne().getNumber().toString() + " de " + otherPlayerSlot.getFirstOne().getSuit());
+            this.secondCardPlayedByOtherPlayer.setText( otherPlayerSlot.getSecondOne().getNumber().toString() + " de " + otherPlayerSlot.getSecondOne().getSuit());
+            this.thirdCardPlayedByOtherPlayer.setText( otherPlayerSlot.getThirdOne().getNumber().toString() + " de " + otherPlayerSlot.getThirdOne().getSuit());
+        } catch (NotCardThrownException e) {
+            this.firstCardPlayedByOtherPlayer.setText(" ");
+            this.secondCardPlayedByOtherPlayer.setText(" ");
+            this.thirdCardPlayedByOtherPlayer.setText(" ");
+
+        }
+    }
 }
