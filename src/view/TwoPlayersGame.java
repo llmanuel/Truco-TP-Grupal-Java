@@ -285,8 +285,5 @@ public class TwoPlayersGame extends JFrame {
         }
 
     }
-
-    public void setController(TwoPlayersMatchController controller) {
-        this.controller = controller;
-    }
+    
 }
