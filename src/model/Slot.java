@@ -34,13 +34,13 @@ public class Slot {
     }
 
     public Card getSecondOne() throws NotCardThrownException{
-        if(cards.size() == 2)
+        if(cards.size() >= 2)
            return (cards.get(1));
         else throw new NotCardThrownException();
     }
 
     public Card getThirdOne() throws NotCardThrownException{
-        if(cards.size() == 3)
+        if(cards.size() >= 3)
             return (cards.getLast());
         else throw new NotCardThrownException();
     }
