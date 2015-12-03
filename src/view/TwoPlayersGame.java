@@ -5,14 +5,11 @@ import model.Exceptions.*;
 import model.Hand;
 import model.Player;
 import model.Slot;
-
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class TwoPlayersGame extends JFrame {
-    private static final int H = 800;
-    private static final int W = 600;
     private JButton vale4Button;
     private JButton noQuieroButton;
     private JButton florButton;
@@ -42,7 +39,7 @@ public class TwoPlayersGame extends JFrame {
         try {
             controller = new TwoPlayersMatchController(this);
         } catch (InvalidNumberOfPlayersException e) {
-            e.printStackTrace();
+            this.showMessage("Cantidad Invalida de Jugadores.");
         }
 
         setContentPane(rootPanel);
@@ -52,61 +49,60 @@ public class TwoPlayersGame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
-
         // Button Listeners
         envidoButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                envidoButtonClicked(mouseEvent);
+                envidoButtonClicked();
             }
         });
         realEnvidoButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                realEnvidoButtonClicked(mouseEvent);
+                realEnvidoButtonClicked();
             }
         });
         faltaEnvidoButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                faltaEnvidoButtonClicked(mouseEvent);
+                faltaEnvidoButtonClicked();
             }
         });
         trucoButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                trucoButtonClicked(mouseEvent);
+                trucoButtonClicked();
             }
         });
         retrucoButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                retrucoButtonClicked(mouseEvent);
+                retrucoButtonClicked();
             }
         });
         vale4Button.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                vale4ButtonClicked(mouseEvent);
+                vale4ButtonClicked();
             }
 
         });
         florButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                florButtonClicked(mouseEvent);
+                florButtonClicked();
             }
         });
         quieroButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                quieroButtonClicked(mouseEvent);
+                quieroButtonClicked();
             }
         });
         noQuieroButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                noQuieroButtonClicked(mouseEvent);
+                noQuieroButtonClicked();
             }
         });
         meVoyAlMazoButton.addMouseListener(new MouseAdapter() {
@@ -137,35 +133,48 @@ public class TwoPlayersGame extends JFrame {
 
     }
 
+    public void showMessage(String message) {
+        JOptionPane.showMessageDialog( null, message );
+    }
+
     private void card1PlayerInTurnClicked(MouseEvent mouseEvent) {
         this.controller.playCard(1);
+        this.controller.drawSlotPlayerInTurn();
+        this.controller.drawSlotOtherPlayer();
+        this.controller.drawCardsPlayerInTurn();
     }
 
     private void card2PlayerInTurnClicked(MouseEvent mouseEvent) {
         this.controller.playCard(2);
+        this.controller.drawSlotPlayerInTurn();
+        this.controller.drawSlotOtherPlayer();
+        this.controller.drawCardsPlayerInTurn();
     }
 
     private void card3PlayerInTurnClicked(MouseEvent mouseEvent) {
         this.controller.playCard(3);
+        this.controller.drawSlotPlayerInTurn();
+        this.controller.drawSlotOtherPlayer();
+        this.controller.drawCardsPlayerInTurn();
     }
 
     private void meVoyAlMazoButtonClicked() {
         try {
             this.controller.giveUpGame();
         } catch (NotYourTurnException e) {
-            e.printStackTrace();
+            this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
-            e.printStackTrace();
+
         } catch (TeamDoesntExistException e) {
-            e.printStackTrace();
+
         }
     }
 
-    private void noQuieroButtonClicked(MouseEvent mouseEvent) {
+    private void noQuieroButtonClicked() {
         try {
             this.controller.giveUpGame();
         } catch (NotYourTurnException e) {
-            e.printStackTrace();
+            this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
             e.printStackTrace();
         } catch (TeamDoesntExistException e) {
@@ -173,25 +182,25 @@ public class TwoPlayersGame extends JFrame {
         }
     }
 
-    private void quieroButtonClicked(MouseEvent mouseEvent) {
+    private void quieroButtonClicked() {
         try {
             this.controller.acceptCall();
         } catch (NotCardThrownException e) {
             e.printStackTrace();
         } catch (NotYourTurnException e) {
-            e.printStackTrace();
+            this.showMessage( "No es tu turno para jugar" );
         }
     }
 
-    private void florButtonClicked(MouseEvent mouseEvent) {
+    private void florButtonClicked() {
         this.controller.callFlor();
     }
 
-    private void vale4ButtonClicked(MouseEvent mouseEvent) {
+    private void vale4ButtonClicked() {
         try {
             this.controller.callVale4();
         } catch (NotYourTurnException e) {
-            e.printStackTrace();
+            this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
             e.printStackTrace();
         } catch (TeamDoesntExistException e) {
@@ -199,11 +208,11 @@ public class TwoPlayersGame extends JFrame {
         }
     }
 
-    private void retrucoButtonClicked(MouseEvent mouseEvent) {
+    private void retrucoButtonClicked() {
         try {
             this.controller.callReTruco();
         } catch (NotYourTurnException e) {
-            e.printStackTrace();
+            this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
             e.printStackTrace();
         } catch (TeamDoesntExistException e) {
@@ -211,11 +220,11 @@ public class TwoPlayersGame extends JFrame {
         }
     }
 
-    private void trucoButtonClicked(MouseEvent mouseEvent) {
+    private void trucoButtonClicked() {
         try {
             this.controller.callTruco();
         } catch (NotYourTurnException e) {
-            e.printStackTrace();
+            this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
             e.printStackTrace();
         } catch (TeamDoesntExistException e) {
@@ -223,11 +232,11 @@ public class TwoPlayersGame extends JFrame {
         }
     }
 
-    private void faltaEnvidoButtonClicked(MouseEvent mouseEvent) {
+    private void faltaEnvidoButtonClicked() {
         try {
             this.controller.callFaltaEnvido();
         } catch (NotYourTurnException e) {
-            e.printStackTrace();
+            this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
             e.printStackTrace();
         } catch (TeamDoesntExistException e) {
@@ -235,11 +244,11 @@ public class TwoPlayersGame extends JFrame {
         }
     }
 
-    private void realEnvidoButtonClicked(MouseEvent mouseEvent) {
+    private void realEnvidoButtonClicked() {
         try {
             this.controller.callRealEnvido();
         } catch (NotYourTurnException e) {
-            e.printStackTrace();
+            this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
             e.printStackTrace();
         } catch (TeamDoesntExistException e) {
@@ -247,13 +256,13 @@ public class TwoPlayersGame extends JFrame {
         }
     }
 
-    private void envidoButtonClicked(MouseEvent mouseEvent) {
+    private void envidoButtonClicked() {
         try {
             this.controller.callEnvido();
         } catch (InvalidGameCallException e) {
             e.printStackTrace();
         } catch (NotYourTurnException e) {
-            e.printStackTrace();
+            this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
             e.printStackTrace();
         } catch (TeamDoesntExistException e) {
@@ -275,13 +284,20 @@ public class TwoPlayersGame extends JFrame {
 
         try {
             this.card1SlotPlayerInTurn.setText( playerSlot.getFirstOne().getNumber().toString() + " de " + playerSlot.getFirstOne().getSuit());
-            this.card2SlotPlayerInTurn.setText( playerSlot.getSecondOne().getNumber().toString() + " de " + playerSlot.getSecondOne().getSuit());
-            this.card3SlotPlayerInTurn.setText( playerSlot.getThirdOne().getNumber().toString() + " de " + playerSlot.getThirdOne().getSuit());
         } catch (NotCardThrownException e) {
             this.card1SlotPlayerInTurn.setText(" ");
-            this.card2SlotPlayerInTurn.setText(" ");
-            this.card3SlotPlayerInTurn.setText(" ");
+        }
 
+        try {
+            this.card2SlotPlayerInTurn.setText( playerSlot.getSecondOne().getNumber().toString() + " de " + playerSlot.getSecondOne().getSuit());
+        } catch (NotCardThrownException e) {
+            this.card2SlotPlayerInTurn.setText(" ");
+        }
+
+        try {
+            this.card3SlotPlayerInTurn.setText( playerSlot.getThirdOne().getNumber().toString() + " de " + playerSlot.getThirdOne().getSuit());
+        } catch (NotCardThrownException e) {
+            this.card3SlotPlayerInTurn.setText(" ");
         }
 
     }
@@ -289,13 +305,21 @@ public class TwoPlayersGame extends JFrame {
     public void drawSlotOtherPlayer(Slot otherPlayerSlot) {
         try {
             this.firstCardPlayedByOtherPlayer.setText( otherPlayerSlot.getFirstOne().getNumber().toString() + " de " + otherPlayerSlot.getFirstOne().getSuit());
-            this.secondCardPlayedByOtherPlayer.setText( otherPlayerSlot.getSecondOne().getNumber().toString() + " de " + otherPlayerSlot.getSecondOne().getSuit());
-            this.thirdCardPlayedByOtherPlayer.setText( otherPlayerSlot.getThirdOne().getNumber().toString() + " de " + otherPlayerSlot.getThirdOne().getSuit());
+
         } catch (NotCardThrownException e) {
             this.firstCardPlayedByOtherPlayer.setText(" ");
-            this.secondCardPlayedByOtherPlayer.setText(" ");
-            this.thirdCardPlayedByOtherPlayer.setText(" ");
+        }
 
+        try {
+            this.secondCardPlayedByOtherPlayer.setText( otherPlayerSlot.getSecondOne().getNumber().toString() + " de " + otherPlayerSlot.getSecondOne().getSuit());
+        } catch (NotCardThrownException e) {
+            this.secondCardPlayedByOtherPlayer.setText(" ");
+        }
+
+        try {
+            this.thirdCardPlayedByOtherPlayer.setText( otherPlayerSlot.getThirdOne().getNumber().toString() + " de " + otherPlayerSlot.getThirdOne().getSuit());
+        } catch (NotCardThrownException e) {
+            this.thirdCardPlayedByOtherPlayer.setText(" ");
         }
     }
 }
