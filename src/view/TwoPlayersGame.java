@@ -275,9 +275,23 @@ public class TwoPlayersGame extends JFrame {
 
         this.clearHandPlayerInTurn();
 
-        this.card1PlayerInTurn.setText( playerHand.getCards().get(0).getNumber().toString() + " de " + playerHand.getCards().get(0).getSuit() );
-        this.card2PlayerInTurn.setText( playerHand.getCards().get(1).getNumber().toString() + " de " + playerHand.getCards().get(1).getSuit() );
-        this.card3PlayerInTurn.setText( playerHand.getCards().get(2).getNumber().toString() + " de " + playerHand.getCards().get(2).getSuit() );
+        try {
+            this.card1PlayerInTurn.setText(playerHand.getCards().get(0).getNumber().toString() + " de " + playerHand.getCards().get(0).getSuit());
+        } catch (IndexOutOfBoundsException e){
+            this.card1PlayerInTurn.setText(" ");
+        }
+
+        try {
+            this.card2PlayerInTurn.setText( playerHand.getCards().get(1).getNumber().toString() + " de " + playerHand.getCards().get(1).getSuit() );
+        } catch (IndexOutOfBoundsException e){
+            this.card2PlayerInTurn.setText(" ");
+        }
+
+        try {
+            this.card3PlayerInTurn.setText( playerHand.getCards().get(2).getNumber().toString() + " de " + playerHand.getCards().get(2).getSuit() );
+        } catch (IndexOutOfBoundsException e ){
+            this.card3PlayerInTurn.setText(" ");
+        }
 
 
     }
@@ -313,10 +327,9 @@ public class TwoPlayersGame extends JFrame {
 
     }
 
-    public void drawSlotOtherPlayer(Slot otherPlayerSlot) {
+    public voiddrawSlotOtherPlayer(Slot otherPlayerSlot) {
         try {
             this.firstCardPlayedByOtherPlayer.setText( otherPlayerSlot.getFirstOne().getNumber().toString() + " de " + otherPlayerSlot.getFirstOne().getSuit());
-
         } catch (NotCardThrownException e) {
             this.firstCardPlayedByOtherPlayer.setText(" ");
         }
