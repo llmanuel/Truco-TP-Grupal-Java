@@ -22,9 +22,9 @@ public class Builder {
         createTable();
         createPlayers(numberOfPlayers);
         setTeams();
-        prepareTable();
         setScoreboard();
         setJudge();
+        prepareTable();
     }
 
 
