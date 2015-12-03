@@ -1,20 +1,32 @@
 package controllers;
 
-import model.Exceptions.DonTHaveThatCardException;
-import model.Exceptions.NotCardThrownException;
-import model.Exceptions.NotYourTurnException;
-import model.Exceptions.TeamDoesntExistException;
+import model.Builder;
+import model.Exceptions.*;
+import model.Player;
 import model.Table;
 import view.FourPlayersGame;
 
+import java.util.LinkedList;
+
 public class FourPlayersController {
-    private final Table table;
-    private final FourPlayersGame gameView;
+    private Table table;
+    private FourPlayersGame gameView;
+    private Builder builder;
+    private LinkedList<Player> players;
 
-    public FourPlayersController(FourPlayersGame fourPlayersGameView, Table table) {
-        this.table = table;
-        this.gameView = fourPlayersGameView;
+    public FourPlayersController(FourPlayersGame newGameView) throws InvalidNumberOfPlayersException {
+        gameView = newGameView;
+        builder = new Builder(4);
+        players = builder.getPlayers();
+        this.table = builder.getTable();
+        this.startGame();
 
+    }
+
+    private void startGame() {
+      //  this.drawCardsPlayerInTurn();
+      //  this.drawSlotPlayerInTurn();
+      //  this.drawSlotOtherPlayer();
     }
 
     public void giveUpGame() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
