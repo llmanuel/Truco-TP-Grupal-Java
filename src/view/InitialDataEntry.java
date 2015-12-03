@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JOptionPane;
 
 public class InitialDataEntry extends JFrame {
     private JComboBox playerQuantityComboBox;
@@ -91,10 +90,5 @@ public class InitialDataEntry extends JFrame {
         }
         System.out.println(selectedPlayerQuantity);
         dispose();
-    }
-
-
-    public void showMessage(String message) {
-        JOptionPane.showMessageDialog( null, message );
     }
 }
