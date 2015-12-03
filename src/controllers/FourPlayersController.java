@@ -90,4 +90,19 @@ public class FourPlayersController {
         table.getActualPlayer().playCard( table.getActualPlayer().getHand().getCards().get(i-1)  );
 
     }
+
+    public void drawSlotOtherPlayer() {
+        this.gameView.drawSlotOtherPlayers( this.getOtherTeam());
+    }
+
+    public LinkedList<Player> getOtherTeam() {
+        LinkedList<Player> otherPlayers = new LinkedList<>();
+        for (Player player :table.getPlayers()) {
+            if (!(table.getTeamOfActualPlayer().isMember(player))) {
+
+                otherPlayers.add(player);
+            }
+        }
+        return otherPlayers;
+    }
 }
