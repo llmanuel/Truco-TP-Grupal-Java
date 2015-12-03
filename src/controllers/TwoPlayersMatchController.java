@@ -2,7 +2,6 @@ package controllers;
 
 import model.Builder;
 import model.Exceptions.*;
-import model.HumanPlayer;
 import model.Player;
 import model.Table;
 import view.TwoPlayersGame;
@@ -13,11 +12,10 @@ public class TwoPlayersMatchController  {
 
     private Table table;
     private TwoPlayersGame gameView;
-    private HumanPlayer Player1, Player2;
     private Builder builder;
     private LinkedList<Player> players;
 
-    public TwoPlayersMatchController(TwoPlayersGame newGameView/*, Table newTable*/) throws InvalidNumberOfPlayersException {
+    public TwoPlayersMatchController(TwoPlayersGame newGameView) throws InvalidNumberOfPlayersException {
         gameView = newGameView;
         builder = new Builder(2);
         players = builder.getPlayers();
