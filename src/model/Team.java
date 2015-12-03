@@ -38,4 +38,7 @@ public class Team {
         }
         throw new PlayerDoesNotExistsException();
     }
+    public LinkedList<Player> getMembers(){
+        return members;
+    }
 }

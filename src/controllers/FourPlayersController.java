@@ -24,10 +24,25 @@ public class FourPlayersController {
     }
 
     private void startGame() {
-      //  this.drawCardsPlayerInTurn();
+       this.drawCardsPlayerInTurn();
       //  this.drawSlotPlayerInTurn();
       //  this.drawSlotOtherPlayer();
     }
+
+    public void drawCardsPlayerInTurn() {
+
+        LinkedList<Player> actualTeam = new LinkedList<Player>();
+        actualTeam.add(table.getActualPlayer());
+
+        if (!(table.getActualPlayer().equals(table.getTeamOfActualPlayer().getMembers().get(0)))) {
+
+            actualTeam.add(table.getTeamOfActualPlayer().getFirstMember());
+        } else {
+            actualTeam.add(table.getTeamOfActualPlayer().getMembers().get(1));
+        }
+        this.gameView.drawCardsPlayerInTurn(actualTeam);
+    }
+
 
     public void giveUpGame() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
         table.getActualPlayer().giveUp();

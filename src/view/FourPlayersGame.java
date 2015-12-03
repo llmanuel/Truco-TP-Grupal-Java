@@ -5,10 +5,12 @@ import model.Exceptions.DonTHaveThatCardException;
 import model.Exceptions.NotCardThrownException;
 import model.Exceptions.NotYourTurnException;
 import model.Exceptions.TeamDoesntExistException;
+import model.Player;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.LinkedList;
 
 public class FourPlayersGame extends JFrame {
     private JPanel rootPanel;
@@ -283,8 +285,17 @@ public class FourPlayersGame extends JFrame {
         }
     }
 
-    public void setController(FourPlayersController controller) {
-        this.controller = controller;
+    public void drawCardsPlayerInTurn(LinkedList<Player> playerTeam){
+        this.idPlayerInTurn.setText("Jugador " + playerTeam.get(0) );
+
+        this.card1HandPlayerInTurn.setText( playerTeam.get(0).getHand().getCards().get(0).getNumber().toString() + " de " + playerTeam.get(0).getHand().getCards().get(0).getSuit() );
+        this.card2HandPlayerInTurn.setText( playerTeam.get(0).getHand().getCards().get(1).getNumber().toString() + " de " + playerTeam.get(0).getHand().getCards().get(1).getSuit() );
+        this.card3HandPlayerInTurn.setText( playerTeam.get(0).getHand().getCards().get(2).getNumber().toString() + " de " + playerTeam.get(0).getHand().getCards().get(2).getSuit() );
+
+        this.card1SlotPlayerSameTeam.setText( playerTeam.get(1).getHand().getCards().get(0).getNumber().toString() + " de " + playerTeam.get(1).getHand().getCards().get(0).getSuit() );
+        this.card2SlotPlayerSameTeam.setText( playerTeam.get(1).getHand().getCards().get(1).getNumber().toString() + " de " + playerTeam.get(1).getHand().getCards().get(1).getSuit() );
+        this.card3SlotPlayerSameTeam.setText( playerTeam.get(1).getHand().getCards().get(2).getNumber().toString() + " de " + playerTeam.get(1).getHand().getCards().get(2).getSuit() );
+
     }
 }
 
