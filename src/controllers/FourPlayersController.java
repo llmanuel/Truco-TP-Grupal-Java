@@ -25,10 +25,14 @@ public class FourPlayersController {
 
     private void startGame() {
        this.drawCardsPlayerInTurn();
-     //  this.drawSlotPlayerInTurn();
+       this.drawSlotPlayerInTurn();
       //  this.drawSlotOtherPlayer();
     }
 
+    public void drawSlotPlayerInTurn() {
+
+        this.gameView.drawSlotPlayerInTurn( table.getActualPlayer().getSlot());
+    }
 
 
     public void drawCardsPlayerInTurn() {
@@ -84,5 +88,6 @@ public class FourPlayersController {
 
     public void playCard(int i) throws NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException {
         table.getActualPlayer().playCard( table.getActualPlayer().getHand().getCards().get(i-1)  );
+
     }
 }
