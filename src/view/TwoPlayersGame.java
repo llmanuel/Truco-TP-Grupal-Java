@@ -31,6 +31,9 @@ public class TwoPlayersGame extends JFrame {
     private JLabel card3SlotPlayerInTurn;
     private JLabel playerInTurnName;
     private JButton meVoyAlMazoButton;
+    private JLabel secondPlayerID;
+    private JLabel firstPlayerID;
+    private JLabel firstPlayerScore;
     private TwoPlayersMatchController controller;
 
     public TwoPlayersGame() {
