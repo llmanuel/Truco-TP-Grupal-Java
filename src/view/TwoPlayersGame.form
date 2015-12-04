@@ -37,7 +37,7 @@
       </component>
       <component id="e6c10" class="javax.swing.JLabel" binding="playerInTurnName">
         <constraints>
-          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="PlayerInTurn"/>
@@ -139,30 +139,6 @@
           <text value="Vale 4"/>
         </properties>
       </component>
-      <component id="ca9c5" class="javax.swing.JLabel" binding="card1PlayerInTurn">
-        <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="card1PlayerInTurn"/>
-        </properties>
-      </component>
-      <component id="3bb0e" class="javax.swing.JLabel" binding="card2PlayerInTurn">
-        <constraints>
-          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="card2PlayerInTurn"/>
-        </properties>
-      </component>
-      <component id="7593" class="javax.swing.JLabel" binding="card3PlayerInTurn">
-        <constraints>
-          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="card3PlayerInTurn"/>
-        </properties>
-      </component>
       <component id="12e8a" class="javax.swing.JLabel" binding="card1SlotPlayerInTurn">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -213,7 +189,7 @@
       </component>
       <component id="d4115" class="javax.swing.JLabel" binding="firstPlayerID">
         <constraints>
-          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="firstPlayerID"/>
@@ -221,7 +197,7 @@
       </component>
       <component id="fd953" class="javax.swing.JLabel" binding="secondPlayerID">
         <constraints>
-          <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="secondPlayerID"/>
@@ -229,7 +205,7 @@
       </component>
       <component id="4b2" class="javax.swing.JLabel" binding="firstPlayerScore">
         <constraints>
-          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="firstPlayerScore"/>
@@ -237,10 +213,34 @@
       </component>
       <component id="1a0e8" class="javax.swing.JLabel">
         <constraints>
-          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="secondPlayerScore"/>
+        </properties>
+      </component>
+      <component id="ca9c5" class="javax.swing.JLabel" binding="card1PlayerInTurn">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="card1PlayerInTurn"/>
+        </properties>
+      </component>
+      <component id="3bb0e" class="javax.swing.JLabel" binding="card2PlayerInTurn">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="card2PlayerInTurn"/>
+        </properties>
+      </component>
+      <component id="7593" class="javax.swing.JLabel" binding="card3PlayerInTurn">
+        <constraints>
+          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="card3PlayerInTurn"/>
         </properties>
       </component>
     </children>
