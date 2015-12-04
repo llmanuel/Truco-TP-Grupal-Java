@@ -38,6 +38,10 @@ public class FourPlayersGame extends JFrame {
     private JLabel card1SlotPlayerInTurn;
     private JLabel card2SlotPlayerInTurn;
     private JLabel card3SlotPlayerInTurn;
+    private JLabel firstTeamName;
+    private JLabel secondTeamName;
+    private JLabel firstTeamScore;
+    private JLabel secondTeamScore;
     private FourPlayersController controller;
 
     public FourPlayersGame() throws NotCardThrownException {
