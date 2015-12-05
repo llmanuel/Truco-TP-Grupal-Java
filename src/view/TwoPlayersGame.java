@@ -168,6 +168,9 @@ public class TwoPlayersGame extends JFrame {
         try {
             this.controller.giveUpGame();
             this.controller.drawScores();
+            disableNotEnvidoButtons();
+            disableEnvidoButtons();
+            disableQuieroAndNoQuieroButtons();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -175,6 +178,11 @@ public class TwoPlayersGame extends JFrame {
         } catch (TeamDoesntExistException e) {
 
         }
+    }
+
+    private void disableQuieroAndNoQuieroButtons() {
+        quieroButton.setEnabled(false);
+        noQuieroButton.setEnabled(false);
     }
 
     private void noQuieroButtonClicked() {
@@ -199,6 +207,9 @@ public class TwoPlayersGame extends JFrame {
             this.controller.acceptCall();
             enableNotEnvidoButtons();
             this.controller.drawScores();
+            if(this.controller.cantCallEnvidoAnyMore()){
+                disableEnvidoButtons();
+            }
         } catch (NotCardThrownException e) {
             e.printStackTrace();
         } catch (NotYourTurnException e) {
@@ -262,12 +273,11 @@ public class TwoPlayersGame extends JFrame {
         }
     }
 
-    /**disables envidoButton, realEnvidoButton, faltaEnvidoButton, quieroButton and florButton*/
+    /**disables envidoButton, realEnvidoButton, faltaEnvidoButton and florButton*/
     private void disableEnvidoButtons() {
         envidoButton.setEnabled(false);
         realEnvidoButton.setEnabled(false);
         faltaEnvidoButton.setEnabled(false);
-        quieroButton.setEnabled(false);
         florButton.setEnabled(false);
     }
 
