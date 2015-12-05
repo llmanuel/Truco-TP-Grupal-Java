@@ -3,6 +3,7 @@ package controllers;
 import model.Builder;
 import model.Exceptions.*;
 import model.Player;
+import model.Scoreboard;
 import model.Table;
 import view.TwoPlayersGame;
 
@@ -11,7 +12,6 @@ public class TwoPlayersMatchController  {
     private Table table;
     private TwoPlayersGame gameView;
     private Builder builder;
-
 
     public TwoPlayersMatchController(TwoPlayersGame newGameView) throws InvalidNumberOfPlayersException {
         gameView = newGameView;
@@ -24,6 +24,11 @@ public class TwoPlayersMatchController  {
         this.drawCardsPlayerInTurn();
         this.drawSlotPlayerInTurn();
         this.drawSlotOtherPlayer();
+        this.drawScores();
+    }
+
+    private void drawScores() {
+        this.gameView.drawScores(table.getScoreboard(), table.getPlayers());
     }
 
 

@@ -4,10 +4,12 @@ import controllers.TwoPlayersMatchController;
 import model.Exceptions.*;
 import model.Hand;
 import model.Player;
+import model.Scoreboard;
 import model.Slot;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.LinkedList;
 
 public class TwoPlayersGame extends JFrame {
     private JButton vale4Button;
@@ -34,6 +36,7 @@ public class TwoPlayersGame extends JFrame {
     private JLabel secondPlayerID;
     private JLabel firstPlayerID;
     private JLabel firstPlayerScore;
+    private JLabel secondPlayerScore;
     private TwoPlayersMatchController controller;
 
     public TwoPlayersGame() {
@@ -384,6 +387,15 @@ public class TwoPlayersGame extends JFrame {
             this.thirdCardPlayedByOtherPlayer.setText( otherPlayerSlot.getThirdOne().getNumber().toString() + " de " + otherPlayerSlot.getThirdOne().getSuit());
         } catch (NotCardThrownException e) {
             this.thirdCardPlayedByOtherPlayer.setText(" ");
+        }
+    }
+
+    public void drawScores(Scoreboard scoreboard, LinkedList<Player> players) {
+        try {
+            firstPlayerScore.setText(String.valueOf(scoreboard.getPointsOf(players.get(0))));
+            secondPlayerScore.setText(String.valueOf(scoreboard.getPointsOf(players.get(1))));
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
         }
     }
 }
