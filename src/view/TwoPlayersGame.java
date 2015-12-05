@@ -171,6 +171,7 @@ public class TwoPlayersGame extends JFrame {
             disableNotEnvidoButtons();
             disableEnvidoButtons();
             disableQuieroAndNoQuieroButtons();
+            meVoyAlMazoButton.setEnabled(false);
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -193,6 +194,7 @@ public class TwoPlayersGame extends JFrame {
             if(this.controller.cantCallEnvidoAnyMore()){
                 disableEnvidoButtons();
             }
+            disableQuieroAndNoQuieroButtons();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -210,6 +212,7 @@ public class TwoPlayersGame extends JFrame {
             if(this.controller.cantCallEnvidoAnyMore()){
                 disableEnvidoButtons();
             }
+            disableQuieroAndNoQuieroButtons();
         } catch (NotCardThrownException e) {
             e.printStackTrace();
         } catch (NotYourTurnException e) {
