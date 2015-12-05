@@ -234,6 +234,7 @@ public class TwoPlayersGame extends JFrame {
         try {
             this.controller.callVale4();
             enableQuieroAndNoQuieroButtons();
+            vale4Button.setEnabled(false);
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -247,6 +248,7 @@ public class TwoPlayersGame extends JFrame {
         try {
             this.controller.callReTruco();
             enableQuieroAndNoQuieroButtons();
+            retrucoButton.setEnabled(false);
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -260,6 +262,7 @@ public class TwoPlayersGame extends JFrame {
         try {
             this.controller.callTruco();
             enableQuieroAndNoQuieroButtons();
+            trucoButton.setEnabled(false);
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
