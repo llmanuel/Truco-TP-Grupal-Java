@@ -182,6 +182,9 @@ public class TwoPlayersGame extends JFrame {
             this.controller.giveUpGame();
             enableNotEnvidoButtons();
             this.controller.drawScores();
+            if(this.controller.cantCallEnvidoAnyMore()){
+                disableEnvidoButtons();
+            }
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
