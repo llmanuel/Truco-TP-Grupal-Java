@@ -167,6 +167,7 @@ public class TwoPlayersGame extends JFrame {
     private void meVoyAlMazoButtonClicked() {
         try {
             this.controller.giveUpGame();
+            this.controller.drawScores();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -180,6 +181,7 @@ public class TwoPlayersGame extends JFrame {
         try {
             this.controller.giveUpGame();
             enableNotEnvidoButtons();
+            this.controller.drawScores();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -193,6 +195,7 @@ public class TwoPlayersGame extends JFrame {
         try {
             this.controller.acceptCall();
             enableNotEnvidoButtons();
+            this.controller.drawScores();
         } catch (NotCardThrownException e) {
             e.printStackTrace();
         } catch (NotYourTurnException e) {

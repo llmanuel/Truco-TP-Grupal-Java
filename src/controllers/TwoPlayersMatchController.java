@@ -27,7 +27,7 @@ public class TwoPlayersMatchController  {
         this.drawScores();
     }
 
-    private void drawScores() {
+    public void drawScores() {
         this.gameView.drawScores(table.getScoreboard(), table.getPlayers());
     }
 
