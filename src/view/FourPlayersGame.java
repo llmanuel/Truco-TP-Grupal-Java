@@ -316,6 +316,8 @@ public class FourPlayersGame extends JFrame {
     public void drawCardsPlayerInTurn(Player player, Hand playerHand) {
         this.idPlayerInTurn.setText("Jugador " + player.getIdNumber());
 
+        this.clearHandPlayerInTurn();
+
         try {
             this.card1HandPlayerInTurn.setText(playerHand.getCards().get(0).getNumber().toString() + " de " + playerHand.getCards().get(0).getSuit());
         } catch (IndexOutOfBoundsException e){
@@ -409,6 +411,15 @@ public class FourPlayersGame extends JFrame {
         this.firstTeamName.setText("Equipo 1");
         this.secondTeamName.setText("Equipo 2");
     }
+
+    private void clearHandPlayerInTurn() {
+
+        this.card1HandPlayerInTurn.setText(" ");
+        this.card2HandPlayerInTurn.setText(" ");
+        this.card3HandPlayerInTurn.setText(" ");
+
+    }
+
 }
 
 
