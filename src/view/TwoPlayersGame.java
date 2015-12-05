@@ -181,11 +181,6 @@ public class TwoPlayersGame extends JFrame {
         }
     }
 
-    private void disableQuieroAndNoQuieroButtons() {
-        quieroButton.setEnabled(false);
-        noQuieroButton.setEnabled(false);
-    }
-
     private void noQuieroButtonClicked() {
         try {
             this.controller.giveUpGame();
@@ -223,11 +218,6 @@ public class TwoPlayersGame extends JFrame {
     private void florButtonClicked() {
         this.controller.callFlor();
         enableQuieroAndNoQuieroButtons();
-    }
-
-    private void enableQuieroAndNoQuieroButtons() {
-        quieroButton.setEnabled(true);
-        noQuieroButton.setEnabled(true);
     }
 
     private void vale4ButtonClicked() {
@@ -288,14 +278,6 @@ public class TwoPlayersGame extends JFrame {
         }
     }
 
-    /**disables envidoButton, realEnvidoButton, faltaEnvidoButton and florButton*/
-    private void disableEnvidoButtons() {
-        envidoButton.setEnabled(false);
-        realEnvidoButton.setEnabled(false);
-        faltaEnvidoButton.setEnabled(false);
-        florButton.setEnabled(false);
-    }
-
     private void realEnvidoButtonClicked() {
         try {
             this.controller.callRealEnvido();
@@ -328,23 +310,7 @@ public class TwoPlayersGame extends JFrame {
         }
     }
 
-    private void disableNotEnvidoButtons() {
-        vale4Button.setEnabled(false);
-        retrucoButton.setEnabled(false);
-        trucoButton.setEnabled(false);
-        card1PlayerInTurn.setEnabled(false);
-        card2PlayerInTurn.setEnabled(false);
-        card3PlayerInTurn.setEnabled(false);
-    }
-
-    private void enableNotEnvidoButtons() {
-        vale4Button.setEnabled(true);
-        retrucoButton.setEnabled(true);
-        trucoButton.setEnabled(true);
-        card1PlayerInTurn.setEnabled(true);
-        card2PlayerInTurn.setEnabled(true);
-        card3PlayerInTurn.setEnabled(true);
-    }
+    /*Metodos de drawing*/
 
     public void drawCardsPlayerInTurn(Hand playerHand, Player player){
         this.playerInTurnName.setText("Jugador " + player.getIdNumber());
@@ -430,5 +396,42 @@ public class TwoPlayersGame extends JFrame {
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
         }
+    }
+
+    /*Metodos de (des)habilitacion de botones*/
+    private void disableQuieroAndNoQuieroButtons() {
+        quieroButton.setEnabled(false);
+        noQuieroButton.setEnabled(false);
+    }
+
+    private void disableNotEnvidoButtons() {
+        vale4Button.setEnabled(false);
+        retrucoButton.setEnabled(false);
+        trucoButton.setEnabled(false);
+        card1PlayerInTurn.setEnabled(false);
+        card2PlayerInTurn.setEnabled(false);
+        card3PlayerInTurn.setEnabled(false);
+    }
+
+    private void enableNotEnvidoButtons() {
+        vale4Button.setEnabled(true);
+        retrucoButton.setEnabled(true);
+        trucoButton.setEnabled(true);
+        card1PlayerInTurn.setEnabled(true);
+        card2PlayerInTurn.setEnabled(true);
+        card3PlayerInTurn.setEnabled(true);
+    }
+
+    /**disables envidoButton, realEnvidoButton, faltaEnvidoButton and florButton*/
+    private void disableEnvidoButtons() {
+        envidoButton.setEnabled(false);
+        realEnvidoButton.setEnabled(false);
+        faltaEnvidoButton.setEnabled(false);
+        florButton.setEnabled(false);
+    }
+
+    private void enableQuieroAndNoQuieroButtons() {
+        quieroButton.setEnabled(true);
+        noQuieroButton.setEnabled(true);
     }
 }
