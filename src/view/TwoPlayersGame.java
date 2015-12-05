@@ -189,6 +189,7 @@ public class TwoPlayersGame extends JFrame {
     private void quieroButtonClicked() {
         try {
             this.controller.acceptCall();
+            enableNotEnvidoButtons();
         } catch (NotCardThrownException e) {
             e.printStackTrace();
         } catch (NotYourTurnException e) {
@@ -239,6 +240,10 @@ public class TwoPlayersGame extends JFrame {
     private void faltaEnvidoButtonClicked() {
         try {
             this.controller.callFaltaEnvido();
+            disableNotEnvidoButtons();
+            disableEnvidoButtons();
+            quieroButton.setEnabled(true);
+            showMessage("Falta envido cantado");
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -248,9 +253,20 @@ public class TwoPlayersGame extends JFrame {
         }
     }
 
+    /**disables envidoButton, realEnvidoButton, faltaEnvidoButton, quieroButton and florButton*/
+    private void disableEnvidoButtons() {
+        envidoButton.setEnabled(false);
+        realEnvidoButton.setEnabled(false);
+        faltaEnvidoButton.setEnabled(false);
+        quieroButton.setEnabled(false);
+        florButton.setEnabled(false);
+    }
+
     private void realEnvidoButtonClicked() {
         try {
             this.controller.callRealEnvido();
+            disableNotEnvidoButtons();
+            showMessage("Real Envido cantado");
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -264,6 +280,7 @@ public class TwoPlayersGame extends JFrame {
         try {
             this.controller.callEnvido();
             disableNotEnvidoButtons();
+            showMessage("Envido cantado");
         } catch (InvalidGameCallException e) {
             e.printStackTrace();
         } catch (NotYourTurnException e) {
