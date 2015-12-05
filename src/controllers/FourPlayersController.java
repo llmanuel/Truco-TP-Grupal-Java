@@ -49,11 +49,7 @@ public class FourPlayersController {
 
     public void drawCardsPlayerInTurn() {
 
-        try {
-            this.gameView.drawCardsPlayerInTurn(table.getActualPlayer());
-        } catch (NotCardThrownException e) {
-            e.printStackTrace();
-        }
+            this.gameView.drawCardsPlayerInTurn(table.getActualPlayer(), table.getActualPlayer().getHand());
     }
 
 

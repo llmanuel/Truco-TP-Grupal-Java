@@ -2,6 +2,7 @@ package view;
 
 import controllers.FourPlayersController;
 import model.Exceptions.*;
+import model.Hand;
 import model.Player;
 import model.Slot;
 
@@ -312,13 +313,26 @@ public class FourPlayersGame extends JFrame {
         }
     }
 
-    public void drawCardsPlayerInTurn(Player player) throws NotCardThrownException {
+    public void drawCardsPlayerInTurn(Player player, Hand playerHand) {
         this.idPlayerInTurn.setText("Jugador " + player.getIdNumber());
 
-        this.card1SlotPlayerInTurn.setText(player.getHand().getCards().get(0).getNumber().toString() + " de " + player.getHand().getCards().get(0).getSuit());
-        this.card2HandPlayerInTurn.setText(player.getHand().getCards().get(1).getNumber().toString() + " de " + player.getHand().getCards().get(1).getSuit());
-        this.card3HandPlayerInTurn.setText(player.getHand().getCards().get(2).getNumber().toString() + " de " + player.getHand().getCards().get(2).getSuit());
+        try {
+            this.card1HandPlayerInTurn.setText(playerHand.getCards().get(0).getNumber().toString() + " de " + playerHand.getCards().get(0).getSuit());
+        } catch (IndexOutOfBoundsException e){
+            this.card1HandPlayerInTurn.setText(" ");
+        }
 
+        try {
+            this.card2HandPlayerInTurn.setText( playerHand.getCards().get(1).getNumber().toString() + " de " + playerHand.getCards().get(1).getSuit() );
+        } catch (IndexOutOfBoundsException e){
+            this.card2HandPlayerInTurn.setText(" ");
+        }
+
+        try {
+            this.card3HandPlayerInTurn.setText( playerHand.getCards().get(2).getNumber().toString() + " de " + playerHand.getCards().get(2).getSuit() );
+        } catch (IndexOutOfBoundsException e ){
+            this.card3HandPlayerInTurn.setText(" ");
+        }
     }
 
     public void drawSlotPlayerInTurn(Slot playerSlot) {
