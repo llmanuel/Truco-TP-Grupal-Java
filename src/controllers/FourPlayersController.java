@@ -95,17 +95,17 @@ public class FourPlayersController {
     }
 
     public void drawSlotOtherPlayer() {
-        this.gameView.drawSlotOtherPlayers( this.getOtherTeam());
+        this.gameView.drawSlotOtherPlayers();
     }
 
-    public LinkedList<Player> getOtherTeam() {
-        LinkedList<Player> otherPlayers = new LinkedList<>();
-        for (Player player :table.getPlayers()) {
-            if (!(table.getTeamOfActualPlayer().isMember(player))) {
-
-                otherPlayers.add(player);
-            }
-        }
-        return otherPlayers;
-    }
+//    public LinkedList<Player> getOtherTeam() {
+//        LinkedList<Player> otherPlayers = new LinkedList<>();
+//        for (Player player :table.getPlayers()) {
+//            if (!(table.getTeamOfActualPlayer().isMember(player))) {
+//
+//                otherPlayers.add(player);
+//            }
+//        }
+//        return otherPlayers;
+//    }
 }
