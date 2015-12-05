@@ -389,6 +389,12 @@ public class FourPlayersGame extends JFrame {
         this.firstTeamScore.setText("0");
         this.secondTeamScore.setText("0");
     }
+
+    public void setTeamsNames() {
+
+        this.firstTeamName.setText("Equipo 1");
+        this.secondTeamName.setText("Equipo 2");
+    }
 }
 
 

@@ -25,9 +25,15 @@ public class FourPlayersController {
 
     private void startGame() throws NotCardThrownException {
        this.initializeScores();
+       this.setTeamsNames();
        this.drawCardsPlayerInTurn();
        this.drawSlotPlayerInTurn();
       //  this.drawSlotOtherPlayer();
+    }
+
+    private void setTeamsNames() {
+
+        this.gameView.setTeamsNames();
     }
 
     private void initializeScores() {
