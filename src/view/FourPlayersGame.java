@@ -383,6 +383,12 @@ public class FourPlayersGame extends JFrame {
         }
 
     }
+
+    public void initializeScores() {
+
+        this.firstTeamScore.setText("0");
+        this.secondTeamScore.setText("0");
+    }
 }
 
 

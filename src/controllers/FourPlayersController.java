@@ -14,23 +14,25 @@ public class FourPlayersController {
     private Builder builder;
     private LinkedList<Player> players;
 
-    public FourPlayersController(FourPlayersGame newGameView) throws InvalidNumberOfPlayersException {
+    public FourPlayersController(FourPlayersGame newGameView) throws InvalidNumberOfPlayersException, NotCardThrownException {
         gameView = newGameView;
         builder = new Builder(4);
         players = builder.getPlayers();
         this.table = builder.getTable();
-        try {
-            this.startGame();
-        } catch (NotCardThrownException e) {
-            e.printStackTrace();
-        }
+        this.startGame();
 
     }
 
     private void startGame() throws NotCardThrownException {
+       this.initializeScores();
        this.drawCardsPlayerInTurn();
        this.drawSlotPlayerInTurn();
       //  this.drawSlotOtherPlayer();
+    }
+
+    private void initializeScores() {
+
+        this.gameView.initializeScores();
     }
 
     public void drawSlotPlayerInTurn() {
