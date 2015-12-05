@@ -176,6 +176,7 @@ public class TwoPlayersGame extends JFrame {
     private void noQuieroButtonClicked() {
         try {
             this.controller.giveUpGame();
+            enableNotEnvidoButtons();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -262,6 +263,7 @@ public class TwoPlayersGame extends JFrame {
     private void envidoButtonClicked() {
         try {
             this.controller.callEnvido();
+            disableNotEnvidoButtons();
         } catch (InvalidGameCallException e) {
             e.printStackTrace();
         } catch (NotYourTurnException e) {
@@ -271,6 +273,24 @@ public class TwoPlayersGame extends JFrame {
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
         }
+    }
+
+    private void disableNotEnvidoButtons() {
+        vale4Button.setEnabled(false);
+        retrucoButton.setEnabled(false);
+        trucoButton.setEnabled(false);
+        card1PlayerInTurn.setEnabled(false);
+        card2PlayerInTurn.setEnabled(false);
+        card3PlayerInTurn.setEnabled(false);
+    }
+
+    private void enableNotEnvidoButtons() {
+        vale4Button.setEnabled(true);
+        retrucoButton.setEnabled(true);
+        trucoButton.setEnabled(true);
+        card1PlayerInTurn.setEnabled(true);
+        card2PlayerInTurn.setEnabled(true);
+        card3PlayerInTurn.setEnabled(true);
     }
 
     public void drawCardsPlayerInTurn(Hand playerHand, Player player){
