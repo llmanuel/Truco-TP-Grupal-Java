@@ -37,7 +37,11 @@
       </component>
       <component id="e6c10" class="javax.swing.JLabel" binding="playerInTurnName">
         <constraints>
-          <grid row="6" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="300" height="50"/>
+            <preferred-size width="300" height="50"/>
+            <maximum-size width="300" height="50"/>
+          </grid>
         </constraints>
         <properties>
           <text value="PlayerInTurn"/>
@@ -112,7 +116,7 @@
           </grid>
         </constraints>
         <properties>
-          <enabled value="false"/>
+          <enabled value="true"/>
           <text value="Quiero"/>
         </properties>
       </component>
@@ -185,9 +189,12 @@
           </grid>
         </constraints>
         <properties>
-          <enabled value="false"/>
+          <enabled value="true"/>
           <text value="No Quiero"/>
         </properties>
+        <clientProperties>
+          <hideActionText class="java.lang.Boolean" value="false"/>
+        </clientProperties>
       </component>
       <component id="d4115" class="javax.swing.JLabel" binding="firstPlayerID">
         <constraints>

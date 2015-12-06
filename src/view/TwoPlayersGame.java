@@ -6,6 +6,7 @@ import model.Hand;
 import model.Player;
 import model.Scoreboard;
 import model.Slot;
+
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -91,7 +92,6 @@ public class TwoPlayersGame extends JFrame {
             public void mouseClicked(MouseEvent mouseEvent) {
                 vale4ButtonClicked();
             }
-
         });
         florButton.addMouseListener(new MouseAdapter() {
             @Override
@@ -145,33 +145,19 @@ public class TwoPlayersGame extends JFrame {
 
     private void card1PlayerInTurnClicked(MouseEvent mouseEvent) {
         this.controller.playCard(1);
-        this.controller.drawSlotPlayerInTurn();
-        this.controller.drawSlotOtherPlayer();
-        this.controller.drawCardsPlayerInTurn();
     }
 
     private void card2PlayerInTurnClicked(MouseEvent mouseEvent) {
         this.controller.playCard(2);
-        this.controller.drawSlotPlayerInTurn();
-        this.controller.drawSlotOtherPlayer();
-        this.controller.drawCardsPlayerInTurn();
     }
 
     private void card3PlayerInTurnClicked(MouseEvent mouseEvent) {
         this.controller.playCard(3);
-        this.controller.drawSlotPlayerInTurn();
-        this.controller.drawSlotOtherPlayer();
-        this.controller.drawCardsPlayerInTurn();
     }
 
     private void meVoyAlMazoButtonClicked() {
         try {
             this.controller.giveUpGame();
-            this.controller.drawScores();
-            disableNotEnvidoButtons();
-            disableEnvidoButtons();
-            disableQuieroAndNoQuieroButtons();
-            meVoyAlMazoButton.setEnabled(false);
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -184,12 +170,6 @@ public class TwoPlayersGame extends JFrame {
     private void noQuieroButtonClicked() {
         try {
             this.controller.giveUpGame();
-            enableNotEnvidoButtons();
-            this.controller.drawScores();
-            if(this.controller.cantCallEnvidoAnyMore()){
-                disableEnvidoButtons();
-            }
-            disableQuieroAndNoQuieroButtons();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -202,12 +182,6 @@ public class TwoPlayersGame extends JFrame {
     private void quieroButtonClicked() {
         try {
             this.controller.acceptCall();
-            enableNotEnvidoButtons();
-            this.controller.drawScores();
-            if(this.controller.cantCallEnvidoAnyMore()){
-                disableEnvidoButtons();
-            }
-            disableQuieroAndNoQuieroButtons();
         } catch (NotCardThrownException e) {
             e.printStackTrace();
         } catch (NotYourTurnException e) {
@@ -217,14 +191,11 @@ public class TwoPlayersGame extends JFrame {
 
     private void florButtonClicked() {
         this.controller.callFlor();
-        enableQuieroAndNoQuieroButtons();
     }
 
     private void vale4ButtonClicked() {
         try {
             this.controller.callVale4();
-            enableQuieroAndNoQuieroButtons();
-            vale4Button.setEnabled(false);
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -237,8 +208,6 @@ public class TwoPlayersGame extends JFrame {
     private void retrucoButtonClicked() {
         try {
             this.controller.callReTruco();
-            enableQuieroAndNoQuieroButtons();
-            retrucoButton.setEnabled(false);
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -251,8 +220,6 @@ public class TwoPlayersGame extends JFrame {
     private void trucoButtonClicked() {
         try {
             this.controller.callTruco();
-            enableQuieroAndNoQuieroButtons();
-            trucoButton.setEnabled(false);
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -265,10 +232,6 @@ public class TwoPlayersGame extends JFrame {
     private void faltaEnvidoButtonClicked() {
         try {
             this.controller.callFaltaEnvido();
-            disableNotEnvidoButtons();
-            disableEnvidoButtons();
-            enableQuieroAndNoQuieroButtons();
-            showMessage("Falta envido cantado");
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -281,9 +244,6 @@ public class TwoPlayersGame extends JFrame {
     private void realEnvidoButtonClicked() {
         try {
             this.controller.callRealEnvido();
-            disableNotEnvidoButtons();
-            showMessage("Real Envido cantado");
-            enableQuieroAndNoQuieroButtons();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -296,9 +256,6 @@ public class TwoPlayersGame extends JFrame {
     private void envidoButtonClicked() {
         try {
             this.controller.callEnvido();
-            disableNotEnvidoButtons();
-            showMessage("Envido cantado");
-            enableQuieroAndNoQuieroButtons();
         } catch (InvalidGameCallException e) {
             e.printStackTrace();
         } catch (NotYourTurnException e) {
@@ -309,8 +266,6 @@ public class TwoPlayersGame extends JFrame {
             e.printStackTrace();
         }
     }
-
-    /*Metodos de drawing*/
 
     public void drawCardsPlayerInTurn(Hand playerHand, Player player){
         this.playerInTurnName.setText("Jugador " + player.getIdNumber());
@@ -334,21 +289,15 @@ public class TwoPlayersGame extends JFrame {
         } catch (IndexOutOfBoundsException e ){
             this.card3PlayerInTurn.setText(" ");
         }
-
-
     }
 
     private void clearHandPlayerInTurn() {
         this.card1PlayerInTurn.setText(" ");
         this.card2PlayerInTurn.setText(" ");
         this.card3PlayerInTurn.setText(" ");
-
-
-
     }
 
     public void drawSlotPlayerInTurn(Slot playerSlot){
-
         try {
             this.card1SlotPlayerInTurn.setText( playerSlot.getFirstOne().getNumber().toString() + " de " + playerSlot.getFirstOne().getSuit());
         } catch (NotCardThrownException e) {
@@ -366,7 +315,6 @@ public class TwoPlayersGame extends JFrame {
         } catch (NotCardThrownException e) {
             this.card3SlotPlayerInTurn.setText(" ");
         }
-
     }
 
     public void drawSlotOtherPlayer(Slot otherPlayerSlot) {
@@ -394,44 +342,7 @@ public class TwoPlayersGame extends JFrame {
             firstPlayerScore.setText(String.valueOf(scoreboard.getPointsOf(players.get(0))));
             secondPlayerScore.setText(String.valueOf(scoreboard.getPointsOf(players.get(1))));
         } catch (TeamDoesntExistException e) {
-            e.printStackTrace();
+
         }
-    }
-
-    /*Metodos de (des)habilitacion de botones*/
-    private void disableQuieroAndNoQuieroButtons() {
-        quieroButton.setEnabled(false);
-        noQuieroButton.setEnabled(false);
-    }
-
-    private void disableNotEnvidoButtons() {
-        vale4Button.setEnabled(false);
-        retrucoButton.setEnabled(false);
-        trucoButton.setEnabled(false);
-        card1PlayerInTurn.setEnabled(false);
-        card2PlayerInTurn.setEnabled(false);
-        card3PlayerInTurn.setEnabled(false);
-    }
-
-    private void enableNotEnvidoButtons() {
-        vale4Button.setEnabled(true);
-        retrucoButton.setEnabled(true);
-        trucoButton.setEnabled(true);
-        card1PlayerInTurn.setEnabled(true);
-        card2PlayerInTurn.setEnabled(true);
-        card3PlayerInTurn.setEnabled(true);
-    }
-
-    /**disables envidoButton, realEnvidoButton, faltaEnvidoButton and florButton*/
-    private void disableEnvidoButtons() {
-        envidoButton.setEnabled(false);
-        realEnvidoButton.setEnabled(false);
-        faltaEnvidoButton.setEnabled(false);
-        florButton.setEnabled(false);
-    }
-
-    private void enableQuieroAndNoQuieroButtons() {
-        quieroButton.setEnabled(true);
-        noQuieroButton.setEnabled(true);
     }
 }
