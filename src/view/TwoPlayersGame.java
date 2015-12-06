@@ -160,10 +160,8 @@ public class TwoPlayersGame extends JFrame {
             this.controller.giveUpGame();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
-        } catch (NotCardThrownException e) {
-
-        } catch (TeamDoesntExistException e) {
-
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -173,7 +171,7 @@ public class TwoPlayersGame extends JFrame {
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
-            e.printStackTrace();
+            this.showMessage( "No se ha tirado carta alguna" );
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
         }
@@ -183,7 +181,7 @@ public class TwoPlayersGame extends JFrame {
         try {
             this.controller.acceptCall();
         } catch (NotCardThrownException e) {
-            e.printStackTrace();
+            this.showMessage( "No se ha tirado carta alguna" );
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         }
@@ -199,7 +197,7 @@ public class TwoPlayersGame extends JFrame {
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
-            e.printStackTrace();
+            this.showMessage( "No se ha tirado carta alguna" );
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
         }
@@ -211,7 +209,7 @@ public class TwoPlayersGame extends JFrame {
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
-            e.printStackTrace();
+            this.showMessage( "No se ha tirado carta alguna" );
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
         }
