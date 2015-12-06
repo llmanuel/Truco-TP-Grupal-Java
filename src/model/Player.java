@@ -19,7 +19,7 @@ public interface Player {
     void callReTruco() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException, InvalidGameCallException;
     void callVale4() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException, InvalidGameCallException;
     void giveUp() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException;
-    void callFlor() throws NotYourTurnException;
+    void callFlor() throws NotYourTurnException, TeamDoesntExistException, InvalidGameCallException;
     void acceptCall() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException;
 
     Hand getHand();
