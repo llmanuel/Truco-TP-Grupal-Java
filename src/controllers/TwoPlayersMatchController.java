@@ -6,7 +6,10 @@ import model.Player;
 import model.Table;
 import view.TwoPlayersGame;
 
+import java.util.LinkedList;
+
 public class TwoPlayersMatchController  {
+    private final LinkedList<Player> players;
     private Table table;
     private TwoPlayersGame gameView;
     private Builder builder;
@@ -15,12 +18,14 @@ public class TwoPlayersMatchController  {
         gameView = newGameView;
         builder = new Builder(2);
         this.table = builder.getTable();
+        this.players = builder.getPlayers();
         this.drawRound();
     }
 
 
     public void drawScores() {
-        this.gameView.drawScores(table.getScoreboard(), table.getPlayers());
+
+        this.gameView.drawScores(table.getScoreboard(), this.players);
     }
 
 
@@ -90,14 +95,8 @@ public class TwoPlayersMatchController  {
         try {
             table.getActualPlayer().playCard( table.getActualPlayer().getHand().getCards().get(i-1) );
             this.drawRound();
-        } catch (NotYourTurnException e) {
-            e.printStackTrace();
-        } catch (DonTHaveThatCardException e) {
-            e.printStackTrace();
-        } catch (TeamDoesntExistException e) {
-            e.printStackTrace();
-        } catch (NotCardThrownException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+
         }
     }
 

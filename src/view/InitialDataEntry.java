@@ -94,7 +94,6 @@ public class InitialDataEntry extends JFrame {
 
                 break;
         }
-        System.out.println(selectedPlayerQuantity);
         dispose();
     }
 }
