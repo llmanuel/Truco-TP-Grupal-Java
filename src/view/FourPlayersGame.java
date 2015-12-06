@@ -169,7 +169,6 @@ public class FourPlayersGame extends JFrame {
         this.controller.drawSlotPlayerInTurn();
         this.controller.drawSlotOtherPlayer();
         this.controller.drawCardsPlayerInTurn();
-        //this.controller.rotateTable();
     }
 
     private void card2HandPlayerInTurnClicked() {
@@ -187,7 +186,6 @@ public class FourPlayersGame extends JFrame {
         this.controller.drawSlotPlayerInTurn();
         this.controller.drawSlotOtherPlayer();
         this.controller.drawCardsPlayerInTurn();
-        //this.controller.rotateTable();
     }
 
     private void card1HandPlayerInTurnClicked() {
@@ -206,7 +204,6 @@ public class FourPlayersGame extends JFrame {
         this.controller.drawSlotPlayerInTurn();
         this.controller.drawSlotOtherPlayer();
         this.controller.drawCardsPlayerInTurn();
-        //this.controller.rotateTable();
     }
 
     private void meVoyAlMazoButtonClicked() {
@@ -441,31 +438,6 @@ public class FourPlayersGame extends JFrame {
         this.card2HandPlayerInTurn.setText(" ");
         this.card3HandPlayerInTurn.setText(" ");
 
-    }
-
-    public void rotateTable(){
-
-        String card1ActualPlayer, card2ActualPlayer, card3ActualPlayer;
-
-        card1ActualPlayer = this.card1SlotPlayerInTurn.getText();
-        card2ActualPlayer = this.card2SlotPlayerInTurn.getText();
-        card3ActualPlayer = this.card3SlotPlayerInTurn.getText();
-
-        this.card1SlotPlayerInTurn.setText(this.card1SlotPlayer2OtherTeam.getText());
-        this.card2SlotPlayerInTurn.setText(this.card2SlotPlayer2OtherTeam.getText());
-        this.card3SlotPlayerInTurn.setText(this.card3SlotPlayer2OtherTeam.getText());
-
-        this.card1SlotPlayer2OtherTeam.setText(this.card1SlotPlayerSameTeam.getText());
-        this.card2SlotPlayer2OtherTeam.setText(this.card2SlotPlayerSameTeam.getText());
-        this.card3SlotPlayer2OtherTeam.setText(this.card3SlotPlayerSameTeam.getText());
-
-        this.card1SlotPlayerSameTeam.setText(this.card1SlotPlayer1OtherTeam.getText());
-        this.card2SlotPlayerSameTeam.setText(this.card2SlotPlayer1OtherTeam.getText());
-        this.card3SlotPlayerSameTeam.setText(this.card3SlotPlayer1OtherTeam.getText());
-
-        this.card1SlotPlayer1OtherTeam.setText(card1ActualPlayer);
-        this.card2SlotPlayer1OtherTeam.setText(card2ActualPlayer);
-        this.card3SlotPlayer1OtherTeam.setText(card3ActualPlayer);
     }
 
 }

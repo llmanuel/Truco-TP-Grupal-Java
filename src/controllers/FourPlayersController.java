@@ -118,9 +118,5 @@ public class FourPlayersController {
         }
         return otherPlayers;
     }
-
-    public void rotateTable() {
-
-        this.gameView.rotateTable();
-    }
+    
 }
