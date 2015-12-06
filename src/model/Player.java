@@ -1,10 +1,7 @@
 package model;
 
 
-import model.Exceptions.DonTHaveThatCardException;
-import model.Exceptions.NotCardThrownException;
-import model.Exceptions.NotYourTurnException;
-import model.Exceptions.TeamDoesntExistException;
+import model.Exceptions.*;
 
 public interface Player {
     int calculateEnvido();
@@ -13,18 +10,17 @@ public interface Player {
     void setTable(Table table);
     void setHand(Hand newHand);
     void playCard(Card cardToPlay) throws NotYourTurnException, DonTHaveThatCardException, TeamDoesntExistException, NotCardThrownException;
-    void itsYourTurn();
-    void turnFinished();
 
-    void callEnvido() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException;
-    void callRealEnvido() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException;
-    void callFaltaEnvido() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException;
-    void callTruco() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException;
-    void callReTruco() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException;
-    void callVale4() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException;
+
+    void callEnvido() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException, InvalidGameCallException;
+    void callRealEnvido() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException, InvalidGameCallException;
+    void callFaltaEnvido() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException, InvalidGameCallException;
+    void callTruco() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException, InvalidGameCallException;
+    void callReTruco() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException, InvalidGameCallException;
+    void callVale4() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException, InvalidGameCallException;
     void giveUp() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException;
     void callFlor() throws NotYourTurnException;
-    void acceptCall() throws NotYourTurnException, NotCardThrownException;
+    void acceptCall() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException;
 
     Hand getHand();
 
