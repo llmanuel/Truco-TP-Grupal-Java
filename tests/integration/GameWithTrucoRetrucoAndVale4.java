@@ -188,4 +188,40 @@ public class GameWithTrucoRetrucoAndVale4 {
         Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 0 );
 
     }
+
+    @Test
+    public void gameWithTrucoAndRetrucoInThirdRoundButWithEnvidoAtTheBeginingTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+        this.table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.callEnvido();
+        player2.acceptCall();
+
+        player1.playCard(card1);
+
+        player2.playCard(card4);
+
+        player2.playCard(card5);
+
+        player1.playCard(card2);
+
+        player2.callTruco();
+        player1.acceptCall();
+
+        player2.callReTruco();
+        player1.acceptCall();
+
+        player2.callVale4();
+        player1.acceptCall();
+
+        player2.playCard(card6);
+
+        player1.playCard(card3);
+
+        Assert.assertTrue( scoreboard.getPointsOf( player2 ) == 4 );
+        Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 2 );
+
+    }
 }
