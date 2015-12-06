@@ -121,4 +121,75 @@ public class GameWithEnvidoTest {
         Assert.assertEquals( 0 , scoreboard.getPointsOf( player2 ) );
         Assert.assertEquals( 1 , scoreboard.getPointsOf( player1 ));
     }
+
+    @Test
+    public void firstPlayerCallEnvidoAndWinsTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+        this.table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.callEnvido();
+        player2.acceptCall();
+
+        Assert.assertEquals( 0 , scoreboard.getPointsOf( player2 ) );
+        Assert.assertEquals( 2 , scoreboard.getPointsOf( player1 ));
+    }
+
+    @Test
+    public void firstPlayerCallEnvidoAndTheSecondsCallsAgainAndPlayer1GivesUpTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+        this.table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.callEnvido();
+        player2.callEnvido();
+
+        player1.giveUp();
+
+        Assert.assertEquals( 2 , scoreboard.getPointsOf( player2 ) );
+        Assert.assertEquals( 0 , scoreboard.getPointsOf( player1 ));
+    }
+
+    @Test
+    public void firstPlayerCallEnvidoAndTheSecondsCallsAgainAndPlayer1WinsTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+        this.table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.callEnvido();
+        player2.callEnvido();
+
+        player1.acceptCall();
+
+        Assert.assertEquals( 0 , scoreboard.getPointsOf( player2 ) );
+        Assert.assertEquals( 4 , scoreboard.getPointsOf( player1 ));
+    }
+
+    @Test
+    public void playersCanCallEnvido8timesInARowTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+        this.table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.callEnvido();
+        player2.callEnvido();
+
+        player2.callEnvido();
+        player1.callEnvido();
+
+        player1.callEnvido();
+        player2.callEnvido();
+
+        player2.callEnvido();
+        player1.callEnvido();
+
+        player2.acceptCall();
+
+        Assert.assertEquals( 0 , scoreboard.getPointsOf( player2 ) );
+        Assert.assertEquals( 16 , scoreboard.getPointsOf( player1 ));
+    }
 }
