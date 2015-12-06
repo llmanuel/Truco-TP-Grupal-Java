@@ -42,6 +42,9 @@ public class FourPlayersGame extends JFrame {
     private JLabel secondTeamName;
     private JLabel firstTeamScore;
     private JLabel secondTeamScore;
+    private JLabel thirdPlayerID;
+    private JLabel firstPlayerID;
+    private JLabel secondPlayerID;
     private FourPlayersController controller;
 
     public FourPlayersGame() throws NotCardThrownException {
