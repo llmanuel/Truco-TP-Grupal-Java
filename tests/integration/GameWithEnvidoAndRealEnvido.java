@@ -170,4 +170,16 @@ public class GameWithEnvidoAndRealEnvido {
         Assert.assertEquals( 0 , scoreboard.getPointsOf( player2 ) );
         Assert.assertEquals( 24 ,scoreboard.getPointsOf( player1 ));
     }
+
+    @Test (expected = NotYourTurnException.class)
+    public void aPlayerCantCallEnvidoTwoTimesIfTheOtherDoesntRaisesItFirst() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+        this.table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.callRealEnvido();
+        player1.callRealEnvido();
+
+    }
 }
