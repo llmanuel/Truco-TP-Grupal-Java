@@ -1,10 +1,7 @@
 package integration;
 
 import model.*;
-import model.Exceptions.InvalidNumberOfPlayersException;
-import model.Exceptions.NotCardThrownException;
-import model.Exceptions.NotYourTurnException;
-import model.Exceptions.TeamDoesntExistException;
+import model.Exceptions.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -120,5 +117,57 @@ public class GameWithEnvidoAndRealEnvido {
 
         Assert.assertEquals( 0, scoreboard.getPointsOf( player2 ) );
         Assert.assertEquals( 1 ,scoreboard.getPointsOf( player1 ));
+    }
+
+    @Test (expected = InvalidGameCallException.class)
+    public void firstPlayerCallRealEnvidoAndTheOtherCanTCallEnvidoTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+        this.table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.callRealEnvido();
+        player2.callEnvido();
+    }
+
+    @Test
+    public void playersCallRealEnvidoTwoTimesAndSomeoneGivesUpTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+        this.table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.callRealEnvido();
+        player2.callRealEnvido();
+
+        player1.giveUp();
+
+        Assert.assertEquals( 3, scoreboard.getPointsOf( player2 ) );
+        Assert.assertEquals( 0 ,scoreboard.getPointsOf( player1 ));
+    }
+
+    @Test
+    public void playersCallRealEnvido8TimesTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+        this.table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.callRealEnvido();
+        player2.callRealEnvido();
+
+        player1.callRealEnvido();
+        player2.callRealEnvido();
+
+        player1.callRealEnvido();
+        player2.callRealEnvido();
+
+        player1.callRealEnvido();
+        player2.callRealEnvido();
+
+        player1.acceptCall();
+
+        Assert.assertEquals( 0 , scoreboard.getPointsOf( player2 ) );
+        Assert.assertEquals( 24 ,scoreboard.getPointsOf( player1 ));
     }
 }
