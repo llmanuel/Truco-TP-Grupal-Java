@@ -139,7 +139,11 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void callFlor() {
+    public void callFlor() throws NotYourTurnException {
+        if(this.table.tellMeIfItsMyTurn(this)) {
+            this.table.callFlor();
+        }
+        else throw new NotYourTurnException();
     }
 
     @Override
