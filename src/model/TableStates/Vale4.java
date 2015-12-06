@@ -6,12 +6,14 @@ import model.Exceptions.TeamDoesntExistException;
 import model.Table;
 
 public class Vale4 implements Games {
-    int points = 4;
+    int points;
     private Table theTable;
     private int lastGamePoints;
     private boolean gameWasAccepted;
 
     public Vale4(Table theTable, int lastGamePoints){
+
+        this.points = 4;
         this.theTable = theTable;
         this.lastGamePoints = lastGamePoints;
         this.gameWasAccepted = false;
