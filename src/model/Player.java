@@ -23,7 +23,7 @@ public interface Player {
     void callReTruco() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException;
     void callVale4() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException;
     void giveUp() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException;
-    void callFlor();
+    void callFlor() throws NotYourTurnException;
     void acceptCall() throws NotYourTurnException, NotCardThrownException;
 
     Hand getHand();
