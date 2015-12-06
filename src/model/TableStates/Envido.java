@@ -45,6 +45,11 @@ public class Envido implements Games {
     }
 
     @Override
+    public void callFlor() {
+
+    }
+
+    @Override
     public void iDontWannaAnswer() {
         this.theTable.askNextPlayerOnTheTeam(theTable.getTeamCursor());
     }

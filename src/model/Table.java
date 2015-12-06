@@ -120,6 +120,12 @@ public class Table {
         this.gameState.callFaltaEnvido();
     }
 
+    public void callFlor() throws TeamDoesntExistException, InvalidGameCallException {
+        this.gameState.callFlor();
+        this.scoreboard.increaseTheScoreOf(this.getActualPlayer(),this.gameState);
+        this.gameState.nextRound();
+    }
+
     public int getPoints(){
 
         return (this.gameState.getPoints());
@@ -324,4 +330,5 @@ public class Table {
     public LinkedList<Player> getPlayers() {
         return playersInGame;
     }
+
 }
