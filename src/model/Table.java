@@ -99,11 +99,6 @@ public class Table {
      *
      **************************/
 
-    public void raiseBet() throws InvalidGameCallException {
-
-        this.gameState.raiseBet();
-    }
-
     public void callTruco() throws InvalidGameCallException {
         this.gameState.callTruco();
     }

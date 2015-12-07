@@ -25,12 +25,6 @@ public class LastsRound implements Games {
     }
 
     @Override
-    public void raiseBet(){
-
-        this.theTable.raiseBet(new Truco(theTable, this.getPoints()));
-    }
-
-    @Override
     public void callTruco() throws InvalidGameCallException {
         this.theTable.raiseBet(new Truco(theTable, this.getPoints()));
     }

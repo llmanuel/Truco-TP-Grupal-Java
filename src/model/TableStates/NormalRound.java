@@ -28,12 +28,6 @@ public class NormalRound implements Games {
     }
 
     @Override
-    public void raiseBet(){
-
-        this.theTable.raiseBet(new Truco(theTable, this.getPoints()));
-    }
-
-    @Override
     public void callTruco() {
         this.theTable.raiseBet(new Truco(theTable, this.getPoints()));
     }

@@ -7,7 +7,6 @@ public interface Games {
 
     int getPoints();
     int giveUp();
-    void raiseBet() throws InvalidGameCallException;
     void callTruco() throws InvalidGameCallException;
     void callReTruco() throws InvalidGameCallException;
     void callVale4() throws InvalidGameCallException;

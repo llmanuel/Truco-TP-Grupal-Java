@@ -23,12 +23,6 @@ public class ReTruco implements Games {
     }
 
     @Override
-    public void raiseBet(){
-
-        this.theTable.raiseBet(new Vale4(theTable, this.getPoints()));
-    }
-
-    @Override
     public void callTruco() throws InvalidGameCallException {
         throw new InvalidGameCallException();
     }

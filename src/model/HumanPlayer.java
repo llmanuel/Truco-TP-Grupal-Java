@@ -79,7 +79,7 @@ public class HumanPlayer implements Player {
     public void callTruco() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException, InvalidGameCallException {
 
         if(this.table.tellMeIfItsMyTurn(this)){
-            this.table.raiseBet();
+            this.table.callTruco();
         }
         else throw new NotYourTurnException();
 
@@ -90,7 +90,7 @@ public class HumanPlayer implements Player {
     public void callReTruco() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException, InvalidGameCallException {
 
         if(this.table.tellMeIfItsMyTurn(this)){
-            this.table.raiseBet();
+            this.table.callReTruco();
         }
         else throw new NotYourTurnException();
 
@@ -101,7 +101,7 @@ public class HumanPlayer implements Player {
     public void callVale4() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException, InvalidGameCallException {
 
         if(this.table.tellMeIfItsMyTurn(this)) {
-            this.table.raiseBet();
+            this.table.callVale4();
         }
         else throw new NotYourTurnException();
 
