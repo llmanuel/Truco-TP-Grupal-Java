@@ -56,38 +56,47 @@ public class FourPlayersController {
 
     public void giveUpGame() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
         table.getActualPlayer().giveUp();
+        this.drawScores();
     }
 
     public void acceptCall() throws NotCardThrownException, NotYourTurnException, TeamDoesntExistException {
         table.getActualPlayer().acceptCall();
+        this.drawScores();
     }
 
     public void callFlor() throws NotYourTurnException, InvalidGameCallException, TeamDoesntExistException {
         table.getActualPlayer().callFlor();
+        this.drawScores();
     }
 
     public void callVale4() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callVale4();
+        this.drawScores();
     }
 
     public void callReTruco() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callReTruco();
+        this.drawScores();
     }
 
     public void callTruco() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callTruco();
+        this.drawScores();
     }
 
     public void callFaltaEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callFaltaEnvido();
+        this.drawScores();
     }
 
     public void callRealEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callRealEnvido();
+        this.drawScores();
     }
 
     public void callEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callEnvido();
+        this.drawScores();
     }
 
     public void playCard(int i) {
@@ -125,5 +134,8 @@ public class FourPlayersController {
 
     public void setCursorAt(Player cursorAtPlayer) {
         this.cursor = cursorAtPlayer;
+    }
+
+    private void drawScores() {
     }
 }
