@@ -57,7 +57,7 @@ public class Vale4 implements Games {
 
     @Override
     public void callFlor() throws InvalidGameCallException {
-
+        throw new InvalidGameCallException();
     }
 
     @Override

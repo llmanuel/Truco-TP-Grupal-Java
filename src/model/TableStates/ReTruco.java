@@ -53,7 +53,7 @@ public class ReTruco implements Games {
 
     @Override
     public void callFlor() throws InvalidGameCallException {
-
+        throw new InvalidGameCallException();
     }
 
     @Override

@@ -54,7 +54,7 @@ public class LastsRound implements Games {
 
     @Override
     public void callFlor() throws InvalidGameCallException {
-
+        throw new InvalidGameCallException();
     }
 
     @Override
