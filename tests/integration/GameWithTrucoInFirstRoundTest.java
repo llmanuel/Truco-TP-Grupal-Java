@@ -98,26 +98,18 @@ public class GameWithTrucoInFirstRoundTest {
         player1.callTruco();
         player2.acceptCall();
 
-        Hand player1Hand = player1.getHand();
-        Card cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(card1));
 
-        Hand player2Hand = player2.getHand();
-        Card cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(card4));
+        player1.playCard(card1);
 
-        cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
+        player2.playCard(card4);
 
-        cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
+        player2.playCard(card5);
 
+        player1.playCard(card2);
 
-        cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
+        player2.playCard(card6);
 
-        cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
+        player1.playCard(card3);
 
         Assert.assertTrue( scoreboard.getPointsOf( player2 ) == 2 );
         Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 0 );
