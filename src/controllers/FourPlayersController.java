@@ -4,6 +4,7 @@ import model.Builder;
 import model.Exceptions.*;
 import model.Player;
 import model.Table;
+import model.Team;
 import view.FourPlayersGame;
 
 import java.util.LinkedList;
@@ -137,5 +138,10 @@ public class FourPlayersController {
     }
 
     private void drawScores() {
+
+        LinkedList<Team> teams = new LinkedList<>();
+        teams.addFirst(this.builder.getTeams().getFirst());
+        teams.addLast(this.builder.getTeams().getLast());
+        this.gameView.drawScores(table.getScoreboard(), teams);
     }
 }

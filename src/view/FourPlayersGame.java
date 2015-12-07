@@ -1,10 +1,8 @@
 package view;
 
 import controllers.FourPlayersController;
+import model.*;
 import model.Exceptions.*;
-import model.Hand;
-import model.Player;
-import model.Slot;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -436,6 +434,9 @@ public class FourPlayersGame extends JFrame {
         this.card2HandPlayerInTurn.setText(" ");
         this.card3HandPlayerInTurn.setText(" ");
 
+    }
+
+    public void drawScores(Scoreboard scoreboard, LinkedList<Team> teams) {
     }
 }
 
