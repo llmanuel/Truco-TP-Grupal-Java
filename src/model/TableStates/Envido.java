@@ -70,16 +70,6 @@ public class Envido implements Games {
         this.theTable.nextRound(new LastsRound(theTable));
     }
 
-    /*
-    * Raises bet 2 points to another Envido. In this case, this method does the same thing that callEnvido
-    */
-
-    @Override
-    public void raiseBet(){
-
-        this.theTable.raiseBet(new Envido(theTable,this.getPoints() + 2, this.getPoints()));
-    }
-
     @Override
     public void callTruco() throws InvalidGameCallException {
         throw new InvalidGameCallException();

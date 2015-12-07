@@ -26,12 +26,6 @@ public class Vale4 implements Games {
     }
 
     @Override
-    public void raiseBet() throws InvalidGameCallException {
-
-       throw new InvalidGameCallException();
-    }
-
-    @Override
     public void callTruco() throws InvalidGameCallException {
         throw new InvalidGameCallException();
     }

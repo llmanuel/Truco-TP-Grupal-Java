@@ -68,9 +68,6 @@ public class Flor implements Games {
     */
 
     @Override
-    public void raiseBet(){}
-
-    @Override
     public void callTruco() throws InvalidGameCallException {
         throw new InvalidGameCallException();
     }
