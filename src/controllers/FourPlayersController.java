@@ -29,7 +29,6 @@ public class FourPlayersController {
         this.initializePlayersData();
         this.drawCardsPlayerInTurn();
         this.drawSlotPlayerInTurn();
-       // this.drawSlotOtherPlayer();
     }
 
     private void initializePlayersData() {
@@ -102,30 +101,9 @@ public class FourPlayersController {
 
     public void drawSlotOtherPlayer() {
 
-//        Player  partner = null;
-//        for (Player player :table.getTeamOfActualPlayer().getMembers()){
-//            if (!(player.getIdNumber() == table.getActualPlayer().getIdNumber())){
-//
-//             partner = player;
-//            }
-//        }
-//         LinkedList<Player> otherTeamPlayers = this.getOtherTeam();
-        this.gameView.drawSlotOtherPlayers(table.getPlayers() );
+        this.gameView.drawSlotOtherPlayers();
     }
-
-//    private LinkedList<Player> getOtherTeam() {
-//        LinkedList<Player> otherPlayers = new LinkedList<>();
-//        for (Player player : table.getPlayers()) {
-//
-//            if (!table.getTeamOfActualPlayer().isMember(player)) {
-//
-//                otherPlayers.add(player);
-//            }
-//        }
-//        return otherPlayers;
-//    }
-
-
+    
     private LinkedList<Player> orderPlayers(LinkedList<Player> otherPlayers) {
 
         if (otherPlayers.getFirst().getIdNumber() >= otherPlayers.getLast().getIdNumber()){
