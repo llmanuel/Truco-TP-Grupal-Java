@@ -1,7 +1,6 @@
 package model;
 
 import model.Exceptions.*;
-import model.TableStates.ReTruco;
 
 
 public class HumanPlayer implements Player {
