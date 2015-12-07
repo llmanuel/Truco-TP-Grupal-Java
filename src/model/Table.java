@@ -4,6 +4,7 @@ import model.Exceptions.*;
 import model.TableStates.Flor;
 import model.TableStates.Games;
 import model.TableStates.NormalRound;
+import model.TableStates.ReTruco;
 
 import java.util.LinkedList;
 
@@ -101,6 +102,18 @@ public class Table {
     public void raiseBet() throws InvalidGameCallException {
 
         this.gameState.raiseBet();
+    }
+
+    public void callTruco() throws InvalidGameCallException {
+        this.gameState.callTruco();
+    }
+
+    public void callReTruco() throws InvalidGameCallException {
+        this.gameState.callReTruco();
+    }
+
+    public void callVale4() throws InvalidGameCallException {
+        this.gameState.callVale4();
     }
 
     public void callEnvido() throws InvalidGameCallException {

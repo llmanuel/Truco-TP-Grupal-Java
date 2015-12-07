@@ -202,15 +202,38 @@ public class GameWithFlorTest {
         Assert.assertEquals( 0 , scoreboard.getPointsOf( player1 ));
     }
 
-    @Test (expected = NotYourTurnException.class)
+    @Test (expected = InvalidGameCallException.class)
     public void playerCantCallFlorWhenTrucoWasCall() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
         player2.setHand( hand2 );
 
-        player1.callFaltaEnvido();
-        player1.callFlor();
+        player1.callTruco();
+        player2.callFlor();
+    }
+
+    @Test (expected = InvalidGameCallException.class)
+    public void playerCantCallFlorWhenReTrucoWasCall() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
+        this.table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.callTruco();
+        player2.callFlor();
+    }
+
+
+    @Test (expected = InvalidGameCallException.class)
+    public void playerCantCallFlorWhenVale4WasCall() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
+        this.table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.callTruco();
+        player2.callFlor();
     }
 
     @Test (expected = InvalidGameCallException.class)
