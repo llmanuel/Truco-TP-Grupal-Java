@@ -235,12 +235,6 @@ public class Table {
      *
      *************************/
 
-    public void declareWinner(Team winnerTeam) throws FirstTeamWonException, SecondTeamWonException {
-        if(winnerTeam == firstTeam){
-            throw new FirstTeamWonException();
-        } else throw new SecondTeamWonException();
-    }
-
     /**Reparte cartas a los jugadores*/
     public void handOut() {
         for(Player actualPlayer: playersInGame){
