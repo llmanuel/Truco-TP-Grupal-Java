@@ -267,12 +267,8 @@ public class Table {
     }
 
     private void reOrderPlayers() {
-        LinkedList<Player> newOrderOfPLayers = new LinkedList<Player>();
         Player newLastPlayer = playersInGame.pollFirst();
-
-        newOrderOfPLayers.addAll(playersInGame);
-        newOrderOfPLayers.addLast(newLastPlayer);
-        this.playersInGame = newOrderOfPLayers;
+        playersInGame.addLast( newLastPlayer );
     }
 
     private void reOrderTeam(Team teamToReorder) {
