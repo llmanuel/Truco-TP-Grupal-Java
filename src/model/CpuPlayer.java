@@ -85,7 +85,7 @@ public class CpuPlayer implements Player {
     @Override
     public void callTruco() {
         try {
-            this.table.raiseBet();
+            this.table.callTruco();
         } catch (InvalidGameCallException e) {
 
         }
@@ -95,7 +95,7 @@ public class CpuPlayer implements Player {
     @Override
     public void callReTruco() {
         try {
-            this.table.raiseBet();
+            this.table.callReTruco();
         } catch (InvalidGameCallException e) {
 
         }
@@ -105,7 +105,7 @@ public class CpuPlayer implements Player {
     @Override
     public void callVale4() {
         try {
-            this.table.raiseBet();
+            this.table.callVale4();
         } catch (InvalidGameCallException e) {
 
         }
