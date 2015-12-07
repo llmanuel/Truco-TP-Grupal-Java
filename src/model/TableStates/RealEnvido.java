@@ -55,7 +55,7 @@ public class RealEnvido implements Games {
 
     @Override
     public void callFlor() throws InvalidGameCallException {
-
+        this.theTable.raiseBet( new Flor(theTable));
     }
 
     @Override

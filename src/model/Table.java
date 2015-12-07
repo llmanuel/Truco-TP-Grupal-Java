@@ -1,9 +1,6 @@
 package model;
 
-import model.Exceptions.InvalidGameCallException;
-import model.Exceptions.InvalidNumberOfPlayersException;
-import model.Exceptions.NotCardThrownException;
-import model.Exceptions.TeamDoesntExistException;
+import model.Exceptions.*;
 import model.TableStates.Games;
 import model.TableStates.NormalRound;
 
@@ -238,7 +235,10 @@ public class Table {
      *
      *************************/
 
-    public void declareWinner(Team member) {
+    public void declareWinner(Team winnerTeam) throws FirstTeamWonException, SecondTeamWonException {
+        if(winnerTeam == firstTeam){
+            throw new FirstTeamWonException();
+        } else throw new SecondTeamWonException();
     }
 
     /**Reparte cartas a los jugadores*/
