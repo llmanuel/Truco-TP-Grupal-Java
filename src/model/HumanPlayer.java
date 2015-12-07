@@ -117,7 +117,7 @@ public class HumanPlayer implements Player {
 
     @Override
     public void callFlor() throws NotYourTurnException, TeamDoesntExistException, InvalidGameCallException {
-        if(this.table.tellMeIfItsMyTurn(this)) {
+        if(this.table.tellMeIfItsMyTurn(this) && (this.hand.isFlor())) {
             this.table.callFlor();
         }
         else throw new NotYourTurnException();
