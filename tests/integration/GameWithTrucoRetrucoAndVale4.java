@@ -84,7 +84,7 @@ public class GameWithTrucoRetrucoAndVale4 {
     }
 
     @Test
-    public void gameWithTrucoAndRetrucoInFirstRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
+    public void gameWithTrucoAndRetrucoInFirstRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -119,7 +119,7 @@ public class GameWithTrucoRetrucoAndVale4 {
     }
 
     @Test
-    public void gameWithTrucoAndRetrucoInSecondRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
+    public void gameWithTrucoAndRetrucoInSecondRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -156,7 +156,7 @@ public class GameWithTrucoRetrucoAndVale4 {
     }
 
     @Test
-    public void gameWithTrucoAndRetrucoInThirdRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
+    public void gameWithTrucoAndRetrucoInThirdRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -190,7 +190,7 @@ public class GameWithTrucoRetrucoAndVale4 {
     }
 
     @Test
-    public void gameWithTrucoAndRetrucoInThirdRoundButWithEnvidoAtTheBeginingTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
+    public void gameWithTrucoAndRetrucoInThirdRoundButWithEnvidoAtTheBeginingTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
         this.table.setGame();
 
         player1.setHand( hand1 );
