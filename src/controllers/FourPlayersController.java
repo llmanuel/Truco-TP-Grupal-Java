@@ -24,11 +24,17 @@ public class FourPlayersController {
     }
 
     private void startGame() throws NotCardThrownException {
-       this.initializeScores();
-       this.setTeamsNames();
-       this.drawCardsPlayerInTurn();
-       this.drawSlotPlayerInTurn();
-       this.drawSlotOtherPlayer();
+        this.initializeScores();
+        this.setTeamsNames();
+        this.initializePlayersData();
+        this.drawCardsPlayerInTurn();
+        this.drawSlotPlayerInTurn();
+       // this.drawSlotOtherPlayer();
+    }
+
+    private void initializePlayersData() {
+
+        this.gameView.initializePlayersData();
     }
 
     private void setTeamsNames() {
@@ -57,35 +63,35 @@ public class FourPlayersController {
         table.getActualPlayer().giveUp();
     }
 
-    public void acceptCall() throws NotCardThrownException, NotYourTurnException {
+    public void acceptCall() throws NotCardThrownException, NotYourTurnException, TeamDoesntExistException {
         table.getActualPlayer().acceptCall();
     }
 
-    public void callFlor() {
+    public void callFlor() throws NotYourTurnException, InvalidGameCallException, TeamDoesntExistException {
         table.getActualPlayer().callFlor();
     }
 
-    public void callVale4() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public void callVale4() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callVale4();
     }
 
-    public void callReTruco() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public void callReTruco() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callReTruco();
     }
 
-    public void callTruco() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public void callTruco() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callTruco();
     }
 
-    public void callFaltaEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public void callFaltaEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callFaltaEnvido();
     }
 
-    public void callRealEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public void callRealEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callRealEnvido();
     }
 
-    public void callEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public void callEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callEnvido();
     }
 
@@ -96,27 +102,38 @@ public class FourPlayersController {
 
     public void drawSlotOtherPlayer() {
 
-        Player  partner = null;
-        for (Player player :table.getTeamOfActualPlayer().getMembers()){
-            if (!(player.getIdNumber() == table.getActualPlayer().getIdNumber())){
-
-             partner = player;
-            }
-        }
-        LinkedList<Player> otherTeamPlayers = this.getOtherTeam();
-        this.gameView.drawSlotOtherPlayers(partner.getSlot(), otherTeamPlayers );
+//        Player  partner = null;
+//        for (Player player :table.getTeamOfActualPlayer().getMembers()){
+//            if (!(player.getIdNumber() == table.getActualPlayer().getIdNumber())){
+//
+//             partner = player;
+//            }
+//        }
+//         LinkedList<Player> otherTeamPlayers = this.getOtherTeam();
+        this.gameView.drawSlotOtherPlayers(table.getPlayers() );
     }
 
-    private LinkedList<Player> getOtherTeam() {
-        LinkedList<Player> otherPlayers = new LinkedList<>();
-        for (Player player :table.getPlayers()) {
+//    private LinkedList<Player> getOtherTeam() {
+//        LinkedList<Player> otherPlayers = new LinkedList<>();
+//        for (Player player : table.getPlayers()) {
+//
+//            if (!table.getTeamOfActualPlayer().isMember(player)) {
+//
+//                otherPlayers.add(player);
+//            }
+//        }
+//        return otherPlayers;
+//    }
 
-            if (!table.getTeamOfActualPlayer().isMember(player)) {
 
-                otherPlayers.add(player);
-            }
+    private LinkedList<Player> orderPlayers(LinkedList<Player> otherPlayers) {
+
+        if (otherPlayers.getFirst().getIdNumber() >= otherPlayers.getLast().getIdNumber()){
+
+            otherPlayers.addFirst(otherPlayers.getLast());
         }
+
         return otherPlayers;
     }
-    
+
 }
