@@ -176,7 +176,6 @@ public class Table {
 
         roundBeginner = thisPlayer;
         this.setCursorAt(roundBeginner);
-//        thisPlayer.itsYourTurn();
     }
 
     /*
@@ -291,7 +290,6 @@ public class Table {
         teamsCursor = this.getTheEnemyTeamOf(this.cursor);
         cursorForCalls = this.cursor;
         cursor = teamsCursor.getFirstMember();
-//        cursor.itsYourTurn();
     }
 
     private Team getTheEnemyTeamOf(Player thisPlayer) {
@@ -306,7 +304,6 @@ public class Table {
         if(nextPlayer == cursorForCalls)
             this.gameState.giveUp();
         this.cursor = nextPlayer;
-//        nextPlayer.itsYourTurn();
     }
 
     public Team getTeamCursor(){
