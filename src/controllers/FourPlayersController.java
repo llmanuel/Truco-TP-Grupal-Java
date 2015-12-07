@@ -57,47 +57,47 @@ public class FourPlayersController {
 
     public void giveUpGame() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
         table.getActualPlayer().giveUp();
-        this.drawScores();
+        this.drawRound();
     }
 
     public void acceptCall() throws NotCardThrownException, NotYourTurnException, TeamDoesntExistException {
         table.getActualPlayer().acceptCall();
-        this.drawScores();
+        this.drawRound();
     }
 
     public void callFlor() throws NotYourTurnException, InvalidGameCallException, TeamDoesntExistException {
         table.getActualPlayer().callFlor();
-        this.drawScores();
+        this.drawRound();
     }
 
     public void callVale4() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callVale4();
-        this.drawScores();
+        this.drawRound();
     }
 
     public void callReTruco() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callReTruco();
-        this.drawScores();
+        this.drawRound();
     }
 
     public void callTruco() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callTruco();
-        this.drawScores();
+        this.drawRound();
     }
 
     public void callFaltaEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callFaltaEnvido();
-        this.drawScores();
+        this.drawRound();
     }
 
     public void callRealEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callRealEnvido();
-        this.drawScores();
+        this.drawRound();
     }
 
     public void callEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callEnvido();
-        this.drawScores();
+        this.drawRound();
     }
 
     public void playCard(int i) {
@@ -143,5 +143,12 @@ public class FourPlayersController {
         teams.addFirst(this.builder.getTeams().getFirst());
         teams.addLast(this.builder.getTeams().getLast());
         this.gameView.drawScores(table.getScoreboard(), teams);
+    }
+
+    public void drawRound() {
+        this.drawSlotPlayerInTurn();
+        this.drawSlotOtherPlayer();
+        this.drawCardsPlayerInTurn();
+        this.drawScores();
     }
 }
