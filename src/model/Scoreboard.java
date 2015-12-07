@@ -5,7 +5,6 @@ import model.Exceptions.NobodyWonYetException;
 import model.Exceptions.SecondTeamWonException;
 import model.Exceptions.TeamDoesntExistException;
 import model.TableStates.Games;
-import model.TableStates.Truco;
 
 import java.util.LinkedList;
 
@@ -83,8 +82,13 @@ public class Scoreboard {
     	}
     }
 
-	public double getPointsOf(Team whomWantedScoreIs) throws TeamDoesntExistException {
-		
+	public double getPointsOf(Team whomWantedScoreIs) throws TeamDoesntExistException, SecondTeamWonException, FirstTeamWonException {
+        try {
+            this.didAnyoneWinAlready();
+        } catch (NobodyWonYetException e) {
+
+        }
+
 		return  this.getScore(whomWantedScoreIs).getScore();
 
 	}
