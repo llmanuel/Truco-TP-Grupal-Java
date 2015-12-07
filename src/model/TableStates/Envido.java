@@ -1,5 +1,6 @@
 package model.TableStates;
 
+import model.Exceptions.InvalidGameCallException;
 import model.Exceptions.TeamDoesntExistException;
 import model.Table;
 
@@ -77,6 +78,21 @@ public class Envido implements Games {
     public void raiseBet(){
 
         this.theTable.raiseBet(new Envido(theTable,this.getPoints() + 2, this.getPoints()));
+    }
+
+    @Override
+    public void callTruco() throws InvalidGameCallException {
+        throw new InvalidGameCallException();
+    }
+
+    @Override
+    public void callReTruco() throws InvalidGameCallException {
+        throw new InvalidGameCallException();
+    }
+
+    @Override
+    public void callVale4() throws InvalidGameCallException {
+        throw new InvalidGameCallException();
     }
 
     @Override
