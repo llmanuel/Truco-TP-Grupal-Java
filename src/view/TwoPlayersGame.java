@@ -1,15 +1,16 @@
 package view;
 
 import controllers.TwoPlayersMatchController;
+import model.*;
 import model.Exceptions.*;
-import model.Hand;
-import model.Player;
-import model.Scoreboard;
-import model.Slot;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.LinkedList;
 
 public class TwoPlayersGame extends JFrame {
@@ -142,6 +143,21 @@ public class TwoPlayersGame extends JFrame {
     public void showMessage(String message) {
         JOptionPane.showMessageDialog( null, message );
     }
+
+    private BufferedImage getCardImage(Card actualCard){
+        String imagePath = "resources/images/cards/" + actualCard.getSuit() + "/" + actualCard.getNumber() + ".jpg";
+        BufferedImage cardPicture = null;
+
+        try {
+            cardPicture = ImageIO.read(new File(imagePath));
+        } catch (IOException e) {
+            this.showMessage( "No se pudo leer archivo de imagen" );
+        }
+
+        return cardPicture;
+    }
+
+
 
     private void card1PlayerInTurnClicked(MouseEvent mouseEvent) {
         this.controller.playCard(1);
@@ -288,77 +304,72 @@ public class TwoPlayersGame extends JFrame {
     public void drawCardsPlayerInTurn(Hand playerHand, Player player){
         this.playerInTurnName.setText("Jugador " + player.getIdNumber());
 
-        this.clearHandPlayerInTurn();
-
         try {
-            this.card1PlayerInTurn.setText(playerHand.getCards().get(0).getNumber().toString() + " de " + playerHand.getCards().get(0).getSuit());
+            this.card1PlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerHand.getCards().get(0) ) ) ) ;
         } catch (IndexOutOfBoundsException e){
-            this.card1PlayerInTurn.setText(" ");
+            this.card1PlayerInTurn.setIcon( new ImageIcon(  ) );
         }
 
         try {
-            this.card2PlayerInTurn.setText( playerHand.getCards().get(1).getNumber().toString() + " de " + playerHand.getCards().get(1).getSuit() );
+            this.card2PlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerHand.getCards().get(1) ) ) ) ;
         } catch (IndexOutOfBoundsException e){
-            this.card2PlayerInTurn.setText(" ");
+            this.card2PlayerInTurn.setIcon( new ImageIcon(  ) );
         }
 
         try {
-            this.card3PlayerInTurn.setText( playerHand.getCards().get(2).getNumber().toString() + " de " + playerHand.getCards().get(2).getSuit() );
+            this.card3PlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerHand.getCards().get(2) ) ) ) ;
         } catch (IndexOutOfBoundsException e ){
-            this.card3PlayerInTurn.setText(" ");
+            this.card3PlayerInTurn.setIcon( new ImageIcon(  ) );
         }
-    }
-
-    private void clearHandPlayerInTurn() {
-        this.card1PlayerInTurn.setText(" ");
-        this.card2PlayerInTurn.setText(" ");
-        this.card3PlayerInTurn.setText(" ");
     }
 
     public void drawSlotPlayerInTurn(Slot playerSlot){
         try {
-            this.card1SlotPlayerInTurn.setText( playerSlot.getFirstOne().getNumber().toString() + " de " + playerSlot.getFirstOne().getSuit());
+            this.card1SlotPlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerSlot.getFirstOne() ) ) );
         } catch (NotCardThrownException e) {
-            this.card1SlotPlayerInTurn.setText(" ");
+            this.card1SlotPlayerInTurn.setIcon( new ImageIcon(  ) );
         }
 
         try {
-            this.card2SlotPlayerInTurn.setText( playerSlot.getSecondOne().getNumber().toString() + " de " + playerSlot.getSecondOne().getSuit());
+            this.card2SlotPlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerSlot.getSecondOne() ) ) ) ;
         } catch (NotCardThrownException e) {
-            this.card2SlotPlayerInTurn.setText(" ");
+            this.card2SlotPlayerInTurn.setIcon( new ImageIcon(  ) );
         }
 
         try {
-            this.card3SlotPlayerInTurn.setText( playerSlot.getThirdOne().getNumber().toString() + " de " + playerSlot.getThirdOne().getSuit());
+            this.card3SlotPlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerSlot.getThirdOne() ) ) )   ;
         } catch (NotCardThrownException e) {
-            this.card3SlotPlayerInTurn.setText(" ");
+            this.card3SlotPlayerInTurn.setIcon( new ImageIcon(  ) );
         }
     }
 
     public void drawSlotOtherPlayer(Slot otherPlayerSlot) {
         try {
-            this.firstCardPlayedByOtherPlayer.setText( otherPlayerSlot.getFirstOne().getNumber().toString() + " de " + otherPlayerSlot.getFirstOne().getSuit());
+            this.firstCardPlayedByOtherPlayer.setIcon( new ImageIcon( this.getCardImage( otherPlayerSlot.getFirstOne() ) ) );
         } catch (NotCardThrownException e) {
-            this.firstCardPlayedByOtherPlayer.setText(" ");
+            this.firstCardPlayedByOtherPlayer.setIcon( new ImageIcon(  ) );
         }
 
         try {
-            this.secondCardPlayedByOtherPlayer.setText( otherPlayerSlot.getSecondOne().getNumber().toString() + " de " + otherPlayerSlot.getSecondOne().getSuit());
+            this.secondCardPlayedByOtherPlayer.setIcon( new ImageIcon( this.getCardImage( otherPlayerSlot.getSecondOne() ) ) );
         } catch (NotCardThrownException e) {
-            this.secondCardPlayedByOtherPlayer.setText(" ");
+            this.secondCardPlayedByOtherPlayer.setIcon( new ImageIcon(  ) );
         }
 
         try {
-            this.thirdCardPlayedByOtherPlayer.setText( otherPlayerSlot.getThirdOne().getNumber().toString() + " de " + otherPlayerSlot.getThirdOne().getSuit());
+            this.thirdCardPlayedByOtherPlayer.setIcon( new ImageIcon( this.getCardImage( otherPlayerSlot.getThirdOne() ) ) ) ;
         } catch (NotCardThrownException e) {
-            this.thirdCardPlayedByOtherPlayer.setText(" ");
+            this.thirdCardPlayedByOtherPlayer.setIcon( new ImageIcon(  ) );
         }
     }
 
     public void drawScores(Scoreboard scoreboard, LinkedList<Player> players) {
         try {
-            firstPlayerScore.setText(String.valueOf(scoreboard.getPointsOf(players.get(0))));
-            secondPlayerScore.setText(String.valueOf(scoreboard.getPointsOf(players.get(1))));
+            firstPlayerID.setText( "Jugador " +  String.valueOf( players.getFirst().getIdNumber() ) );
+            secondPlayerID.setText( "Jugador " + String.valueOf( players.getLast().getIdNumber() ) );
+
+            firstPlayerScore.setText(String.valueOf(scoreboard.getPointsOf(players.getFirst())));
+            secondPlayerScore.setText(String.valueOf(scoreboard.getPointsOf(players.getLast())));
         } catch (TeamDoesntExistException e) {
 
         }
