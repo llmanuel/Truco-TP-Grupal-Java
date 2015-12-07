@@ -96,30 +96,20 @@ public class GameWithTrucoAndRetruco {
         player2.acceptCall();
         /*aca el turno sigue siendo del player1 porque no tiro ninguna carta*/
 
-        Hand player1Hand = player1.getHand();
-        Card cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(card1));
-
+        player1.playCard(card1);
 
         player2.callReTruco();
         player1.acceptCall();
 
+        player2.playCard(card4);
 
-        Hand player2Hand = player2.getHand();
-        Card cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(card4));
+        player2.playCard(card5);
 
-        cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
+        player1.playCard(card2);
 
-        cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
+        player2.playCard(card6);
 
-        cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
-
-        cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
+        player1.playCard(card3);
 
         Assert.assertTrue( scoreboard.getPointsOf( player2 ) == 3 );
         Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 0 );
@@ -133,33 +123,23 @@ public class GameWithTrucoAndRetruco {
         player1.setHand( hand1 );
         player2.setHand( hand2 );
 
+        player1.playCard(card1);
 
-        Hand player1Hand = player1.getHand();
-        Card cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(card1));
-
-        Hand player2Hand = player2.getHand();
-        Card cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(card4));
+        player2.playCard(card4);
 
         player2.callTruco();
         player1.acceptCall();
 
-        cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
+        player2.playCard(card5);
 
         player1.callReTruco();
         player2.acceptCall();
 
+        player1.playCard(card2);
 
-        cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
+        player2.playCard(card6);
 
-        cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
-
-        cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
+        player1.playCard(card3);
 
         Assert.assertTrue( scoreboard.getPointsOf( player2 ) == 3 );
         Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 0 );
@@ -174,31 +154,23 @@ public class GameWithTrucoAndRetruco {
         player2.setHand( hand2 );
 
 
-        Hand player1Hand = player1.getHand();
-        Card cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(card1));
+        player1.playCard(card1);
 
-        Hand player2Hand = player2.getHand();
-        Card cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(card4));
+        player2.playCard(card4);
 
-        cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
+        player2.playCard(card5);
 
-        cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
+        player1.playCard(card2);
 
         player2.callTruco();
         player1.acceptCall();
 
-        cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
+        player2.playCard(card6);
 
         player1.callReTruco();
         player2.acceptCall();
 
-        cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
+        player1.playCard(card3);
 
         Assert.assertTrue( scoreboard.getPointsOf( player2 ) == 3 );
         Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 0 );
@@ -215,29 +187,21 @@ public class GameWithTrucoAndRetruco {
         player1.callTruco();
         player2.acceptCall();
 
-        Hand player1Hand = player1.getHand();
-        Card cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(card1));
+        player1.playCard(card1);
 
-        Hand player2Hand = player2.getHand();
-        Card cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(card4));
+        player2.playCard(card4);
 
         /* Aca gana player2 y empieza la ronda El*/
         player2.callReTruco();
         player1.acceptCall();
 
-        cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
+        player2.playCard(card5);
 
-        cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
+        player1.playCard(card2);
 
-        cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
+        player2.playCard(card6);
 
-        cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
+        player1.playCard(card3);
 
         Assert.assertTrue( scoreboard.getPointsOf( player2 ) == 3 );
         Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 0 );
@@ -254,29 +218,20 @@ public class GameWithTrucoAndRetruco {
         player1.callTruco();
         player2.acceptCall();
 
-        Hand player1Hand = player1.getHand();
-        Card cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(card1));
+        player1.playCard(card1);
 
-        Hand player2Hand = player2.getHand();
-        Card cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(card4));
+        player2.playCard(card4);
 
+        player2.playCard(card5);
 
-        cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
-
-        cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
+        player1.playCard(card2);
 
         player2.callReTruco();
         player1.acceptCall();
 
-        cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
+        player2.playCard(card6);
 
-        cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
+        player1.playCard(card3);
 
         Assert.assertTrue( scoreboard.getPointsOf( player2 ) == 3 );
         Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 0 );
@@ -290,32 +245,23 @@ public class GameWithTrucoAndRetruco {
         player1.setHand( hand1 );
         player2.setHand( hand2 );
 
+        player1.playCard(card1);
 
-        Hand player1Hand = player1.getHand();
-        Card cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(card1));
-
-        Hand player2Hand = player2.getHand();
-        Card cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(card4));
+        player2.playCard(card4);
 
         player2.callTruco();
         player1.acceptCall();
 
-        cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
+        player2.playCard(card5);
 
-        cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
+        player1.playCard(card2);
 
         player2.callReTruco();
         player1.acceptCall();
 
-        cardToPlayPlayer2 = player2Hand.getCards().getFirst();
-        player2.playCard(player2Hand.getCard(cardToPlayPlayer2));
+        player2.playCard(card6);
 
-        cardToPlayPlayer1 = player1Hand.getCards().getFirst();
-        player1.playCard(player1Hand.getCard(cardToPlayPlayer1));
+        player1.playCard(card3);
 
         Assert.assertTrue( scoreboard.getPointsOf( player2 ) == 3 );
         Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 0 );
