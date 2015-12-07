@@ -56,6 +56,11 @@ public class Vale4 implements Games {
     }
 
     @Override
+    public void callFlor() throws InvalidGameCallException {
+
+    }
+
+    @Override
     public void iDontWannaAnswer() {
         this.theTable.askNextPlayerOnTheTeam(theTable.getTeamCursor());
     }

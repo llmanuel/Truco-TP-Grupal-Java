@@ -52,6 +52,11 @@ public class ReTruco implements Games {
     }
 
     @Override
+    public void callFlor() throws InvalidGameCallException {
+
+    }
+
+    @Override
     public void iDontWannaAnswer() {
         this.theTable.askNextPlayerOnTheTeam(theTable.getTeamCursor());
     }
