@@ -1,5 +1,6 @@
 package model.TableStates;
 
+import model.Exceptions.InvalidGameCallException;
 import model.Exceptions.TeamDoesntExistException;
 import model.Table;
 import model.TableStates.*;
@@ -30,6 +31,21 @@ public class NormalRound implements Games {
     public void raiseBet(){
 
         this.theTable.raiseBet(new Truco(theTable, this.getPoints()));
+    }
+
+    @Override
+    public void callTruco() {
+        this.theTable.raiseBet(new Truco(theTable, this.getPoints()));
+    }
+
+    @Override
+    public void callReTruco() throws InvalidGameCallException {
+        throw new InvalidGameCallException();
+    }
+
+    @Override
+    public void callVale4() throws InvalidGameCallException {
+        throw new InvalidGameCallException();
     }
 
     @Override
