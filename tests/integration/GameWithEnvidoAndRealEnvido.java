@@ -92,7 +92,7 @@ public class GameWithEnvidoAndRealEnvido {
     }
 
     @Test
-    public void firstPlayerCallRealEnvidoTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+    public void firstPlayerCallRealEnvidoTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -106,7 +106,7 @@ public class GameWithEnvidoAndRealEnvido {
     }
 
     @Test
-    public void firstPlayerCallRealEnvidoAndTheOtherGivesUpTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+    public void firstPlayerCallRealEnvidoAndTheOtherGivesUpTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -120,7 +120,7 @@ public class GameWithEnvidoAndRealEnvido {
     }
 
     @Test (expected = InvalidGameCallException.class)
-    public void firstPlayerCallRealEnvidoAndTheOtherCanTCallEnvidoTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+    public void firstPlayerCallRealEnvidoAndTheOtherCanTCallEnvidoTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -131,7 +131,7 @@ public class GameWithEnvidoAndRealEnvido {
     }
 
     @Test
-    public void playersCallRealEnvidoTwoTimesAndSomeoneGivesUpTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+    public void playersCallRealEnvidoTwoTimesAndSomeoneGivesUpTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -147,7 +147,7 @@ public class GameWithEnvidoAndRealEnvido {
     }
 
     @Test
-    public void playersCallRealEnvido8TimesTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+    public void playersCallRealEnvido8TimesTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -172,7 +172,7 @@ public class GameWithEnvidoAndRealEnvido {
     }
 
     @Test (expected = NotYourTurnException.class)
-    public void aPlayerCantCallEnvidoTwoTimesIfTheOtherDoesntRaisesItFirst() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+    public void aPlayerCantCallEnvidoTwoTimesIfTheOtherDoesntRaisesItFirst() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );

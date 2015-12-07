@@ -84,7 +84,7 @@ public class GameWithTrucoRetrucoAndVale4 {
     }
 
     @Test
-    public void gameWithTrucoAndRetrucoInFirstRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public void gameWithTrucoAndRetrucoInFirstRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -119,7 +119,7 @@ public class GameWithTrucoRetrucoAndVale4 {
     }
 
     @Test
-    public void gameWithTrucoAndRetrucoInSecondRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public void gameWithTrucoAndRetrucoInSecondRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -156,7 +156,7 @@ public class GameWithTrucoRetrucoAndVale4 {
     }
 
     @Test
-    public void gameWithTrucoAndRetrucoInThirdRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public void gameWithTrucoAndRetrucoInThirdRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -190,7 +190,7 @@ public class GameWithTrucoRetrucoAndVale4 {
     }
 
     @Test
-    public void gameWithTrucoAndRetrucoInThirdRoundButWithEnvidoAtTheBeginingTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public void gameWithTrucoAndRetrucoInThirdRoundButWithEnvidoAtTheBeginingTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );

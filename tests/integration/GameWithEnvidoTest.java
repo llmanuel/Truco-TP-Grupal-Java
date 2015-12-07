@@ -1,10 +1,7 @@
 package integration;
 
 import model.*;
-import model.Exceptions.InvalidNumberOfPlayersException;
-import model.Exceptions.NotCardThrownException;
-import model.Exceptions.NotYourTurnException;
-import model.Exceptions.TeamDoesntExistException;
+import model.Exceptions.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -95,7 +92,7 @@ public class GameWithEnvidoTest {
     }
 
     @Test
-    public void firstPlayerCallEnvidoTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+    public void firstPlayerCallEnvidoTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -109,7 +106,7 @@ public class GameWithEnvidoTest {
     }
 
     @Test
-    public void firstPlayerCallEnvidoAndTheOtherGivesUpTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+    public void firstPlayerCallEnvidoAndTheOtherGivesUpTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -123,7 +120,7 @@ public class GameWithEnvidoTest {
     }
 
     @Test
-    public void firstPlayerCallEnvidoAndWinsTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+    public void firstPlayerCallEnvidoAndWinsTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -137,7 +134,7 @@ public class GameWithEnvidoTest {
     }
 
     @Test
-    public void firstPlayerCallEnvidoAndTheSecondsCallsAgainAndPlayer1GivesUpTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+    public void firstPlayerCallEnvidoAndTheSecondsCallsAgainAndPlayer1GivesUpTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -153,7 +150,7 @@ public class GameWithEnvidoTest {
     }
 
     @Test
-    public void firstPlayerCallEnvidoAndTheSecondsCallsAgainAndPlayer1WinsTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+    public void firstPlayerCallEnvidoAndTheSecondsCallsAgainAndPlayer1WinsTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -169,7 +166,7 @@ public class GameWithEnvidoTest {
     }
 
     @Test
-    public void playersCanCallEnvido8timesInARowTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+    public void playersCanCallEnvido8timesInARowTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -194,7 +191,7 @@ public class GameWithEnvidoTest {
     }
 
     @Test
-    public void playersCanCallEnvido8timesInARowAndSomePlayerGivesUpTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+    public void playersCanCallEnvido8timesInARowAndSomePlayerGivesUpTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -219,7 +216,7 @@ public class GameWithEnvidoTest {
     }
 
     @Test (expected = NotYourTurnException.class)
-    public void aPlayerCantCallEnvidoTwoTimesIfTheOtherDoesntRaisesItFirst() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException {
+    public void aPlayerCantCallEnvidoTwoTimesIfTheOtherDoesntRaisesItFirst() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
