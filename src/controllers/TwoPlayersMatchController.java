@@ -34,37 +34,37 @@ public class TwoPlayersMatchController  {
         this.drawRound();
    }
 
-    public void callRealEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public void callRealEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callRealEnvido();
         this.drawRound();
     }
 
-    public void callFaltaEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public void callFaltaEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callFaltaEnvido();
         this.drawRound();
     }
 
-    public void callTruco() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public void callTruco() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callTruco();
         this.drawRound();
     }
 
-    public void callReTruco() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public void callReTruco() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callReTruco();
         this.drawRound();
     }
 
-    public  void callVale4() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public  void callVale4() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callVale4();
         this.drawRound();
     }
 
-    public void callFlor() {
+    public void callFlor() throws NotYourTurnException, InvalidGameCallException, TeamDoesntExistException {
         table.getActualPlayer().callFlor();
         this.drawRound();
     }
 
-    public void acceptCall() throws NotCardThrownException, NotYourTurnException {
+    public void acceptCall() throws NotCardThrownException, NotYourTurnException, TeamDoesntExistException {
         table.getActualPlayer().acceptCall();
         this.drawRound();
     }
