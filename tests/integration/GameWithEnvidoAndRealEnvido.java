@@ -92,7 +92,7 @@ public class GameWithEnvidoAndRealEnvido {
     }
 
     @Test
-    public void firstPlayerCallRealEnvidoTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
+    public void firstPlayerCallRealEnvidoTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -106,7 +106,7 @@ public class GameWithEnvidoAndRealEnvido {
     }
 
     @Test
-    public void firstPlayerCallRealEnvidoAndTheOtherGivesUpTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
+    public void firstPlayerCallRealEnvidoAndTheOtherGivesUpTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -131,7 +131,7 @@ public class GameWithEnvidoAndRealEnvido {
     }
 
     @Test
-    public void playersCallRealEnvidoTwoTimesAndSomeoneGivesUpTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
+    public void playersCallRealEnvidoTwoTimesAndSomeoneGivesUpTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -147,7 +147,7 @@ public class GameWithEnvidoAndRealEnvido {
     }
 
     @Test
-    public void playersCallRealEnvido8TimesTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
+    public void playersCallRealEnvido8TimesTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
         this.table.setGame();
 
         player1.setHand( hand1 );
