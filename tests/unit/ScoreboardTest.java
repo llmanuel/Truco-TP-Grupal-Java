@@ -1,6 +1,8 @@
 package unit;
 
 import model.*;
+import model.Exceptions.FirstTeamWonException;
+import model.Exceptions.SecondTeamWonException;
 import model.Exceptions.TeamDoesntExistException;
 import model.TableStates.Truco;
 
@@ -55,7 +57,7 @@ public class ScoreboardTest {
     }
 
     @Test
-    public void scoreboardStartsWithZeroPoints() throws TeamDoesntExistException {
+    public void scoreboardStartsWithZeroPoints() throws TeamDoesntExistException, SecondTeamWonException, FirstTeamWonException {
         Scoreboard scoreboard = new Scoreboard( playerList, table );
 
         LinkedList<Team> players = scoreboard.getPlayers();
@@ -66,7 +68,7 @@ public class ScoreboardTest {
     }
 
     @Test
-    public void pointsIncreaseCorrectly() throws TeamDoesntExistException {
+    public void pointsIncreaseCorrectly() throws TeamDoesntExistException, SecondTeamWonException, FirstTeamWonException {
         Scoreboard scoreboard = new Scoreboard( playerList, table );
 
         LinkedList<Team> players = scoreboard.getPlayers();
@@ -81,7 +83,7 @@ public class ScoreboardTest {
     }
 
     @Test
-    public void pointsIncreaseCorrectlyWhenGameGaveUp() throws TeamDoesntExistException{
+    public void pointsIncreaseCorrectlyWhenGameGaveUp() throws TeamDoesntExistException, SecondTeamWonException, FirstTeamWonException {
         Scoreboard scoreboard = new Scoreboard( playerList, table );
 
         LinkedList<Team> players = scoreboard.getPlayers();
