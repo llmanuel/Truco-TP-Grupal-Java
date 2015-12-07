@@ -53,7 +53,11 @@
       </component>
       <component id="e8398" class="javax.swing.JLabel" binding="card1HandPlayerInTurn">
         <constraints>
-          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="104" height="160"/>
+            <preferred-size width="104" height="160"/>
+            <maximum-size width="104" height="160"/>
+          </grid>
         </constraints>
         <properties>
           <alignmentY value="0.0"/>
@@ -66,7 +70,11 @@
       </component>
       <component id="431c1" class="javax.swing.JLabel" binding="card2HandPlayerInTurn">
         <constraints>
-          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="104" height="160"/>
+            <preferred-size width="104" height="160"/>
+            <maximum-size width="104" height="160"/>
+          </grid>
         </constraints>
         <properties>
           <alignmentY value="0.0"/>
@@ -77,57 +85,13 @@
           <visible value="true"/>
         </properties>
       </component>
-      <component id="8eec6" class="javax.swing.JButton" binding="meVoyAlMazoButton" default-binding="true">
-        <constraints>
-          <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-            <minimum-size width="150" height="20"/>
-            <preferred-size width="150" height="20"/>
-            <maximum-size width="150" height="20"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="Me voy al mazo"/>
-        </properties>
-      </component>
-      <component id="6ad16" class="javax.swing.JButton" binding="reTrucoButton">
-        <constraints>
-          <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-            <minimum-size width="150" height="20"/>
-            <preferred-size width="150" height="20"/>
-            <maximum-size width="150" height="20"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="Retruco"/>
-        </properties>
-      </component>
-      <component id="55a92" class="javax.swing.JButton" binding="trucoButton">
-        <constraints>
-          <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-            <minimum-size width="150" height="20"/>
-            <preferred-size width="150" height="20"/>
-            <maximum-size width="150" height="20"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="Truco"/>
-        </properties>
-      </component>
-      <component id="b3cc7" class="javax.swing.JButton" binding="noQuieroButton" default-binding="true">
-        <constraints>
-          <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-            <minimum-size width="150" height="20"/>
-            <preferred-size width="150" height="20"/>
-            <maximum-size width="150" height="20"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="No Quiero"/>
-        </properties>
-      </component>
       <component id="89e75" class="javax.swing.JLabel" binding="card1SlotPlayerInTurn">
         <constraints>
-          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="104" height="160"/>
+            <preferred-size width="104" height="160"/>
+            <maximum-size width="104" height="160"/>
+          </grid>
         </constraints>
         <properties>
           <text value=""/>
@@ -135,7 +99,11 @@
       </component>
       <component id="88ca9" class="javax.swing.JLabel" binding="card3HandPlayerInTurn">
         <constraints>
-          <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="104" height="160"/>
+            <preferred-size width="104" height="160"/>
+            <maximum-size width="104" height="160"/>
+          </grid>
         </constraints>
         <properties>
           <alignmentY value="0.0"/>
@@ -148,7 +116,11 @@
       </component>
       <component id="7f7cd" class="javax.swing.JLabel" binding="card3SlotPlayerInTurn">
         <constraints>
-          <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="104" height="160"/>
+            <preferred-size width="104" height="160"/>
+            <maximum-size width="104" height="160"/>
+          </grid>
         </constraints>
         <properties>
           <text value=""/>
@@ -156,7 +128,11 @@
       </component>
       <component id="aac5d" class="javax.swing.JLabel" binding="card2SlotPlayerInTurn">
         <constraints>
-          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="104" height="160"/>
+            <preferred-size width="104" height="160"/>
+            <maximum-size width="104" height="160"/>
+          </grid>
         </constraints>
         <properties>
           <text value=""/>
@@ -164,7 +140,11 @@
       </component>
       <component id="6229f" class="javax.swing.JLabel" binding="card3SlotPlayer2OtherTeam">
         <constraints>
-          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="104" height="160"/>
+            <preferred-size width="104" height="160"/>
+            <maximum-size width="104" height="160"/>
+          </grid>
         </constraints>
         <properties>
           <alignmentY value="0.0"/>
@@ -177,7 +157,11 @@
       </component>
       <component id="a265c" class="javax.swing.JLabel" binding="card1SlotPlayer1OtherTeam">
         <constraints>
-          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="104" height="160"/>
+            <preferred-size width="104" height="160"/>
+            <maximum-size width="104" height="160"/>
+          </grid>
         </constraints>
         <properties>
           <alignmentY value="0.0"/>
@@ -190,7 +174,11 @@
       </component>
       <component id="e28e5" class="javax.swing.JLabel" binding="card2SlotPlayer2OtherTeam">
         <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="104" height="160"/>
+            <preferred-size width="104" height="160"/>
+            <maximum-size width="104" height="160"/>
+          </grid>
         </constraints>
         <properties>
           <alignmentY value="0.0"/>
@@ -203,7 +191,11 @@
       </component>
       <component id="3059c" class="javax.swing.JLabel" binding="card1SlotPlayer2OtherTeam">
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="104" height="160"/>
+            <preferred-size width="104" height="160"/>
+            <maximum-size width="104" height="160"/>
+          </grid>
         </constraints>
         <properties>
           <alignmentY value="0.0"/>
@@ -224,7 +216,11 @@
       </component>
       <component id="9b8f9" class="javax.swing.JLabel" binding="card2SlotPlayer1OtherTeam">
         <constraints>
-          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="104" height="160"/>
+            <preferred-size width="104" height="160"/>
+            <maximum-size width="104" height="160"/>
+          </grid>
         </constraints>
         <properties>
           <alignmentY value="0.0"/>
@@ -237,7 +233,11 @@
       </component>
       <component id="6db1" class="javax.swing.JLabel" binding="card3SlotPlayerSameTeam">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="104" height="160"/>
+            <preferred-size width="104" height="160"/>
+            <maximum-size width="104" height="160"/>
+          </grid>
         </constraints>
         <properties>
           <alignmentY value="0.0"/>
@@ -250,7 +250,11 @@
       </component>
       <component id="84c2c" class="javax.swing.JLabel" binding="card2SlotPlayerSameTeam">
         <constraints>
-          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="104" height="160"/>
+            <preferred-size width="104" height="160"/>
+            <maximum-size width="104" height="160"/>
+          </grid>
         </constraints>
         <properties>
           <alignmentY value="0.0"/>
@@ -263,7 +267,11 @@
       </component>
       <component id="5058" class="javax.swing.JLabel" binding="card3SlotPlayer1OtherTeam">
         <constraints>
-          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="104" height="160"/>
+            <preferred-size width="104" height="160"/>
+            <maximum-size width="104" height="160"/>
+          </grid>
         </constraints>
         <properties>
           <alignmentY value="0.0"/>
@@ -292,7 +300,11 @@
       </component>
       <component id="6db3f" class="javax.swing.JLabel" binding="card1SlotPlayerSameTeam">
         <constraints>
-          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="104" height="160"/>
+            <preferred-size width="104" height="160"/>
+            <maximum-size width="104" height="160"/>
+          </grid>
         </constraints>
         <properties>
           <alignmentY value="0.0"/>
@@ -303,57 +315,9 @@
           <visible value="true"/>
         </properties>
       </component>
-      <component id="55b58" class="javax.swing.JButton" binding="faltaEnvidoButton">
-        <constraints>
-          <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-            <minimum-size width="150" height="20"/>
-            <preferred-size width="150" height="20"/>
-            <maximum-size width="150" height="20"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="Falta Envido"/>
-        </properties>
-      </component>
-      <component id="5defe" class="javax.swing.JButton" binding="quieroButton">
-        <constraints>
-          <grid row="7" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-            <minimum-size width="150" height="20"/>
-            <preferred-size width="150" height="20"/>
-            <maximum-size width="150" height="20"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="Quiero"/>
-        </properties>
-      </component>
-      <component id="5fa6c" class="javax.swing.JButton" binding="florButton">
-        <constraints>
-          <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-            <minimum-size width="150" height="20"/>
-            <preferred-size width="150" height="20"/>
-            <maximum-size width="150" height="20"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="Flor"/>
-        </properties>
-      </component>
-      <component id="2ae9d" class="javax.swing.JButton" binding="realEnvidoButton">
-        <constraints>
-          <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-            <minimum-size width="150" height="20"/>
-            <preferred-size width="150" height="20"/>
-            <maximum-size width="150" height="20"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="Real Envido"/>
-        </properties>
-      </component>
       <component id="e24ab" class="javax.swing.JButton" binding="vale4Button">
         <constraints>
-          <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+          <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <minimum-size width="150" height="20"/>
             <preferred-size width="150" height="20"/>
             <maximum-size width="150" height="20"/>
@@ -363,7 +327,91 @@
           <text value="Vale 4"/>
         </properties>
       </component>
+      <component id="5fa6c" class="javax.swing.JButton" binding="florButton">
+        <constraints>
+          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="20"/>
+            <preferred-size width="150" height="20"/>
+            <maximum-size width="150" height="20"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Flor"/>
+        </properties>
+      </component>
+      <component id="5defe" class="javax.swing.JButton" binding="quieroButton">
+        <constraints>
+          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="20"/>
+            <preferred-size width="150" height="20"/>
+            <maximum-size width="150" height="20"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Quiero"/>
+        </properties>
+      </component>
+      <component id="b3cc7" class="javax.swing.JButton" binding="noQuieroButton" default-binding="true">
+        <constraints>
+          <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="20"/>
+            <preferred-size width="150" height="20"/>
+            <maximum-size width="150" height="20"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="No Quiero"/>
+        </properties>
+      </component>
       <component id="2db35" class="javax.swing.JButton" binding="envidoButton">
+        <constraints>
+          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="20"/>
+            <preferred-size width="150" height="20"/>
+            <maximum-size width="150" height="20"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Envido"/>
+        </properties>
+      </component>
+      <component id="8eec6" class="javax.swing.JButton" binding="meVoyAlMazoButton" default-binding="true">
+        <constraints>
+          <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="20"/>
+            <preferred-size width="150" height="20"/>
+            <maximum-size width="150" height="20"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Me voy al mazo"/>
+        </properties>
+      </component>
+      <component id="2ae9d" class="javax.swing.JButton" binding="realEnvidoButton">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="20"/>
+            <preferred-size width="150" height="20"/>
+            <maximum-size width="150" height="20"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Real Envido"/>
+        </properties>
+      </component>
+      <component id="55b58" class="javax.swing.JButton" binding="faltaEnvidoButton">
+        <constraints>
+          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="20"/>
+            <preferred-size width="150" height="20"/>
+            <maximum-size width="150" height="20"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Falta Envido"/>
+        </properties>
+      </component>
+      <component id="55a92" class="javax.swing.JButton" binding="trucoButton">
         <constraints>
           <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <minimum-size width="150" height="20"/>
@@ -372,7 +420,19 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Envido"/>
+          <text value="Truco"/>
+        </properties>
+      </component>
+      <component id="6ad16" class="javax.swing.JButton" binding="reTrucoButton">
+        <constraints>
+          <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="20"/>
+            <preferred-size width="150" height="20"/>
+            <maximum-size width="150" height="20"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Retruco"/>
         </properties>
       </component>
     </children>
