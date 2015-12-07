@@ -224,4 +224,50 @@ public class GameWithTrucoRetrucoAndVale4 {
         Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 2 );
 
     }
+
+    @Test (expected = InvalidGameCallException.class)
+    public void cantCallReTrucoBeforeTrucoTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
+        this.table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.playCard(card1);
+
+        player2.playCard(card4);
+
+        player2.callReTruco();
+
+    }
+
+    @Test (expected = InvalidGameCallException.class)
+    public void cantCallVale4BeforeReTrucoTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
+        this.table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.playCard(card1);
+
+        player2.playCard(card4);
+
+        player2.callTruco();
+        player1.callVale4();
+
+    }
+
+    @Test (expected = InvalidGameCallException.class)
+    public void cantCallVale4BeforeTrucoTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
+        this.table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.playCard(card1);
+
+        player2.playCard(card4);
+
+        player2.callVale4();
+
+    }
 }
