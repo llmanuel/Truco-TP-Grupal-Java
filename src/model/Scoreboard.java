@@ -1,5 +1,8 @@
 package model;
 
+import model.Exceptions.FirstTeamWonException;
+import model.Exceptions.NobodyWonYetException;
+import model.Exceptions.SecondTeamWonException;
 import model.Exceptions.TeamDoesntExistException;
 import model.TableStates.Games;
 import model.TableStates.Truco;
@@ -22,8 +25,13 @@ public class Scoreboard {
         this.table = table;
 	}
 
-	public int getPointsOf(Player whomWantedScoreIs) throws TeamDoesntExistException {
-        return  this.getScore(whomWantedScoreIs).getScore();
+	public int getPointsOf(Player whomWantedScoreIs) throws TeamDoesntExistException, SecondTeamWonException, FirstTeamWonException {
+        try {
+            this.didAnyoneWinAlready();
+        } catch (NobodyWonYetException e) {
+
+        }
+        return this.getScore(whomWantedScoreIs).getScore();
 	}
 
     private Score getScore(Player whomWantedScoreIs) throws TeamDoesntExistException {
@@ -36,15 +44,24 @@ public class Scoreboard {
 
     public void increaseTheScoreOf(Player whomScoreGonnaBeIncreased, Games actualGame) throws TeamDoesntExistException {
         this.getScore( whomScoreGonnaBeIncreased ).increaseScoreBy(actualGame.getPoints());
-        this.didAnyoneWinAlready();
 	}
 
-    private void didAnyoneWinAlready() {
+    private void didAnyoneWinAlready() throws FirstTeamWonException, SecondTeamWonException, NobodyWonYetException {
+        Team winnerTeam = null;
         for(Score actualScore : this.scores){
             if (actualScore.getScore() >= 30){
-                this.table.declareWinner(actualScore.getMember());
+                winnerTeam = actualScore.getMember();
             }
         }
+
+        if (winnerTeam == this.scores.getFirst().getMember()){
+            throw new FirstTeamWonException();
+        } else if (winnerTeam == null) {
+            throw new NobodyWonYetException();
+        } else {
+            throw new SecondTeamWonException();
+        }
+
     }
 
     public LinkedList<Team> getPlayers() {
