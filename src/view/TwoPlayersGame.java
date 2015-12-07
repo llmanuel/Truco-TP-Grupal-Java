@@ -184,11 +184,21 @@ public class TwoPlayersGame extends JFrame {
             this.showMessage( "No se ha tirado carta alguna" );
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
+        } catch (TeamDoesntExistException e) {
+
         }
     }
 
     private void florButtonClicked() {
-        this.controller.callFlor();
+        try {
+            this.controller.callFlor();
+        } catch (NotYourTurnException e) {
+            this.showMessage( "No es tu turno para jugar" );
+        } catch (InvalidGameCallException e) {
+            e.printStackTrace();
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        }
     }
 
     private void vale4ButtonClicked() {
@@ -200,6 +210,8 @@ public class TwoPlayersGame extends JFrame {
             this.showMessage( "No se ha tirado carta alguna" );
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
+        } catch (InvalidGameCallException e) {
+            this.showMessage( "No podes jugar Vale 4 en este momento" );
         }
     }
 
@@ -212,6 +224,8 @@ public class TwoPlayersGame extends JFrame {
             this.showMessage( "No se ha tirado carta alguna" );
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
+        } catch (InvalidGameCallException e) {
+            this.showMessage( "No podes jugar Retruco en este momento" );
         }
     }
 
@@ -224,6 +238,8 @@ public class TwoPlayersGame extends JFrame {
             e.printStackTrace();
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
+        } catch (InvalidGameCallException e) {
+            this.showMessage( "No podes jugar Truco en este momento" );
         }
     }
 
@@ -236,6 +252,8 @@ public class TwoPlayersGame extends JFrame {
             e.printStackTrace();
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
+        } catch (InvalidGameCallException e) {
+            this.showMessage( "No podes jugar Falta Envido en este momento" );
         }
     }
 
@@ -248,6 +266,8 @@ public class TwoPlayersGame extends JFrame {
             e.printStackTrace();
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
+        } catch (InvalidGameCallException e) {
+            this.showMessage( "No podes jugar Real Envido en este momento" );
         }
     }
 
@@ -255,7 +275,7 @@ public class TwoPlayersGame extends JFrame {
         try {
             this.controller.callEnvido();
         } catch (InvalidGameCallException e) {
-            e.printStackTrace();
+            this.showMessage( "No podes jugar Envido en este momento" );
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
