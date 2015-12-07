@@ -13,7 +13,6 @@ public class FourPlayersController {
     private FourPlayersGame gameView;
     private Builder builder;
     private LinkedList<Player> players;
-    private int turn = 1;
     private Player cursor;
 
     public FourPlayersController(FourPlayersGame newGameView) throws InvalidNumberOfPlayersException, NotCardThrownException {
@@ -123,7 +122,7 @@ public class FourPlayersController {
             setCursorAt(table.getPlayers().getFirst());
         }
     }
-    
+
     public void setCursorAt(Player cursorAtPlayer) {
         this.cursor = cursorAtPlayer;
     }
