@@ -4,6 +4,7 @@ import model.Builder;
 import model.Exceptions.*;
 import model.Player;
 import model.Table;
+import model.Team;
 import view.FourPlayersGame;
 
 import java.util.LinkedList;
@@ -13,7 +14,7 @@ public class FourPlayersController {
     private FourPlayersGame gameView;
     private Builder builder;
     private LinkedList<Player> players;
-    private int turn = 1;
+    private Player cursor;
 
     public FourPlayersController(FourPlayersGame newGameView) throws InvalidNumberOfPlayersException, NotCardThrownException {
         gameView = newGameView;
@@ -44,7 +45,7 @@ public class FourPlayersController {
 
     public void drawSlotPlayerInTurn() {
 
-        this.gameView.drawSlotPlayerInTurn( table.getActualPlayer().getSlot());
+        this.gameView.drawSlotPlayerInTurn(table.getActualPlayer().getSlot());
     }
 
 
@@ -56,95 +57,91 @@ public class FourPlayersController {
 
     public void giveUpGame() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
         table.getActualPlayer().giveUp();
+        this.drawScores();
     }
 
     public void acceptCall() throws NotCardThrownException, NotYourTurnException, TeamDoesntExistException {
         table.getActualPlayer().acceptCall();
+        this.drawScores();
     }
 
     public void callFlor() throws NotYourTurnException, InvalidGameCallException, TeamDoesntExistException {
         table.getActualPlayer().callFlor();
+        this.drawScores();
     }
 
     public void callVale4() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callVale4();
+        this.drawScores();
     }
 
     public void callReTruco() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callReTruco();
+        this.drawScores();
     }
 
     public void callTruco() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callTruco();
+        this.drawScores();
     }
 
     public void callFaltaEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callFaltaEnvido();
+        this.drawScores();
     }
 
     public void callRealEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callRealEnvido();
+        this.drawScores();
     }
 
     public void callEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().callEnvido();
+        this.drawScores();
     }
 
     public void playCard(int i) {
         try {
             table.getActualPlayer().playCard(table.getActualPlayer().getHand().getCards().get(i - 1));
+        } catch (Exception e) {
         }
-        catch (Exception e) {}
     }
 
     public void drawSlotOtherPlayer() {
-        if (turn > 4){ turn = 1; }
 
-        LinkedList<Player> otherTeam = this.getOtherTeam();
+        cursor = table.getActualPlayer();
+        LinkedList<Player> nextPlayers = new LinkedList<Player>();
+        for (int i = 0; i < 3; i++){
 
-        this.turn = turn + 1;
-        Player partner = this.getAcutalPlayerPartner();
-        this.gameView.drawSlotOtherPlayers(partner, otherTeam);
+            this.getTheNextOne();
+            nextPlayers.add(cursor);
+        }
+        this.gameView.drawSlotOtherPlayers(nextPlayers);
     }
 
-    public Player getAcutalPlayerPartner() {
+    private void getTheNextOne() {
 
-        if (this.table.getActualPlayer().getIdNumber() == this.table.getTeamOfActualPlayer().getMembers().get(0).getIdNumber()){
-
-            return this.table.getTeamOfActualPlayer().getMembers().get(1);
+        try {
+            int i = 0;
+            while (cursor != table.getPlayers().get(i)) {
+                i = i + 1;
+            }
+            i = i + 1;
+            setCursorAt(table.getPlayers().get(i));
+        } catch (IndexOutOfBoundsException e) {
+            setCursorAt(table.getPlayers().getFirst());
         }
-        return this.table.getTeamOfActualPlayer().getMembers().get(0);
     }
 
-    public LinkedList<Player> getOtherTeam() {
-
-         LinkedList<Player> otherTeam = null;
-        if (this.builder.getTeams().getFirst().isMember(this.table.getActualPlayer())) {
-
-            otherTeam = this.builder.getTeams().getLast().getMembers();
-        } else {
-
-            otherTeam = this.builder.getTeams().getFirst().getMembers();
-        }
-        System.out.println("Turno numero: " + turn);
-        if ((turn == 2) || (turn == 3) || (turn ==4 )){
-        System.out.println("Invirtio");
-            return this.invertOrderOfPlayers(otherTeam);
-        }
-        return otherTeam;
-
+    public void setCursorAt(Player cursorAtPlayer) {
+        this.cursor = cursorAtPlayer;
     }
 
-    private LinkedList<Player> invertOrderOfPlayers(LinkedList<Player> otherTeam) {
+    private void drawScores() {
 
-        Player player = otherTeam.removeFirst();
-        otherTeam.addLast(player);
-
-        return otherTeam;
+        LinkedList<Team> teams = new LinkedList<>();
+        teams.addFirst(this.builder.getTeams().getFirst());
+        teams.addLast(this.builder.getTeams().getLast());
+        this.gameView.drawScores(table.getScoreboard(), teams);
     }
 }
-//    (third-first)
-//1-3   4   -   2           / 1 ronda
-//2-4   3   -   1           / 2 ronda invertir queda 1-3
-//3-1   4   -   2           / 3 ronda invertir queda 2-4
-//4-2   1   -   3           / 4 ronda invertit queda 3-1
