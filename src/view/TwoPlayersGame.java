@@ -370,6 +370,11 @@ public class TwoPlayersGame extends JFrame {
 
             firstPlayerScore.setText(String.valueOf(scoreboard.getPointsOf(players.getFirst())));
             secondPlayerScore.setText(String.valueOf(scoreboard.getPointsOf(players.getLast())));
+
+
+            for (Player actualPlayer : players){
+                System.out.println("En la lista esta el jugador :" + actualPlayer.getIdNumber());
+            }
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
         }
