@@ -95,11 +95,7 @@ public class PlayersAndTableTests {
         player1.setHand( hand1 );
         player2.setHand( hand2 );
 
-        Hand playerHand = player1.getHand();
-
-        Card cardToPlay = playerHand.getCards().getFirst();
-
-        player1.playCard(playerHand.getCard(cardToPlay));
+        player1.playCard(card1);
 
         Slot firstPlayerSlot = table.getSlots().getFirst();
 
@@ -115,14 +111,10 @@ public class PlayersAndTableTests {
         player1.setHand( hand1 );
         player2.setHand( hand2 );
 
-        Hand playerHand = player1.getHand();
-
-        Card cardToPlay = playerHand.getCards().getFirst();
-
         /*With getCard(), the card used is eliminated from hand*/
-        player1.playCard(playerHand.getCard(cardToPlay));
+        player1.playCard(card1);
 
-        player1.playCard(playerHand.getCards().getFirst());
+        player1.playCard(card2);
 
     }
 
@@ -131,16 +123,8 @@ public class PlayersAndTableTests {
         table.setGame();
         /*With setgame() the turn belongs directly to player1 because he is the first on the List*/
 
-        Hand playerHand = player2.getHand();
-        Card cardToPlay = playerHand.getCards().getFirst();
-
         /*With getCard(), the card used is eliminated from hand*/
-        player2.playCard(playerHand.getCard(cardToPlay));
-
-        //lo que sigue es codigo innecesario; la excepcion buscada ya fue lanzada => lo que sigue nunca se ejecuta
-        Slot SecondPlayerSlot = table.getSlots().getFirst();
-        Card theCardPlayed = SecondPlayerSlot.getLastOne();
-        Assert.assertEquals(card4,theCardPlayed);
+        player2.playCard(card4);
     }
 
     @Test
@@ -150,80 +134,16 @@ public class PlayersAndTableTests {
         player1.setHand( hand1 );
         player2.setHand( hand2 );
 
-        Hand playerHand = player1.getHand();
-        Card cardToPlay = playerHand.getCards().getFirst();
-
-        player1.playCard(playerHand.getCard(cardToPlay));/*When a Player plays a Card, it's turn finish automatically*/
+        player1.playCard(card1);/*When a Player plays a Card, it's turn finish automatically*/
 
         Slot fristPlayerSlot = table.getSlots().getFirst();
         Card theCardPlayed = fristPlayerSlot.getLastOne();
         Assert.assertEquals(card1,theCardPlayed);
 
-        Hand player2Hand = player2.getHand();
-        Card SecondCardToPlay = player2Hand.getCards().getFirst();
-
-        player2.playCard(player2Hand.getCard(SecondCardToPlay));
+        player2.playCard(card4);
         Slot SecondPlayerSlot = table.getSlots().getLast();
         Card theCardPlayed2 = SecondPlayerSlot.getLastOne();
         Assert.assertEquals(card4,theCardPlayed2);
     }
-    /*Revisar tema de quien gana las rondas*/
-//    @Test
-//    public void PlayersCanThrowAllTheirCards() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException {
-//        table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
-//
-//        Hand playerHand = player1.getHand();
-//        Card cardToPlay = playerHand.getCards().getFirst();
-//        player1.playCard(playerHand.getCard(cardToPlay));/*When a Player plays a Card, it's turn finish automatically*/
-//
-//
-//        Hand player2Hand = player2.getHand();
-//        Card SecondCardToPlay = player2Hand.getCards().getFirst();
-//        player2.playCard(player2Hand.getCard(SecondCardToPlay));
-//
-//        Card cardToPlay2 = playerHand.getCards().getFirst();
-//        player1.playCard(playerHand.getCard(cardToPlay2));
-//
-//        Card SecondCardToPlay2 = player2Hand.getCards().getFirst();
-//        player2.playCard(player2Hand.getCard(SecondCardToPlay2));
-//
-//        Card cardToPlay3 = playerHand.getCards().getFirst();
-//        player1.playCard(playerHand.getCard(cardToPlay3));
-//
-//        Card SecondCardToPlay3 = player2Hand.getCards().getFirst();
-//        player2.playCard(player2Hand.getCard(SecondCardToPlay3));
-//    }
-/*Revisar tema de quien gana las rondas*/
-//    @Test (expected = DonTHaveThatCardException.class)
-//    public void PlayersCanThrowCardsTilTheyHaveNoMore() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException {
-//        table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
-//
-//        player1.setHand( hand1 );
-//        player2.setHand( hand2 );
-//
-//        Hand playerHand = player1.getHand();
-//        Card cardToPlay = playerHand.getCards().getFirst();
-//        player1.playCard(playerHand.getCard(cardToPlay));/*When a Player plays a Card, it's turn finish automatically*/
-//
-//
-//        Hand player2Hand = player2.getHand();
-//        Card SecondCardToPlay = player2Hand.getCards().getFirst();
-//        player2.playCard(player2Hand.getCard(SecondCardToPlay));
-//
-//        Card cardToPlay2 = playerHand.getCards().getFirst();
-//        player1.playCard(playerHand.getCard(cardToPlay2));
-//
-//        Card SecondCardToPlay2 = player2Hand.getCards().getFirst();
-//        player2.playCard(player2Hand.getCard(SecondCardToPlay2));
-//
-//        Card cardToPlay3 = playerHand.getCards().getFirst();
-//        player1.playCard(playerHand.getCard(cardToPlay3));
-//
-//        Card SecondCardToPlay3 = player2Hand.getCards().getFirst();
-//        player2.playCard(player2Hand.getCard(SecondCardToPlay3));
-//
-//        player1.playCard(playerHand.getCard(cardToPlay));
-//    }
-
 
 }

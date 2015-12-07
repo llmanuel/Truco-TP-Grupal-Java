@@ -175,19 +175,16 @@ public class GameWithEnvidoTest {
         player1.callEnvido();
         player2.callEnvido();
 
-        player2.callEnvido();
-        player1.callEnvido();
-
         player1.callEnvido();
         player2.callEnvido();
 
-        player2.callEnvido();
         player1.callEnvido();
+        player2.callEnvido();
 
-        player2.acceptCall();
+        player1.acceptCall();
 
         Assert.assertEquals( 0 , scoreboard.getPointsOf( player2 ) );
-        Assert.assertEquals( 16 , scoreboard.getPointsOf( player1 ));
+        Assert.assertEquals( 12 , scoreboard.getPointsOf( player1 ));
     }
 
     @Test
@@ -200,19 +197,20 @@ public class GameWithEnvidoTest {
         player1.callEnvido();
         player2.callEnvido();
 
-        player2.callEnvido();
         player1.callEnvido();
+        player2.callEnvido();
+
+        player1.callEnvido();
+        player2.callEnvido();
 
         player1.callEnvido();
         player2.callEnvido();
 
-        player2.callEnvido();
         player1.callEnvido();
-
         player2.giveUp();
 
         Assert.assertEquals( 0 , scoreboard.getPointsOf( player2 ) );
-        Assert.assertEquals( 14 , scoreboard.getPointsOf( player1 ));
+        Assert.assertEquals( 16 , scoreboard.getPointsOf( player1 ));
     }
 
     @Test (expected = NotYourTurnException.class)
