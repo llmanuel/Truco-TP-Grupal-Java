@@ -14,6 +14,7 @@ public class FourPlayersController {
     private Builder builder;
     private LinkedList<Player> players;
     private int turn = 1;
+    private Player cursor;
 
     public FourPlayersController(FourPlayersGame newGameView) throws InvalidNumberOfPlayersException, NotCardThrownException {
         gameView = newGameView;
@@ -44,7 +45,7 @@ public class FourPlayersController {
 
     public void drawSlotPlayerInTurn() {
 
-        this.gameView.drawSlotPlayerInTurn( table.getActualPlayer().getSlot());
+        this.gameView.drawSlotPlayerInTurn(table.getActualPlayer().getSlot());
     }
 
 
@@ -93,58 +94,39 @@ public class FourPlayersController {
     public void playCard(int i) {
         try {
             table.getActualPlayer().playCard(table.getActualPlayer().getHand().getCards().get(i - 1));
+        } catch (Exception e) {
         }
-        catch (Exception e) {}
     }
 
     public void drawSlotOtherPlayer() {
-        if (turn > 4){ turn = 1; }
+        cursor = table.getActualPlayer();
+        System.out.println("Jugador en turno: " + cursor.getIdNumber());
+        LinkedList<Player> nextPlayers = new LinkedList<Player>();
+        for (int i = 0; i < 3; i++){
 
-        LinkedList<Player> otherTeam = this.getOtherTeam();
+            this.getTheNextOne();
+            System.out.println("Jugador a agregar: " + cursor.getIdNumber());
+            nextPlayers.add(cursor);
 
-        this.turn = turn + 1;
-        Player partner = this.getAcutalPlayerPartner();
-        this.gameView.drawSlotOtherPlayers(partner, otherTeam);
+        }
+
+        this.gameView.drawSlotOtherPlayers(nextPlayers);
     }
 
-    public Player getAcutalPlayerPartner() {
-
-        if (this.table.getActualPlayer().getIdNumber() == this.table.getTeamOfActualPlayer().getMembers().get(0).getIdNumber()){
-
-            return this.table.getTeamOfActualPlayer().getMembers().get(1);
+    private void getTheNextOne() {
+        try {
+            int i = 0;
+            while (cursor != table.getPlayers().get(i)) {
+                i = i + 1;
+            }
+            i = i + 1;
+            setCursorAt(table.getPlayers().get(i));
+        } catch (IndexOutOfBoundsException e) {
+            setCursorAt(table.getPlayers().getFirst());
         }
-        return this.table.getTeamOfActualPlayer().getMembers().get(0);
     }
 
-    public LinkedList<Player> getOtherTeam() {
-
-         LinkedList<Player> otherTeam = null;
-        if (this.builder.getTeams().getFirst().isMember(this.table.getActualPlayer())) {
-
-            otherTeam = this.builder.getTeams().getLast().getMembers();
-        } else {
-
-            otherTeam = this.builder.getTeams().getFirst().getMembers();
-        }
-        System.out.println("Turno numero: " + turn);
-        if ((turn == 2) || (turn == 3) || (turn ==4 )){
-        System.out.println("Invirtio");
-            return this.invertOrderOfPlayers(otherTeam);
-        }
-        return otherTeam;
-
-    }
-
-    private LinkedList<Player> invertOrderOfPlayers(LinkedList<Player> otherTeam) {
-
-        Player player = otherTeam.removeFirst();
-        otherTeam.addLast(player);
-
-        return otherTeam;
+    public void setCursorAt(Player cursorAtPlayer) {
+        this.cursor = cursorAtPlayer;
     }
 }
-//    (third-first)
-//1-3   4   -   2           / 1 ronda
-//2-4   3   -   1           / 2 ronda invertir queda 1-3
-//3-1   4   -   2           / 3 ronda invertir queda 2-4
-//4-2   1   -   3           / 4 ronda invertit queda 3-1
