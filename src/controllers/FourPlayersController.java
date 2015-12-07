@@ -99,21 +99,19 @@ public class FourPlayersController {
     }
 
     public void drawSlotOtherPlayer() {
+
         cursor = table.getActualPlayer();
-        System.out.println("Jugador en turno: " + cursor.getIdNumber());
         LinkedList<Player> nextPlayers = new LinkedList<Player>();
         for (int i = 0; i < 3; i++){
 
             this.getTheNextOne();
-            System.out.println("Jugador a agregar: " + cursor.getIdNumber());
             nextPlayers.add(cursor);
-
         }
-
         this.gameView.drawSlotOtherPlayers(nextPlayers);
     }
 
     private void getTheNextOne() {
+
         try {
             int i = 0;
             while (cursor != table.getPlayers().get(i)) {
@@ -125,7 +123,7 @@ public class FourPlayersController {
             setCursorAt(table.getPlayers().getFirst());
         }
     }
-
+    
     public void setCursorAt(Player cursorAtPlayer) {
         this.cursor = cursorAtPlayer;
     }
