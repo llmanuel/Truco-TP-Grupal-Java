@@ -86,7 +86,7 @@ public class GameWithTrucoAndRetruco {
     }
 
     @Test
-    public void gameWithTrucoAndRetrucoInFirstRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public void gameWithTrucoAndRetrucoInFirstRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -127,7 +127,7 @@ public class GameWithTrucoAndRetruco {
     }
 
     @Test
-    public void gameWithTrucoAndRetrucoInSecondRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public void gameWithTrucoAndRetrucoInSecondRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -167,7 +167,7 @@ public class GameWithTrucoAndRetruco {
     }
 
     @Test
-    public void gameWithTrucoAndRetrucoInThirdRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public void gameWithTrucoAndRetrucoInThirdRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -206,7 +206,7 @@ public class GameWithTrucoAndRetruco {
     }
 
     @Test
-    public void gameWithTrucoInFirstRoundAndRetrucoInSecondRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public void gameWithTrucoInFirstRoundAndRetrucoInSecondRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -245,7 +245,7 @@ public class GameWithTrucoAndRetruco {
     }
 
     @Test
-    public void gameWithTrucoInFirstRoundAndRetrucoInThirdRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public void gameWithTrucoInFirstRoundAndRetrucoInThirdRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -284,7 +284,7 @@ public class GameWithTrucoAndRetruco {
     }
 
     @Test
-    public void gameWithTrucoInSecondRoundAndRetrucoInThirdRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public void gameWithTrucoInSecondRoundAndRetrucoInThirdRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
         this.table.setGame();
 
         player1.setHand( hand1 );
