@@ -268,4 +268,19 @@ public class GameWithTrucoAndRetruco {
 
     }
 
+    @Test (expected = InvalidGameCallException.class)
+    public void cantCallReTrucoBeforeTrucoTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
+        this.table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.playCard(card1);
+
+        player2.playCard(card4);
+
+        player2.callReTruco();
+
+    }
+
 }
