@@ -108,8 +108,20 @@ public class GameWithTrucoInThirdRoundTest {
 
         player1.playCard(card3);
 
-        Assert.assertTrue( scoreboard.getPointsOf( player2 ) == 2 );
-        Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 0 );
+        try {
+            Assert.assertTrue( scoreboard.getPointsOf( player2 ) == 2 );
+        } catch (SecondTeamWonException e) {
+            e.printStackTrace();
+        } catch (FirstTeamWonException e) {
+            e.printStackTrace();
+        }
+        try {
+            Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 0 );
+        } catch (SecondTeamWonException e) {
+            e.printStackTrace();
+        } catch (FirstTeamWonException e) {
+            e.printStackTrace();
+        }
 
     }
 
