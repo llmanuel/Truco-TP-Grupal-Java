@@ -445,6 +445,10 @@ public class FourPlayersGame extends JFrame {
 
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
+        } catch (SecondTeamWonException e) {
+            this.showMessage("Gano el Jugador 2");
+        } catch (FirstTeamWonException e) {
+        this.showMessage( "Gano el jugador 1" );
         }
     }
 }
