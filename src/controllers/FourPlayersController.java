@@ -13,6 +13,7 @@ public class FourPlayersController {
     private FourPlayersGame gameView;
     private Builder builder;
     private LinkedList<Player> players;
+    private int turn = 1;
 
     public FourPlayersController(FourPlayersGame newGameView) throws InvalidNumberOfPlayersException, NotCardThrownException {
         gameView = newGameView;
@@ -26,14 +27,9 @@ public class FourPlayersController {
     private void startGame() throws NotCardThrownException {
         this.initializeScores();
         this.setTeamsNames();
-        this.initializePlayersData();
         this.drawCardsPlayerInTurn();
         this.drawSlotPlayerInTurn();
-    }
-
-    private void initializePlayersData() {
-
-        this.gameView.initializePlayersData();
+        this.drawSlotOtherPlayer();
     }
 
     private void setTeamsNames() {
@@ -94,24 +90,61 @@ public class FourPlayersController {
         table.getActualPlayer().callEnvido();
     }
 
-    public void playCard(int i) throws NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException {
-        table.getActualPlayer().playCard( table.getActualPlayer().getHand().getCards().get(i-1)  );
-
+    public void playCard(int i) {
+        try {
+            table.getActualPlayer().playCard(table.getActualPlayer().getHand().getCards().get(i - 1));
+        }
+        catch (Exception e) {}
     }
 
     public void drawSlotOtherPlayer() {
+        if (turn > 4){ turn = 1; }
 
-        this.gameView.drawSlotOtherPlayers();
+        LinkedList<Player> otherTeam = this.getOtherTeam();
+
+        this.turn = turn + 1;
+        Player partner = this.getAcutalPlayerPartner();
+        this.gameView.drawSlotOtherPlayers(partner, otherTeam);
     }
-    
-    private LinkedList<Player> orderPlayers(LinkedList<Player> otherPlayers) {
 
-        if (otherPlayers.getFirst().getIdNumber() >= otherPlayers.getLast().getIdNumber()){
+    public Player getAcutalPlayerPartner() {
 
-            otherPlayers.addFirst(otherPlayers.getLast());
+        if (this.table.getActualPlayer().getIdNumber() == this.table.getTeamOfActualPlayer().getMembers().get(0).getIdNumber()){
+
+            return this.table.getTeamOfActualPlayer().getMembers().get(1);
         }
-
-        return otherPlayers;
+        return this.table.getTeamOfActualPlayer().getMembers().get(0);
     }
 
+    public LinkedList<Player> getOtherTeam() {
+
+         LinkedList<Player> otherTeam = null;
+        if (this.builder.getTeams().getFirst().isMember(this.table.getActualPlayer())) {
+
+            otherTeam = this.builder.getTeams().getLast().getMembers();
+        } else {
+
+            otherTeam = this.builder.getTeams().getFirst().getMembers();
+        }
+        System.out.println("Turno numero: " + turn);
+        if ((turn == 2) || (turn == 3) || (turn ==4 )){
+        System.out.println("Invirtio");
+            return this.invertOrderOfPlayers(otherTeam);
+        }
+        return otherTeam;
+
+    }
+
+    private LinkedList<Player> invertOrderOfPlayers(LinkedList<Player> otherTeam) {
+
+        Player player = otherTeam.removeFirst();
+        otherTeam.addLast(player);
+
+        return otherTeam;
+    }
 }
+//    (third-first)
+//1-3   4   -   2           / 1 ronda
+//2-4   3   -   1           / 2 ronda invertir queda 1-3
+//3-1   4   -   2           / 3 ronda invertir queda 2-4
+//4-2   1   -   3           / 4 ronda invertit queda 3-1

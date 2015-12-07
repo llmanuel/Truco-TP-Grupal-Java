@@ -9,6 +9,7 @@ import model.Slot;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.LinkedList;
 
 public class FourPlayersGame extends JFrame {
     private JPanel rootPanel;
@@ -160,34 +161,16 @@ public class FourPlayersGame extends JFrame {
     }
 
     private void card3HandPlayerInTurnClicked() {
-        try {
-            this.controller.playCard(3);
-        } catch (NotYourTurnException e) {
-            e.printStackTrace();
-        } catch (DonTHaveThatCardException e) {
-            e.printStackTrace();
-        } catch (NotCardThrownException e) {
-            e.printStackTrace();
-        } catch (TeamDoesntExistException e) {
-            e.printStackTrace();
-        }
+
+        this.controller.playCard(3);
         this.controller.drawSlotPlayerInTurn();
         this.controller.drawSlotOtherPlayer();
         this.controller.drawCardsPlayerInTurn();
     }
 
     private void card2HandPlayerInTurnClicked() {
-        try {
-            this.controller.playCard(2);
-        } catch (NotYourTurnException e) {
-            e.printStackTrace();
-        } catch (DonTHaveThatCardException e) {
-            e.printStackTrace();
-        } catch (NotCardThrownException e) {
-            e.printStackTrace();
-        } catch (TeamDoesntExistException e) {
-            e.printStackTrace();
-        }
+
+        this.controller.playCard(2);
         this.controller.drawSlotPlayerInTurn();
         this.controller.drawSlotOtherPlayer();
         this.controller.drawCardsPlayerInTurn();
@@ -195,18 +178,7 @@ public class FourPlayersGame extends JFrame {
 
     private void card1HandPlayerInTurnClicked() {
 
-        try {
-            this.controller.playCard(1);
-        } catch (NotYourTurnException e) {
-            e.printStackTrace();
-        } catch (DonTHaveThatCardException e) {
-            e.printStackTrace();
-        } catch (NotCardThrownException e) {
-            e.printStackTrace();
-        } catch (TeamDoesntExistException e) {
-            e.printStackTrace();
-        }
-
+        this.controller.playCard(1);
         this.controller.drawSlotPlayerInTurn();
         this.controller.drawSlotOtherPlayer();
         this.controller.drawCardsPlayerInTurn();
@@ -386,24 +358,64 @@ public class FourPlayersGame extends JFrame {
     }
 
 
-    public void drawSlotOtherPlayers() {
+    public void drawSlotOtherPlayers(Player partner, LinkedList<Player> otherTeam) {
 
-        this.firstPlayerID.setText(this.secondPlayerID.getText());
-        this.secondPlayerID.setText(this.thirdPlayerID.getText());
-        this.thirdPlayerID.setText(this.idPlayerInTurn.getText());
+        this.secondPlayerID.setText("Jugador " + partner.getIdNumber());
+        try {
+            this.card1SlotPlayerSameTeam.setText( partner.getSlot().getFirstOne().getNumber().toString() + " de " + partner.getSlot().getFirstOne().getSuit());
+        } catch (NotCardThrownException e) {
+            this.card1SlotPlayerSameTeam.setText(" ");
+        }
 
-        this.card1SlotPlayer1OtherTeam.setText(this.card1SlotPlayerSameTeam.getText());
-        this.card2SlotPlayer1OtherTeam.setText(this.card2SlotPlayerSameTeam.getText());
-        this.card3SlotPlayer1OtherTeam.setText(this.card3SlotPlayerSameTeam.getText());
+        try {
+            this.card2SlotPlayerSameTeam.setText( partner.getSlot().getSecondOne().getNumber().toString() + " de " + partner.getSlot().getSecondOne().getSuit());
+        } catch (NotCardThrownException e) {
+            this.card2SlotPlayerSameTeam.setText(" ");
+        }
 
-        this.card1SlotPlayerSameTeam.setText(this.card1SlotPlayer2OtherTeam.getText());
-        this.card2SlotPlayerSameTeam.setText(this.card2SlotPlayer2OtherTeam.getText());
-        this.card3SlotPlayerSameTeam.setText(this.card3SlotPlayer2OtherTeam.getText());
+        try {
+            this.card3SlotPlayerSameTeam.setText( partner.getSlot().getThirdOne().getNumber().toString() + " de " + partner.getSlot().getThirdOne().getSuit());
+        } catch (NotCardThrownException e) {
+            this.card3SlotPlayerSameTeam.setText(" ");
+        }
 
-        this.card1SlotPlayer2OtherTeam.setText(this.card1SlotPlayerInTurn.getText());
-        this.card2SlotPlayer2OtherTeam.setText(this.card2SlotPlayerInTurn.getText());
-        this.card3SlotPlayer2OtherTeam.setText(this.card3SlotPlayerInTurn.getText());
+        this.firstPlayerID.setText("Jugador " + otherTeam.get(0).getIdNumber());
+        try {
+            this.card1SlotPlayer1OtherTeam.setText( otherTeam.get(0).getSlot().getFirstOne().getNumber().toString() + " de " + otherTeam.get(0).getSlot().getFirstOne().getSuit());
+        } catch (NotCardThrownException e) {
+            this.card1SlotPlayer1OtherTeam.setText(" ");
+        }
 
+        try {
+            this.card2SlotPlayer1OtherTeam.setText( otherTeam.get(0).getSlot().getSecondOne().getNumber().toString() + " de " + otherTeam.get(0).getSlot().getSecondOne().getSuit());
+        } catch (NotCardThrownException e) {
+            this.card2SlotPlayer1OtherTeam.setText(" ");
+        }
+
+        try {
+            this.card3SlotPlayer1OtherTeam.setText( otherTeam.get(0).getSlot().getThirdOne().getNumber().toString() + " de " + otherTeam.get(0).getSlot().getThirdOne().getSuit());
+        } catch (NotCardThrownException e) {
+            this.card3SlotPlayer1OtherTeam.setText(" ");
+        }
+
+        this.thirdPlayerID.setText("Jugador " + otherTeam.get(1).getIdNumber());
+        try {
+            this.card1SlotPlayer2OtherTeam.setText( otherTeam.get(1).getSlot().getFirstOne().getNumber().toString() + " de " + otherTeam.get(1).getSlot().getFirstOne().getSuit());
+        } catch (NotCardThrownException e) {
+            this.card1SlotPlayer2OtherTeam.setText(" ");
+        }
+
+        try {
+            this.card2SlotPlayer2OtherTeam.setText( otherTeam.get(1).getSlot().getSecondOne().getNumber().toString() + " de " + otherTeam.get(1).getSlot().getSecondOne().getSuit());
+        } catch (NotCardThrownException e) {
+            this.card2SlotPlayer2OtherTeam.setText(" ");
+        }
+
+        try {
+            this.card3SlotPlayer2OtherTeam.setText( otherTeam.get(1).getSlot().getThirdOne().getNumber().toString() + " de " + otherTeam.get(1).getSlot().getThirdOne().getSuit());
+        } catch (NotCardThrownException e) {
+            this.card3SlotPlayer2OtherTeam.setText(" ");
+        }
     }
 
     public void initializeScores() {
@@ -423,26 +435,6 @@ public class FourPlayersGame extends JFrame {
         this.card1HandPlayerInTurn.setText(" ");
         this.card2HandPlayerInTurn.setText(" ");
         this.card3HandPlayerInTurn.setText(" ");
-
-    }
-
-    public void initializePlayersData() {
-
-        this.firstPlayerID.setText("Jugador 2");
-        this.secondPlayerID.setText("Jugador 3");
-        this.thirdPlayerID.setText("Jugador 4");
-
-        this.card1SlotPlayerSameTeam.setText(" ");
-        this.card2SlotPlayerSameTeam.setText(" ");
-        this.card3SlotPlayerSameTeam.setText(" ");
-
-        this.card1SlotPlayer1OtherTeam.setText(" ");
-        this.card2SlotPlayer1OtherTeam.setText(" ");
-        this.card3SlotPlayer1OtherTeam.setText(" ");
-
-        this.card1SlotPlayer2OtherTeam.setText(" ");
-        this.card2SlotPlayer2OtherTeam.setText(" ");
-        this.card3SlotPlayer2OtherTeam.setText(" ");
 
     }
 }
