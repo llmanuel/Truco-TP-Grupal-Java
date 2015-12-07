@@ -100,7 +100,7 @@ public class GameWithFlorTest {
 
         player1.callFlor();
 
-        Assert.assertTrue( scoreboard.getPointsOf( player2 ) == 0 );
+        Assert.assertEquals( 0 , scoreboard.getPointsOf( player2 ));
         Assert.assertEquals( 3 ,scoreboard.getPointsOf( player1 ));
     }
 
@@ -159,19 +159,19 @@ public class GameWithFlorTest {
         player1.callEnvido();
         player2.callEnvido();
 
-        player2.callEnvido();
-        player1.callEnvido();
-
         player1.callEnvido();
         player2.callEnvido();
 
-        player2.callEnvido();
         player1.callEnvido();
+        player2.callEnvido();
 
-        player2.callFlor();
+        player1.callEnvido();
+        player2.callEnvido();
 
-        Assert.assertEquals( 3 , scoreboard.getPointsOf( player2 ) );
-        Assert.assertEquals( 0 , scoreboard.getPointsOf( player1 ));
+        player1.callFlor();
+
+        Assert.assertEquals( 0 , scoreboard.getPointsOf( player2 ) );
+        Assert.assertEquals( 3 , scoreboard.getPointsOf( player1 ));
     }
 
     @Test
@@ -189,14 +189,17 @@ public class GameWithFlorTest {
     }
 
     @Test
-    public void playerCanCallFlorWhenFaltaEnvidoWasCall() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
+    public void playerCanCallFlorWhenFaltaEnvidoWasCall() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
         this.table.setGame();
 
         player1.setHand( hand1 );
         player2.setHand( hand2 );
 
         player1.callFaltaEnvido();
-        player1.callFlor();
+        player2.callFlor();
+
+        Assert.assertEquals( 3 , scoreboard.getPointsOf( player2 ) );
+        Assert.assertEquals( 0 , scoreboard.getPointsOf( player1 ));
     }
 
     @Test (expected = NotYourTurnException.class)
