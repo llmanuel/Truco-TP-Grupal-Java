@@ -57,7 +57,6 @@ public class NormalRound implements Games {
 
     @Override
     public void callFlor() {
-        this.theTable.raiseBet( new Flor(theTable));
     }
 
     @Override

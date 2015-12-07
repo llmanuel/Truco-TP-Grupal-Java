@@ -213,4 +213,16 @@ public class GameWithFlorTest {
         player1.callFlor();
     }
 
+    @Test (expected = InvalidGameCallException.class)
+    public void playerCantCallFlorMoreThanOnce() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException {
+        this.table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.callFaltaEnvido();
+        player2.callFlor();
+        player2.callFlor();
+    }
+
 }
