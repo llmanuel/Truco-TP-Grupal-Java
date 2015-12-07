@@ -1,6 +1,7 @@
 package model;
 
 import model.Exceptions.*;
+import model.TableStates.Flor;
 import model.TableStates.Games;
 import model.TableStates.NormalRound;
 
@@ -118,8 +119,7 @@ public class Table {
     }
 
     public void callFlor() throws TeamDoesntExistException, InvalidGameCallException {
-        this.gameState.callFlor();
-        this.scoreboard.increaseTheScoreOf(this.getActualPlayer(),this.gameState);
+        this.scoreboard.increaseTheScoreOf(this.getActualPlayer(), new Flor(this));
         this.gameState.nextRound();
     }
 
