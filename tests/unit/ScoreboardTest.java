@@ -76,6 +76,7 @@ public class ScoreboardTest {
         scoreboard.increaseTheScoreOf( players.getFirst(),  truco );
 
         Assert.assertEquals( 2, scoreboard.getPointsOf( players.getFirst()) , 0.001 );
+        Assert.assertEquals( 0, scoreboard.getPointsOf( players.getLast() ), 0.001 );
 
     }
 
