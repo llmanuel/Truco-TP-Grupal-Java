@@ -437,6 +437,15 @@ public class FourPlayersGame extends JFrame {
     }
 
     public void drawScores(Scoreboard scoreboard, LinkedList<Team> teams) {
+
+        try {
+
+            this.firstTeamScore.setText(String.valueOf(scoreboard.getPointsOf(teams.getFirst())));
+            this.secondTeamScore.setText(String.valueOf(scoreboard.getPointsOf(teams.getLast())));
+
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        }
     }
 }
 
