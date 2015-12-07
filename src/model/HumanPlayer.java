@@ -105,7 +105,6 @@ public class HumanPlayer implements Player {
         }
         else throw new NotYourTurnException();
 
-
     }
 
     @Override
