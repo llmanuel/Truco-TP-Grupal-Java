@@ -151,7 +151,7 @@ public class TwoPlayersGame extends JFrame {
         try {
             cardPicture = ImageIO.read(new File(imagePath));
         } catch (IOException e) {
-            this.showMessage( "No se pudo leer archivo de imagen" );
+            this.showMessage( "No se pudo leer archivo de imagen " + imagePath );
         }
 
         return cardPicture;
@@ -371,7 +371,7 @@ public class TwoPlayersGame extends JFrame {
             firstPlayerScore.setText(String.valueOf(scoreboard.getPointsOf(players.getFirst())));
             secondPlayerScore.setText(String.valueOf(scoreboard.getPointsOf(players.getLast())));
         } catch (TeamDoesntExistException e) {
-
+            e.printStackTrace();
         }
     }
 }
