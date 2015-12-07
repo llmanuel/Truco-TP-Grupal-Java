@@ -92,7 +92,7 @@ public class NormalRoundTest {
 
 
     @Test
-    public void normalRoundTest() throws DonTHaveThatCardException, NotYourTurnException, TeamDoesntExistException, NotCardThrownException {
+    public void normalRoundTest() throws DonTHaveThatCardException, NotYourTurnException, TeamDoesntExistException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException {
         this.table.setGame();
 
         player1.setHand( hand1 );
