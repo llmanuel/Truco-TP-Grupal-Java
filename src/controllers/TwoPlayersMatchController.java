@@ -9,7 +9,8 @@ import view.TwoPlayersGame;
 import java.util.LinkedList;
 
 public class TwoPlayersMatchController  {
-    private final LinkedList<Player> players;
+    private final Player player1;
+    private final Player player2;
     private Table table;
     private TwoPlayersGame gameView;
     private Builder builder;
@@ -18,14 +19,18 @@ public class TwoPlayersMatchController  {
         gameView = newGameView;
         builder = new Builder(2);
         this.table = builder.getTable();
-        this.players = builder.getPlayers();
+        this.player1 = builder.getPlayers().getFirst();
+        this.player2 = builder.getPlayers().getLast();
         this.drawRound();
     }
 
 
     public void drawScores() {
+        LinkedList<Player> players = new LinkedList<Player>( );
+        players.addFirst( this.player1 );
+        players.addLast( this.player2 );
 
-        this.gameView.drawScores(table.getScoreboard(), this.players);
+        this.gameView.drawScores(table.getScoreboard(), players);
     }
 
 
