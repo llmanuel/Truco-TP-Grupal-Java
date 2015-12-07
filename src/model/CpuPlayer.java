@@ -54,16 +54,6 @@ public class CpuPlayer implements Player {
     }
 
     @Override
-    public void itsYourTurn() {
-        this.isMyTurn = true;
-    }
-
-    @Override
-    public void turnFinished() {
-        this.isMyTurn = false;
-    }
-
-    @Override
     public void callEnvido() {
         try {
             this.table.callEnvido();
