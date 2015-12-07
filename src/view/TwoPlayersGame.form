@@ -13,25 +13,40 @@
     <children>
       <component id="343d8" class="javax.swing.JLabel" binding="firstCardPlayedByOtherPlayer">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="105" height="160"/>
+            <preferred-size width="105" height="160"/>
+            <maximum-size width="105" height="160"/>
+          </grid>
         </constraints>
         <properties>
+          <enabled value="true"/>
           <text value=" "/>
         </properties>
       </component>
       <component id="dbbb3" class="javax.swing.JLabel" binding="secondCardPlayedByOtherPlayer">
         <constraints>
-          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="1" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="105" height="160"/>
+            <preferred-size width="105" height="160"/>
+            <maximum-size width="105" height="160"/>
+          </grid>
         </constraints>
         <properties>
+          <enabled value="true"/>
           <text value=" "/>
         </properties>
       </component>
       <component id="2e0a4" class="javax.swing.JLabel" binding="thirdCardPlayedByOtherPlayer">
         <constraints>
-          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="2" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="105" height="160"/>
+            <preferred-size width="105" height="160"/>
+            <maximum-size width="105" height="160"/>
+          </grid>
         </constraints>
         <properties>
+          <enabled value="true"/>
           <text value=" "/>
         </properties>
       </component>
@@ -142,25 +157,40 @@
       </component>
       <component id="12e8a" class="javax.swing.JLabel" binding="card1SlotPlayerInTurn">
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="105" height="160"/>
+            <preferred-size width="105" height="160"/>
+            <maximum-size width="105" height="160"/>
+          </grid>
         </constraints>
         <properties>
+          <enabled value="true"/>
           <text value=" "/>
         </properties>
       </component>
       <component id="5a82" class="javax.swing.JLabel" binding="card2SlotPlayerInTurn">
         <constraints>
-          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="1" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="105" height="160"/>
+            <preferred-size width="105" height="160"/>
+            <maximum-size width="105" height="160"/>
+          </grid>
         </constraints>
         <properties>
+          <enabled value="true"/>
           <text value=" "/>
         </properties>
       </component>
       <component id="2f607" class="javax.swing.JLabel" binding="card3SlotPlayerInTurn">
         <constraints>
-          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="2" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="105" height="160"/>
+            <preferred-size width="105" height="160"/>
+            <maximum-size width="105" height="160"/>
+          </grid>
         </constraints>
         <properties>
+          <enabled value="true"/>
           <text value=" "/>
         </properties>
       </component>
@@ -226,25 +256,40 @@
       </component>
       <component id="ca9c5" class="javax.swing.JLabel" binding="card1PlayerInTurn">
         <constraints>
-          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="105" height="160"/>
+            <preferred-size width="105" height="160"/>
+            <maximum-size width="105" height="160"/>
+          </grid>
         </constraints>
         <properties>
+          <enabled value="true"/>
           <text value=" "/>
         </properties>
       </component>
       <component id="3bb0e" class="javax.swing.JLabel" binding="card2PlayerInTurn">
         <constraints>
-          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="1" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="105" height="160"/>
+            <preferred-size width="105" height="160"/>
+            <maximum-size width="105" height="160"/>
+          </grid>
         </constraints>
         <properties>
+          <enabled value="true"/>
           <text value=" "/>
         </properties>
       </component>
       <component id="7593" class="javax.swing.JLabel" binding="card3PlayerInTurn">
         <constraints>
-          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="2" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="105" height="160"/>
+            <preferred-size width="105" height="160"/>
+            <maximum-size width="105" height="160"/>
+          </grid>
         </constraints>
         <properties>
+          <enabled value="true"/>
           <text value=" "/>
         </properties>
       </component>
