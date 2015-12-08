@@ -1,10 +1,12 @@
 package model;
 
-import model.Exceptions.*;
+import model.Exceptions.InvalidGameCallException;
+import model.Exceptions.InvalidNumberOfPlayersException;
+import model.Exceptions.NotCardThrownException;
+import model.Exceptions.TeamDoesntExistException;
 import model.TableStates.Flor;
 import model.TableStates.Games;
 import model.TableStates.NormalRound;
-import model.TableStates.ReTruco;
 
 import java.util.LinkedList;
 
@@ -326,5 +328,7 @@ public class Table {
     public LinkedList<Player> getPlayers() {
         return playersInGame;
     }
+
+    public LinkedList<Player> getPlayersInGame(){ return this.playersInGame; }
 
 }
