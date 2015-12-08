@@ -112,82 +112,83 @@ public class CpuPlayer implements Player {
     }
 
     @Override
-    public void callEnvido() {
-        try {
+    public void callEnvido() throws InvalidGameCallException, NotYourTurnException {
+        if(this.table.tellMeIfItsMyTurn(this)) {
             this.table.callEnvido();
-        } catch (InvalidGameCallException e) {
-
         }
+        else throw new NotYourTurnException();
+
     }
 
+
     @Override
-    public void callRealEnvido() {
-        try {
+    public void callRealEnvido() throws InvalidGameCallException, NotYourTurnException {
+        if(this.table.tellMeIfItsMyTurn(this)) {
             this.table.callRealEnvido();
-        } catch (InvalidGameCallException e) {
-
         }
+        else throw new NotYourTurnException();
 
     }
 
     @Override
-    public void callFaltaEnvido() {
-        try {
+    public void callFaltaEnvido() throws NotYourTurnException, InvalidGameCallException {
+        if(this.table.tellMeIfItsMyTurn(this)) {
             this.table.callFaltaEnvido();
-        } catch (InvalidGameCallException e) {
-
         }
+        else throw new NotYourTurnException();
 
     }
 
     @Override
-    public void callTruco() {
-        try {
+    public void callTruco() throws InvalidGameCallException, NotYourTurnException {
+        if(this.table.tellMeIfItsMyTurn(this)){
             this.table.callTruco();
-        } catch (InvalidGameCallException e) {
-
         }
-
+        else throw new NotYourTurnException();
     }
 
     @Override
-    public void callReTruco() {
-        try {
+    public void callReTruco() throws NotYourTurnException, InvalidGameCallException {
+        if(this.table.tellMeIfItsMyTurn(this)){
             this.table.callReTruco();
-        } catch (InvalidGameCallException e) {
-
         }
+        else throw new NotYourTurnException();
 
     }
 
     @Override
-    public void callVale4() {
-        try {
+    public void callVale4() throws InvalidGameCallException, NotYourTurnException {
+        if(this.table.tellMeIfItsMyTurn(this)) {
             this.table.callVale4();
-        } catch (InvalidGameCallException e) {
-
         }
+        else throw new NotYourTurnException();
 
     }
 
     @Override
-    public void giveUp() {
-        this.table.giveUpGame();
+    public void giveUp() throws NotYourTurnException {
+        if(this.table.tellMeIfItsMyTurn(this)) {
+            this.table.giveUpGame();
+        }
+        else throw new NotYourTurnException();
 
     }
 
     @Override
-    public void callFlor() {
+    public void callFlor() throws TeamDoesntExistException, InvalidGameCallException, NotYourTurnException {
 
+        if(this.table.tellMeIfItsMyTurn(this) && (this.hand.isFlor())) {
+            this.table.callFlor();
+        }
+        else throw new NotYourTurnException();
     }
 
     @Override
-    public void acceptCall() {
-        try {
+    public void acceptCall() throws TeamDoesntExistException, NotYourTurnException {
+        if(this.table.tellMeIfItsMyTurn(this)) {
             this.table.acceptCall();
-        } catch (TeamDoesntExistException e) {
-
         }
+        else throw new NotYourTurnException();
 
     }
 
