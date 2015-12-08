@@ -1,5 +1,6 @@
-import model.*;
-import model.Exceptions.*;
+import model.Card;
+import model.CpuPlayer;
+import model.Hand;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -109,28 +110,28 @@ public class CpuPlayerTest {
         Assert.assertTrue(cards.get(2).getValue() == 12 );
     }
 
-    @Test
-    public void canSearchTheHigherCardPlayedInTheRound() throws InvalidNumberOfPlayersException, NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException {
-        HumanPlayer firstPlayer = new HumanPlayer(1);
-        CpuPlayer secondPlayer = new CpuPlayer(2);
-
-        firstPlayer.setHand(hand1);
-        secondPlayer.setHand(hand2);
-
-        LinkedList<Player> TwoPlayers = new LinkedList<Player>();
-        TwoPlayers.addLast(firstPlayer);
-        TwoPlayers.addLast(secondPlayer);
-
-        Table table = new Table();
-        table.letSitThese(TwoPlayers);
-        table.setGame();
-        table.setRoundBeginner(firstPlayer);
-
-        firstPlayer.playCard(card3);
-
-        secondPlayer.setTable(table);
-
-        Assert.assertTrue(secondPlayer.searchHigherCardInTheRound() == 12);
-
-    }
+//    @Test
+//    public void canSearchTheHigherCardPlayedInTheRound() throws InvalidNumberOfPlayersException, NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException {
+//        HumanPlayer firstPlayer = new HumanPlayer(1);
+//        CpuPlayer secondPlayer = new CpuPlayer(2);
+//
+//        firstPlayer.setHand(hand1);
+//        secondPlayer.setHand(hand2);
+//
+//        LinkedList<Player> TwoPlayers = new LinkedList<Player>();
+//        TwoPlayers.addLast(firstPlayer);
+//        TwoPlayers.addLast(secondPlayer);
+//
+//        Table table = new Table();
+//        table.letSitThese(TwoPlayers);
+//        table.setGame();
+//        table.setRoundBeginner(firstPlayer);
+//
+//        firstPlayer.playCard(card3);
+//
+//        secondPlayer.setTable(table);
+//
+//        Assert.assertTrue(secondPlayer.searchHigherCardInTheRound() == 12);
+//
+//    }
 }
