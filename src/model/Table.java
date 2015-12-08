@@ -329,6 +329,19 @@ public class Table {
         return playersInGame;
     }
 
-    public LinkedList<Player> getPlayersInGame(){ return this.playersInGame; }
+    public LinkedList<Slot> getSlotsOfHumanPlayers(){
+
+        LinkedList<Slot> slotsInGame = new LinkedList<>();
+
+        for (Player actualPlayer :this.playersInGame){
+
+            if (actualPlayer instanceof HumanPlayer) {
+
+                slotsInGame.add(actualPlayer.getSlot());
+            }
+        }
+
+        return slotsInGame;
+    }
 
 }
