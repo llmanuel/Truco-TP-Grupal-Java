@@ -38,11 +38,11 @@ public class CpuPlayer implements Player {
 
         if ((this.table.tellMeIfItsMyTurn(this)) && (this.table.tellMeIfCallWasAccepted())) {
 
-            this.slot.receiveCard(this.hand.getCard(cardToPlay));
+            this.slot.receiveCard(this.chooseCardToPlay());
         } else throw new NotYourTurnException();
     }
 
-    private int searchHigherCardInTheRound() throws NotCardThrownException {
+    public int searchHigherCardInTheRound() throws NotCardThrownException {
         int maxValue = 0;
         for (Slot actualSlot : this.table.getSlotsOfHumanPlayers()) {
 
@@ -54,6 +54,11 @@ public class CpuPlayer implements Player {
         return  maxValue;
     }
 
+    /***************************************************************************************************
+     * Method that give to CpuPlayer the possibility of choose what card play in a round.              *
+     * It will play the card with the lesser value in it's hand that can win to the other card played. *
+     * If it can't play a card like that it will play the card with lesser value in it's hand.         *
+     ***************************************************************************************************/
     public Card chooseCardToPlay() throws NotCardThrownException {
 
         int higherCardInRound = searchHigherCardInTheRound();
