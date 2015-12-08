@@ -111,7 +111,7 @@ public class FourPlayersController {
 
         cursor = table.getActualPlayer();
         LinkedList<Player> nextPlayers = new LinkedList<Player>();
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < (this.table.getPlayers().size() - 1); i++){
 
             this.getTheNextOne();
             nextPlayers.add(cursor);
