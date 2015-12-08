@@ -35,7 +35,14 @@ public class CpuPlayer implements Player {
 
     @Override
     public void playCard(Card cardToPlay) throws DonTHaveThatCardException {
-        this.slot.receiveCard( this.hand.getCard( cardToPlay ) );
+
+        if ((this.table.tellMeIfItsMyTurn(this)) && (this.table.tellMeIfCallWasAccepted())){
+            for (Slot actualSlot :this.table.getSlotsOfHumanPlayers()){
+
+
+            }
+            this.slot.receiveCard( this.hand.getCard( cardToPlay ) );
+        }
     }
 
     @Override
@@ -137,4 +144,5 @@ public class CpuPlayer implements Player {
     public void setHand(Hand newHand) {
         this.hand = newHand;
     }
+
 }
