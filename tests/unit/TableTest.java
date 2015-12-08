@@ -178,6 +178,17 @@ public class TableTest {
         Assert.assertTrue(slots.size() == 1);
 
     }
+
+    @Test
+    public void secondTestToCheckTheSlotsOfHumanPlayer() throws InvalidNumberOfPlayersException {
+
+        table = new Table();
+        table.letSitThese( FourPlayers );
+
+        LinkedList<Slot> slots = table.getSlotsOfHumanPlayers();
+
+        Assert.assertTrue(slots.size() == 4);
+    }
 //    @Test
 //    public void aTableCanReceiveACardOnlyFromAPlayer() throws InvalidNumberOfPlayersException, InvalidSuiteException, InvalidCardNumberException {
 //        table = new Table();
