@@ -163,7 +163,7 @@ public class TableTest {
     }
 
     @Test
-    public void tableGiveTheSolosOfHumanPlayers() throws InvalidNumberOfPlayersException {
+    public void tableGiveTheSlotsOfHumanPlayers() throws InvalidNumberOfPlayersException {
 
         LinkedList<Player> players = new LinkedList<>();
         CpuPlayer cpu = new CpuPlayer(1);
