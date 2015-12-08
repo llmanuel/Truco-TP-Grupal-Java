@@ -161,6 +161,23 @@ public class TableTest {
         Assert.assertEquals(2,table.nextPlayer().getIdNumber());
         Assert.assertEquals(3,table.nextPlayer().getIdNumber());
     }
+
+    @Test
+    public void tableGiveTheSolosOfHumanPlayers() throws InvalidNumberOfPlayersException {
+
+        LinkedList<Player> players = new LinkedList<>();
+        CpuPlayer cpu = new CpuPlayer(1);
+        HumanPlayer human = new HumanPlayer(2);
+        players.add(cpu);
+        players.add(human);
+        table = new Table();
+        table.letSitThese( players );
+
+        LinkedList<Slot> slots = table.getSlotsOfHumanPlayers();
+
+        Assert.assertTrue(slots.size() == 1);
+
+    }
 //    @Test
 //    public void aTableCanReceiveACardOnlyFromAPlayer() throws InvalidNumberOfPlayersException, InvalidSuiteException, InvalidCardNumberException {
 //        table = new Table();
