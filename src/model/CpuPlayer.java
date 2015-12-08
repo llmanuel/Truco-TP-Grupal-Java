@@ -1,8 +1,8 @@
 package model;
 
-import model.Exceptions.DonTHaveThatCardException;
-import model.Exceptions.InvalidGameCallException;
-import model.Exceptions.TeamDoesntExistException;
+import model.Exceptions.*;
+
+import java.util.LinkedList;
 
 public class CpuPlayer implements Player {
 
@@ -34,16 +34,62 @@ public class CpuPlayer implements Player {
     }
 
     @Override
-    public void playCard(Card cardToPlay) throws DonTHaveThatCardException {
+    public void playCard(Card cardToPlay) throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException {
 
-        if ((this.table.tellMeIfItsMyTurn(this)) && (this.table.tellMeIfCallWasAccepted())){
-            for (Slot actualSlot :this.table.getSlotsOfHumanPlayers()){
+        if ((this.table.tellMeIfItsMyTurn(this)) && (this.table.tellMeIfCallWasAccepted())) {
 
-
-            }
-            this.slot.receiveCard( this.hand.getCard( cardToPlay ) );
-        }
+            this.slot.receiveCard(this.hand.getCard(cardToPlay));
+        } else throw new NotYourTurnException();
     }
+
+    private int searchHigherCardInTheRound() throws NotCardThrownException {
+        int maxValue = 0;
+        for (Slot actualSlot : this.table.getSlotsOfHumanPlayers()) {
+
+            if (actualSlot.getLastOne().getValue() > maxValue) {
+
+                maxValue = actualSlot.getLastOne().getValue();
+            }
+        }
+        return  maxValue;
+    }
+
+    public Card chooseCardToPlay() throws NotCardThrownException {
+
+        int higherCardInRound = searchHigherCardInTheRound();
+        LinkedList<Card> ordererCards = this.orderMyHandLowToHigh();
+        for (Card myCard :ordererCards) {
+
+            if (myCard.getValue() > higherCardInRound){
+
+                Card  cardToPlay = myCard;
+                return cardToPlay;
+            }
+
+        }
+        return (ordererCards.get(0));
+    }
+
+    public LinkedList<Card> orderMyHandLowToHigh(){
+
+        LinkedList<Card> cards = this.hand.getCards();
+        for (int i = 1 ; i < cards.size(); i++) {
+
+            for (int j = 0; j < cards.size() - 1; j++) {
+
+                if (cards.get(j).getValue() > cards.get(j + 1).getValue()) {
+
+                    Card lowCard = cards.remove(j+1);
+                    Card highCard = cards.remove(j);
+                    cards.add(j, lowCard );
+                    cards.add(j + 1, highCard);
+                }
+            }
+        }
+        return  cards;
+    }
+
+
 
     @Override
     public Hand getHand() {
