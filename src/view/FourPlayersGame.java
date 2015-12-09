@@ -204,6 +204,7 @@ public class FourPlayersGame extends JFrame {
 
     private void meVoyAlMazoButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.giveUpGame();
         } catch (NotYourTurnException e) {
             e.printStackTrace();
@@ -216,6 +217,7 @@ public class FourPlayersGame extends JFrame {
 
     private void noQuieroButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.giveUpGame();
         } catch (NotYourTurnException e) {
             e.printStackTrace();
@@ -228,6 +230,7 @@ public class FourPlayersGame extends JFrame {
 
     private void quieroButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.acceptCall();
         } catch (NotCardThrownException e) {
             e.printStackTrace();
@@ -242,6 +245,7 @@ public class FourPlayersGame extends JFrame {
 
     private void florButtonClicked() throws NotYourTurnException, TeamDoesntExistException{
         try {
+            this.showMassageNextPlayer();
             this.controller.callFlor();
         } catch (InvalidGameCallException e) {
             e.printStackTrace();
@@ -250,6 +254,7 @@ public class FourPlayersGame extends JFrame {
 
     private void vale4ButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.callVale4();
         } catch (NotYourTurnException e) {
             e.printStackTrace();
@@ -264,6 +269,7 @@ public class FourPlayersGame extends JFrame {
 
     private void retrucoButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.callReTruco();
         } catch (NotYourTurnException e) {
             e.printStackTrace();
@@ -278,6 +284,7 @@ public class FourPlayersGame extends JFrame {
 
     private void trucoButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.callTruco();
         } catch (NotYourTurnException e) {
             e.printStackTrace();
@@ -292,6 +299,7 @@ public class FourPlayersGame extends JFrame {
 
     private void faltaEnvidoButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.callFaltaEnvido();
         } catch (NotYourTurnException e) {
             e.printStackTrace();
@@ -306,6 +314,7 @@ public class FourPlayersGame extends JFrame {
 
     private void realEnvidoButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.callRealEnvido();
         } catch (NotYourTurnException e) {
             e.printStackTrace();
@@ -320,6 +329,7 @@ public class FourPlayersGame extends JFrame {
 
     private void envidoButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.callEnvido();
         } catch (NotYourTurnException e) {
             e.printStackTrace();
