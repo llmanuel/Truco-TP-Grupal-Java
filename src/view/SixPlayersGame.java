@@ -115,13 +115,7 @@ public class SixPlayersGame extends JFrame{
         florButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                try {
-                    florButtonClicked();
-                } catch (NotYourTurnException e) {
-                    e.printStackTrace();
-                } catch (TeamDoesntExistException e) {
-                    e.printStackTrace();
-                }
+                florButtonClicked();
             }
         });
         quieroButton.addMouseListener(new MouseAdapter() {
@@ -199,10 +193,8 @@ public class SixPlayersGame extends JFrame{
             this.showMassageNextPlayer();
             this.controller.giveUpGame();
         } catch (NotYourTurnException e) {
-            e.printStackTrace();
-        } catch (NotCardThrownException e) {
-            e.printStackTrace();
-        } catch (TeamDoesntExistException e) {
+            this.showMessage( "No es tu turno para jugar" );
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -212,9 +204,9 @@ public class SixPlayersGame extends JFrame{
             this.showMassageNextPlayer();
             this.controller.giveUpGame();
         } catch (NotYourTurnException e) {
-            e.printStackTrace();
+            this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
-            e.printStackTrace();
+            this.showMessage( "No se ha tirado carta alguna" );
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
         }
@@ -225,21 +217,25 @@ public class SixPlayersGame extends JFrame{
             this.showMassageNextPlayer();
             this.controller.acceptCall();
         } catch (NotCardThrownException e) {
-            e.printStackTrace();
+            this.showMessage( "No se ha tirado carta alguna" );
         } catch (NotYourTurnException e) {
-            e.printStackTrace();
+            this.showMessage( "No es tu turno para jugar" );
         } catch (TeamDoesntExistException e) {
-            e.printStackTrace();
+
         } catch (InvalidGameCallException e) {
             e.printStackTrace();
         }
     }
 
-    private void florButtonClicked() throws NotYourTurnException, TeamDoesntExistException{
+    private void florButtonClicked() {
         try {
             this.showMassageNextPlayer();
             this.controller.callFlor();
+        } catch (NotYourTurnException e) {
+            this.showMessage( "No es tu turno para jugar" );
         } catch (InvalidGameCallException e) {
+            e.printStackTrace();
+        } catch (TeamDoesntExistException e) {
             e.printStackTrace();
         }
     }
@@ -249,13 +245,13 @@ public class SixPlayersGame extends JFrame{
             this.showMassageNextPlayer();
             this.controller.callVale4();
         } catch (NotYourTurnException e) {
-            e.printStackTrace();
+            this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
-            e.printStackTrace();
+            this.showMessage( "No se ha tirado carta alguna" );
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
         } catch (InvalidGameCallException e) {
-            e.printStackTrace();
+            this.showMessage( "No podes jugar Vale 4 en este momento" );
         }
     }
 
@@ -264,13 +260,13 @@ public class SixPlayersGame extends JFrame{
             this.showMassageNextPlayer();
             this.controller.callReTruco();
         } catch (NotYourTurnException e) {
-            e.printStackTrace();
+            this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
-            e.printStackTrace();
+            this.showMessage( "No se ha tirado carta alguna" );
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
         } catch (InvalidGameCallException e) {
-            e.printStackTrace();
+            this.showMessage( "No podes jugar Retruco en este momento" );
         }
     }
 
@@ -279,13 +275,13 @@ public class SixPlayersGame extends JFrame{
             this.showMassageNextPlayer();
             this.controller.callTruco();
         } catch (NotYourTurnException e) {
-            e.printStackTrace();
+            this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
             e.printStackTrace();
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
         } catch (InvalidGameCallException e) {
-            e.printStackTrace();
+            this.showMessage( "No podes jugar Truco en este momento" );
         }
     }
 
@@ -294,13 +290,13 @@ public class SixPlayersGame extends JFrame{
             this.showMassageNextPlayer();
             this.controller.callFaltaEnvido();
         } catch (NotYourTurnException e) {
-            e.printStackTrace();
+            this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
             e.printStackTrace();
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
         } catch (InvalidGameCallException e) {
-            e.printStackTrace();
+            this.showMessage( "No podes jugar Falta Envido en este momento" );
         }
     }
 
@@ -309,13 +305,13 @@ public class SixPlayersGame extends JFrame{
             this.showMassageNextPlayer();
             this.controller.callRealEnvido();
         } catch (NotYourTurnException e) {
-            e.printStackTrace();
+            this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
             e.printStackTrace();
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
         } catch (InvalidGameCallException e) {
-            e.printStackTrace();
+            this.showMessage( "No podes jugar Real Envido en este momento" );
         }
     }
 
@@ -323,13 +319,13 @@ public class SixPlayersGame extends JFrame{
         try {
             this.showMassageNextPlayer();
             this.controller.callEnvido();
+        } catch (InvalidGameCallException e) {
+            this.showMessage( "No podes jugar Envido en este momento" );
         } catch (NotYourTurnException e) {
-            e.printStackTrace();
+            this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
             e.printStackTrace();
         } catch (TeamDoesntExistException e) {
-            e.printStackTrace();
-        } catch (InvalidGameCallException e) {
             e.printStackTrace();
         }
     }
