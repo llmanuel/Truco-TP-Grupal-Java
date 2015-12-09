@@ -145,7 +145,7 @@ public class TwoPlayersGame extends JFrame {
     }
 
     private BufferedImage getCardImage(Card actualCard){
-        String imagePath = "resources/images/cards/" + actualCard.getSuit() + "/" + actualCard.getNumber() + ".png";
+        String imagePath = "resources/images/cards/105x160/" + actualCard.getSuit() + "/" + actualCard.getNumber() + ".png";
         BufferedImage cardPicture = null;
 
         try {
