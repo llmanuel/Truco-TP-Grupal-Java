@@ -70,18 +70,29 @@ public class CpuPlayerTest {
     }
 
     @Test
-    public void canPlayACard() throws DonTHaveThatCardException, NotCardThrownException, NotYourTurnException {
-        CpuPlayer cpuplayer = new CpuPlayer( 1 );
+    public void canPlayACard() throws DonTHaveThatCardException, NotCardThrownException, NotYourTurnException, InvalidNumberOfPlayersException, TeamDoesntExistException {
+        Table table = new Table();
 
-        cpuplayer.setHand( hand1 );
+        HumanPlayer firstPlayer = new HumanPlayer(1);
+        CpuPlayer secondPlayer = new CpuPlayer(2);
 
-        Slot slot = new Slot( cpuplayer );
+        secondPlayer.setTable(table);
+        firstPlayer.setTable(table);
 
-        cpuplayer.setSlot( slot );
+        LinkedList<Player> players = new LinkedList<Player>();
+        players.addLast(secondPlayer);
+        players.addLast(firstPlayer);
 
-        cpuplayer.playCard( card1 );
+        table.letSitThese(players);
 
-        Assert.assertTrue( slot.getLastOne() == card1 );
+        table.setGame();
+
+        firstPlayer.setHand(hand1);
+        secondPlayer.setHand(hand2);
+
+        secondPlayer.playCardAutomatically();
+
+        Assert.assertTrue( secondPlayer.getSlot().getLastOne() == card5 );
 
     }
 
