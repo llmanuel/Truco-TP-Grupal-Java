@@ -4,6 +4,7 @@ package integration;
 import model.*;
 import model.Exceptions.InvalidNumberOfPlayersException;
 import org.junit.Before;
+import org.junit.Test;
 
 import java.util.LinkedList;
 
@@ -42,6 +43,7 @@ public class GameWithSixPlayersTest {
     private Hand hand5;
     private Hand hand6;
     private Scoreboard scoreboard;
+    private Player player1, player2, player3, player4, player5, player6;
 
     @Before
     public void setup() throws InvalidNumberOfPlayersException {
@@ -117,13 +119,32 @@ public class GameWithSixPlayersTest {
         players = builder.getPlayers();
 
         players.get(0).setHand(hand1);
+        player1 = players.get(0);
+
         players.get(1).setHand(hand2);
+        player2 = players.get(1);
+
         players.get(2).setHand(hand3);
+        player3 = players.get(2);
+
         players.get(3).setHand(hand4);
+        player4 = players.get(3);
+
         players.get(4).setHand(hand5);
+        player5 = players.get(4);
+
         players.get(5).setHand(hand6);
+        player6 = players.get(5);
 
         scoreboard = table.getScoreboard();
+
+    }
+
+    @Test
+    public void roundGoesNormal(){
+
+
+
 
     }
 }
