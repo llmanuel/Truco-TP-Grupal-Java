@@ -16,4 +16,8 @@ public class SixPlayersGame extends JFrame{
     private JLabel card1HandPlayerInTurn;
     private JLabel card2HandPlayerInTurn;
     private JLabel card3HandPlayerInTurn;
+    private JLabel team2ID;
+    private JLabel team1ID;
+    private JLabel team2Score;
+    private JLabel team1Score;
 }
