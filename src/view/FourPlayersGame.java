@@ -49,7 +49,7 @@ public class FourPlayersGame extends JFrame {
     private JLabel firstPlayerID;
     private JLabel secondPlayerID;
     private FourPlayersController controller;
-    private JDialog nextPlayer;
+
 
     public FourPlayersGame() throws NotCardThrownException {
         super("Truco");
@@ -159,7 +159,7 @@ public class FourPlayersGame extends JFrame {
 
     public void showMassageNextPlayer() {
 
-        JOptionPane.showMessageDialog(nextPlayer,"Turno del proximo jugador.","",JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null,"Turno del proximo jugador.","",JOptionPane.WARNING_MESSAGE);
     }
 
     private BufferedImage getCardImage(Card actualCard){
