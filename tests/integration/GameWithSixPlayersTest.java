@@ -34,6 +34,9 @@ public class GameWithSixPlayersTest {
     private Card card17;
     private Card card18;
     private LinkedList<Card> hand3Cards;
+    private LinkedList<Card> hand4Cards;
+    private LinkedList<Card> hand5Cards;
+    private LinkedList<Card> hand6Cards;
 
     @Before
     public void setup() throws InvalidNumberOfPlayersException {
@@ -76,6 +79,22 @@ public class GameWithSixPlayersTest {
         hand3Cards.add(card7);
         hand3Cards.add(card8);
         hand3Cards.add(card9);
+
+        hand4Cards = new LinkedList<Card>();
+        hand4Cards.add(card10);
+        hand4Cards.add(card11);
+        hand4Cards.add(card12);
+
+        hand5Cards = new LinkedList<Card>();
+        hand5Cards.add(card13);
+        hand5Cards.add(card14);
+        hand5Cards.add(card15);
+
+        hand6Cards = new LinkedList<Card>();
+        hand6Cards.add(card16);
+        hand6Cards.add(card17);
+        hand6Cards.add(card18);
+
 
 
         hand1 = new Hand(hand1Cards);
