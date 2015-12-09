@@ -1,6 +1,8 @@
 import model.*;
-import model.Exceptions.InvalidNumberOfPlayersException;
+import model.Exceptions.*;
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 
 import java.util.LinkedList;
 
@@ -41,7 +43,7 @@ public class GameWithFourPlayersTest {
         card3 = new Card(7, "ESPADA", 12);
 
         card4 = new Card(12, "ESPADA", 7);
-        card5 = new Card(3, "ORO", 10);
+        card5 = new Card(3, "ORO", 10);                /* r1 gana 2; r2 gana 2*/
         card6 = new Card(7, "ORO", 11);
 
         card7 = new Card(4, "ORO", 1);
@@ -88,5 +90,21 @@ public class GameWithFourPlayersTest {
         players.get(2).setHand(hand3);
         players.get(3).setHand(hand4);
     }
+
+    @Test
+    public void CanPlayASimpleGame() throws NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException, SecondTeamWonException, FirstTeamWonException {
+
+        for (int i = 0; i <= 12; i++){
+
+            table.getActualPlayer().playCard(table.getActualPlayer().getHand().getCards().getFirst());
+        }
+
+        Assert.assertTrue(table.getScoreboard().getPointsOf(builder.getTeams().getFirst()) == 0);
+        Assert.assertTrue(table.getScoreboard().getPointsOf(builder.getTeams().getLast()) == 1);
+
+
+    }
+
+
 
 }
