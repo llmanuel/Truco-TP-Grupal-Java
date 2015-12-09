@@ -1,10 +1,8 @@
 package integration;
 
 
-import model.Builder;
-import model.Card;
+import model.*;
 import model.Exceptions.InvalidNumberOfPlayersException;
-import model.Hand;
 import org.junit.Before;
 
 import java.util.LinkedList;
@@ -21,6 +19,8 @@ public class GameWithSixPlayersTest {
     private Hand hand1;
     private Hand hand2;
     private Builder builder;
+    private Table table;
+    private LinkedList<Player> players;
 
     @Before
     public void setup() throws InvalidNumberOfPlayersException {
@@ -46,6 +46,10 @@ public class GameWithSixPlayersTest {
         hand2 = new Hand(hand2Cards);
 
         builder = new Builder(6);
+
+        table = builder.getTable();
+
+        players = builder.getPlayers();
 
     }
 }
