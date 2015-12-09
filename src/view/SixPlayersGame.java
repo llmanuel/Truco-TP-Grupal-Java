@@ -2,17 +2,23 @@ package view;
 
 import controllers.FourPlayersController;
 import controllers.SixPlayersController;
+import model.Card;
 import model.Exceptions.InvalidNumberOfPlayersException;
 import model.Exceptions.NotCardThrownException;
 import model.Exceptions.NotYourTurnException;
 import model.Exceptions.TeamDoesntExistException;
+import model.Slot;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class SixPlayersGame extends JFrame{
-    private final SixPlayersController controller;
+    private SixPlayersController controller;
     private JButton florButton;
     private JButton noQuieroButton;
     private JButton reTrucoButton;
@@ -215,5 +221,59 @@ public class SixPlayersGame extends JFrame{
 
     private void showMessage(String message) {
         JOptionPane.showMessageDialog( null, message );
+    }
+
+    public void setTeamsNames() {
+
+        this.team1ID.setText("Equipo 1");
+        this.team2ID.setText("Equipo 2");
+    }
+
+    public void initializeScores() {
+
+        this.team1Score.setText("0");
+        this.team2Score.setText("0");
+    }
+
+    private void clearHandPlayerInTurn() {
+
+        this.card1HandPlayerInTurn.setText(" ");
+        this.card2HandPlayerInTurn.setText(" ");
+        this.card3HandPlayerInTurn.setText(" ");
+
+    }
+
+    public void drawSlotPlayerInTurn(Slot playerSlot) {
+
+        try {
+            this.card1SlotPlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerSlot.getFirstOne() ) ) );
+        } catch (NotCardThrownException e) {
+            this.card1SlotPlayerInTurn.setIcon( new ImageIcon(  ) );
+        }
+
+        try {
+            this.card2SlotPlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerSlot.getSecondOne() ) ) );
+        } catch (NotCardThrownException e) {
+            this.card2SlotPlayerInTurn.setIcon( new ImageIcon(  ) );
+        }
+
+        try {
+            this.card3SlotPlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerSlot.getThirdOne()) ) );
+        } catch (NotCardThrownException e) {
+            this.card3SlotPlayerInTurn.setIcon( new ImageIcon(  ) );
+        }
+
+    private BufferedImage getCardImage(Card actualCard){
+        String imagePath = "resources/images/cards/59x90/" + actualCard.getSuit() + "/" + actualCard.getNumber() + ".png";
+        BufferedImage cardPicture = null;
+
+        try {
+            cardPicture = ImageIO.read(new File(imagePath));
+        } catch (IOException e) {
+            this.showMessage( "No se pudo leer archivo de imagen " + imagePath );
+        }
+
+        return cardPicture;
+    }
     }
 }
