@@ -199,11 +199,15 @@ public class CpuPlayer implements Player {
 
     @Override
     public void acceptCall() throws TeamDoesntExistException, NotYourTurnException {
-        if((this.table.tellMeIfItsMyTurn(this)) && (this.calculateEnvido() > 25)) {
+        if((this.table.tellMeIfItsMyTurn(this)) && (this.calculateEnvido() >= 25)) {
             this.table.acceptCall();
         }
-        else throw new NotYourTurnException();
+        else {
+            if (this.calculateEnvido() < 25) {
 
+                this.giveUp();
+            } else throw new NotYourTurnException();
+        }
     }
 
     @Override

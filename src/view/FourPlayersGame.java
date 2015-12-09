@@ -232,6 +232,8 @@ public class FourPlayersGame extends JFrame {
             e.printStackTrace();
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
+        } catch (InvalidGameCallException e) {
+            e.printStackTrace();
         }
     }
 

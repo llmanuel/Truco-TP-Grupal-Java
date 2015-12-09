@@ -202,6 +202,8 @@ public class TwoPlayersGame extends JFrame {
             this.showMessage( "No es tu turno para jugar" );
         } catch (TeamDoesntExistException e) {
 
+        } catch (InvalidGameCallException e) {
+            e.printStackTrace();
         }
     }
 

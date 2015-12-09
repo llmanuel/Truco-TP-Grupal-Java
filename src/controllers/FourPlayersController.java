@@ -60,7 +60,7 @@ public class FourPlayersController {
         this.drawRound();
     }
 
-    public void acceptCall() throws NotCardThrownException, NotYourTurnException, TeamDoesntExistException {
+    public void acceptCall() throws NotCardThrownException, NotYourTurnException, TeamDoesntExistException, InvalidGameCallException {
         table.getActualPlayer().acceptCall();
         this.drawRound();
     }

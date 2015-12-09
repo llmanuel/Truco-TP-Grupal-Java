@@ -117,5 +117,5 @@ public class GameWithCpuPlayer {
         Assert.assertEquals( 1 , scoreboard.getPointsOf( player1 ) );
         Assert.assertEquals( 0 , scoreboard.getPointsOf( player2 ));
     }
-    
+
 }
