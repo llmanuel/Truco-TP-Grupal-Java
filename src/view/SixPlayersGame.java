@@ -62,6 +62,7 @@ public class SixPlayersGame extends JFrame{
     private JLabel card2SlotPlayer1OtherTeam;
     private JLabel card1SlotPlayer1OtherTeam;
     private JPanel rootPanel;
+    private JLabel playerInTurnID;
 }
     public SixPlayersGame() throws NotCardThrownException {
         super("Truco");
