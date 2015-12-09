@@ -283,7 +283,7 @@ public class SixPlayersGame extends JFrame{
         this.idPlayerInTurn.setText("Jugador " + player.getIdNumber());
 
         this.clearHandPlayerInTurn();
-
+gl
         try {
             this.card1HandPlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerHand.getCards().get(0) ) ) );
         } catch (IndexOutOfBoundsException e){
