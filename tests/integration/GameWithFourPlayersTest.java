@@ -101,8 +101,6 @@ public class GameWithFourPlayersTest {
 
         Assert.assertTrue(table.getScoreboard().getPointsOf(builder.getTeams().getFirst()) == 0);
         Assert.assertTrue(table.getScoreboard().getPointsOf(builder.getTeams().getLast()) == 1);
-
-
     }
 
 
