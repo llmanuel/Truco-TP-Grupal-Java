@@ -49,6 +49,7 @@ public class FourPlayersGame extends JFrame {
     private JLabel firstPlayerID;
     private JLabel secondPlayerID;
     private FourPlayersController controller;
+    private JDialog nextPlayer;
 
     public FourPlayersGame() throws NotCardThrownException {
         super("Truco");
