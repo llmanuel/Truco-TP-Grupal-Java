@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="view.SixPlayersGame">
-  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="9" column-count="15" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="rootPanel" layout-manager="GridLayoutManager" row-count="9" column-count="15" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="15" left="15" bottom="15" right="15"/>
     <constraints>
       <xy x="20" y="20" width="1280" height="1024"/>
@@ -107,7 +107,7 @@
           <text value="Re truco"/>
         </properties>
       </component>
-      <component id="a566c" class="javax.swing.JLabel">
+      <component id="a566c" class="javax.swing.JLabel" binding="card1SlotPlayer3OtherTeam">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="59" height="90"/>
@@ -116,10 +116,10 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="8481a" class="javax.swing.JLabel">
+      <component id="8481a" class="javax.swing.JLabel" binding="card2SlotPlayer3OtherTeam">
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="59" height="90"/>
@@ -128,10 +128,10 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="60521" class="javax.swing.JLabel">
+      <component id="60521" class="javax.swing.JLabel" binding="card3SlotPlayer3OtherTeam">
         <constraints>
           <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="59" height="90"/>
@@ -140,18 +140,18 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="8d97b" class="javax.swing.JLabel">
+      <component id="8d97b" class="javax.swing.JLabel" binding="player2OtherTeamID">
         <constraints>
           <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="9cd5d" class="javax.swing.JLabel">
+      <component id="9cd5d" class="javax.swing.JLabel" binding="card3SlotPlayer2OtherTeam">
         <constraints>
           <grid row="1" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="59" height="90"/>
@@ -160,10 +160,10 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="b460a" class="javax.swing.JLabel">
+      <component id="b460a" class="javax.swing.JLabel" binding="card2SlotPlayer2OtherTeam">
         <constraints>
           <grid row="1" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="59" height="90"/>
@@ -172,10 +172,10 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="38a80" class="javax.swing.JLabel">
+      <component id="38a80" class="javax.swing.JLabel" binding="card1SlotPlayer2OtherTeam">
         <constraints>
           <grid row="1" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="59" height="90"/>
@@ -184,10 +184,10 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="91782" class="javax.swing.JLabel">
+      <component id="91782" class="javax.swing.JLabel" binding="card1SlotPlayer2SameTeam">
         <constraints>
           <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="59" height="90"/>
@@ -196,10 +196,10 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="813f9" class="javax.swing.JLabel">
+      <component id="813f9" class="javax.swing.JLabel" binding="card2SlotPlayer2SameTeam">
         <constraints>
           <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="59" height="90"/>
@@ -208,10 +208,10 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="e654e" class="javax.swing.JLabel">
+      <component id="e654e" class="javax.swing.JLabel" binding="card3SlotPlayer2SameTeam">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="59" height="90"/>
@@ -220,23 +220,23 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="f124f" class="javax.swing.JLabel">
+      <component id="f124f" class="javax.swing.JLabel" binding="player2SameTeamID">
         <constraints>
           <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="369df" class="javax.swing.JLabel">
+      <component id="369df" class="javax.swing.JLabel" binding="player3OtherTeamID">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="fba0c" class="javax.swing.JLabel" binding="card1HandPlayerInTurn">
@@ -275,15 +275,15 @@
           <text value="Me voy al mazo"/>
         </properties>
       </component>
-      <component id="3c14b" class="javax.swing.JLabel">
+      <component id="3c14b" class="javax.swing.JLabel" binding="player1OtherTeamID">
         <constraints>
           <grid row="3" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="4903b" class="javax.swing.JLabel">
+      <component id="4903b" class="javax.swing.JLabel" binding="card3SlotPlayer1OtherTeam">
         <constraints>
           <grid row="4" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="59" height="90"/>
@@ -292,10 +292,10 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="35cc5" class="javax.swing.JLabel">
+      <component id="35cc5" class="javax.swing.JLabel" binding="card2SlotPlayer1OtherTeam">
         <constraints>
           <grid row="5" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="59" height="90"/>
@@ -304,10 +304,10 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="faf2d" class="javax.swing.JLabel">
+      <component id="faf2d" class="javax.swing.JLabel" binding="card1SlotPlayer1OtherTeam">
         <constraints>
           <grid row="6" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="59" height="90"/>
@@ -316,10 +316,10 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="a907a" class="javax.swing.JLabel">
+      <component id="a907a" class="javax.swing.JLabel" binding="card1SlotPlayer1SameTeam">
         <constraints>
           <grid row="1" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="59" height="90"/>
@@ -328,10 +328,10 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="b9388" class="javax.swing.JLabel">
+      <component id="b9388" class="javax.swing.JLabel" binding="card2SlotPlayer1SameTeam">
         <constraints>
           <grid row="1" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="59" height="90"/>
@@ -340,10 +340,10 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="845b5" class="javax.swing.JLabel">
+      <component id="845b5" class="javax.swing.JLabel" binding="card3SlotPlayer1SameTeam">
         <constraints>
           <grid row="1" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="59" height="90"/>
@@ -352,18 +352,18 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="7ddad" class="javax.swing.JLabel">
+      <component id="7ddad" class="javax.swing.JLabel" binding="player1SameTeamID">
         <constraints>
           <grid row="0" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="5be1d" class="javax.swing.JLabel">
+      <component id="5be1d" class="javax.swing.JLabel" binding="card1SlotPlayerInTurn">
         <constraints>
           <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="59" height="90"/>
@@ -372,10 +372,10 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="9399d" class="javax.swing.JLabel">
+      <component id="9399d" class="javax.swing.JLabel" binding="card2SlotPlayerInTurn">
         <constraints>
           <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="59" height="90"/>
@@ -384,10 +384,10 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="daa15" class="javax.swing.JLabel">
+      <component id="daa15" class="javax.swing.JLabel" binding="card3SlotPlayerInTurn">
         <constraints>
           <grid row="5" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="59" height="90"/>
@@ -396,7 +396,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="66190" class="javax.swing.JLabel" binding="card2HandPlayerInTurn">
