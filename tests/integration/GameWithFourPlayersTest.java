@@ -103,6 +103,23 @@ public class GameWithFourPlayersTest {
         Assert.assertTrue(table.getScoreboard().getPointsOf(builder.getTeams().getLast()) == 1);
     }
 
+    @Test
+    public void secondTeamWinTruco() throws NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
+
+        for (int i = 0; i <= 12; i++){
+
+            if (i == 5){
+
+                table.getActualPlayer().callTruco();
+                table.getActualPlayer().acceptCall();
+            }
+            table.getActualPlayer().playCard(table.getActualPlayer().getHand().getCards().getFirst());
+        }
+
+        Assert.assertTrue(table.getScoreboard().getPointsOf(builder.getTeams().getFirst()) == 0);
+        Assert.assertTrue(table.getScoreboard().getPointsOf(builder.getTeams().getLast()) == 2);
+    }
+
 
 
 }
