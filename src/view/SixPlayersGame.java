@@ -246,22 +246,23 @@ public class SixPlayersGame extends JFrame{
     public void drawSlotPlayerInTurn(Slot playerSlot) {
 
         try {
-            this.card1SlotPlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerSlot.getFirstOne() ) ) );
+            this.card1SlotPlayerInTurn.setIcon(new ImageIcon(this.getCardImage(playerSlot.getFirstOne())));
         } catch (NotCardThrownException e) {
-            this.card1SlotPlayerInTurn.setIcon( new ImageIcon(  ) );
+            this.card1SlotPlayerInTurn.setIcon(new ImageIcon());
         }
 
         try {
-            this.card2SlotPlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerSlot.getSecondOne() ) ) );
+            this.card2SlotPlayerInTurn.setIcon(new ImageIcon(this.getCardImage(playerSlot.getSecondOne())));
         } catch (NotCardThrownException e) {
-            this.card2SlotPlayerInTurn.setIcon( new ImageIcon(  ) );
+            this.card2SlotPlayerInTurn.setIcon(new ImageIcon());
         }
 
         try {
-            this.card3SlotPlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerSlot.getThirdOne()) ) );
+            this.card3SlotPlayerInTurn.setIcon(new ImageIcon(this.getCardImage(playerSlot.getThirdOne())));
         } catch (NotCardThrownException e) {
-            this.card3SlotPlayerInTurn.setIcon( new ImageIcon(  ) );
+            this.card3SlotPlayerInTurn.setIcon(new ImageIcon());
         }
+    }
 
     private BufferedImage getCardImage(Card actualCard){
         String imagePath = "resources/images/cards/59x90/" + actualCard.getSuit() + "/" + actualCard.getNumber() + ".png";
@@ -275,5 +276,5 @@ public class SixPlayersGame extends JFrame{
 
         return cardPicture;
     }
-    }
+
 }
