@@ -40,6 +40,7 @@ public class TwoPlayersGame extends JFrame {
     private JLabel firstPlayerScore;
     private JLabel secondPlayerScore;
     private TwoPlayersMatchController controller;
+    private JDialog nextPlayer;
 
     public TwoPlayersGame() {
         super("Truco");
@@ -144,6 +145,11 @@ public class TwoPlayersGame extends JFrame {
         JOptionPane.showMessageDialog( null, message );
     }
 
+    public void showMassageNextPlayer() {
+
+        JOptionPane.showMessageDialog(nextPlayer,"Turno del proximo jugador.","",JOptionPane.WARNING_MESSAGE);
+    }
+
     private BufferedImage getCardImage(Card actualCard){
         String imagePath = "resources/images/cards/105x160/" + actualCard.getSuit() + "/" + actualCard.getNumber() + ".png";
         BufferedImage cardPicture = null;
@@ -160,14 +166,20 @@ public class TwoPlayersGame extends JFrame {
 
 
     private void card1PlayerInTurnClicked(MouseEvent mouseEvent) {
+
+        this.showMassageNextPlayer();
         this.controller.playCard(1);
     }
 
     private void card2PlayerInTurnClicked(MouseEvent mouseEvent) {
+
+        this.showMassageNextPlayer();
         this.controller.playCard(2);
     }
 
     private void card3PlayerInTurnClicked(MouseEvent mouseEvent) {
+
+        this.showMassageNextPlayer();
         this.controller.playCard(3);
     }
 

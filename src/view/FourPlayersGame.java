@@ -49,6 +49,7 @@ public class FourPlayersGame extends JFrame {
     private JLabel firstPlayerID;
     private JLabel secondPlayerID;
     private FourPlayersController controller;
+    private JDialog nextPlayer;
 
     public FourPlayersGame() throws NotCardThrownException {
         super("Truco");
@@ -162,6 +163,11 @@ public class FourPlayersGame extends JFrame {
         JOptionPane.showMessageDialog( null, message );
     }
 
+    public void showMassageNextPlayer() {
+
+        JOptionPane.showMessageDialog(nextPlayer,"Turno del proximo jugador.","",JOptionPane.WARNING_MESSAGE);
+    }
+
     private BufferedImage getCardImage(Card actualCard){
         String imagePath = "resources/images/cards/74x112/" + actualCard.getSuit() + "/" + actualCard.getNumber() + ".png";
         BufferedImage cardPicture = null;
@@ -177,26 +183,23 @@ public class FourPlayersGame extends JFrame {
 
     private void card3HandPlayerInTurnClicked() {
 
+        this.showMassageNextPlayer();
         this.controller.playCard(3);
-        this.controller.drawSlotPlayerInTurn();
-        this.controller.drawSlotOtherPlayer();
-        this.controller.drawCardsPlayerInTurn();
+
     }
 
     private void card2HandPlayerInTurnClicked() {
 
+        this.showMassageNextPlayer();
         this.controller.playCard(2);
-        this.controller.drawSlotPlayerInTurn();
-        this.controller.drawSlotOtherPlayer();
-        this.controller.drawCardsPlayerInTurn();
+
     }
 
     private void card1HandPlayerInTurnClicked() {
 
+        this.showMassageNextPlayer();
         this.controller.playCard(1);
-        this.controller.drawSlotPlayerInTurn();
-        this.controller.drawSlotOtherPlayer();
-        this.controller.drawCardsPlayerInTurn();
+
     }
 
     private void meVoyAlMazoButtonClicked() {
