@@ -164,27 +164,21 @@ public class SixPlayersGame extends JFrame{
 
         this.showMassageNextPlayer();
         this.controller.playCard(3);
-        this.controller.drawSlotPlayerInTurn();
-        this.controller.drawSlotOtherPlayer();
-        this.controller.drawCardsPlayerInTurn();
+
     }
 
     private void card2HandPlayerInTurnClicked() {
 
         this.showMassageNextPlayer();
         this.controller.playCard(2);
-        this.controller.drawSlotPlayerInTurn();
-        this.controller.drawSlotOtherPlayer();
-        this.controller.drawCardsPlayerInTurn();
+
     }
 
     private void card1HandPlayerInTurnClicked() {
 
         this.showMassageNextPlayer();
         this.controller.playCard(1);
-        this.controller.drawSlotPlayerInTurn();
-        this.controller.drawSlotOtherPlayer();
-        this.controller.drawCardsPlayerInTurn();
+
     }
 
     private void meVoyAlMazoButtonClicked() {
