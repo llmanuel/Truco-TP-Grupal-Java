@@ -38,18 +38,29 @@ public class CpuPlayer implements Player {
 
         if ((this.table.tellMeIfItsMyTurn(this)) && (this.table.tellMeIfCallWasAccepted())) {
 
-            this.slot.receiveCard(this.chooseCardToPlay());
+            this.slot.receiveCard(cardToPlay);
         } else throw new NotYourTurnException();
+    }
+
+    public void playCardAutomatically() throws NotCardThrownException, DonTHaveThatCardException, NotYourTurnException {
+
+        Card cardToPlay = this.chooseCardToPlay();
+
+        this.playCard(cardToPlay);
     }
 
     public int searchHigherCardInTheRound() throws NotCardThrownException {
         int maxValue = 0;
-        for (Slot actualSlot : this.table.getSlotsOfHumanPlayers()) {
+        try {
+            for (Slot actualSlot : this.table.getSlotsOfHumanPlayers()) {
 
-            if (actualSlot.getLastOne().getValue() > maxValue) {
+                if (actualSlot.getLastOne().getValue() > maxValue) {
 
-                maxValue = actualSlot.getLastOne().getValue();
+                    maxValue = actualSlot.getLastOne().getValue();
+                }
             }
+        } catch (NotCardThrownException e) {
+            return  maxValue;
         }
         return  maxValue;
     }
@@ -65,12 +76,15 @@ public class CpuPlayer implements Player {
         LinkedList<Card> ordererCards = this.orderMyHandLowToHigh();
         for (Card myCard :ordererCards) {
 
-            if (myCard.getValue() > higherCardInRound){
+            if ((myCard.getValue() > higherCardInRound) && (higherCardInRound !=0)){
 
                 Card  cardToPlay = myCard;
                 return cardToPlay;
             }
 
+        }
+        if (higherCardInRound == 0){
+            return  (ordererCards.get(1));
         }
         return (ordererCards.get(0));
     }
