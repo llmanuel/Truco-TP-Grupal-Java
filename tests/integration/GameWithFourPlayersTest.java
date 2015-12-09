@@ -123,19 +123,24 @@ public class GameWithFourPlayersTest {
     @Test
     public void theGameRotatesCorrectly() throws NotYourTurnException, InvalidGameCallException, NotCardThrownException, TeamDoesntExistException, DonTHaveThatCardException {
 
+        int firstWinner = 0;
+        int secondWinner = 0;
         for (int i = 0; i <= 11; i++){
 
             if (i==4){
 
-                Assert.assertTrue(table.getActualPlayer().getIdNumber() == 2);
+                firstWinner = table.getActualPlayer().getIdNumber();
             }
             if (i==8){
 
-                Assert.assertTrue(table.getActualPlayer().getIdNumber() == 2);
+                secondWinner = table.getActualPlayer().getIdNumber();;
             }
 
             table.getActualPlayer().playCard(table.getActualPlayer().getHand().getCards().getFirst());
         }
+
+        Assert.assertTrue(firstWinner == 2);
+        Assert.assertTrue(secondWinner == 2);
     }
 
     @Test
