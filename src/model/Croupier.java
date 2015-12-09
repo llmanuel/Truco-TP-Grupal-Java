@@ -28,7 +28,6 @@ public class Croupier {
     }
 
     public void prepareForNewRound() {
-
         this.initializeDeck();
     }
 }

@@ -248,6 +248,7 @@ public class Table {
 
     /**Reparte cartas a los jugadores*/
     public void handOut() {
+        croupier.prepareForNewRound();
         for(Player actualPlayer: playersInGame){
             actualPlayer.setHand(croupier.giveHand());
         }
