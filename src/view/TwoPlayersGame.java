@@ -185,6 +185,7 @@ public class TwoPlayersGame extends JFrame {
 
     private void meVoyAlMazoButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.giveUpGame();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
@@ -195,6 +196,7 @@ public class TwoPlayersGame extends JFrame {
 
     private void noQuieroButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.giveUpGame();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
@@ -207,6 +209,7 @@ public class TwoPlayersGame extends JFrame {
 
     private void quieroButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.acceptCall();
         } catch (NotCardThrownException e) {
             this.showMessage( "No se ha tirado carta alguna" );
@@ -221,6 +224,7 @@ public class TwoPlayersGame extends JFrame {
 
     private void florButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.callFlor();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
@@ -233,6 +237,7 @@ public class TwoPlayersGame extends JFrame {
 
     private void vale4ButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.callVale4();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
@@ -247,6 +252,7 @@ public class TwoPlayersGame extends JFrame {
 
     private void retrucoButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.callReTruco();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
@@ -261,6 +267,7 @@ public class TwoPlayersGame extends JFrame {
 
     private void trucoButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.callTruco();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
@@ -275,6 +282,7 @@ public class TwoPlayersGame extends JFrame {
 
     private void faltaEnvidoButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.callFaltaEnvido();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
@@ -289,6 +297,7 @@ public class TwoPlayersGame extends JFrame {
 
     private void realEnvidoButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.callRealEnvido();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
@@ -303,6 +312,7 @@ public class TwoPlayersGame extends JFrame {
 
     private void envidoButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.callEnvido();
         } catch (InvalidGameCallException e) {
             this.showMessage( "No podes jugar Envido en este momento" );
