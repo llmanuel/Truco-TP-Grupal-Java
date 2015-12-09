@@ -94,7 +94,7 @@ public class GameWithFourPlayersTest {
     @Test
     public void CanPlayASimpleGame() throws NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException, SecondTeamWonException, FirstTeamWonException {
 
-        for (int i = 0; i <= 12; i++){
+        for (int i = 0; i <= 11; i++){
 
             table.getActualPlayer().playCard(table.getActualPlayer().getHand().getCards().getFirst());
         }
@@ -106,9 +106,9 @@ public class GameWithFourPlayersTest {
     @Test
     public void secondTeamWinTruco() throws NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
 
-        for (int i = 0; i <= 12; i++){
+        for (int i = 0; i <= 11; i++){
 
-            if (i == 5){
+            if (i == 4){
 
                 table.getActualPlayer().callTruco();
                 table.getActualPlayer().acceptCall();
@@ -119,6 +119,33 @@ public class GameWithFourPlayersTest {
         Assert.assertTrue(table.getScoreboard().getPointsOf(builder.getTeams().getFirst()) == 0);
         Assert.assertTrue(table.getScoreboard().getPointsOf(builder.getTeams().getLast()) == 2);
     }
+
+    @Test
+    public void theGameRotatesCorrectly() throws NotYourTurnException, InvalidGameCallException, NotCardThrownException, TeamDoesntExistException, DonTHaveThatCardException {
+
+        for (int i = 0; i <= 11; i++){
+
+            System.out.println("Jugador en turno: " + table.getActualPlayer().getIdNumber());
+            table.getActualPlayer().playCard(table.getActualPlayer().getHand().getCards().getFirst());
+        }
+    }
+
+//    @Test
+//    public void firstTeamWinEnvido() throws NotYourTurnException, InvalidGameCallException, NotCardThrownException, TeamDoesntExistException, DonTHaveThatCardException, SecondTeamWonException, FirstTeamWonException {
+//
+//        for (int i = 0; i <= 12; i++){
+//
+//            if (i == 2){
+//
+//                table.getActualPlayer().callEnvido();
+//                table.getActualPlayer().acceptCall();
+//            }
+//            table.getActualPlayer().playCard(table.getActualPlayer().getHand().getCards().getFirst());
+//        }
+//
+//        Assert.assertTrue(table.getScoreboard().getPointsOf(builder.getTeams().getFirst()) == 2);
+//        Assert.assertTrue(table.getScoreboard().getPointsOf(builder.getTeams().getLast()) == 0);
+//    }
 
 
 
