@@ -13,4 +13,7 @@ public class SixPlayersGame extends JFrame{
     private JButton faltaEnvidoButton;
     private JButton quieroButton;
     private JButton trucoButton;
+    private JLabel card1HandPlayerInTurn;
+    private JLabel card2HandPlayerInTurn;
+    private JLabel card3HandPlayerInTurn;
 }
