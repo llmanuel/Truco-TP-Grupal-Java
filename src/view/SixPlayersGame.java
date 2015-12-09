@@ -2,14 +2,8 @@ package view;
 
 import controllers.FourPlayersController;
 import controllers.SixPlayersController;
-import model.Card;
-import model.Exceptions.InvalidNumberOfPlayersException;
-import model.Exceptions.NotCardThrownException;
-import model.Exceptions.NotYourTurnException;
-import model.Exceptions.TeamDoesntExistException;
-import model.Hand;
-import model.Player;
-import model.Slot;
+import model.*;
+import model.Exceptions.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -18,6 +12,7 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.LinkedList;
 
 public class SixPlayersGame extends JFrame{
     private SixPlayersController controller;
@@ -63,7 +58,7 @@ public class SixPlayersGame extends JFrame{
     private JLabel card1SlotPlayer1OtherTeam;
     private JPanel rootPanel;
     private JLabel playerInTurnID;
-}
+
     public SixPlayersGame() throws NotCardThrownException {
         super("Truco");
 
@@ -174,14 +169,26 @@ public class SixPlayersGame extends JFrame{
 
     private void card3HandPlayerInTurnClicked() {
 
+        this.controller.playCard(3);
+        this.controller.drawSlotPlayerInTurn();
+        this.controller.drawSlotOtherPlayer();
+        this.controller.drawCardsPlayerInTurn();
     }
 
     private void card2HandPlayerInTurnClicked() {
 
+        this.controller.playCard(2);
+        this.controller.drawSlotPlayerInTurn();
+        this.controller.drawSlotOtherPlayer();
+        this.controller.drawCardsPlayerInTurn();
     }
 
     private void card1HandPlayerInTurnClicked() {
 
+        this.controller.playCard(1);
+        this.controller.drawSlotPlayerInTurn();
+        this.controller.drawSlotOtherPlayer();
+        this.controller.drawCardsPlayerInTurn();
     }
 
     private void meVoyAlMazoButtonClicked() {
@@ -281,10 +288,9 @@ public class SixPlayersGame extends JFrame{
     }
 
     public void drawCardsPlayerInTurn(Player player, Hand playerHand) {
-        this.idPlayerInTurn.setText("Jugador " + player.getIdNumber());
+        this.playerInTurnID.setText("Jugador " + player.getIdNumber());
 
         this.clearHandPlayerInTurn();
-gl
         try {
             this.card1HandPlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerHand.getCards().get(0) ) ) );
         } catch (IndexOutOfBoundsException e){
@@ -301,6 +307,119 @@ gl
             this.card3HandPlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerHand.getCards().get(2) ) ) );
         } catch (IndexOutOfBoundsException e ){
             this.card3HandPlayerInTurn.setIcon( new ImageIcon(  ) );
+        }
+    }
+
+    public void drawScores(Scoreboard scoreboard, LinkedList<Team> teams) {
+
+        try {
+            this.team1Score.setText(String.valueOf(scoreboard.getPointsOf(teams.getFirst())));
+            this.team2Score.setText(String.valueOf(scoreboard.getPointsOf(teams.getLast())));
+
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        } catch (SecondTeamWonException e) {
+            this.showMessage("Gano el Jugador 2");
+        } catch (FirstTeamWonException e) {
+            this.showMessage( "Gano el jugador 1" );
+        }
+    }
+
+    public void drawSlotOtherPlayers(LinkedList<Player> otherTeam) {
+
+        this.player1SameTeamID.setText("Jugador " + otherTeam.get(1).getIdNumber());
+        try {
+            this.card1SlotPlayer1SameTeam.setIcon( new ImageIcon( this.getCardImage( otherTeam.get(1).getSlot().getFirstOne()) ) );
+        } catch (NotCardThrownException e) {
+            this.card1SlotPlayer1SameTeam.setIcon( new ImageIcon(  ) );
+        }
+
+        try {
+            this.card2SlotPlayer1SameTeam.setIcon( new ImageIcon( this.getCardImage( otherTeam.get(1).getSlot().getSecondOne()) ) );
+        } catch (NotCardThrownException e) {
+            this.card2SlotPlayer1SameTeam.setIcon( new ImageIcon(  ) );
+        }
+
+        try {
+            this.card3SlotPlayer1SameTeam.setIcon( new ImageIcon( this.getCardImage( otherTeam.get(1).getSlot().getThirdOne()) ) );
+        } catch (NotCardThrownException e) {
+            this.card3SlotPlayer1SameTeam.setIcon( new ImageIcon(  ) );
+        }
+
+        this.player2SameTeamID.setText("Jugador " + otherTeam.get(3).getIdNumber());
+        try {
+            this.card1SlotPlayer2SameTeam.setIcon( new ImageIcon( this.getCardImage( otherTeam.get(3).getSlot().getFirstOne()) ) );
+        } catch (NotCardThrownException e) {
+            this.card1SlotPlayer2SameTeam.setIcon( new ImageIcon(  ) );
+        }
+
+        try {
+            this.card2SlotPlayer2SameTeam.setIcon( new ImageIcon( this.getCardImage( otherTeam.get(3).getSlot().getSecondOne()) ) );
+        } catch (NotCardThrownException e) {
+            this.card2SlotPlayer2SameTeam.setIcon( new ImageIcon(  ) );
+        }
+
+        try {
+            this.card3SlotPlayer2SameTeam.setIcon( new ImageIcon( this.getCardImage( otherTeam.get(3).getSlot().getThirdOne()) ) );
+        } catch (NotCardThrownException e) {
+            this.card3SlotPlayer2SameTeam.setIcon( new ImageIcon(  ) );
+        }
+
+        this.player1OtherTeamID.setText("Jugador " + otherTeam.get(0).getIdNumber());
+        try {
+            this.card1SlotPlayer1OtherTeam.setIcon( new ImageIcon( this.getCardImage( otherTeam.get(0).getSlot().getFirstOne()) ) );
+        } catch (NotCardThrownException e) {
+            this.card1SlotPlayer1OtherTeam.setIcon( new ImageIcon(  ) );
+        }
+
+        try {
+            this.card2SlotPlayer1OtherTeam.setIcon( new ImageIcon( this.getCardImage( otherTeam.get(0).getSlot().getSecondOne()) ) );
+        } catch (NotCardThrownException e) {
+            this.card2SlotPlayer1OtherTeam.setIcon( new ImageIcon(  ) );
+        }
+
+        try {
+            this.card3SlotPlayer1OtherTeam.setIcon( new ImageIcon( this.getCardImage( otherTeam.get(0).getSlot().getThirdOne()) ) );
+        } catch (NotCardThrownException e) {
+            this.card3SlotPlayer1OtherTeam.setIcon( new ImageIcon(  ) );
+        }
+
+        this.player2OtherTeamID.setText("Jugador " + otherTeam.get(2).getIdNumber());
+        try {
+            this.card1SlotPlayer2OtherTeam.setIcon( new ImageIcon( this.getCardImage( otherTeam.get(2).getSlot().getFirstOne()) ) );
+        } catch (NotCardThrownException e) {
+            this.card1SlotPlayer2OtherTeam.setIcon( new ImageIcon(  ) );
+        }
+
+        try {
+            this.card2SlotPlayer2OtherTeam.setIcon( new ImageIcon( this.getCardImage( otherTeam.get(2).getSlot().getSecondOne()) ) );
+        } catch (NotCardThrownException e) {
+            this.card2SlotPlayer2OtherTeam.setIcon( new ImageIcon(  ) );
+        }
+
+        try {
+            this.card3SlotPlayer2OtherTeam.setIcon( new ImageIcon( this.getCardImage( otherTeam.get(2).getSlot().getThirdOne()) ) );
+        } catch (NotCardThrownException e) {
+            this.card3SlotPlayer2OtherTeam.setIcon( new ImageIcon(  ) );
+        }
+
+        this.player3OtherTeamID.setText("Jugador " + otherTeam.get(4).getIdNumber());
+        try {
+            this.card1SlotPlayer3OtherTeam.setIcon( new ImageIcon( this.getCardImage( otherTeam.get(4).getSlot().getFirstOne()) ) );
+        } catch (NotCardThrownException e) {
+            this.card1SlotPlayer3OtherTeam.setIcon( new ImageIcon(  ) );
+        }
+
+        try {
+            this.card2SlotPlayer3OtherTeam.setIcon( new ImageIcon( this.getCardImage( otherTeam.get(4).getSlot().getSecondOne()) ) );
+        } catch (NotCardThrownException e) {
+            this.card2SlotPlayer3OtherTeam.setIcon( new ImageIcon(  ) );
+        }
+
+        try {
+            this.card3SlotPlayer3OtherTeam.setIcon( new ImageIcon( this.getCardImage( otherTeam.get(4).getSlot().getThirdOne()) ) );
+        } catch (NotCardThrownException e) {
+            this.card3SlotPlayer3OtherTeam.setIcon( new ImageIcon(  ) );
         }
     }
 
