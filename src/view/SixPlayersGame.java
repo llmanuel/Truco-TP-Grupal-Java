@@ -12,7 +12,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class SixPlayersGame extends JFrame{
-    private final SixPlayersController controller;
+    private SixPlayersController controller;
     private JButton florButton;
     private JButton noQuieroButton;
     private JButton reTrucoButton;
@@ -215,5 +215,11 @@ public class SixPlayersGame extends JFrame{
 
     private void showMessage(String message) {
         JOptionPane.showMessageDialog( null, message );
+    }
+
+    public void setTeamsNames() {
+
+        this.team1ID.setText("Equipo 1");
+        this.team2ID.setText("Equipo 2");
     }
 }
