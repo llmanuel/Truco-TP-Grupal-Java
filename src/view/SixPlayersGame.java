@@ -57,6 +57,7 @@ public class SixPlayersGame extends JFrame{
     private JLabel card1SlotPlayer1OtherTeam;
     private JPanel rootPanel;
     private JLabel playerInTurnID;
+    private JDialog nextPlayer;
 
     public SixPlayersGame() throws NotCardThrownException {
         super("Truco");
@@ -168,6 +169,7 @@ public class SixPlayersGame extends JFrame{
 
     private void card3HandPlayerInTurnClicked() {
 
+        this.showMassageNextPlayer();
         this.controller.playCard(3);
         this.controller.drawSlotPlayerInTurn();
         this.controller.drawSlotOtherPlayer();
@@ -176,6 +178,7 @@ public class SixPlayersGame extends JFrame{
 
     private void card2HandPlayerInTurnClicked() {
 
+        this.showMassageNextPlayer();
         this.controller.playCard(2);
         this.controller.drawSlotPlayerInTurn();
         this.controller.drawSlotOtherPlayer();
@@ -184,6 +187,7 @@ public class SixPlayersGame extends JFrame{
 
     private void card1HandPlayerInTurnClicked() {
 
+        this.showMassageNextPlayer();
         this.controller.playCard(1);
         this.controller.drawSlotPlayerInTurn();
         this.controller.drawSlotOtherPlayer();
@@ -192,6 +196,7 @@ public class SixPlayersGame extends JFrame{
 
     private void meVoyAlMazoButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.giveUpGame();
         } catch (NotYourTurnException e) {
             e.printStackTrace();
@@ -204,6 +209,7 @@ public class SixPlayersGame extends JFrame{
 
     private void noQuieroButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.giveUpGame();
         } catch (NotYourTurnException e) {
             e.printStackTrace();
@@ -216,6 +222,7 @@ public class SixPlayersGame extends JFrame{
 
     private void quieroButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.acceptCall();
         } catch (NotCardThrownException e) {
             e.printStackTrace();
@@ -230,6 +237,7 @@ public class SixPlayersGame extends JFrame{
 
     private void florButtonClicked() throws NotYourTurnException, TeamDoesntExistException{
         try {
+            this.showMassageNextPlayer();
             this.controller.callFlor();
         } catch (InvalidGameCallException e) {
             e.printStackTrace();
@@ -238,6 +246,7 @@ public class SixPlayersGame extends JFrame{
 
     private void vale4ButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.callVale4();
         } catch (NotYourTurnException e) {
             e.printStackTrace();
@@ -252,6 +261,7 @@ public class SixPlayersGame extends JFrame{
 
     private void retrucoButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.callReTruco();
         } catch (NotYourTurnException e) {
             e.printStackTrace();
@@ -266,6 +276,7 @@ public class SixPlayersGame extends JFrame{
 
     private void trucoButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.callTruco();
         } catch (NotYourTurnException e) {
             e.printStackTrace();
@@ -280,6 +291,7 @@ public class SixPlayersGame extends JFrame{
 
     private void faltaEnvidoButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.callFaltaEnvido();
         } catch (NotYourTurnException e) {
             e.printStackTrace();
@@ -294,6 +306,7 @@ public class SixPlayersGame extends JFrame{
 
     private void realEnvidoButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.callRealEnvido();
         } catch (NotYourTurnException e) {
             e.printStackTrace();
@@ -308,6 +321,7 @@ public class SixPlayersGame extends JFrame{
 
     private void envidoButtonClicked() {
         try {
+            this.showMassageNextPlayer();
             this.controller.callEnvido();
         } catch (NotYourTurnException e) {
             e.printStackTrace();
@@ -512,6 +526,11 @@ public class SixPlayersGame extends JFrame{
         } catch (NotCardThrownException e) {
             this.card3SlotPlayer3OtherTeam.setIcon( new ImageIcon(  ) );
         }
+    }
+
+    public void showMassageNextPlayer() {
+
+        JOptionPane.showMessageDialog(nextPlayer,"Turno del proximo jugador.","",JOptionPane.WARNING_MESSAGE);
     }
 
 }
