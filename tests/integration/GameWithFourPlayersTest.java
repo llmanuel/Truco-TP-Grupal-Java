@@ -125,7 +125,15 @@ public class GameWithFourPlayersTest {
 
         for (int i = 0; i <= 11; i++){
 
-            System.out.println("Jugador en turno: " + table.getActualPlayer().getIdNumber());
+            if (i==4){
+
+                Assert.assertTrue(table.getActualPlayer().getIdNumber() == 2);
+            }
+            if (i==8){
+
+                Assert.assertTrue(table.getActualPlayer().getIdNumber() == 2);
+            }
+
             table.getActualPlayer().playCard(table.getActualPlayer().getHand().getCards().getFirst());
         }
     }
