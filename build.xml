@@ -3,6 +3,7 @@
 	<property name="classes.dir" location="build" />
 	<property name="src.dir" location="src" />
 	<property name="libs" location="libs" />
+	<property name="reports.dir" location="${build}/reports" />
 	
 	<path id="classpath">
 		<fileset dir="${libs}">
@@ -18,6 +19,7 @@
 		<mkdir dir="${build}" />
 		<mkdir dir="${build}/classes" />
 		<mkdir dir="${build}/tests" />
+		<mkdir dir="${reports.dir}" />
 	</target>
 
 	<target name="compilar.aplicacion" depends="setup">
@@ -33,12 +35,16 @@
 	
 	
 	<target name="correr.tests" depends="compilar.tests">
-        <junit fork="yes" forkmode="once" showoutput="true">
-            <formatter type="plain" usefile="false" />
-            <batchtest>
-                <fileset dir="${build}/tests" includes="**/Test*.class" />
+        <junit fork="yes" failureProperty="test.failure" forkmode="once" showoutput="true">
+            <classpath location="${build}" />
+            <classpath refid="classpath" />
+            <formatter type="brief" usefile="false"/>
+            <test name="${testcase}" todir="${reports.dir}" if="testcase" />
+            <batchtest todir="${reports.dir}" unless="testcase">
+                <fileset dir="${build}/tests" includes="**/*Test.class" />
             </batchtest>
         </junit>
+        <fail message="Pruebas fallidas" if="test.failure" />
     </target>
 	
     
