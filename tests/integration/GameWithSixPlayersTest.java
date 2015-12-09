@@ -1,8 +1,9 @@
 package integration;
 
 
+import junit.framework.Assert;
 import model.*;
-import model.Exceptions.InvalidNumberOfPlayersException;
+import model.Exceptions.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -67,9 +68,9 @@ public class GameWithSixPlayersTest {
         card14 = new Card(1, "COPA", 8);
         card15 = new Card(7, "COPA", 4);
 
-        card16 = new Card(12, "COPA", 7);
-        card17 = new Card(3, "COPA", 10);
-        card18 = new Card(6, "ESPADA", 11);
+        card16 = new Card(11, "COPA", 6);
+        card17 = new Card(2, "COPA", 9);
+        card18 = new Card(6, "ESPADA", 3);
 
 
         hand1Cards = new LinkedList<Card>();
@@ -141,10 +142,34 @@ public class GameWithSixPlayersTest {
     }
 
     @Test
-    public void roundGoesNormal(){
+    public void roundGoesNormal() throws NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException, SecondTeamWonException, FirstTeamWonException {
 
+        player1.playCard(card1);
+        player2.playCard(card4);
+        player3.playCard(card7);
+        player4.playCard(card10);
+        player5.playCard(card13);
+        player6.playCard(card16);
 
+        Assert.assertTrue(table.getActualPlayer() == player2);
 
+        player2.playCard(card5);
+        player3.playCard(card8);
+        player4.playCard(card11);
+        player5.playCard(card14);
+        player6.playCard(card17);
+        player1.playCard(card2);
+
+        Assert.assertTrue(table.getActualPlayer() == player2);
+
+        player2.playCard(card6);
+        player3.playCard(card9);
+        player4.playCard(card12);
+        player5.playCard(card15);
+        player6.playCard(card18);
+        player1.playCard(card3);
+
+        Assert.assertEquals(1, scoreboard.getPointsOf(player2), 0.001);
 
     }
 }
