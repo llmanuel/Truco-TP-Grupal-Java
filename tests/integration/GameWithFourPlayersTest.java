@@ -43,7 +43,7 @@ public class GameWithFourPlayersTest {
         card3 = new Card(7, "ESPADA", 12);
 
         card4 = new Card(12, "ESPADA", 7);
-        card5 = new Card(3, "ORO", 10);                /* r1 gana 2; r2 gana 2*/
+        card5 = new Card(3, "ORO", 10);
         card6 = new Card(7, "ORO", 11);
 
         card7 = new Card(4, "ORO", 1);
