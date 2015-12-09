@@ -31,7 +31,7 @@ public class GameWithCpuPlayer {
     @Before
     public void setup() throws InvalidNumberOfPlayersException {
         card1 = new Card(1, "BASTO", 13);
-        card2 = new Card(7, "BASTO", 4);
+        card2 = new Card(3, "BASTO", 10);
         card3 = new Card(7, "ESPADA", 12);
 
         card4 = new Card(12, "ESPADA", 7);
@@ -103,5 +103,19 @@ public class GameWithCpuPlayer {
         Assert.assertEquals( 2 , scoreboard.getPointsOf( player2 ));
     }
 
+    @Test
+    public void cpuPlayerDontAccept() throws NotYourTurnException, InvalidGameCallException, NotCardThrownException, TeamDoesntExistException, SecondTeamWonException, FirstTeamWonException {
 
+        this.table.setGame();
+
+        player1.setHand( hand2 );
+        player2.setHand( hand1 );
+
+        player1.callEnvido();
+        player2.acceptCall();
+
+        Assert.assertEquals( 1 , scoreboard.getPointsOf( player1 ) );
+        Assert.assertEquals( 0 , scoreboard.getPointsOf( player2 ));
+    }
+    
 }
