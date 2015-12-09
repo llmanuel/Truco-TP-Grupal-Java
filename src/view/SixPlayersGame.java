@@ -1,6 +1,5 @@
 package view;
 
-import controllers.FourPlayersController;
 import controllers.SixPlayersController;
 import model.*;
 import model.Exceptions.*;
@@ -192,41 +191,133 @@ public class SixPlayersGame extends JFrame{
     }
 
     private void meVoyAlMazoButtonClicked() {
-
+        try {
+            this.controller.giveUpGame();
+        } catch (NotYourTurnException e) {
+            e.printStackTrace();
+        } catch (NotCardThrownException e) {
+            e.printStackTrace();
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        }
     }
 
     private void noQuieroButtonClicked() {
-
+        try {
+            this.controller.giveUpGame();
+        } catch (NotYourTurnException e) {
+            e.printStackTrace();
+        } catch (NotCardThrownException e) {
+            e.printStackTrace();
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        }
     }
 
     private void quieroButtonClicked() {
-
+        try {
+            this.controller.acceptCall();
+        } catch (NotCardThrownException e) {
+            e.printStackTrace();
+        } catch (NotYourTurnException e) {
+            e.printStackTrace();
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        } catch (InvalidGameCallException e) {
+            e.printStackTrace();
+        }
     }
 
-    private void florButtonClicked() {
+    private void florButtonClicked() throws NotYourTurnException, TeamDoesntExistException{
+        try {
+            this.controller.callFlor();
+        } catch (InvalidGameCallException e) {
+            e.printStackTrace();
+        }
     }
 
     private void vale4ButtonClicked() {
-
+        try {
+            this.controller.callVale4();
+        } catch (NotYourTurnException e) {
+            e.printStackTrace();
+        } catch (NotCardThrownException e) {
+            e.printStackTrace();
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        } catch (InvalidGameCallException e) {
+            e.printStackTrace();
+        }
     }
 
     private void retrucoButtonClicked() {
-
+        try {
+            this.controller.callReTruco();
+        } catch (NotYourTurnException e) {
+            e.printStackTrace();
+        } catch (NotCardThrownException e) {
+            e.printStackTrace();
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        } catch (InvalidGameCallException e) {
+            e.printStackTrace();
+        }
     }
 
     private void trucoButtonClicked() {
-
+        try {
+            this.controller.callTruco();
+        } catch (NotYourTurnException e) {
+            e.printStackTrace();
+        } catch (NotCardThrownException e) {
+            e.printStackTrace();
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        } catch (InvalidGameCallException e) {
+            e.printStackTrace();
+        }
     }
 
     private void faltaEnvidoButtonClicked() {
-
+        try {
+            this.controller.callFaltaEnvido();
+        } catch (NotYourTurnException e) {
+            e.printStackTrace();
+        } catch (NotCardThrownException e) {
+            e.printStackTrace();
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        } catch (InvalidGameCallException e) {
+            e.printStackTrace();
+        }
     }
 
     private void realEnvidoButtonClicked() {
-
+        try {
+            this.controller.callRealEnvido();
+        } catch (NotYourTurnException e) {
+            e.printStackTrace();
+        } catch (NotCardThrownException e) {
+            e.printStackTrace();
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        } catch (InvalidGameCallException e) {
+            e.printStackTrace();
+        }
     }
 
     private void envidoButtonClicked() {
+        try {
+            this.controller.callEnvido();
+        } catch (NotYourTurnException e) {
+            e.printStackTrace();
+        } catch (NotCardThrownException e) {
+            e.printStackTrace();
+        } catch (TeamDoesntExistException e) {
+            e.printStackTrace();
+        } catch (InvalidGameCallException e) {
+            e.printStackTrace();
+        }
     }
 
     private void showMessage(String message) {
