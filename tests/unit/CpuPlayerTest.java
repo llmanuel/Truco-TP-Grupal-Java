@@ -70,7 +70,7 @@ public class CpuPlayerTest {
     }
 
     @Test
-    public void canPlayACard() throws DonTHaveThatCardException, NotCardThrownException, NotYourTurnException, InvalidNumberOfPlayersException, TeamDoesntExistException {
+    public void canPlayACardFirst() throws DonTHaveThatCardException, NotCardThrownException, NotYourTurnException, InvalidNumberOfPlayersException, TeamDoesntExistException {
         Table table = new Table();
 
         HumanPlayer firstPlayer = new HumanPlayer(1);
@@ -93,6 +93,34 @@ public class CpuPlayerTest {
         secondPlayer.playCardAutomatically();
 
         Assert.assertTrue( secondPlayer.getSlot().getLastOne() == card5 );
+
+    }
+
+    @Test
+    public void canPlayACardSecond() throws DonTHaveThatCardException, NotCardThrownException, NotYourTurnException, InvalidNumberOfPlayersException, TeamDoesntExistException {
+        Table table = new Table();
+
+        HumanPlayer firstPlayer = new HumanPlayer(1);
+        CpuPlayer secondPlayer = new CpuPlayer(2);
+
+        secondPlayer.setTable(table);
+        firstPlayer.setTable(table);
+
+        LinkedList<Player> players = new LinkedList<Player>();
+        players.addLast(firstPlayer);
+        players.addLast(secondPlayer);
+
+        table.letSitThese(players);
+
+        table.setGame();
+
+        firstPlayer.setHand(hand1);
+        secondPlayer.setHand(hand2);
+
+        firstPlayer.playCard(card3);
+        secondPlayer.playCardAutomatically();
+
+        Assert.assertTrue( secondPlayer.getSlot().getLastOne() == card4 );
 
     }
 
