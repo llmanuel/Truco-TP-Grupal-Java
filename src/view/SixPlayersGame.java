@@ -7,6 +7,8 @@ import model.Exceptions.InvalidNumberOfPlayersException;
 import model.Exceptions.NotCardThrownException;
 import model.Exceptions.NotYourTurnException;
 import model.Exceptions.TeamDoesntExistException;
+import model.Hand;
+import model.Player;
 import model.Slot;
 
 import javax.imageio.ImageIO;
@@ -275,6 +277,30 @@ public class SixPlayersGame extends JFrame{
         }
 
         return cardPicture;
+    }
+
+    public void drawCardsPlayerInTurn(Player player, Hand playerHand) {
+        this.idPlayerInTurn.setText("Jugador " + player.getIdNumber());
+
+        this.clearHandPlayerInTurn();
+
+        try {
+            this.card1HandPlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerHand.getCards().get(0) ) ) );
+        } catch (IndexOutOfBoundsException e){
+            this.card1HandPlayerInTurn.setIcon( new ImageIcon(  ) );
+        }
+
+        try {
+            this.card2HandPlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerHand.getCards().get(1) ) ) );
+        } catch (IndexOutOfBoundsException e){
+            this.card2HandPlayerInTurn.setIcon( new ImageIcon(  ) );
+        }
+
+        try {
+            this.card3HandPlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerHand.getCards().get(2) ) ) );
+        } catch (IndexOutOfBoundsException e ){
+            this.card3HandPlayerInTurn.setIcon( new ImageIcon(  ) );
+        }
     }
 
 }
