@@ -57,7 +57,6 @@ public class SixPlayersGame extends JFrame{
     private JLabel card1SlotPlayer1OtherTeam;
     private JPanel rootPanel;
     private JLabel playerInTurnID;
-    private JDialog nextPlayer;
 
     public SixPlayersGame() throws NotCardThrownException {
         super("Truco");
@@ -526,7 +525,7 @@ public class SixPlayersGame extends JFrame{
 
     public void showMassageNextPlayer() {
 
-        JOptionPane.showMessageDialog(nextPlayer,"Turno del proximo jugador.","",JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null,"Turno del proximo jugador.","",JOptionPane.WARNING_MESSAGE);
     }
 
 }
