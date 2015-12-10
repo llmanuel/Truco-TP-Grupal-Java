@@ -162,13 +162,6 @@ public class GameWithSixPlayersTest {
 
         Assert.assertTrue(table.getActualPlayer() == player2);
 
-        player2.playCard(card6);
-        player3.playCard(card9);
-        player4.playCard(card12);
-        player5.playCard(card15);
-        player6.playCard(card18);
-        player1.playCard(card3);
-
         Assert.assertEquals(1, scoreboard.getPointsOf(player2), 0.001);
 
     }
