@@ -144,8 +144,7 @@ public class Table {
         this.verifyOthersTeamDecision();
     }
 
-    public void
-    theEnvidoGameWasAccepted() throws TeamDoesntExistException {
+    public void theEnvidoGameWasAccepted() throws TeamDoesntExistException {
         this.judge.setWinnerOfEnvido(this.slotsInGame, this.gameState);
         /*nextRound on Envidos Games will set the game state on LastsRounds*/
         this.gameState.nextRound();
