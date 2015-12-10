@@ -38,7 +38,7 @@ public class CpuPlayer implements Player {
 
         if ((this.table.tellMeIfItsMyTurn(this)) && (this.table.tellMeIfCallWasAccepted())) {
             this.decideOfMakingACall();
-            this.slot.receiveCard(cardToPlay);
+            try {this.slot.receiveCard(this.hand.getCard(cardToPlay));} catch (DonTHaveThatCardException e) {}
             this.table.finishTurn();
         } else throw new NotYourTurnException();
     }
