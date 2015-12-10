@@ -236,7 +236,6 @@ public class FourPlayersGame extends JFrame {
 
     private void florButtonClicked() {
         try {
-            this.showMassageNextPlayer();
             this.controller.callFlor();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
