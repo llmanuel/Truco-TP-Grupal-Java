@@ -182,4 +182,20 @@ public class GameWithEnvidoAndRealEnvido {
         player1.callRealEnvido();
 
     }
+
+    @Test
+    public void aPlayerCallEnvidoAndRealenvido() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
+        this.table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.callEnvido();
+        player2.callRealEnvido();
+
+        player1.acceptCall();
+
+        Assert.assertEquals( 0 , scoreboard.getPointsOf( player2 ) );
+        Assert.assertEquals( 5 ,scoreboard.getPointsOf( player1 ));
+    }
 }
