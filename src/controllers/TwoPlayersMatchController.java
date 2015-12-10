@@ -124,4 +124,9 @@ public class TwoPlayersMatchController  {
         this.drawCardsPlayerInTurn();
         this.drawScores();
     }
+
+    public void cleanPlayerInTurnCards() {
+
+        this.gameView.cleanPlayerInTurnCards();
+    }
 }

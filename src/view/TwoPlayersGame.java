@@ -164,19 +164,21 @@ public class TwoPlayersGame extends JFrame {
 
 
     private void card1PlayerInTurnClicked() {
-
+        this.controller.cleanPlayerInTurnCards();
         this.showMassageNextPlayer();
         this.controller.playCard(1);
     }
 
     private void card2PlayerInTurnClicked() {
 
+        this.cleanPlayerInTurnCards();
         this.showMassageNextPlayer();
         this.controller.playCard(2);
     }
 
     private void card3PlayerInTurnClicked() {
 
+        this.cleanPlayerInTurnCards();
         this.showMassageNextPlayer();
         this.controller.playCard(3);
     }
@@ -389,5 +391,12 @@ public class TwoPlayersGame extends JFrame {
         } catch (FirstTeamWonException e) {
             this.showMessage( "Gano el jugador 1" );
         }
+    }
+
+    public void cleanPlayerInTurnCards() {
+
+        this.card1PlayerInTurn.setIcon( new ImageIcon(  ) );
+        this.card2PlayerInTurn.setIcon( new ImageIcon(  ) );
+        this.card3PlayerInTurn.setIcon( new ImageIcon(  ) );
     }
 }
