@@ -146,8 +146,7 @@ public class TwoPlayersGame extends JFrame {
     }
 
     public void showMassageNextPlayer() {
-
-        JOptionPane.showMessageDialog(nextPlayer,"Turno del proximo jugador.","",JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Turno del proximo jugador" );
     }
 
     private BufferedImage getCardImage(Card actualCard){
