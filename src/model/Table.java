@@ -23,11 +23,6 @@ public class Table {
     private Games gameState;
     private Judge judge;
     private Croupier croupier;
-
-    public Scoreboard getScoreboard() {
-        return scoreboard;
-    }
-
     private Scoreboard scoreboard;
     private int roundCounter;
     private Team firstTeam;
@@ -93,6 +88,10 @@ public class Table {
 
     public LinkedList<Slot> getSlots(){
         return this.slotsInGame;
+    }
+
+    public Scoreboard getScoreboard() {
+        return scoreboard;
     }
 
     /**************************
