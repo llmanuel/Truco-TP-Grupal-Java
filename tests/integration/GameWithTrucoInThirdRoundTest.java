@@ -28,8 +28,8 @@ public class GameWithTrucoInThirdRoundTest {
     @Before
     public void setup() throws InvalidNumberOfPlayersException {
         card1 = new Card(5, "BASTO", 2);
-        card2 = new Card(7, "BASTO", 4);
-        card3 = new Card(7, "ESPADA", 12);
+        card2 = new Card(7, "ESPADA", 12);
+        card3 = new Card(7, "BASTO", 4);
 
         card4 = new Card(12, "ESPADA", 7);
         card5 = new Card(3, "ORO", 10);
@@ -101,12 +101,13 @@ public class GameWithTrucoInThirdRoundTest {
 
         player1.playCard(card2);
 
-        player2.callTruco();
-        player1.acceptCall();
+        player1.callTruco();
+        player2.acceptCall();
+
+        player1.playCard(card3);
 
         player2.playCard(card6);
 
-        player1.playCard(card3);
 
         try {
             Assert.assertTrue( scoreboard.getPointsOf( player2 ) == 2 );
@@ -126,7 +127,7 @@ public class GameWithTrucoInThirdRoundTest {
     }
 
     @Test
-    public void gameWithNoQuieroTrucoTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
+    public void gameWithNoQuieroTrucoTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -141,7 +142,11 @@ public class GameWithTrucoInThirdRoundTest {
 
         player1.playCard( card2 );
 
-        player2.callTruco();
-        player1.giveUp();
+        player1.callTruco();
+        player2.giveUp();
+
+        Assert.assertEquals( 0 , scoreboard.getPointsOf( player2 ) );
+        Assert.assertEquals( 1 ,scoreboard.getPointsOf( player1 ));
+
     }
 }

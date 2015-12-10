@@ -92,7 +92,7 @@ public class TableAndJudgeTest {
     }
 
     @Test (expected = NotCardThrownException.class)
-    public void judgeThrowsExceptionWhenNoCardHasBeenThrown() throws NotCardThrownException, TeamDoesntExistException {
+    public void judgeThrowsExceptionWhenNoCardHasBeenThrown() throws NotCardThrownException, TeamDoesntExistException, SomebodyWonTheGame {
         Games actualGame = new Truco(this.table, 0);
         this.judge.setWinnerOfTheRound( this.table.getSlots());
     }
