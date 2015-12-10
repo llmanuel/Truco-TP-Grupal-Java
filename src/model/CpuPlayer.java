@@ -34,7 +34,7 @@ public class CpuPlayer implements Player {
     }
 
     @Override
-    public void playCard(Card cardToPlay) throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException {
+    public void playCard(Card cardToPlay) throws NotYourTurnException {
 
         if ((this.table.tellMeIfItsMyTurn(this)) && (this.table.tellMeIfCallWasAccepted())) {
             this.decideOfMakingACall();
@@ -43,13 +43,16 @@ public class CpuPlayer implements Player {
     }
 
     @Override
-    public void play() throws NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException, NotYourTurnException{
-        Card cardToPlay = this.chooseCardToPlay();
-
+    public void play(){
+        Card cardToPlay = null;
         try {
+            cardToPlay = this.chooseCardToPlay();
             this.playCard(cardToPlay);
         } catch (NotYourTurnException e) {
-            this.acceptCall();
+            try {
+                this.acceptCall();
+            } catch (NotYourTurnException e1) {
+            }
         }
     }
 
@@ -77,7 +80,7 @@ public class CpuPlayer implements Player {
             }
     }
 
-    public int searchHigherCardInTheRound() throws NotCardThrownException {
+    public int searchHigherCardInTheRound(){
         int maxValue = 0;
         try {
             for (Slot actualSlot : this.table.getSlotsOfHumanPlayers()) {
@@ -98,7 +101,7 @@ public class CpuPlayer implements Player {
      * It will play the card with the lesser value in it's hand that can win to the other card played. *
      * If it can't play a card like that it will play the card with lesser value in it's hand.         *
      ***************************************************************************************************/
-    public Card chooseCardToPlay() throws NotCardThrownException {
+    public Card chooseCardToPlay(){
 
         int higherCardInRound = searchHigherCardInTheRound();
         LinkedList<Card> ordererCards = this.orderMyHandLowToHigh();
@@ -226,9 +229,11 @@ public class CpuPlayer implements Player {
     }
 
     @Override
-    public void acceptCall() throws TeamDoesntExistException, NotYourTurnException {
+    public void acceptCall() throws NotYourTurnException {
         if(this.table.tellMeIfItsMyTurn(this))  {
-            this.table.acceptCall();
+            try {
+                this.table.acceptCall();
+            } catch (TeamDoesntExistException e) {}
         } else throw new NotYourTurnException();
     }
 

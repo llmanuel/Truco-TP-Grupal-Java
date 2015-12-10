@@ -44,7 +44,7 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void play() throws NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException, NotYourTurnException {}
+    public void play(){}
 
     @Override
     public void callEnvido() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException, InvalidGameCallException {
