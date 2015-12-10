@@ -1,8 +1,9 @@
 package model;
 
 public class Card {
-    private Integer number, value;
-    private String suit;
+    private final Integer number;
+    private final Integer value;
+    private final String suit;
 
     public Card(Integer number, String suit, Integer value) {
 
