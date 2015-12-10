@@ -2,63 +2,34 @@ package unit;
 
 import model.*;
 import model.Exceptions.FirstTeamWonException;
+import model.Exceptions.InvalidNumberOfPlayersException;
 import model.Exceptions.SecondTeamWonException;
 import model.Exceptions.TeamDoesntExistException;
 import model.TableStates.Truco;
-
-import java.util.LinkedList;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.LinkedList;
+
 public class ScoreboardTest {
 
-    private HumanPlayer player1;
-    private HumanPlayer player2;
-    private HumanPlayer player3;
-    private HumanPlayer player4;
-
-    private LinkedList<Team> playerList;
     private Table table;
-    
+    private Scoreboard scoreboard;
 
-  @Before
-    public void setup(){
-        player1 = new HumanPlayer(1);
-        player2 = new HumanPlayer(2);
-        player3 = new HumanPlayer(3);
-        player4 = new HumanPlayer(4);
-     
-        LinkedList<Player> players1 = new LinkedList<Player>();
-        LinkedList<Player> players2 = new LinkedList<Player>();
-        
-        players1.add(player1);
-        players1.add(player2);
-        
-        players2.add(player3);
-        players2.add(player4);
 
-        Team team1 = new Team(players1);
-        Team team2 = new Team(players2);
-        
-        playerList = new LinkedList<Team>();
-        
-        playerList.add(team1);
-        playerList.add(team2);
-        
-        table = new Table();
-    }
+    @Before
+    public void setup() throws InvalidNumberOfPlayersException {
+      Builder builder = new Builder(2);
 
-    @Test
-    public void canInstantiateScoreboard(){
-        Scoreboard scoreboard = new Scoreboard( playerList, table );
+      this.table = builder.getTable();
 
+      scoreboard = table.getScoreboard();
     }
 
     @Test
     public void scoreboardStartsWithZeroPoints() throws TeamDoesntExistException, SecondTeamWonException, FirstTeamWonException {
-        Scoreboard scoreboard = new Scoreboard( playerList, table );
+
 
         LinkedList<Team> players = scoreboard.getPlayers();
 
@@ -69,8 +40,6 @@ public class ScoreboardTest {
 
     @Test
     public void pointsIncreaseCorrectly() throws TeamDoesntExistException, SecondTeamWonException, FirstTeamWonException {
-        Scoreboard scoreboard = new Scoreboard( playerList, table );
-
         LinkedList<Team> players = scoreboard.getPlayers();
 
         Truco truco = new Truco( this.table, 0 );
@@ -84,11 +53,10 @@ public class ScoreboardTest {
 
     @Test
     public void pointsIncreaseCorrectlyWhenGameGaveUp() throws TeamDoesntExistException, SecondTeamWonException, FirstTeamWonException {
-        Scoreboard scoreboard = new Scoreboard( playerList, table );
 
         LinkedList<Team> players = scoreboard.getPlayers();
 
-       Truco truco = new Truco( this.table, 2 );
+        Truco truco = new Truco( this.table, 2 );
 
         scoreboard.playerGaveUpThisGame(players.getFirst(), truco);
         
