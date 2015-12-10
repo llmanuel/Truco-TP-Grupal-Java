@@ -144,7 +144,8 @@ public class Table {
         this.verifyOthersTeamDecision();
     }
 
-    public void theEnvidoGameWasAccepted() throws TeamDoesntExistException {
+    public void
+    theEnvidoGameWasAccepted() throws TeamDoesntExistException {
         this.judge.setWinnerOfEnvido(this.slotsInGame, this.gameState);
         /*nextRound on Envidos Games will set the game state on LastsRounds*/
         this.gameState.nextRound();
@@ -173,6 +174,7 @@ public class Table {
     private void setCursorAt(Player thisPLayer){
 
         cursor = thisPLayer;
+        this.cursor.play();
     }
 
     /*
@@ -294,7 +296,7 @@ public class Table {
     private void verifyOthersTeamDecision(){
         teamsCursor = this.getTheEnemyTeamOf(this.cursor);
         cursorForCalls = this.cursor;
-        cursor = teamsCursor.getFirstMember();
+        setCursorAt(teamsCursor.getFirstMember());
     }
 
     private Team getTheEnemyTeamOf(Player thisPlayer) {
