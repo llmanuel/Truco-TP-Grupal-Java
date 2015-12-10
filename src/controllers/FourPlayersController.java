@@ -11,21 +11,19 @@ import java.util.LinkedList;
 
 public class FourPlayersController {
     private Table table;
-    private FourPlayersGame gameView;
+    private final FourPlayersGame gameView;
     private Builder builder;
-    private LinkedList<Player> players;
     private Player cursor;
 
     public FourPlayersController(FourPlayersGame newGameView) throws InvalidNumberOfPlayersException, NotCardThrownException {
         gameView = newGameView;
         builder = new Builder(4);
-        players = builder.getPlayers();
         this.table = builder.getTable();
         this.startGame();
 
     }
 
-    private void startGame() throws NotCardThrownException {
+    private void startGame() {
         this.initializeScores();
         this.setTeamsNames();
         this.drawCardsPlayerInTurn();
@@ -43,13 +41,13 @@ public class FourPlayersController {
         this.gameView.initializeScores();
     }
 
-    public void drawSlotPlayerInTurn() {
+    private void drawSlotPlayerInTurn() {
 
         this.gameView.drawSlotPlayerInTurn(table.getActualPlayer().getSlot());
     }
 
 
-    public void drawCardsPlayerInTurn() {
+    private void drawCardsPlayerInTurn() {
 
         this.gameView.drawCardsPlayerInTurn(table.getActualPlayer(), table.getActualPlayer().getHand());
     }
@@ -104,14 +102,14 @@ public class FourPlayersController {
         try {
             table.getActualPlayer().playCard(table.getActualPlayer().getHand().getCards().get(i - 1));
             this.drawRound();
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
     }
 
-    public void drawSlotOtherPlayer() {
+    private void drawSlotOtherPlayer() {
 
         cursor = table.getActualPlayer();
-        LinkedList<Player> nextPlayers = new LinkedList<Player>();
+        LinkedList<Player> nextPlayers = new LinkedList<>();
         for (int i = 0; i < (this.table.getPlayers().size() ); i++){
 
             this.getTheNextOne();
@@ -134,7 +132,7 @@ public class FourPlayersController {
         }
     }
 
-    public void setCursorAt(Player cursorAtPlayer) {
+    private void setCursorAt(Player cursorAtPlayer) {
         this.cursor = cursorAtPlayer;
     }
 
@@ -146,7 +144,7 @@ public class FourPlayersController {
         this.gameView.drawScores(table.getScoreboard(), teams);
     }
 
-    public void drawRound() {
+    private void drawRound() {
         this.drawSlotPlayerInTurn();
         this.drawSlotOtherPlayer();
         this.drawCardsPlayerInTurn();
