@@ -99,8 +99,8 @@ public class GameWithFourPlayersTest {
             table.getActualPlayer().playCard(table.getActualPlayer().getHand().getCards().getFirst());
         }
 
-        Assert.assertTrue(table.getScoreboard().getPointsOf(builder.getTeams().getFirst()) == 0);
-        Assert.assertTrue(table.getScoreboard().getPointsOf(builder.getTeams().getLast()) == 1);
+        Assert.assertEquals( 0, table.getScoreboard().getPointsOf(builder.getTeams().getFirst()));
+        Assert.assertEquals( 1, table.getScoreboard().getPointsOf(builder.getTeams().getLast()));
     }
 
     @Test
