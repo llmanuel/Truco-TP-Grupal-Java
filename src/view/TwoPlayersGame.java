@@ -42,7 +42,7 @@ public class TwoPlayersGame extends JFrame {
     private TwoPlayersMatchController controller;
     private JDialog nextPlayer;
 
-    public TwoPlayersGame() {
+    public TwoPlayersGame(boolean withCpu) {
         super("Truco");
 
         try {
