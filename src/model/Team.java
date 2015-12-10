@@ -5,7 +5,7 @@ import model.Exceptions.PlayerDoesNotExistsException;
 import java.util.LinkedList;
 
 public class Team {
-    LinkedList<Player> members;
+    private final LinkedList<Player> members;
 
     public Team(LinkedList<Player> newMembers) {
         this.members = newMembers;
