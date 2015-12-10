@@ -97,25 +97,11 @@ public class GameWithCpuPlayerTest {
         player2.setHand( hand2 );
 
         player1.callEnvido();
-        player2.acceptCall();
 
         Assert.assertEquals( 0 , scoreboard.getPointsOf( player1 ) );
         Assert.assertEquals( 2 , scoreboard.getPointsOf( player2 ));
     }
 
-    @Test
-    public void cpuPlayerDontAccept() throws NotYourTurnException, InvalidGameCallException, NotCardThrownException, TeamDoesntExistException, SecondTeamWonException, FirstTeamWonException {
 
-        this.table.setGame();
-
-        player1.setHand( hand2 );
-        player2.setHand( hand1 );
-
-        player1.callEnvido();
-        player2.acceptCall();
-
-        Assert.assertEquals( 1 , scoreboard.getPointsOf( player1 ) );
-        Assert.assertEquals( 0 , scoreboard.getPointsOf( player2 ));
-    }
 
 }
