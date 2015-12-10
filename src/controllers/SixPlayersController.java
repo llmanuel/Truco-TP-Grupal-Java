@@ -13,14 +13,12 @@ public class SixPlayersController {
     private Table table;
     private SixPlayersGame gameView;
     private Builder builder;
-    private LinkedList<Player> players;
     private Player cursor;
 
     public SixPlayersController(SixPlayersGame sixPlayersGame) throws InvalidNumberOfPlayersException, NotCardThrownException {
 
         gameView = sixPlayersGame;
         builder = new Builder(6);
-        players = builder.getPlayers();
         this.table = builder.getTable();
         this.startGame();
 
