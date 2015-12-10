@@ -331,19 +331,13 @@ public class Table {
         return playersInGame;
     }
 
-    public LinkedList<Slot> getSlotsOfHumanPlayers(){
+    public Slot getSlotsOfHumanPlayers(){
 
-        LinkedList<Slot> slotsInGame = new LinkedList<>();
+        if (slotsInGame.get(0).getPlayer().getIdNumber() != getActualPlayer().getIdNumber()) {
 
-        for (Player actualPlayer :this.playersInGame){
-
-            if (actualPlayer instanceof HumanPlayer) {
-
-                slotsInGame.add(actualPlayer.getSlot());
-            }
+            return slotsInGame.get(0);
         }
-
-        return slotsInGame;
+        return  slotsInGame.get(1);
     }
 
 }
