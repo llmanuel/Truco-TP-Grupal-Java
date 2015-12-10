@@ -472,9 +472,9 @@ public class FourPlayersGame extends JFrame {
 
     public void cleanPlayerInTurnCards() {
 
-        this.card1PlayerInTurn.setIcon( new ImageIcon(  ) );
-        this.card2PlayerInTurn.setIcon( new ImageIcon(  ) );
-        this.card3PlayerInTurn.setIcon( new ImageIcon(  ) );
+        this.card1HandPlayerInTurn.setIcon( new ImageIcon(  ) );
+        this.card2HandPlayerInTurn.setIcon( new ImageIcon(  ) );
+        this.card3HandPlayerInTurn.setIcon( new ImageIcon(  ) );
     }
 }
 
