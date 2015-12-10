@@ -46,7 +46,7 @@ public class TwoPlayersGame extends JFrame {
         super("Truco");
 
         try {
-            controller = new TwoPlayersMatchController(this);
+            controller = new TwoPlayersMatchController(this, withCpu);
         } catch (InvalidNumberOfPlayersException e) {
             this.showMessage("Cantidad Invalida de Jugadores.");
         }
