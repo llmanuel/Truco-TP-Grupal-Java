@@ -83,13 +83,12 @@ public class CpuPlayer implements Player {
     public int searchHigherCardInTheRound(){
         int maxValue = 0;
         try {
-            for (Slot actualSlot : this.table.getSlotsOfHumanPlayers()) {
-
+                Slot actualSlot = table.getSlotsOfHumanPlayers();
                 if (actualSlot.getLastOne().getValue() > maxValue) {
 
                     maxValue = actualSlot.getLastOne().getValue();
                 }
-            }
+
         } catch (NotCardThrownException e) {
             return  maxValue;
         }

@@ -165,30 +165,26 @@ public class TableTest {
     @Test
     public void tableGiveTheSlotsOfHumanPlayers() throws InvalidNumberOfPlayersException {
 
+        table = new Table();
         LinkedList<Player> players = new LinkedList<>();
         CpuPlayer cpu = new CpuPlayer(1);
         HumanPlayer human = new HumanPlayer(2);
+        cpu.setTable(table);
+        human.setTable(table);
         players.add(cpu);
         players.add(human);
-        table = new Table();
         table.letSitThese( players );
+        table.setGame();
 
-        LinkedList<Slot> slots = table.getSlotsOfHumanPlayers();
 
-        Assert.assertTrue(slots.size() == 1);
+
+        Slot slot = table.getSlotsOfHumanPlayers();
+
+        Assert.assertTrue(human.getSlot() == slot);
 
     }
 
-    @Test
-    public void secondTestToCheckTheSlotsOfHumanPlayer() throws InvalidNumberOfPlayersException {
-
-        table = new Table();
-        table.letSitThese( FourPlayers );
-
-        LinkedList<Slot> slots = table.getSlotsOfHumanPlayers();
-
-        Assert.assertTrue(slots.size() == 4);
-    }
+}
 //    @Test
 //    public void aTableCanReceiveACardOnlyFromAPlayer() throws InvalidNumberOfPlayersException, InvalidSuiteException, InvalidCardNumberException {
 //        table = new Table();
@@ -202,4 +198,3 @@ public class TableTest {
 //        table = new Table();
 //        table.setGame();
 //    }
-}
