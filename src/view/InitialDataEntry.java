@@ -17,7 +17,6 @@ public class InitialDataEntry extends JFrame {
     private static final String textFor2PlayersWithCPUOption = "2 Jugadores con CPU";
     private static final String textFor4PlayersOption = "4 Jugadores";
     private static final String textFor6PlayersOption = "6 Jugadores";
-    private int selectedPlayerQuantity;
 
     public InitialDataEntry() {
         super("Truco");
@@ -58,13 +57,7 @@ public class InitialDataEntry extends JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InitialDataEntry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InitialDataEntry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InitialDataEntry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | UnsupportedLookAndFeelException | IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(InitialDataEntry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
@@ -75,17 +68,14 @@ public class InitialDataEntry extends JFrame {
 
     private void empezarJuegoButtonClicked() throws NotCardThrownException {
         String selectedOption = (String) playerQuantityComboBox.getSelectedItem();
-        boolean withCpu;
 
         switch (selectedOption){
             case textFor2PlayersOption:
-                withCpu = false;
-                new TwoPlayersGame(withCpu).setVisible(true);
+                new TwoPlayersGame(false).setVisible(true);
 
                 break;
             case textFor2PlayersWithCPUOption:
-                withCpu = true;
-                new TwoPlayersGame(withCpu).setVisible(true);
+                new TwoPlayersGame(true).setVisible(true);
 
                 break;
             case textFor4PlayersOption:
