@@ -69,32 +69,32 @@ public class CpuPlayerTest {
         Assert.assertEquals( 1, cpuplayer.getIdNumber(), 0.0001 );
     }
 
-    @Test
-    public void canPlayACardSecond() throws DonTHaveThatCardException, NotCardThrownException, NotYourTurnException, InvalidNumberOfPlayersException, TeamDoesntExistException {
-        Table table = new Table();
-
-        HumanPlayer firstPlayer = new HumanPlayer(1);
-        CpuPlayer secondPlayer = new CpuPlayer(2);
-
-        secondPlayer.setTable(table);
-        firstPlayer.setTable(table);
-
-        LinkedList<Player> players = new LinkedList<Player>();
-        players.addLast(firstPlayer);
-        players.addLast(secondPlayer);
-
-        table.letSitThese(players);
-
-        table.setGame();
-
-        firstPlayer.setHand(hand1);
-        secondPlayer.setHand(hand2);
-
-        firstPlayer.playCard(card3);
-
-        Assert.assertTrue( secondPlayer.getSlot().getLastOne() == card4 );
-
-    }
+//    @Test
+//    public void canPlayACardSecond() throws DonTHaveThatCardException, NotCardThrownException, NotYourTurnException, InvalidNumberOfPlayersException, TeamDoesntExistException {
+//        Table table = new Table();
+//
+//        HumanPlayer firstPlayer = new HumanPlayer(1);
+//        CpuPlayer secondPlayer = new CpuPlayer(2);
+//
+//        secondPlayer.setTable(table);
+//        firstPlayer.setTable(table);
+//
+//        LinkedList<Player> players = new LinkedList<Player>();
+//        players.addLast(firstPlayer);
+//        players.addLast(secondPlayer);
+//
+//        table.letSitThese(players);
+//
+//        table.setGame();
+//
+//        firstPlayer.setHand(hand1);
+//        secondPlayer.setHand(hand2);
+//
+//        firstPlayer.playCard(card3);
+//
+//        Assert.assertTrue( secondPlayer.getSlot().getLastOne() == card4 );
+//
+//    }
 
     @Test
     public void canOrderMyCards(){
@@ -120,30 +120,30 @@ public class CpuPlayerTest {
         Assert.assertTrue(cards.get(2).getValue() == 12 );
     }
 
-    @Test
-    public void canSearchTheHigherCardPlayedInTheRound() throws InvalidNumberOfPlayersException, NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException {
-        Table table = new Table();
-
-        HumanPlayer firstPlayer = new HumanPlayer(1);
-        CpuPlayer secondPlayer = new CpuPlayer(2);
-
-        secondPlayer.setTable(table);
-        firstPlayer.setTable(table);
-
-        LinkedList<Player> players = new LinkedList<Player>();
-        players.addLast(firstPlayer);
-        players.addLast(secondPlayer);
-
-        table.letSitThese(players);
-
-        table.setGame();
-
-        firstPlayer.setHand(hand1);
-        secondPlayer.setHand(hand2);
-
-        firstPlayer.playCard(card3);
-
-        Assert.assertTrue(secondPlayer.searchHigherCardInTheRound() == 14);
-
-    }
+//    @Test
+//    public void canSearchTheHigherCardPlayedInTheRound() throws InvalidNumberOfPlayersException, NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException {
+//        Table table = new Table();
+//
+//        HumanPlayer firstPlayer = new HumanPlayer(1);
+//        CpuPlayer secondPlayer = new CpuPlayer(2);
+//
+//        secondPlayer.setTable(table);
+//        firstPlayer.setTable(table);
+//
+//        LinkedList<Player> players = new LinkedList<Player>();
+//        players.addLast(firstPlayer);
+//        players.addLast(secondPlayer);
+//
+//        table.letSitThese(players);
+//
+//        table.setGame();
+//
+//        firstPlayer.setHand(hand1);
+//        secondPlayer.setHand(hand2);
+//
+//        firstPlayer.playCard(card3);
+//
+//        Assert.assertTrue(secondPlayer.searchHigherCardInTheRound() == 14);
+//
+//    }
 }
