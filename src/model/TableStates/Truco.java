@@ -2,17 +2,21 @@ package model.TableStates;
 
 import model.Exceptions.InvalidGameCallException;
 import model.Table;
+import model.Team;
 
 public class Truco implements Games {
     int points = 2;
     private Table theTable;
     private int lastGamePoints;
     private boolean gameWasAccepted;
+    private Team teamThatMadeTheCall;
+
 
     public Truco(Table theTable, int lastGamePoints){
         this.theTable = theTable;
         this.lastGamePoints = lastGamePoints;
         this.gameWasAccepted = false;
+        this.teamThatMadeTheCall = this.theTable.getTeamOfActualPlayer();
     }
 
     @Override
@@ -33,7 +37,9 @@ public class Truco implements Games {
 
     @Override
     public void callReTruco() throws InvalidGameCallException {
+        if (this.teamThatMadeTheCall != this.theTable.getTeamOfActualPlayer())
         this.theTable.raiseBet(new ReTruco( theTable, this.getPoints()));
+        else throw new InvalidGameCallException();
     }
 
     @Override
