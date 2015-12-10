@@ -6,7 +6,8 @@ import model.Exceptions.TeamDoesntExistException;
 public interface Games {
 
     int getPoints();
-    int giveUp();
+    int giveUpPoints();
+    void giveUp();
     void callTruco() throws InvalidGameCallException;
     void callReTruco() throws InvalidGameCallException;
     void callVale4() throws InvalidGameCallException;

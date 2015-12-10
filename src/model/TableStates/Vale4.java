@@ -20,9 +20,14 @@ public class Vale4 implements Games {
     }
 
     @Override
-    public int giveUp(){
+    public int giveUpPoints(){
 
         return (this.lastGamePoints);
+    }
+
+    @Override
+    public void giveUp() {
+        this.theTable.beginNextGame();
     }
 
     @Override

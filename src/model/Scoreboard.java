@@ -90,7 +90,7 @@ public class Scoreboard {
     		
     		if (actualScore.getMember() != team){
     			
-    			actualScore.increaseScoreBy(game.giveUp());
+    			actualScore.increaseScoreBy(game.giveUpPoints());
     		}
     	}
     }

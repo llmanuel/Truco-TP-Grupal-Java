@@ -40,7 +40,6 @@ public class TwoPlayersGame extends JFrame {
     private JLabel firstPlayerScore;
     private JLabel secondPlayerScore;
     private TwoPlayersMatchController controller;
-    private JDialog nextPlayer;
 
     public TwoPlayersGame(boolean withCpu) {
         super("Truco");
@@ -123,29 +122,29 @@ public class TwoPlayersGame extends JFrame {
         card1PlayerInTurn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                card1PlayerInTurnClicked(mouseEvent);
+                card1PlayerInTurnClicked();
             }
         });
         card2PlayerInTurn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                card2PlayerInTurnClicked(mouseEvent);
+                card2PlayerInTurnClicked();
             }
         });
         card3PlayerInTurn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                card3PlayerInTurnClicked(mouseEvent);
+                card3PlayerInTurnClicked();
             }
         });
 
     }
 
-    public void showMessage(String message) {
+    private void showMessage(String message) {
         JOptionPane.showMessageDialog( null, message );
     }
 
-    public void showMassageNextPlayer() {
+    private void showMassageNextPlayer() {
         JOptionPane.showMessageDialog(null, "Turno del proximo jugador" );
     }
 
@@ -164,19 +163,19 @@ public class TwoPlayersGame extends JFrame {
 
 
 
-    private void card1PlayerInTurnClicked(MouseEvent mouseEvent) {
+    private void card1PlayerInTurnClicked() {
 
         this.showMassageNextPlayer();
         this.controller.playCard(1);
     }
 
-    private void card2PlayerInTurnClicked(MouseEvent mouseEvent) {
+    private void card2PlayerInTurnClicked() {
 
         this.showMassageNextPlayer();
         this.controller.playCard(2);
     }
 
-    private void card3PlayerInTurnClicked(MouseEvent mouseEvent) {
+    private void card3PlayerInTurnClicked() {
 
         this.showMassageNextPlayer();
         this.controller.playCard(3);
@@ -214,7 +213,7 @@ public class TwoPlayersGame extends JFrame {
             this.showMessage( "No se ha tirado carta alguna" );
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
-        } catch (TeamDoesntExistException e) {
+        } catch (TeamDoesntExistException ignored) {
 
         } catch (InvalidGameCallException e) {
             e.printStackTrace();
@@ -226,9 +225,7 @@ public class TwoPlayersGame extends JFrame {
             this.controller.callFlor();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
-        } catch (InvalidGameCallException e) {
-            e.printStackTrace();
-        } catch (TeamDoesntExistException e) {
+        } catch (InvalidGameCallException | TeamDoesntExistException e) {
             e.printStackTrace();
         }
     }
@@ -269,9 +266,7 @@ public class TwoPlayersGame extends JFrame {
             this.controller.callTruco();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
-        } catch (NotCardThrownException e) {
-            e.printStackTrace();
-        } catch (TeamDoesntExistException e) {
+        } catch (NotCardThrownException | TeamDoesntExistException e) {
             e.printStackTrace();
         } catch (InvalidGameCallException e) {
             this.showMessage( "No podes jugar Truco en este momento" );
@@ -284,9 +279,7 @@ public class TwoPlayersGame extends JFrame {
             this.controller.callFaltaEnvido();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
-        } catch (NotCardThrownException e) {
-            e.printStackTrace();
-        } catch (TeamDoesntExistException e) {
+        } catch (NotCardThrownException | TeamDoesntExistException e) {
             e.printStackTrace();
         } catch (InvalidGameCallException e) {
             this.showMessage( "No podes jugar Falta Envido en este momento" );
@@ -299,9 +292,7 @@ public class TwoPlayersGame extends JFrame {
             this.controller.callRealEnvido();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
-        } catch (NotCardThrownException e) {
-            e.printStackTrace();
-        } catch (TeamDoesntExistException e) {
+        } catch (NotCardThrownException | TeamDoesntExistException e) {
             e.printStackTrace();
         } catch (InvalidGameCallException e) {
             this.showMessage( "No podes jugar Real Envido en este momento" );
@@ -316,9 +307,7 @@ public class TwoPlayersGame extends JFrame {
             this.showMessage( "No podes jugar Envido en este momento" );
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
-        } catch (NotCardThrownException e) {
-            e.printStackTrace();
-        } catch (TeamDoesntExistException e) {
+        } catch (NotCardThrownException | TeamDoesntExistException e) {
             e.printStackTrace();
         }
     }

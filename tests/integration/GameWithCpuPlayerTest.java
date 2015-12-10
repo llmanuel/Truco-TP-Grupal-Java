@@ -102,6 +102,25 @@ public class GameWithCpuPlayerTest {
         Assert.assertEquals( 2 , scoreboard.getPointsOf( player2 ));
     }
 
+//    @Test
+//    public void CpuPlayerAcceptTruco() throws TeamDoesntExistException, NotYourTurnException, InvalidGameCallException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, DonTHaveThatCardException {
+//
+//        this.table.setGame();
+//
+//        player1.setHand( hand1 );
+//        player2.setHand( hand2 );
+//
+//        player1.callTruco();
+//
+//        player1.playCard(card1);
+//
+//        player1.playCard(card2);
+//
+//        player1.playCard(card3);
+//
+//        Assert.assertEquals( 2 , scoreboard.getPointsOf( player1 ) );
+//        Assert.assertEquals( 0 , scoreboard.getPointsOf( player2 ));
+//    }
 
 
 }
