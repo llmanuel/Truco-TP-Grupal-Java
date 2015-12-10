@@ -25,7 +25,7 @@ public class SlotTest {
         second = new Card(1,"ORO", 8);
         thirdCard = new Card(1,"BASTO", 13);
     }
-    
+
 
     @Test
     public void slotsKnowsItsOwner()  {

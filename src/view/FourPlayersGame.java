@@ -176,6 +176,7 @@ public class FourPlayersGame extends JFrame {
 
     private void card3HandPlayerInTurnClicked() {
 
+        this.controller.cleanPlayerInTurnCards();
         this.showMassageNextPlayer();
         this.controller.playCard(3);
 
@@ -183,6 +184,7 @@ public class FourPlayersGame extends JFrame {
 
     private void card2HandPlayerInTurnClicked() {
 
+        this.controller.cleanPlayerInTurnCards();
         this.showMassageNextPlayer();
         this.controller.playCard(2);
 
@@ -190,6 +192,7 @@ public class FourPlayersGame extends JFrame {
 
     private void card1HandPlayerInTurnClicked() {
 
+        this.controller.cleanPlayerInTurnCards();
         this.showMassageNextPlayer();
         this.controller.playCard(1);
 
@@ -465,6 +468,13 @@ public class FourPlayersGame extends JFrame {
         } catch (FirstTeamWonException e) {
         this.showMessage( "Gano el jugador 1" );
         }
+    }
+
+    public void cleanPlayerInTurnCards() {
+
+        this.card1PlayerInTurn.setIcon( new ImageIcon(  ) );
+        this.card2PlayerInTurn.setIcon( new ImageIcon(  ) );
+        this.card3PlayerInTurn.setIcon( new ImageIcon(  ) );
     }
 }
 
