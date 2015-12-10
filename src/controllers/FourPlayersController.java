@@ -150,4 +150,9 @@ public class FourPlayersController {
         this.drawCardsPlayerInTurn();
         this.drawScores();
     }
+
+    public void cleanPlayerInTurnCards() {
+
+        this.gameView.cleanPlayerInTurnCards();
+    }
 }
