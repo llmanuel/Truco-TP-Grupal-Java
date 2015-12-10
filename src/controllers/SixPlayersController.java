@@ -132,6 +132,7 @@ public class SixPlayersController {
     public void playCard(int i) {
         try {
             table.getActualPlayer().playCard(table.getActualPlayer().getHand().getCards().get(i - 1));
+            this.drawRound();
         } catch (Exception e) {
         }
     }

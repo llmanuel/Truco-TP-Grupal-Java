@@ -57,7 +57,6 @@ public class SixPlayersGame extends JFrame{
     private JLabel card1SlotPlayer1OtherTeam;
     private JPanel rootPanel;
     private JLabel playerInTurnID;
-    private JDialog nextPlayer;
 
     public SixPlayersGame() throws NotCardThrownException {
         super("Truco");
@@ -165,27 +164,21 @@ public class SixPlayersGame extends JFrame{
 
         this.showMassageNextPlayer();
         this.controller.playCard(3);
-        this.controller.drawSlotPlayerInTurn();
-        this.controller.drawSlotOtherPlayer();
-        this.controller.drawCardsPlayerInTurn();
+
     }
 
     private void card2HandPlayerInTurnClicked() {
 
         this.showMassageNextPlayer();
         this.controller.playCard(2);
-        this.controller.drawSlotPlayerInTurn();
-        this.controller.drawSlotOtherPlayer();
-        this.controller.drawCardsPlayerInTurn();
+
     }
 
     private void card1HandPlayerInTurnClicked() {
 
         this.showMassageNextPlayer();
         this.controller.playCard(1);
-        this.controller.drawSlotPlayerInTurn();
-        this.controller.drawSlotOtherPlayer();
-        this.controller.drawCardsPlayerInTurn();
+
     }
 
     private void meVoyAlMazoButtonClicked() {
