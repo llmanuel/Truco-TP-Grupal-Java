@@ -27,13 +27,13 @@ public class GameWithTrucoRetrucoAndVale4 {
 
     @Before
     public void setup() throws InvalidNumberOfPlayersException {
-        card1 = new Card( 5, "BASTO", 2 );
-        card2 = new Card( 7, "BASTO", 4 );
-        card3 = new Card( 7, "ESPADA", 12 );
+        card1 = new Card(5, "BASTO", 2);
+        card2 = new Card(7, "ESPADA", 12);
+        card3 = new Card(7, "BASTO", 4);
 
-        card4 = new Card( 12, "ESPADA", 7 );
-        card5 = new Card( 3, "ORO", 10 );
-        card6 = new Card( 7, "ORO", 11 );
+        card4 = new Card(12, "ESPADA", 7);
+        card5 = new Card(3, "ORO", 10);
+        card6 = new Card(7, "ORO", 11);
 
         hand1Cards = new LinkedList<Card>();
         hand1Cards.add( card1 );
@@ -93,25 +93,23 @@ public class GameWithTrucoRetrucoAndVale4 {
         player1.callTruco();
         player2.acceptCall();
 
-        player1.callReTruco();
-        player2.acceptCall();
-
-        player1.callVale4();
-        player2.acceptCall();
-
-
         player1.playCard(card1);
+
+        player2.callReTruco();
+        player1.acceptCall();
 
         player2.playCard(card4);
 
         player2.playCard(card5);
 
+        player1.callVale4();
+        player2.acceptCall();
+
         player1.playCard(card2);
 
-        player2.playCard(card6);
-
-
         player1.playCard(card3);
+
+        player2.playCard(card6);
 
         Assert.assertTrue( scoreboard.getPointsOf( player2 ) == 4 );
         Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 0 );
@@ -125,30 +123,26 @@ public class GameWithTrucoRetrucoAndVale4 {
         player1.setHand( hand1 );
         player2.setHand( hand2 );
 
-
-
         player1.playCard(card1);
-
 
         player2.playCard(card4);
 
         player2.callTruco();
         player1.acceptCall();
 
-        player2.callReTruco();
-        player1.acceptCall();
-
-        player2.callVale4();
-        player1.acceptCall();
-
-
         player2.playCard(card5);
+
+        player1.callReTruco();
+        player2.acceptCall();
 
         player1.playCard(card2);
 
-        player2.playCard(card6);
+        player1.callVale4();
+        player2.acceptCall();
 
         player1.playCard(card3);
+
+        player2.playCard(card6);
 
         Assert.assertTrue( scoreboard.getPointsOf( player2 ) == 4 );
         Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 0 );
@@ -171,18 +165,14 @@ public class GameWithTrucoRetrucoAndVale4 {
 
         player1.playCard(card2);
 
-        player2.callTruco();
-        player1.acceptCall();
-
+        player1.callTruco();
         player2.callReTruco();
-        player1.acceptCall();
-
-        player2.callVale4();
-        player1.acceptCall();
-
-        player2.playCard(card6);
+        player1.callVale4();
+        player2.acceptCall();
 
         player1.playCard(card3);
+
+        player2.playCard(card6);
 
         Assert.assertTrue( scoreboard.getPointsOf( player2 ) == 4 );
         Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 0 );
@@ -207,21 +197,17 @@ public class GameWithTrucoRetrucoAndVale4 {
 
         player1.playCard(card2);
 
-        player2.callTruco();
-        player1.acceptCall();
-
+        player1.callTruco();
         player2.callReTruco();
-        player1.acceptCall();
-
-        player2.callVale4();
-        player1.acceptCall();
-
-        player2.playCard(card6);
+        player1.callVale4();
+        player2.acceptCall();
 
         player1.playCard(card3);
 
-        Assert.assertTrue( scoreboard.getPointsOf( player2 ) == 4 );
-        Assert.assertTrue( scoreboard.getPointsOf( player1 ) == 2 );
+        player2.playCard(card6);
+
+        Assert.assertEquals( 6 , scoreboard.getPointsOf( player2 ) );
+        Assert.assertEquals( 0 ,  scoreboard.getPointsOf( player1 ));
 
     }
 

@@ -34,13 +34,13 @@ public class TableAndJudgeTest {
 
     @Before
     public void setup() throws InvalidNumberOfPlayersException {
-        card1 = new Card( 5, "BASTO", 2 );
-        card2 = new Card( 7, "BASTO", 4 );
-        card3 = new Card( 7, "ESPADA", 12 );
+        card1 = new Card(5, "BASTO", 2);
+        card2 = new Card(7, "ESPADA", 12);
+        card3 = new Card(7, "BASTO", 4);
 
-        card4 = new Card( 12, "ESPADA", 7 );
-        card5 = new Card( 3, "ORO", 10 );
-        card6 = new Card( 7, "ORO", 11 );
+        card4 = new Card(12, "ESPADA", 7);
+        card5 = new Card(3, "ORO", 10);
+        card6 = new Card(7, "ORO", 11);
 
         hand1Cards = new LinkedList<Card>();
         hand1Cards.add( card1 );
