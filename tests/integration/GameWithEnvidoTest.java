@@ -223,4 +223,15 @@ public class GameWithEnvidoTest {
         player1.callEnvido();
         player1.callEnvido();
     }
+
+    @Test (expected = NotYourTurnException.class)
+    public void aPlayerCantThrowACardWhenSomeoneCallsEnvido() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException, DonTHaveThatCardException {
+        this.table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.callEnvido();
+        player2.playCard(card4);
+    }
 }
