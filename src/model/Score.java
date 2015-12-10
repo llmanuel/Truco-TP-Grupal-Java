@@ -1,7 +1,7 @@
 package model;
 
 public class Score {
-    private Team team;
+    private final Team team;
     private int score;
 
     public Score(Team team) {

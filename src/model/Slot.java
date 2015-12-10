@@ -5,21 +5,18 @@ import model.Exceptions.NotCardThrownException;
 
 import java.util.LinkedList;
 
-/**
- * Created by manuel on 13/11/15.
- */
+
 public class Slot {
-    private Player player;
+    private final Player player;
     private LinkedList<Card> cards;
 
     public Slot(Player player) {
         this.player = player;
-        cards = new LinkedList<Card>();
+        cards = new LinkedList<>();
     }
 
-    public boolean receiveCard(Card newCard) {
+    public void receiveCard(Card newCard) {
         this.cards.addLast(newCard);
-        return true;
     }
 
     public boolean isYourPlayer(Player myPlayer) {
@@ -53,7 +50,7 @@ public class Slot {
 
     public void throwCards() {
 
-        cards = new LinkedList<Card>();
+        cards = new LinkedList<>();
     }
 
     public Player getPlayer() {

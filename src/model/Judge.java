@@ -8,8 +8,8 @@ import java.util.LinkedList;
 
 public class Judge {
 
-    private Scoreboard scoreboard;
-    private long[] roundWinsPerTeam;
+    private final Scoreboard scoreboard;
+    private final long[] roundWinsPerTeam;
 
     public Judge(Scoreboard scoreboard) {
         this.scoreboard = scoreboard;
@@ -36,7 +36,7 @@ public class Judge {
 
     }
 
-    public Player setWinnerOfTheRound(LinkedList<Slot> slots) throws NotCardThrownException, TeamDoesntExistException {
+    public Player setWinnerOfTheRound(LinkedList<Slot> slots) throws NotCardThrownException {
         int maximumCardInRound = 0;
         Player roundWinner = null;
 
@@ -46,11 +46,12 @@ public class Judge {
                 roundWinner = actualSlot.getPlayer();
             }
         }
+        assert roundWinner != null;
         this.roundWinsPerTeam[roundWinner.getIdNumber() - 1]++;
         return roundWinner;
     }
 
-    public void setWinnerOfGame(LinkedList<Slot> slots, Games actualGame) throws NotCardThrownException, TeamDoesntExistException {
+    public void setWinnerOfGame(LinkedList<Slot> slots, Games actualGame) throws TeamDoesntExistException {
         if (roundWinsPerTeam[0] > roundWinsPerTeam[1]) {
             scoreboard.increaseTheScoreOf( slots.get( 0 ).getPlayer(), actualGame );
         } else {

@@ -12,7 +12,7 @@ public class TwoPlayersMatchController  {
     private final Player player1;
     private final Player player2;
     private Table table;
-    private TwoPlayersGame gameView;
+    private final TwoPlayersGame gameView;
 
     public TwoPlayersMatchController(TwoPlayersGame newGameView, boolean withCpu) throws InvalidNumberOfPlayersException {
         gameView = newGameView;
@@ -31,8 +31,8 @@ public class TwoPlayersMatchController  {
     }
 
 
-    public void drawScores() {
-        LinkedList<Player> players = new LinkedList<Player>( );
+    private void drawScores() {
+        LinkedList<Player> players = new LinkedList<>();
         players.addFirst( this.player1 );
         players.addLast( this.player2 );
 
@@ -85,19 +85,15 @@ public class TwoPlayersMatchController  {
         this.drawRound();
     }
 
-    public Player getPlayer() {
-        return table.getActualPlayer();
-    }
-
-    public void drawCardsPlayerInTurn(){
+    private void drawCardsPlayerInTurn(){
         this.gameView.drawCardsPlayerInTurn(table.getActualPlayer().getHand() , table.getActualPlayer());
     }
 
-    public void drawSlotPlayerInTurn(){
+    private void drawSlotPlayerInTurn(){
         this.gameView.drawSlotPlayerInTurn( table.getActualPlayer().getSlot());
     }
 
-    public void drawSlotOtherPlayer(){
+    private void drawSlotOtherPlayer(){
         this.gameView.drawSlotOtherPlayer( this.getOtherPlayer().getSlot() );
     }
 
@@ -106,12 +102,12 @@ public class TwoPlayersMatchController  {
         try {
             table.getActualPlayer().playCard( table.getActualPlayer().getHand().getCards().get(i-1) );
             this.drawRound();
-        } catch (Exception e) {
+        } catch (Exception ignored) {
 
         }
     }
 
-    public Player getOtherPlayer() {
+    private Player getOtherPlayer() {
         Player playerToReturn = null;
 
         for (Player actualPlayer : this.table.getPlayers()){
@@ -122,7 +118,7 @@ public class TwoPlayersMatchController  {
         return playerToReturn;
     }
 
-    public void drawRound() {
+    private void drawRound() {
         this.drawSlotPlayerInTurn();
         this.drawSlotOtherPlayer();
         this.drawCardsPlayerInTurn();
