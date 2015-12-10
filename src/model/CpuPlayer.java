@@ -9,12 +9,10 @@ public class CpuPlayer implements Player {
     private int playerId;
     private Hand hand;
     private Slot slot;
-    private boolean isMyTurn;
     private Table table;
 
     public CpuPlayer(int idNumber) {
         playerId = idNumber;
-        isMyTurn = false;
     }
 
     @Override

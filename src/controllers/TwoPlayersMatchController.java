@@ -13,12 +13,13 @@ public class TwoPlayersMatchController  {
     private final Player player2;
     private Table table;
     private TwoPlayersGame gameView;
-    private Builder builder;
 
     public TwoPlayersMatchController(TwoPlayersGame newGameView, boolean withCpu) throws InvalidNumberOfPlayersException {
         gameView = newGameView;
 
-        if ( withCpu)
+        Builder builder;
+
+        if ( withCpu )
             builder = new Builder(1,1);
         else
             builder = new Builder(2);
