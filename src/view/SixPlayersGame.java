@@ -162,6 +162,7 @@ public class SixPlayersGame extends JFrame{
 
     private void card3HandPlayerInTurnClicked() {
 
+        this.controller.cleanPlayerInTurnCards();
         this.showMassageNextPlayer();
         this.controller.playCard(3);
 
@@ -169,6 +170,7 @@ public class SixPlayersGame extends JFrame{
 
     private void card2HandPlayerInTurnClicked() {
 
+        this.controller.cleanPlayerInTurnCards();
         this.showMassageNextPlayer();
         this.controller.playCard(2);
 
@@ -176,6 +178,7 @@ public class SixPlayersGame extends JFrame{
 
     private void card1HandPlayerInTurnClicked() {
 
+        this.controller.cleanPlayerInTurnCards();
         this.showMassageNextPlayer();
         this.controller.playCard(1);
 
@@ -207,6 +210,7 @@ public class SixPlayersGame extends JFrame{
 
     private void quieroButtonClicked() {
         try {
+            this.controller.cleanPlayerInTurnCards();
             this.showMassageNextPlayer();
             this.controller.acceptCall();
         } catch (NotCardThrownException e) {
@@ -232,6 +236,7 @@ public class SixPlayersGame extends JFrame{
 
     private void vale4ButtonClicked() {
         try {
+            this.controller.cleanPlayerInTurnCards();
             this.showMassageNextPlayer();
             this.controller.callVale4();
         } catch (NotYourTurnException e) {
@@ -247,6 +252,7 @@ public class SixPlayersGame extends JFrame{
 
     private void retrucoButtonClicked() {
         try {
+            this.controller.cleanPlayerInTurnCards();
             this.showMassageNextPlayer();
             this.controller.callReTruco();
         } catch (NotYourTurnException e) {
@@ -262,6 +268,7 @@ public class SixPlayersGame extends JFrame{
 
     private void trucoButtonClicked() {
         try {
+            this.controller.cleanPlayerInTurnCards();
             this.showMassageNextPlayer();
             this.controller.callTruco();
         } catch (NotYourTurnException e) {
@@ -275,6 +282,7 @@ public class SixPlayersGame extends JFrame{
 
     private void faltaEnvidoButtonClicked() {
         try {
+            this.controller.cleanPlayerInTurnCards();
             this.showMassageNextPlayer();
             this.controller.callFaltaEnvido();
         } catch (NotYourTurnException e) {
@@ -288,6 +296,7 @@ public class SixPlayersGame extends JFrame{
 
     private void realEnvidoButtonClicked() {
         try {
+            this.controller.cleanPlayerInTurnCards();
             this.showMassageNextPlayer();
             this.controller.callRealEnvido();
         } catch (NotYourTurnException e) {
@@ -301,6 +310,7 @@ public class SixPlayersGame extends JFrame{
 
     private void envidoButtonClicked() {
         try {
+            this.controller.cleanPlayerInTurnCards();
             this.showMassageNextPlayer();
             this.controller.callEnvido();
         } catch (InvalidGameCallException e) {
@@ -508,6 +518,13 @@ public class SixPlayersGame extends JFrame{
 
     private void showMassageNextPlayer() {
         JOptionPane.showMessageDialog(null, "Turno del proximo jugador" );
+    }
+
+    public void cleanPlayerInTurnCards() {
+
+        this.card1HandPlayerInTurn.setIcon( new ImageIcon(  ) );
+        this.card2HandPlayerInTurn.setIcon( new ImageIcon(  ) );
+        this.card3HandPlayerInTurn.setIcon( new ImageIcon(  ) );
     }
 
 }

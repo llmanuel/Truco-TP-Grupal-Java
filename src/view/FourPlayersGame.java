@@ -211,6 +211,7 @@ public class FourPlayersGame extends JFrame {
 
     private void noQuieroButtonClicked() {
         try {
+            this.controller.cleanPlayerInTurnCards();
             this.showMassageNextPlayer();
             this.controller.giveUpGame();
         } catch (NotYourTurnException e) {
@@ -224,6 +225,7 @@ public class FourPlayersGame extends JFrame {
 
     private void quieroButtonClicked() {
         try {
+            this.controller.cleanPlayerInTurnCards();
             this.showMassageNextPlayer();
             this.controller.acceptCall();
         } catch (NotCardThrownException e) {
@@ -249,6 +251,7 @@ public class FourPlayersGame extends JFrame {
 
     private void vale4ButtonClicked() {
         try {
+            this.controller.cleanPlayerInTurnCards();
             this.showMassageNextPlayer();
             this.controller.callVale4();
         } catch (NotYourTurnException e) {
@@ -264,6 +267,7 @@ public class FourPlayersGame extends JFrame {
 
     private void retrucoButtonClicked() {
         try {
+            this.controller.cleanPlayerInTurnCards();
             this.showMassageNextPlayer();
             this.controller.callReTruco();
         } catch (NotYourTurnException e) {
@@ -279,6 +283,7 @@ public class FourPlayersGame extends JFrame {
 
     private void trucoButtonClicked() {
         try {
+            this.controller.cleanPlayerInTurnCards();
             this.showMassageNextPlayer();
             this.controller.callTruco();
         } catch (NotYourTurnException e) {
@@ -292,6 +297,7 @@ public class FourPlayersGame extends JFrame {
 
     private void faltaEnvidoButtonClicked() {
         try {
+            this.controller.cleanPlayerInTurnCards();
             this.showMassageNextPlayer();
             this.controller.callFaltaEnvido();
         } catch (NotYourTurnException e) {
@@ -305,6 +311,7 @@ public class FourPlayersGame extends JFrame {
 
     private void realEnvidoButtonClicked() {
         try {
+            this.controller.cleanPlayerInTurnCards();
             this.showMassageNextPlayer();
             this.controller.callRealEnvido();
         } catch (NotYourTurnException e) {
@@ -318,6 +325,7 @@ public class FourPlayersGame extends JFrame {
 
     private void envidoButtonClicked() {
         try {
+            this.controller.cleanPlayerInTurnCards();
             this.showMassageNextPlayer();
             this.controller.callEnvido();
         } catch (InvalidGameCallException e) {
