@@ -3,7 +3,6 @@ package model;
 
 import model.Exceptions.InvalidNumberOfPlayersException;
 
-import javax.swing.*;
 import java.util.LinkedList;
 
 public class Builder {
@@ -27,6 +26,27 @@ public class Builder {
         prepareTable();
     }
 
+
+    public Builder(int numberOfHumanPlayers, int numberOfCpuPlayers) throws InvalidNumberOfPlayersException {
+        validateNumberOfPlayers(numberOfHumanPlayers+numberOfCpuPlayers);
+        createTable();
+        createPlayers(numberOfHumanPlayers, numberOfCpuPlayers);
+        setTeams();
+        setScoreboard();
+        setJudge();
+        prepareTable();
+    }
+
+    private void createPlayers(int numberOfHumanPlayers, int numberOfCpuPlayers) {
+        Player player1 = new HumanPlayer(1);
+        Player player2 = new CpuPlayer(2);
+
+        player1.setTable( this.table );
+        player2.setTable( this.table );
+
+        players.add(player1);
+        players.add(player2);
+    }
 
 
     private void createTable() {
