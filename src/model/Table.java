@@ -1,9 +1,6 @@
 package model;
 
-import model.Exceptions.InvalidGameCallException;
-import model.Exceptions.InvalidNumberOfPlayersException;
-import model.Exceptions.NotCardThrownException;
-import model.Exceptions.TeamDoesntExistException;
+import model.Exceptions.*;
 import model.TableStates.Flor;
 import model.TableStates.Games;
 import model.TableStates.NormalRound;
@@ -191,20 +188,24 @@ public class Table {
      * Returns the next player to play.
      */
     public Player nextPlayer() throws TeamDoesntExistException, NotCardThrownException {
-        this.getTheNextOne();
-        if ((cursor == roundBeginner) && (this.roundCounter != 3)){
-            this.increaseRoundCounter();
-            Player nextBeginner = judge.setWinnerOfTheRound(this.getSlots());
-            this.gameState.nextRound();
-            this.setRoundBeginner(nextBeginner);
-            return nextBeginner;
-        }
-        else if ((cursor == roundBeginner) &&(this.roundCounter == 3)){
-            this.judge.setWinnerOfGame(this.slotsInGame,this.gameState);
-            beginNextGame();
-        }
+      try {
+          this.getTheNextOne();
+          if ((cursor == roundBeginner) && (this.roundCounter != 3)) {
+              this.increaseRoundCounter();
+              Player nextBeginner = judge.setWinnerOfTheRound(this.getSlots());
+              this.gameState.nextRound();
+              this.setRoundBeginner(nextBeginner);
+              return nextBeginner;
+          } else if ((cursor == roundBeginner) && (this.roundCounter == 3)) {
+              this.judge.setWinnerOfGame(this.slotsInGame, this.gameState);
+              beginNextGame();
+          }
 
-        return this.cursor;
+          return this.cursor;
+      }catch (SomebodyWonTheGame e){this.judge.setWinnerOfGame(this.slotsInGame, this.gameState);
+          beginNextGame();
+          return this.cursor;
+      }
     }
 
     /*
@@ -316,7 +317,7 @@ public class Table {
         return this.teamsCursor;
     }
 
-    private Team getTeamOfActualPlayer(){
+    public Team getTeamOfActualPlayer(){
         if (firstTeam.isMember(this.cursor))
         return firstTeam;
         else return secondTeam;
