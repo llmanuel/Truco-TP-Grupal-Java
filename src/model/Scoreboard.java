@@ -10,12 +10,12 @@ import java.util.LinkedList;
 
 public class Scoreboard {
 
-    private LinkedList<Score> scores;
-    private Table table;
+    private final LinkedList<Score> scores;
+    private final Table table;
 
 
     public Scoreboard(LinkedList<Team> teams, Table table) {
-		this.scores = new LinkedList<Score>();
+		this.scores = new LinkedList<>();
 
         for(Team actualTeam : teams){
             this.scores.add(new Score(actualTeam));
@@ -27,7 +27,7 @@ public class Scoreboard {
 	public int getPointsOf(Player whomWantedScoreIs) throws TeamDoesntExistException, SecondTeamWonException, FirstTeamWonException {
         try {
             this.didAnyoneWinAlready();
-        } catch (NobodyWonYetException e) {
+        } catch (NobodyWonYetException ignored) {
 
         }
         return this.getScore(whomWantedScoreIs).getScore();
@@ -54,7 +54,7 @@ public class Scoreboard {
             if(this.getPointsOf(teamWhoLost) < 15 ){
                 pointsToAsign = 15 - this.getPointsOf(teamWhoLost);
             } else pointsToAsign = 30 - (this.getPointsOf(teamWhoLost) - 15);
-        } catch (SecondTeamWonException e) {} catch (FirstTeamWonException e) {}
+        } catch (SecondTeamWonException | FirstTeamWonException ignored) {}
         return pointsToAsign;
     }
 
@@ -77,7 +77,7 @@ public class Scoreboard {
     }
 
     public LinkedList<Team> getPlayers() {
-        LinkedList<Team> players = new LinkedList<Team>(  );
+        LinkedList<Team> players = new LinkedList<>();
         for (Score actualScore : this.scores){
             players.add( actualScore.getMember());
         }
@@ -85,11 +85,11 @@ public class Scoreboard {
     }
 
     public void playerGaveUpThisGame(Team team, Games game) {
-    	
+
     	for (Score actualScore :scores){
-    		
+
     		if (actualScore.getMember() != team){
-    			
+
     			actualScore.increaseScoreBy(game.giveUpPoints());
     		}
     	}
@@ -98,7 +98,7 @@ public class Scoreboard {
 	public int getPointsOf(Team whomWantedScoreIs) throws TeamDoesntExistException, SecondTeamWonException, FirstTeamWonException {
         try {
             this.didAnyoneWinAlready();
-        } catch (NobodyWonYetException e) {
+        } catch (NobodyWonYetException ignored) {
 
         }
 
@@ -106,7 +106,7 @@ public class Scoreboard {
 
 	}
 
-	public Score getScore(Team whoWantedScoreIs) throws TeamDoesntExistException {
+	private Score getScore(Team whoWantedScoreIs) throws TeamDoesntExistException {
 		
 		for (Score actualScore :scores) {
 			
