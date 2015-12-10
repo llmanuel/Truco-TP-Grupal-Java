@@ -200,7 +200,7 @@ public class Table {
             this.setRoundBeginner(nextBeginner);
             return nextBeginner;
         }
-        else if ((cursor == roundBeginner) && (this.roundCounter == 3)){
+        else if ((cursor == roundBeginner) &&(this.roundCounter == 3)){
             this.judge.setWinnerOfGame(this.slotsInGame,this.gameState);
             beginNextGame();
         }
@@ -317,7 +317,7 @@ public class Table {
         return this.teamsCursor;
     }
 
-    public Team getTeamOfActualPlayer(){
+    private Team getTeamOfActualPlayer(){
         if (firstTeam.isMember(this.cursor))
         return firstTeam;
         else return secondTeam;

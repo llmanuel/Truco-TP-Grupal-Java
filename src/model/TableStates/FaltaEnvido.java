@@ -27,11 +27,11 @@ public class FaltaEnvido implements Games {
     @Override
     public void giveUp() {
         this.nextRound();
+        this.theTable.continueWithRound();
     }
 
     @Override
     public int getPoints() {
-        //TODO terminar de pensar como manejar puntos del falta envido
         return 0;
     }
 

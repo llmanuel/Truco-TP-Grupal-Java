@@ -26,6 +26,7 @@ public class RealEnvido implements Games {
     @Override
     public void giveUp() {
         this.nextRound();
+        this.theTable.continueWithRound();
     }
 
     @Override

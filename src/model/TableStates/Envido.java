@@ -26,6 +26,7 @@ public class Envido implements Games {
     @Override
     public void giveUp() {
         this.nextRound();
+        this.theTable.continueWithRound();
     }
 
     /*
