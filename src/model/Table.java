@@ -162,7 +162,7 @@ public class Table {
 
     public void giveUpGame() {
         this.scoreboard.playerGaveUpThisGame(this.getTeamOfActualPlayer(),this.gameState);
-        this.gameState = new NormalRound(this);
+        this.gameState.giveUp();
     }
 
     /**************************
@@ -309,7 +309,7 @@ public class Table {
         this.reOrderTeam(teamToAnswer);
         Player nextPlayer = teamToAnswer.getFirstMember();
         if(nextPlayer == cursorForCalls)
-            this.gameState.giveUp();
+            this.gameState.giveUpPoints();
         this.cursor = nextPlayer;
     }
 
