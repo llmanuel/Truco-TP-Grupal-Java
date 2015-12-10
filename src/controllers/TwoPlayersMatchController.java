@@ -20,7 +20,7 @@ public class TwoPlayersMatchController  {
 
         if ( withCpu)
             builder = new Builder(1,1);
-        else 
+        else
             builder = new Builder(2);
 
         this.table = builder.getTable();
