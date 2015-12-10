@@ -36,7 +36,7 @@ public class Envido implements Games {
     @Override
     public void callRealEnvido(){
 
-        this.theTable.raiseBet(new RealEnvido(theTable, 3, this.getPoints()));
+        this.theTable.raiseBet(new RealEnvido(theTable, this.getPoints() + 3, this.getPoints()));
     }
 
     @Override
