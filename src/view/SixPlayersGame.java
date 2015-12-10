@@ -518,8 +518,7 @@ public class SixPlayersGame extends JFrame{
     }
 
     public void showMassageNextPlayer() {
-
-        JOptionPane.showMessageDialog(null,"Turno del proximo jugador.","",JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Turno del proximo jugador" );
     }
 
 }
