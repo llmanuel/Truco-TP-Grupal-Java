@@ -71,16 +71,17 @@ public class CpuPlayer implements Player {
             if(this.getHand().isFlor()){
                 try {
                     this.callFlor();
-                } catch (InvalidGameCallException e) {
-                    try {
-                    if(this.getHand().calculateEnvido() > 30){
-                            this.callRealEnvido();
-                        }else if(this.getHand().calculateEnvido() > 25){
-                            this.callEnvido();
-                            }
-                    } catch (InvalidGameCallException e1) {}
-                }
+                } catch (InvalidGameCallException e) {}
             }
+            try {
+                if(this.getHand().calculateEnvido() > 30){
+                    this.callRealEnvido();
+                }else if(this.getHand().calculateEnvido() > 25){
+                    this.callEnvido();
+                }
+            } catch (InvalidGameCallException e1) {}
+
+
     }
 
     public int searchHigherCardInTheRound(){
