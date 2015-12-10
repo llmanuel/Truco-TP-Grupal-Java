@@ -178,9 +178,9 @@ public class TableTest {
 
 
 
-        Slot slot = table.getSlotsOfHumanPlayers();
+        Slot slotTest = table.getSlotsOfHumanPlayers();
 
-        Assert.assertTrue(human.getSlot() == slot);
+        Assert.assertTrue(human.getIdNumber() == slotTest.getPlayer().getIdNumber());
 
     }
 

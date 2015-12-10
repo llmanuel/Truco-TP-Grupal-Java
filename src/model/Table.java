@@ -335,9 +335,9 @@ public class Table {
 
         if (slotsInGame.get(0).getPlayer().getIdNumber() != getActualPlayer().getIdNumber()) {
 
-            return slotsInGame.get(0);
+            return slotsInGame.get(1);
         }
-        return  slotsInGame.get(1);
+        return  slotsInGame.get(0);
     }
 
 }
