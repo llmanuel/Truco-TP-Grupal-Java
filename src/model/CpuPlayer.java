@@ -37,16 +37,44 @@ public class CpuPlayer implements Player {
     public void playCard(Card cardToPlay) throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException {
 
         if ((this.table.tellMeIfItsMyTurn(this)) && (this.table.tellMeIfCallWasAccepted())) {
-
+            this.decideOfMakingACall();
             this.slot.receiveCard(cardToPlay);
         } else throw new NotYourTurnException();
     }
 
-    public void playCardAutomatically() throws NotCardThrownException, DonTHaveThatCardException, NotYourTurnException {
+    private void decideOfMakingACall(){
+        try {
+            this.thinkEnvidos();
+        } catch (TeamDoesntExistException e) {} catch (NotYourTurnException e) {}
+    }
+
+
+    private void thinkEnvidos() throws TeamDoesntExistException, NotYourTurnException {
+
+            if(this.getHand().isFlor()){
+                try {
+                    this.callFlor();
+                } catch (InvalidGameCallException e) {
+                    try {
+                    if(this.getHand().calculateEnvido() > 30){
+                            this.callRealEnvido();
+                        }else if(this.getHand().calculateEnvido() > 25){
+                            this.callEnvido();
+                            }
+                    } catch (InvalidGameCallException e1) {}
+                }
+            }
+    }
+
+    public void playCardAutomatically() throws NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException, NotYourTurnException {
 
         Card cardToPlay = this.chooseCardToPlay();
 
-        this.playCard(cardToPlay);
+        try {
+            this.playCard(cardToPlay);
+        } catch (NotYourTurnException e) {
+            this.acceptCall();
+        }
     }
 
     public int searchHigherCardInTheRound() throws NotCardThrownException {
@@ -199,15 +227,9 @@ public class CpuPlayer implements Player {
 
     @Override
     public void acceptCall() throws TeamDoesntExistException, NotYourTurnException {
-        if((this.table.tellMeIfItsMyTurn(this)) && (this.calculateEnvido() >= 25)) {
+        if(this.table.tellMeIfItsMyTurn(this))  {
             this.table.acceptCall();
-        }
-        else {
-            if (this.calculateEnvido() < 25) {
-
-                this.giveUp();
-            } else throw new NotYourTurnException();
-        }
+        } else throw new NotYourTurnException();
     }
 
     @Override
