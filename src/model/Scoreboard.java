@@ -42,8 +42,21 @@ public class Scoreboard {
     }
 
     public void increaseTheScoreOf(Player whomScoreGonnaBeIncreased, Games actualGame) throws TeamDoesntExistException {
-        this.getScore( whomScoreGonnaBeIncreased ).increaseScoreBy(actualGame.getPoints());
+        if(actualGame.getPoints() == 0){
+            this.getScore( whomScoreGonnaBeIncreased ).increaseScoreBy(this.getScoreOfFaltaEnvidoFor(whomScoreGonnaBeIncreased));
+        } else  this.getScore( whomScoreGonnaBeIncreased ).increaseScoreBy(actualGame.getPoints());
 	}
+
+    private int getScoreOfFaltaEnvidoFor(Player whomScoreGonnaBeIncreased) throws TeamDoesntExistException {
+        Team teamWhoLost = this.table.getTheEnemyTeamOf(whomScoreGonnaBeIncreased);
+        int pointsToAsign = 0;
+        try {
+            if(this.getPointsOf(teamWhoLost) < 15 ){
+                pointsToAsign = 15 - this.getPointsOf(teamWhoLost);
+            } else pointsToAsign = 30 - (this.getPointsOf(teamWhoLost) - 15);
+        } catch (SecondTeamWonException e) {} catch (FirstTeamWonException e) {}
+        return pointsToAsign;
+    }
 
     private void didAnyoneWinAlready() throws FirstTeamWonException, SecondTeamWonException, NobodyWonYetException {
         Team winnerTeam = null;
@@ -82,7 +95,7 @@ public class Scoreboard {
     	}
     }
 
-	public double getPointsOf(Team whomWantedScoreIs) throws TeamDoesntExistException, SecondTeamWonException, FirstTeamWonException {
+	public int getPointsOf(Team whomWantedScoreIs) throws TeamDoesntExistException, SecondTeamWonException, FirstTeamWonException {
         try {
             this.didAnyoneWinAlready();
         } catch (NobodyWonYetException e) {

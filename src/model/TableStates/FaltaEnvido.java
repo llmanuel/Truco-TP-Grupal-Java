@@ -21,7 +21,7 @@ public class FaltaEnvido implements Games {
     @Override
     public int giveUp(){
 
-        return (this.getPoints() - 1);
+        return (1);
     }
 
     @Override

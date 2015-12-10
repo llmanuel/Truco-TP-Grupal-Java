@@ -299,7 +299,7 @@ public class Table {
         setCursorAt(teamsCursor.getFirstMember());
     }
 
-    private Team getTheEnemyTeamOf(Player thisPlayer) {
+    public Team getTheEnemyTeamOf(Player thisPlayer) {
         if (firstTeam.isMember(thisPlayer))
             return secondTeam;
         else return firstTeam;
