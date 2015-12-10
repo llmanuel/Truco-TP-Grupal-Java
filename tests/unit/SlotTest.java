@@ -25,14 +25,7 @@ public class SlotTest {
         second = new Card(1,"ORO", 8);
         thirdCard = new Card(1,"BASTO", 13);
     }
-
-    @Test
-    public void slotsCanReceiveCards()  {
-
-        Assert.assertTrue(slot.receiveCard(first));
-        Assert.assertTrue(slot.receiveCard(second));
-        Assert.assertTrue(slot.receiveCard(thirdCard));
-    }
+    
 
     @Test
     public void slotsKnowsItsOwner()  {
