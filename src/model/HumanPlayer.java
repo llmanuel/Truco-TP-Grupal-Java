@@ -44,6 +44,9 @@ public class HumanPlayer implements Player {
     }
 
     @Override
+    public void play() throws NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException, NotYourTurnException {}
+
+    @Override
     public void callEnvido() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException, InvalidGameCallException {
 
         if(this.table.tellMeIfItsMyTurn(this)) {

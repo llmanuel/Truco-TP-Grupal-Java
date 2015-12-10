@@ -42,6 +42,17 @@ public class CpuPlayer implements Player {
         } else throw new NotYourTurnException();
     }
 
+    @Override
+    public void play() throws NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException, NotYourTurnException{
+        Card cardToPlay = this.chooseCardToPlay();
+
+        try {
+            this.playCard(cardToPlay);
+        } catch (NotYourTurnException e) {
+            this.acceptCall();
+        }
+    }
+
     private void decideOfMakingACall(){
         try {
             this.thinkEnvidos();
@@ -64,17 +75,6 @@ public class CpuPlayer implements Player {
                     } catch (InvalidGameCallException e1) {}
                 }
             }
-    }
-
-    public void playCardAutomatically() throws NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException, NotYourTurnException {
-
-        Card cardToPlay = this.chooseCardToPlay();
-
-        try {
-            this.playCard(cardToPlay);
-        } catch (NotYourTurnException e) {
-            this.acceptCall();
-        }
     }
 
     public int searchHigherCardInTheRound() throws NotCardThrownException {
