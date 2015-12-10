@@ -18,9 +18,14 @@ public class Envido implements Games {
     }
 
     @Override
-    public int giveUp(){
+    public int giveUpPoints(){
 
         return (this.lastGamePoints);
+    }
+
+    @Override
+    public void giveUp() {
+        this.nextRound();
     }
 
     /*

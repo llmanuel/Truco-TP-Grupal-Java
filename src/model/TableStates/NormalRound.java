@@ -22,9 +22,14 @@ public class NormalRound implements Games {
     }
 
     @Override
-    public int giveUp(){
+    public int giveUpPoints(){
 
         return (2);
+    }
+
+    @Override
+    public void giveUp() {
+        this.theTable.beginNextGame();
     }
 
     @Override
