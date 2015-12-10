@@ -1,9 +1,6 @@
 package model;
 
-import model.Exceptions.NotCardThrownException;
-import model.Exceptions.Team1WonTheGame;
-import model.Exceptions.Team2WonTheGame;
-import model.Exceptions.TeamDoesntExistException;
+import model.Exceptions.*;
 import model.TableStates.Games;
 
 import java.util.LinkedList;
@@ -38,7 +35,7 @@ public class Judge {
 
     }
 
-    public Player setWinnerOfTheRound(LinkedList<Slot> slots) throws NotCardThrownException, Team1WonTheGame, Team2WonTheGame {
+    public Player setWinnerOfTheRound(LinkedList<Slot> slots) throws NotCardThrownException, SomebodyWonTheGame {
         int maximumCardInRound = 0;
         Player roundWinner = null;
 
@@ -54,12 +51,10 @@ public class Judge {
         return roundWinner;
     }
 
-    private void checkIfAnyoneWonTwoRounds() throws Team1WonTheGame, Team2WonTheGame {
-        if ( this.roundWinsPerTeam[0] == 2 ){
-            throw new Team1WonTheGame();
-        } else if ( this.roundWinsPerTeam[1] == 2){
-            throw new Team2WonTheGame();
-        }
+    private void checkIfAnyoneWonTwoRounds() throws SomebodyWonTheGame {
+        if ( this.roundWinsPerTeam[0] == 2 || this.roundWinsPerTeam[1] == 2)
+            throw new SomebodyWonTheGame();
+        
     }
 
     public void setWinnerOfGame(LinkedList<Slot> slots, Games actualGame) throws TeamDoesntExistException {
