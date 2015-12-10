@@ -15,9 +15,14 @@ public class TwoPlayersMatchController  {
     private TwoPlayersGame gameView;
     private Builder builder;
 
-    public TwoPlayersMatchController(TwoPlayersGame newGameView) throws InvalidNumberOfPlayersException {
+    public TwoPlayersMatchController(TwoPlayersGame newGameView, boolean withCpu) throws InvalidNumberOfPlayersException {
         gameView = newGameView;
-        builder = new Builder(2);
+
+        if ( withCpu)
+            builder = new Builder(1,1);
+        else 
+            builder = new Builder(2);
+
         this.table = builder.getTable();
         this.player1 = builder.getPlayers().getFirst();
         this.player2 = builder.getPlayers().getLast();
