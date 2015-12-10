@@ -261,7 +261,7 @@ public class GameWithTrucoAndRetruco {
         player2.acceptCall();
 
         player1.playCard(card3);
-        
+
         player2.playCard(card6);
 
 
