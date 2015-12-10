@@ -149,5 +149,9 @@ public class SixPlayersController {
         this.drawScores();
     }
 
+    public void cleanPlayerInTurnCards() {
+
+        this.gameView.cleanPlayerInTurnCards();
+    }
 
 }
