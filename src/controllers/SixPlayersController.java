@@ -11,7 +11,7 @@ import java.util.LinkedList;
 
 public class SixPlayersController {
     private Table table;
-    private SixPlayersGame gameView;
+    private final SixPlayersGame gameView;
     private Builder builder;
     private Player cursor;
 
@@ -24,7 +24,7 @@ public class SixPlayersController {
 
     }
 
-    private void startGame() throws NotCardThrownException {
+    private void startGame() {
         this.initializeScores();
         this.setTeamsNames();
         this.drawCardsPlayerInTurn();
@@ -42,20 +42,20 @@ public class SixPlayersController {
         this.gameView.setTeamsNames();
     }
 
-    public void drawSlotPlayerInTurn() {
+    private void drawSlotPlayerInTurn() {
 
         this.gameView.drawSlotPlayerInTurn(table.getActualPlayer().getSlot());
     }
 
-    public void drawCardsPlayerInTurn() {
+    private void drawCardsPlayerInTurn() {
 
         this.gameView.drawCardsPlayerInTurn(table.getActualPlayer(), table.getActualPlayer().getHand());
     }
 
-    public void drawSlotOtherPlayer() {
+    private void drawSlotOtherPlayer() {
 
         cursor = table.getActualPlayer();
-        LinkedList<Player> nextPlayers = new LinkedList<Player>();
+        LinkedList<Player> nextPlayers = new LinkedList<>();
         for (int i = 0; i < (this.table.getPlayers().size() ); i++){
 
             this.getTheNextOne();
@@ -78,7 +78,7 @@ public class SixPlayersController {
         }
     }
 
-    public void setCursorAt(Player cursorAtPlayer) {
+    private void setCursorAt(Player cursorAtPlayer) {
         this.cursor = cursorAtPlayer;
     }
 
@@ -131,7 +131,7 @@ public class SixPlayersController {
         try {
             table.getActualPlayer().playCard(table.getActualPlayer().getHand().getCards().get(i - 1));
             this.drawRound();
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
     }
 
@@ -142,7 +142,7 @@ public class SixPlayersController {
         this.gameView.drawScores(table.getScoreboard(), teams);
     }
 
-    public void drawRound() {
+    private void drawRound() {
         this.drawSlotPlayerInTurn();
         this.drawSlotOtherPlayer();
         this.drawCardsPlayerInTurn();

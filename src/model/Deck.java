@@ -3,27 +3,29 @@ package model;
 import java.util.*;
 
 public class Deck {
-    private static final ArrayList<String> VALID_SUITS = new ArrayList<String>(Arrays.asList("ORO", "BASTO", "ESPADA", "COPA"));
+    private static final ArrayList<String> VALID_SUITS = new ArrayList<>(Arrays.asList("ORO", "BASTO", "ESPADA", "COPA"));
     private static final int[] VALID_NUMBERS = {1,2,3,4,5,6,7,10,11,12};
     private final LinkedList<Card> cards;
 
 
     public Deck() {
-        this.cards = new LinkedList<Card>();
+        this.cards = new LinkedList<>();
 
         for (int number : VALID_NUMBERS){
             for (String actualSuit : VALID_SUITS){
                 int value = 0;
 
                 if ( number == 1 ){
-                    if (actualSuit.equals("ESPADA")){
-                        value = 14;
-                    }
-                    else if (actualSuit.equals("BASTO")){
-                        value = 13;
-                    }
-                    else {
-                        value = 8;
+                    switch (actualSuit) {
+                        case "ESPADA":
+                            value = 14;
+                            break;
+                        case "BASTO":
+                            value = 13;
+                            break;
+                        default:
+                            value = 8;
+                            break;
                     }
                 }
                 else if (number == 2){
@@ -42,14 +44,16 @@ public class Deck {
                     value = 3;
                 }
                 else if (number == 7){
-                    if(actualSuit.equals("ORO")){
-                        value = 11;
-                    }
-                    else if (actualSuit.equals("ESPADA")){
-                        value = 12;
-                    }
-                    else{
-                        value = 4;
+                    switch (actualSuit) {
+                        case "ORO":
+                            value = 11;
+                            break;
+                        case "ESPADA":
+                            value = 12;
+                            break;
+                        default:
+                            value = 4;
+                            break;
                     }
                 }
                 else if (number == 10){

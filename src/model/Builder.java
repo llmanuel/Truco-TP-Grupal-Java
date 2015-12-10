@@ -7,14 +7,14 @@ import java.util.LinkedList;
 
 public class Builder {
 
-    LinkedList<Player> players = new LinkedList<Player>();
-    LinkedList<Team> teams = new LinkedList<Team>();
+    private final LinkedList<Player> players = new LinkedList<>();
+    private final LinkedList<Team> teams = new LinkedList<>();
 
-    Table table ;
-    Team team1;
-    Team team2;
-    Scoreboard scoreboard;
-    Judge judge;
+    private Table table ;
+    private Team team1;
+    private Team team2;
+    private Scoreboard scoreboard;
+    private Judge judge;
 
     public Builder(int numberOfPlayers) throws InvalidNumberOfPlayersException {
         validateNumberOfPlayers(numberOfPlayers);
@@ -30,14 +30,14 @@ public class Builder {
     public Builder(int numberOfHumanPlayers, int numberOfCpuPlayers) throws InvalidNumberOfPlayersException {
         validateNumberOfPlayers(numberOfHumanPlayers+numberOfCpuPlayers);
         createTable();
-        createPlayers(numberOfHumanPlayers, numberOfCpuPlayers);
+        createPlayersWithCpu();
         setTeams();
         setScoreboard();
         setJudge();
         prepareTable();
     }
 
-    private void createPlayers(int numberOfHumanPlayers, int numberOfCpuPlayers) {
+    private void createPlayersWithCpu() {
         Player player1 = new HumanPlayer(1);
         Player player2 = new CpuPlayer(2);
 
@@ -65,8 +65,8 @@ public class Builder {
     }
 
     private void setTeams() {
-        LinkedList<Player> playersTeam1 = new LinkedList<Player>();
-        LinkedList<Player> playersTeam2 = new LinkedList<Player>();
+        LinkedList<Player> playersTeam1 = new LinkedList<>();
+        LinkedList<Player> playersTeam2 = new LinkedList<>();
 
         for(int i = 0; i < players.size(); i++){
             if (i%2 == 0){

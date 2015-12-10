@@ -11,15 +11,13 @@ public class Croupier {
     }
 
     public Hand giveHand(){
-        LinkedList<Card> newCards = new LinkedList<Card>();
+        LinkedList<Card> newCards = new LinkedList<>();
 
         newCards.add(deck.getCard());
         newCards.add(deck.getCard());
         newCards.add(deck.getCard());
 
-        Hand newHand = new Hand( newCards );
-
-        return newHand;
+        return new Hand( newCards );
 
     }
 
