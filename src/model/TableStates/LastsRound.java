@@ -19,9 +19,14 @@ public class LastsRound implements Games {
     }
 
     @Override
-    public int giveUp(){
+    public int giveUpPoints(){
 
         return (1);
+    }
+
+    @Override
+    public void giveUp() {
+        this.theTable.beginNextGame();
     }
 
     @Override

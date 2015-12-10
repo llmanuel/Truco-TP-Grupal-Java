@@ -18,9 +18,14 @@ public class RealEnvido implements Games {
     }
 
     @Override
-    public int giveUp(){
+    public int giveUpPoints(){
 
         return (this.lastGamePoints);
+    }
+
+    @Override
+    public void giveUp() {
+        this.nextRound();
     }
 
     @Override

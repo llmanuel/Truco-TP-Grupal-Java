@@ -18,7 +18,10 @@ public class Flor implements Games {
     }
 
     @Override
-    public int giveUp(){return 0;}
+    public int giveUpPoints(){return 0;}
+
+    @Override
+    public void giveUp() {}
 
 
     @Override
