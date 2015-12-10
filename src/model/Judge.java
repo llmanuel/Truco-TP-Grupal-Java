@@ -54,7 +54,7 @@ public class Judge {
     private void checkIfAnyoneWonTwoRounds() throws SomebodyWonTheGame {
         if ( this.roundWinsPerTeam[0] == 2 || this.roundWinsPerTeam[1] == 2)
             throw new SomebodyWonTheGame();
-        
+
     }
 
     public void setWinnerOfGame(LinkedList<Slot> slots, Games actualGame) throws TeamDoesntExistException {
