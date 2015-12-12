@@ -177,18 +177,21 @@ public class GameWithFourPlayersTest {
     @Test
     public void firstTeamWinEnvido() throws NotYourTurnException, InvalidGameCallException, NotCardThrownException, TeamDoesntExistException, DonTHaveThatCardException, SecondTeamWonException, FirstTeamWonException {
 
-        for (int i = 0; i <= 12; i++){
+        Player player1 = players.get(0);
+        Player player2 = players.get(1);
+        Player player3 = players.get(2);
+        Player player4 = players.get(3);
 
-            if (i == 2){
-
-                table.getActualPlayer().callEnvido();
-                table.getActualPlayer().acceptCall();
-            }
-            table.getActualPlayer().playCard(table.getActualPlayer().getHand().getCards().getFirst());
-        }
+        player1.callEnvido();
+        player2.acceptCall();
+        player1.playCard(card1);
+        player2.playCard(card4);
+        player3.playCard(card7);
+        player4.playCard(card10);
 
         Assert.assertTrue(table.getScoreboard().getPointsOf(builder.getTeams().getFirst()) == 2);
-        Assert.assertTrue(table.getScoreboard().getPointsOf(builder.getTeams().getLast()) == 1);
+        Assert.assertTrue(table.getScoreboard().getPointsOf(builder.getTeams().getLast()) == 0);
+
     }
 
 
