@@ -141,24 +141,37 @@ public class GameWithFourPlayersTest {
     @Test
     public void theGameRotatesCorrectly() throws NotYourTurnException, InvalidGameCallException, NotCardThrownException, TeamDoesntExistException, DonTHaveThatCardException {
 
-        int firstWinner = 0;
-        int secondWinner = 0;
-        for (int i = 0; i <= 11; i++){
+        Card newcard1 = new Card(5, "BASTO", 2);
+        Card newcard2 = new Card(7, "ORO", 11);
+        Card newcard3 = new Card(7, "ESPADA", 12);
 
-            if (i==4){
+        LinkedList<Card> cards = new LinkedList<>();
+        cards.add(newcard1);
+        cards.add(newcard2);
+        cards.add(newcard3);
 
-                firstWinner = table.getActualPlayer().getIdNumber();
-            }
-            if (i==8){
+        Hand newHand = new Hand(cards);
 
-                secondWinner = table.getActualPlayer().getIdNumber();;
-            }
+        Player player1 = players.get(0);
+        Player player2 = players.get(1);
+        Player player3 = players.get(2);
+        Player player4 = players.get(3);
 
-            table.getActualPlayer().playCard(table.getActualPlayer().getHand().getCards().getFirst());
-        }
+        player1.setHand(newHand);
 
-        Assert.assertTrue(firstWinner == 2);
-        Assert.assertTrue(secondWinner == 2);
+        player1.playCard(newcard1);
+        player2.playCard(card4);
+        player3.playCard(card7);
+        player4.playCard(card10);
+
+        Assert.assertEquals(2, table.getActualPlayer().getIdNumber());
+
+        player2.playCard(card5);
+        player3.playCard(card8);
+        player4.playCard(card11);
+        player1.playCard(newcard2);
+
+        Assert.assertEquals(1, table.getActualPlayer().getIdNumber());
     }
 
     @Test
