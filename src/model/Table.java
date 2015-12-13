@@ -333,11 +333,12 @@ public class Table {
 
     public Slot getSlotsOfHumanPlayers(){
 
-        if (slotsInGame.get(0).getPlayer().getIdNumber() != getActualPlayer().getIdNumber()) {
+        Slot humanSlot;
+        if(this.slotsInGame.getFirst().getPlayer() != this.cursor){
+            humanSlot = this.slotsInGame.getFirst();
+            } else  humanSlot = this.slotsInGame.getLast();
 
-            return slotsInGame.get(1);
-        }
-        return  slotsInGame.get(0);
+        return  humanSlot;
     }
 
 }
