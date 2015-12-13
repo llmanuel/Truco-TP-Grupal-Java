@@ -92,11 +92,10 @@ public class CpuPlayer implements Player {
 
                     maxValue = actualSlot.getLastOne().getValue();
                 }
-
+            return  maxValue;
         } catch (NotCardThrownException e) {
             return  maxValue;
         }
-        return  maxValue;
     }
 
     /***************************************************************************************************
