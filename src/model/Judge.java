@@ -72,8 +72,8 @@ public class Judge {
             } else {
                 scoreboard.increaseTheScoreOf( slots.get( 1 ).getPlayer(), actualGame );
             }
-
-
+            this.roundWinsPerTeam[0] = 0;
+            this.roundWinsPerTeam[1] = 0;
     }
 
 
