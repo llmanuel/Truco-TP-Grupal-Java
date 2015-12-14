@@ -60,10 +60,21 @@ public class Hand {
 
     private String getMostRepeatedSuit() {
         /*se presupone que por lo menos dos cartas son del mismo palo*/
-        if(cards.get(0).getSuit().equals(cards.get(1).getSuit())){
-            return cards.get(0).getSuit();
+        String posibleFirstSuit = cards.getFirst().getSuit();
+        String posibleSecondSuit = cards.getLast().getSuit();
+        int timesFirstSuit = 0;
+        int timesSecondSuit = 0;
+        for (Card actualCard: cards){
+            if(actualCard.getSuit() == posibleFirstSuit) timesFirstSuit += 1;
+            else {
+                timesSecondSuit += 1;
+                posibleSecondSuit = actualCard.getSuit();
+            }
+        }
+        if(timesFirstSuit > timesSecondSuit){
+            return posibleFirstSuit;
         }else{
-            return cards.get(1).getSuit();
+            return posibleSecondSuit;
         }
     }
 
