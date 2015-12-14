@@ -56,7 +56,7 @@ public class SixPlayersController {
 
         cursor = table.getActualPlayer();
         LinkedList<Player> nextPlayers = new LinkedList<>();
-        for (int i = 0; i < (this.table.getPlayers().size() ); i++){
+        for (int i = 0; i < (this.table.getPlayers().size() - 1); i++){
 
             this.getTheNextOne();
             nextPlayers.add(cursor);
