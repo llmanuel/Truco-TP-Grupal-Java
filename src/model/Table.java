@@ -189,15 +189,11 @@ public class Table {
     public void nextPlayer() throws TeamDoesntExistException, NotCardThrownException {
       try {
           this.getTheNextOne();
-          if ((cursor == roundBeginner) && (this.roundCounter != 3)) {
+          if (cursor == roundBeginner) {
               this.increaseRoundCounter();
               Player nextBeginner = judge.setWinnerOfTheRound(this.getSlots());
               this.gameState.nextRound();
               this.setRoundBeginner(nextBeginner);
-
-          } else if ((cursor == roundBeginner) && (this.roundCounter == 3)) {
-              this.judge.setWinnerOfGame(this.slotsInGame, this.gameState);
-              beginNextGame();
           }
           this.cursor.play();
       }catch (SomebodyWonTheGame e){this.judge.setWinnerOfGame(this.slotsInGame, this.gameState);
