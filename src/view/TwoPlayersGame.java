@@ -163,22 +163,22 @@ public class TwoPlayersGame extends JFrame {
 
     private void card1PlayerInTurnClicked() {
         this.controller.cleanPlayerInTurnCards();
-        this.controller.playCard(1);
         this.showMassageNextPlayer();
+        this.controller.playCard(1);
     }
 
     private void card2PlayerInTurnClicked()  {
 
         this.cleanPlayerInTurnCards();
-        this.controller.playCard(2);
         this.showMassageNextPlayer();
+        this.controller.playCard(2);
     }
 
     private void card3PlayerInTurnClicked() {
 
         this.cleanPlayerInTurnCards();
-        this.controller.playCard(3);
         this.showMassageNextPlayer();
+        this.controller.playCard(3);
     }
 
     private void meVoyAlMazoButtonClicked() {

@@ -177,23 +177,22 @@ public class FourPlayersGame extends JFrame {
     private void card3HandPlayerInTurnClicked() {
 
         this.controller.cleanPlayerInTurnCards();
-        this.controller.playCard(3);
         this.showMassageNextPlayer();
-
+        this.controller.playCard(3);
     }
 
     private void card2HandPlayerInTurnClicked() {
 
         this.controller.cleanPlayerInTurnCards();
-        this.controller.playCard(2);
         this.showMassageNextPlayer();
+        this.controller.playCard(2);
     }
 
     private void card1HandPlayerInTurnClicked() {
 
         this.controller.cleanPlayerInTurnCards();
-        this.controller.playCard(1);
         this.showMassageNextPlayer();
+        this.controller.playCard(1);
     }
 
     private void meVoyAlMazoButtonClicked() {
