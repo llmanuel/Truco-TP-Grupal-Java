@@ -136,9 +136,14 @@ public class Table {
     }
 
     public void raiseBet(Games nextGame) {
-
-        this.gameState = nextGame;
-        this.verifyOthersTeamDecision();
+        if(this.gameState.tellIfTheGameWasAccepted()) {
+            this.gameState = nextGame;
+            this.saveWhoMadeTheCall();
+            this.verifyOthersTeamDecision();
+        } else {
+            this.gameState = nextGame;
+            this.verifyOthersTeamDecision();
+        }
     }
 
     public void theEnvidoGameWasAccepted() throws TeamDoesntExistException {
@@ -218,6 +223,7 @@ public class Table {
     public void continueWithRound(){
 
         this.setCursorAt(this.cursorForCalls);
+        this.cursor.play();
     }
 
     public Player getActualPlayer(){
@@ -286,9 +292,12 @@ public class Table {
      *
      *************************/
 
+    public void saveWhoMadeTheCall(){
+        cursorForCalls = this.cursor;
+    }
+
     private void verifyOthersTeamDecision(){
         teamsCursor = this.getTheEnemyTeamOf(this.cursor);
-        cursorForCalls = this.cursor;
         setCursorAt(teamsCursor.getFirstMember());
         this.cursor.play();
     }
