@@ -227,6 +227,7 @@ public class CpuPlayer implements Player {
         if(this.table.tellMeIfItsMyTurn(this) && (this.hand.isFlor())) {
             this.table.callFlor();
         }
+        else if(!this.hand.isFlor()) throw new InvalidGameCallException();
         else throw new NotYourTurnException();
     }
 
