@@ -13,7 +13,7 @@ public class Score {
         return this.score;
     }
 
-    public Team getMember() {
+    public Team getTeam() {
         return this.team;
     }
 
