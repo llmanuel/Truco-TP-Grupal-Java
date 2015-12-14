@@ -233,7 +233,7 @@ public class TwoPlayersGame extends JFrame {
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (InvalidGameCallException | TeamDoesntExistException e) {
-            e.printStackTrace();
+            this.showMessage( "No puedes cantar Flor en este momento" );
         }
     }
 

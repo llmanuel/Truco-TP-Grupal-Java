@@ -177,25 +177,23 @@ public class FourPlayersGame extends JFrame {
     private void card3HandPlayerInTurnClicked() {
 
         this.controller.cleanPlayerInTurnCards();
-        this.showMassageNextPlayer();
         this.controller.playCard(3);
+        this.showMassageNextPlayer();
 
     }
 
     private void card2HandPlayerInTurnClicked() {
 
         this.controller.cleanPlayerInTurnCards();
-        this.showMassageNextPlayer();
         this.controller.playCard(2);
-
+        this.showMassageNextPlayer();
     }
 
     private void card1HandPlayerInTurnClicked() {
 
         this.controller.cleanPlayerInTurnCards();
-        this.showMassageNextPlayer();
         this.controller.playCard(1);
-
+        this.showMassageNextPlayer();
     }
 
     private void meVoyAlMazoButtonClicked() {
@@ -248,7 +246,7 @@ public class FourPlayersGame extends JFrame {
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (InvalidGameCallException | TeamDoesntExistException e) {
-            e.printStackTrace();
+            this.showMessage( "No puedes cantar Flor en este momento" );
         }
     }
 
