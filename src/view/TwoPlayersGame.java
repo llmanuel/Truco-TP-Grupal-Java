@@ -210,8 +210,10 @@ public class TwoPlayersGame extends JFrame {
     private void quieroButtonClicked() {
         try {
             this.controller.cleanPlayerInTurnCards();
-            this.showMassageNextPlayer();
+
             this.controller.acceptCall();
+            this.showMassageNextPlayer();
+            this.controller.drawRound();
         } catch (NotCardThrownException e) {
             this.showMessage( "No se ha tirado carta alguna" );
         } catch (NotYourTurnException e) {
@@ -221,6 +223,7 @@ public class TwoPlayersGame extends JFrame {
         } catch (InvalidGameCallException e) {
             e.printStackTrace();
         } catch (NothingToAcceptException e) {
+            this.controller.drawRound();
             this.showMessage( "No se hizo ningun canto" );
         }
     }
@@ -228,9 +231,11 @@ public class TwoPlayersGame extends JFrame {
     private void florButtonClicked() {
         try {
             this.controller.callFlor();
+            this.controller.drawRound();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (InvalidGameCallException | TeamDoesntExistException e) {
+            this.controller.drawRound();
             this.showMessage( "No puedes cantar Flor en este momento" );
         }
     }
@@ -238,8 +243,10 @@ public class TwoPlayersGame extends JFrame {
     private void vale4ButtonClicked() {
         try {
             this.controller.cleanPlayerInTurnCards();
-            this.showMassageNextPlayer();
+
             this.controller.callVale4();
+            this.showMassageNextPlayer();
+            this.controller.drawRound();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -247,6 +254,7 @@ public class TwoPlayersGame extends JFrame {
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
         } catch (InvalidGameCallException e) {
+            this.controller.drawRound();
             this.showMessage( "No podes jugar Vale 4 en este momento" );
         }
     }
@@ -254,8 +262,10 @@ public class TwoPlayersGame extends JFrame {
     private void retrucoButtonClicked() {
         try {
             this.controller.cleanPlayerInTurnCards();
-            this.showMassageNextPlayer();
+
             this.controller.callReTruco();
+            this.showMassageNextPlayer();
+            this.controller.drawRound();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -263,6 +273,7 @@ public class TwoPlayersGame extends JFrame {
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
         } catch (InvalidGameCallException e) {
+            this.controller.drawRound();
             this.showMessage( "No podes jugar Retruco en este momento" );
         }
     }
@@ -270,13 +281,16 @@ public class TwoPlayersGame extends JFrame {
     private void trucoButtonClicked() {
         try {
             this.controller.cleanPlayerInTurnCards();
-            this.showMassageNextPlayer();
+
             this.controller.callTruco();
+            this.showMassageNextPlayer();
+            this.controller.drawRound();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException | TeamDoesntExistException e) {
             e.printStackTrace();
         } catch (InvalidGameCallException e) {
+            this.controller.drawRound();
             this.showMessage( "No podes jugar Truco en este momento" );
         }
     }
@@ -284,13 +298,16 @@ public class TwoPlayersGame extends JFrame {
     private void faltaEnvidoButtonClicked() {
         try {
             this.controller.cleanPlayerInTurnCards();
-            this.showMassageNextPlayer();
+
             this.controller.callFaltaEnvido();
+            this.showMassageNextPlayer();
+            this.controller.drawRound();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException | TeamDoesntExistException e) {
             e.printStackTrace();
         } catch (InvalidGameCallException e) {
+            this.controller.drawRound();
             this.showMessage( "No podes jugar Falta Envido en este momento" );
         }
     }
@@ -298,13 +315,16 @@ public class TwoPlayersGame extends JFrame {
     private void realEnvidoButtonClicked() {
         try {
             this.controller.cleanPlayerInTurnCards();
-            this.showMassageNextPlayer();
+
             this.controller.callRealEnvido();
+            this.showMassageNextPlayer();
+            this.controller.drawRound();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException | TeamDoesntExistException e) {
             e.printStackTrace();
         } catch (InvalidGameCallException e) {
+            this.controller.drawRound();
             this.showMessage( "No podes jugar Real Envido en este momento" );
         }
     }
@@ -312,9 +332,12 @@ public class TwoPlayersGame extends JFrame {
     private void envidoButtonClicked() {
         try {
             this.controller.cleanPlayerInTurnCards();
-            this.showMassageNextPlayer();
+
             this.controller.callEnvido();
+            this.showMassageNextPlayer();
+            this.controller.drawRound();
         } catch (InvalidGameCallException e) {
+            this.controller.drawRound();
             this.showMessage( "No podes jugar Envido en este momento" );
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );

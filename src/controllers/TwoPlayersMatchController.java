@@ -41,83 +41,43 @@ public class TwoPlayersMatchController  {
 
 
     public void callEnvido() throws InvalidGameCallException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
-      try{
+
         table.getActualPlayer().callEnvido();
-        this.drawRound();
-    } catch (InvalidGameCallException e) {
-          this.drawRound();
-          throw new InvalidGameCallException();
-    }
    }
 
     public void callRealEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
-        try {
+
             table.getActualPlayer().callRealEnvido();
-            this.drawRound();
-        }catch(InvalidGameCallException e) {
-            this.drawRound();
-            throw new InvalidGameCallException();
-        }
     }
 
     public void callFaltaEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
-        try {
+
             table.getActualPlayer().callFaltaEnvido();
-            this.drawRound();
-        }catch(InvalidGameCallException e) {
-            this.drawRound();
-            throw new InvalidGameCallException();
-        }
     }
 
     public void callTruco() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
-        try {
+
             table.getActualPlayer().callTruco();
-            this.drawRound();
-        }catch(InvalidGameCallException e) {
-            this.drawRound();
-            throw new InvalidGameCallException();
-        }
     }
 
     public void callReTruco() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
-        try {
+
             table.getActualPlayer().callReTruco();
-            this.drawRound();
-        }catch(InvalidGameCallException e) {
-            this.drawRound();
-            throw new InvalidGameCallException();
-        }
     }
 
     public  void callVale4() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
-        try {
+
             table.getActualPlayer().callVale4();
-            this.drawRound();
-        }catch(InvalidGameCallException e) {
-            this.drawRound();
-            throw new InvalidGameCallException();
-        }
     }
 
     public void callFlor() throws NotYourTurnException, InvalidGameCallException, TeamDoesntExistException {
-        try {
+
             table.getActualPlayer().callFlor();
-            this.drawRound();
-        }catch(InvalidGameCallException e) {
-            this.drawRound();
-            throw new InvalidGameCallException();
-        }
     }
 
     public void acceptCall() throws NotCardThrownException, NotYourTurnException, TeamDoesntExistException, InvalidGameCallException, NothingToAcceptException {
-        try {
+
             table.getActualPlayer().acceptCall();
-            this.drawRound();
-        }catch (NothingToAcceptException e){
-            this.drawRound();
-            throw new NothingToAcceptException();
-        }
     }
 
     public void giveUpGame() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
@@ -158,7 +118,7 @@ public class TwoPlayersMatchController  {
         return playerToReturn;
     }
 
-    private void drawRound() {
+    public void drawRound() {
         this.drawSlotPlayerInTurn();
         this.drawSlotOtherPlayer();
         this.drawCardsPlayerInTurn();
