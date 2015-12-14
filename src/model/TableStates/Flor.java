@@ -52,7 +52,7 @@ public class Flor implements Games {
     }
 
     @Override
-    public void acceptCall() throws TeamDoesntExistException {
+    public void acceptCall() {
 
     }
 

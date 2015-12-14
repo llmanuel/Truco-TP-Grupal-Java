@@ -1,6 +1,7 @@
 package model.TableStates;
 
 import model.Exceptions.InvalidGameCallException;
+import model.Exceptions.NothingToAcceptException;
 import model.Exceptions.TeamDoesntExistException;
 import model.Table;
 
@@ -77,8 +78,8 @@ public class LastsRound implements Games {
     }
 
     @Override
-    public void acceptCall() throws TeamDoesntExistException {
-
+    public void acceptCall() throws NothingToAcceptException {
+        throw new NothingToAcceptException();
     }
 
     @Override

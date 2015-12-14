@@ -62,8 +62,10 @@ public class Envido implements Games {
     }
 
     @Override
-    public void acceptCall() throws TeamDoesntExistException {
-        this.theTable.theEnvidoGameWasAccepted();
+    public void acceptCall(){
+        try {
+            this.theTable.theEnvidoGameWasAccepted();
+        } catch (TeamDoesntExistException e) {}
     }
 
     @Override

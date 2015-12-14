@@ -1,6 +1,7 @@
 package model.TableStates;
 
 import model.Exceptions.InvalidGameCallException;
+import model.Exceptions.NothingToAcceptException;
 import model.Exceptions.TeamDoesntExistException;
 
 public interface Games {
@@ -16,7 +17,7 @@ public interface Games {
     void callFaltaEnvido() throws InvalidGameCallException;
     void callFlor() throws InvalidGameCallException, TeamDoesntExistException;
     void iDontWannaAnswer();
-    void acceptCall() throws TeamDoesntExistException;
+    void acceptCall() throws NothingToAcceptException;
     boolean tellIfTheGameWasAccepted();
     void nextRound();
 

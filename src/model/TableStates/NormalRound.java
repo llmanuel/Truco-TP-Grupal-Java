@@ -1,6 +1,7 @@
 package model.TableStates;
 
 import model.Exceptions.InvalidGameCallException;
+import model.Exceptions.NothingToAcceptException;
 import model.Exceptions.TeamDoesntExistException;
 import model.Table;
 import model.TableStates.*;
@@ -80,8 +81,8 @@ public class NormalRound implements Games {
     }
 
     @Override
-    public void acceptCall() throws TeamDoesntExistException {
-
+    public void acceptCall() throws NothingToAcceptException {
+        throw new NothingToAcceptException();
     }
 
     @Override

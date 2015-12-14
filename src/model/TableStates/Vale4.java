@@ -2,6 +2,7 @@ package model.TableStates;
 
 
 import model.Exceptions.InvalidGameCallException;
+import model.Exceptions.NothingToAcceptException;
 import model.Exceptions.TeamDoesntExistException;
 import model.Table;
 
@@ -80,8 +81,8 @@ public class Vale4 implements Games {
     }
 
     @Override
-    public void acceptCall() throws TeamDoesntExistException {
-        if(this.gameWasAccepted){}
+    public void acceptCall() throws NothingToAcceptException {
+        if(this.gameWasAccepted){throw new NothingToAcceptException();}
         else {
             this.gameWasAccepted = true;
             this.theTable.continueWithRound();
