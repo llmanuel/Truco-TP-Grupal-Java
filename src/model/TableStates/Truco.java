@@ -83,8 +83,11 @@ public class Truco implements Games {
 
     @Override
     public void acceptCall() {
-        this.gameWasAccepted = true;
-        this.theTable.continueWithRound();
+        if(this.gameWasAccepted){}
+        else {
+            this.gameWasAccepted = true;
+            this.theTable.continueWithRound();
+        }
     }
 
     @Override
