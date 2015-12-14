@@ -114,7 +114,7 @@ public class GameWithFourPlayersTest {
     }
 
     @Test
-    public void secondTeamWinTruco() throws NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
+    public void secondTeamWinTruco() throws NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException {
 
         Player player1 = players.get(0);
         Player player2 = players.get(1);
@@ -175,7 +175,7 @@ public class GameWithFourPlayersTest {
     }
 
     @Test
-    public void firstTeamWinEnvido() throws NotYourTurnException, InvalidGameCallException, NotCardThrownException, TeamDoesntExistException, DonTHaveThatCardException, SecondTeamWonException, FirstTeamWonException {
+    public void firstTeamWinEnvido() throws NotYourTurnException, InvalidGameCallException, NotCardThrownException, TeamDoesntExistException, DonTHaveThatCardException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException {
 
         Player player1 = players.get(0);
         Player player2 = players.get(1);

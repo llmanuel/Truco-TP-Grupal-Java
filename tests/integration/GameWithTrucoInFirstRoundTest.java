@@ -89,7 +89,7 @@ public class GameWithTrucoInFirstRoundTest {
     }
 
     @Test
-    public void gameWithTrucoTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
+    public void gameWithTrucoTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException {
         this.table.setGame();
 
         player1.setHand( hand1 );

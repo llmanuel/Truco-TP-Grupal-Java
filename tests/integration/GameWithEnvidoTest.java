@@ -92,7 +92,7 @@ public class GameWithEnvidoTest {
     }
 
     @Test
-    public void firstPlayerCallEnvidoTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
+    public void firstPlayerCallEnvidoTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -120,7 +120,7 @@ public class GameWithEnvidoTest {
     }
 
     @Test
-    public void firstPlayerCallEnvidoAndWinsTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
+    public void firstPlayerCallEnvidoAndWinsTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -150,7 +150,7 @@ public class GameWithEnvidoTest {
     }
 
     @Test
-    public void firstPlayerCallEnvidoAndTheSecondsCallsAgainAndPlayer1WinsTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
+    public void firstPlayerCallEnvidoAndTheSecondsCallsAgainAndPlayer1WinsTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -166,7 +166,7 @@ public class GameWithEnvidoTest {
     }
 
     @Test
-    public void playersCanCallEnvido8timesInARowTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
+    public void playersCanCallEnvido8timesInARowTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException {
         this.table.setGame();
 
         player1.setHand( hand1 );
