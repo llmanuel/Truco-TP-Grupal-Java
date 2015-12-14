@@ -69,8 +69,13 @@ public class FourPlayersController {
     }
 
     public void callFlor() throws NotYourTurnException, InvalidGameCallException, TeamDoesntExistException {
-        table.getActualPlayer().callFlor();
+        try {
+            table.getActualPlayer().callFlor();
+            this.drawRound();
+        }catch (InvalidGameCallException e){
         this.drawRound();
+        throw new InvalidGameCallException();
+    }
     }
 
     public void callVale4() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
