@@ -198,4 +198,31 @@ public class GameWithEnvidoAndRealEnvido {
         Assert.assertEquals( 0 , scoreboard.getPointsOf( player2 ) );
         Assert.assertEquals( 5 ,scoreboard.getPointsOf( player1 ));
     }
+
+    @Test
+    public void aPlayerCallRealEnvidoWhenHeShouldntButHisTurnContinues() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, DonTHaveThatCardException {
+        this.table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.playCard(card3);
+
+        player2.playCard(card4);
+
+        try {
+            player1.callEnvido();
+        } catch (InvalidGameCallException e){
+            player1.playCard(card2);
+
+            player2.playCard(card5);
+
+            player2.playCard(card6);
+
+            player1.playCard(card1);
+        }
+        
+        Assert.assertEquals( 1 , scoreboard.getPointsOf( player2 ) );
+        Assert.assertEquals( 0 ,scoreboard.getPointsOf( player1 ));
+    }
 }
