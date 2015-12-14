@@ -46,9 +46,17 @@ public class Judge {
             }
         }
         assert roundWinner != null;
-        this.roundWinsPerTeam[roundWinner.getIdNumber() - 1]++;
+        this.setRoundWinsPerTeam(roundWinner);
         this.checkIfAnyoneWonTwoRounds();
         return roundWinner;
+    }
+
+    private void setRoundWinsPerTeam(Player roundWinner){
+
+        Team firstTeam = this.scoreboard.getFirstTeam();
+        if(firstTeam.isMember(roundWinner)){
+            this.roundWinsPerTeam[0]++;
+        } else this.roundWinsPerTeam[1]++;
     }
 
     private void checkIfAnyoneWonTwoRounds() throws SomebodyWonTheGame {
@@ -58,16 +66,13 @@ public class Judge {
     }
 
     public void setWinnerOfGame(LinkedList<Slot> slots, Games actualGame) throws TeamDoesntExistException {
-        try {
-            this.setWinnerOfTheRound(slots);
-        } catch (NotCardThrownException e) {} catch (SomebodyWonTheGame somebodyWonTheGame) {
 
             if (roundWinsPerTeam[0] > roundWinsPerTeam[1]) {
                 scoreboard.increaseTheScoreOf( slots.get( 0 ).getPlayer(), actualGame );
             } else {
                 scoreboard.increaseTheScoreOf( slots.get( 1 ).getPlayer(), actualGame );
             }
-        }
+
 
     }
 
