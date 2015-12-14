@@ -123,7 +123,8 @@ public class HumanPlayer implements Player {
         if(this.table.tellMeIfItsMyTurn(this) && (this.hand.isFlor())) {
             this.table.callFlor();
         }
-        else throw new NotYourTurnException();
+        else if(!this.hand.isFlor()) throw new InvalidGameCallException();
+            else throw new NotYourTurnException();
     }
 
     @Override
