@@ -107,60 +107,7 @@ public class TableTest {
     /*
      * Iteration between PLayers
      */
-
-    @Test
-    public void tableCanIterateAmongPlayersFromTheFirstPlayerInTheList() throws InvalidNumberOfPlayersException, TeamDoesntExistException, NotCardThrownException {
-        table = new Table();
-        table.letSitThese( FourPlayers );
-        table.setGame();
-        table.setRoundBeginner(firstPlayer);
-        Assert.assertEquals(1,table.getActualPlayer().getIdNumber());
-        int i = 2;
-        while (i < 4){
-            Assert.assertEquals(i,table.nextPlayer().getIdNumber());
-            i = i + 1;
-        }
-
-    }
-
-    @Test
-    public void tableCanIterateAmongPlayersFromTheSecondPlayerInTheList() throws InvalidNumberOfPlayersException, TeamDoesntExistException, NotCardThrownException {
-        table = new Table();
-        table.letSitThese( FourPlayers );
-        table.setGame();
-        table.setRoundBeginner(secondPlayer);
-
-        Assert.assertEquals(2,table.getActualPlayer().getIdNumber());
-        Assert.assertEquals(3,table.nextPlayer().getIdNumber());
-        Assert.assertEquals(4,table.nextPlayer().getIdNumber());
-        Assert.assertEquals(1,table.nextPlayer().getIdNumber());
-    }
-
-    @Test
-    public void tableCanIterateAmongPlayersFromTheThirdPlayerInTheList() throws InvalidNumberOfPlayersException, TeamDoesntExistException, NotCardThrownException {
-        table = new Table();
-        table.letSitThese( FourPlayers );
-        table.setGame();
-        table.setRoundBeginner(thirdPlayer);
-
-        Assert.assertEquals(3,table.getActualPlayer().getIdNumber());
-        Assert.assertEquals(4,table.nextPlayer().getIdNumber());
-        Assert.assertEquals(1,table.nextPlayer().getIdNumber());
-        Assert.assertEquals(2,table.nextPlayer().getIdNumber());
-    }
-
-    @Test
-    public void tableCanIterateAmongPlayersFromTheFourthPlayerInTheList() throws InvalidNumberOfPlayersException, TeamDoesntExistException, NotCardThrownException {
-        table = new Table();
-        table.letSitThese( FourPlayers );
-        table.setGame();
-        table.setRoundBeginner(fourthPlayer);
-
-        Assert.assertEquals(4,table.getActualPlayer().getIdNumber());
-        Assert.assertEquals(1,table.nextPlayer().getIdNumber());
-        Assert.assertEquals(2,table.nextPlayer().getIdNumber());
-        Assert.assertEquals(3,table.nextPlayer().getIdNumber());
-    }
+    
 
     @Test
     public void tableGiveTheSlotsOfHumanPlayers() throws InvalidNumberOfPlayersException {
