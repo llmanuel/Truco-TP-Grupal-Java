@@ -35,7 +35,7 @@ public class GameWithCpuPlayerTest {
         card3 = new Card(7, "ESPADA", 12);
 
         card4 = new Card(12, "ESPADA", 7);
-        card5 = new Card(3, "ORO", 10);
+        card5 = new Card(4, "ORO", 1);
         card6 = new Card(7, "ORO", 11);
 
         hand1Cards = new LinkedList<Card>();
@@ -102,25 +102,25 @@ public class GameWithCpuPlayerTest {
         Assert.assertEquals( 2 , scoreboard.getPointsOf( player2 ));
     }
 
-//    @Test
-//    public void CpuPlayerAcceptTruco() throws TeamDoesntExistException, NotYourTurnException, InvalidGameCallException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, DonTHaveThatCardException {
-//
-//        this.table.setGame();
-//
-//        player1.setHand( hand1 );
-//        player2.setHand( hand2 );
-//
-//        player1.callTruco();
-//
-//        player1.playCard(card1);
-//
-//        player1.playCard(card2);
-//
-//        player1.playCard(card3);
-//
-//        Assert.assertEquals( 2 , scoreboard.getPointsOf( player1 ) );
-//        Assert.assertEquals( 0 , scoreboard.getPointsOf( player2 ));
-//    }
+    @Test
+    public void CpuPlayerAcceptTruco() throws TeamDoesntExistException, NotYourTurnException, InvalidGameCallException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, DonTHaveThatCardException {
+
+        this.table.setGame();
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.callTruco();
+
+        player1.playCard(card1);
+
+        player1.playCard(card2);
+
+        player1.playCard(card3);
+
+        Assert.assertEquals( 2 , scoreboard.getPointsOf( player1 ) );
+        Assert.assertEquals( 0 , scoreboard.getPointsOf( player2 ));
+    }
 
 
 }
