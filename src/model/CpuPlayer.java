@@ -43,7 +43,7 @@ public class CpuPlayer implements Player {
 
     @Override
     public void play(){
-        Card cardToPlay = null;
+        Card cardToPlay;
         try {
             cardToPlay = this.chooseCardToPlay();
             this.playCard(cardToPlay);
