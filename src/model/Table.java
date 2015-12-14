@@ -170,7 +170,6 @@ public class Table {
     private void setCursorAt(Player thisPLayer){
 
         cursor = thisPLayer;
-        this.cursor.play();
     }
 
     /*
@@ -187,7 +186,7 @@ public class Table {
      * PreCondition: Must setRoundBeginner() Before using this method.
      * Returns the next player to play.
      */
-    public Player nextPlayer() throws TeamDoesntExistException, NotCardThrownException {
+    public void nextPlayer() throws TeamDoesntExistException, NotCardThrownException {
       try {
           this.getTheNextOne();
           if ((cursor == roundBeginner) && (this.roundCounter != 3)) {
@@ -195,16 +194,14 @@ public class Table {
               Player nextBeginner = judge.setWinnerOfTheRound(this.getSlots());
               this.gameState.nextRound();
               this.setRoundBeginner(nextBeginner);
-              return nextBeginner;
+
           } else if ((cursor == roundBeginner) && (this.roundCounter == 3)) {
               this.judge.setWinnerOfGame(this.slotsInGame, this.gameState);
               beginNextGame();
           }
-
-          return this.cursor;
+          this.cursor.play();
       }catch (SomebodyWonTheGame e){this.judge.setWinnerOfGame(this.slotsInGame, this.gameState);
           beginNextGame();
-          return this.cursor;
       }
     }
 
@@ -235,7 +232,7 @@ public class Table {
     public void finishTurn() throws TeamDoesntExistException, NotCardThrownException {
 
         /*It's the turn of the player who is on cursor*/
-        this.setCursorAt(this.nextPlayer());
+        this.nextPlayer();
     }
 
     public boolean tellMeIfItsMyTurn(Player askingPlayer){
@@ -297,6 +294,7 @@ public class Table {
         teamsCursor = this.getTheEnemyTeamOf(this.cursor);
         cursorForCalls = this.cursor;
         setCursorAt(teamsCursor.getFirstMember());
+        this.cursor.play();
     }
 
     public Team getTheEnemyTeamOf(Player thisPlayer) {
