@@ -27,7 +27,11 @@ public class TwoPlayersMatchController  {
         this.table = builder.getTable();
         this.player1 = builder.getPlayers().getFirst();
         this.player2 = builder.getPlayers().getLast();
-        this.drawRound();
+        if ( withCpu ) {
+            player2.play();
+            this.drawRound();
+        }
+        else{this.drawRound();}
     }
 
 
