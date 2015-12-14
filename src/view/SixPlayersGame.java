@@ -186,8 +186,9 @@ public class SixPlayersGame extends JFrame{
 
     private void meVoyAlMazoButtonClicked() {
         try {
-            this.showMassageNextPlayer();
+            this.controller.cleanPlayerInTurnCards();
             this.controller.giveUpGame();
+            this.showMassageNextPlayer();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (Exception e) {
@@ -197,8 +198,9 @@ public class SixPlayersGame extends JFrame{
 
     private void noQuieroButtonClicked() {
         try {
-            this.showMassageNextPlayer();
+            this.controller.cleanPlayerInTurnCards();
             this.controller.giveUpGame();
+            this.showMassageNextPlayer();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -211,8 +213,8 @@ public class SixPlayersGame extends JFrame{
     private void quieroButtonClicked() {
         try {
             this.controller.cleanPlayerInTurnCards();
-            this.showMassageNextPlayer();
             this.controller.acceptCall();
+            this.showMassageNextPlayer();
         } catch (NotCardThrownException e) {
             this.showMessage( "No se ha tirado carta alguna" );
         } catch (NotYourTurnException e) {
@@ -239,8 +241,8 @@ public class SixPlayersGame extends JFrame{
     private void vale4ButtonClicked() {
         try {
             this.controller.cleanPlayerInTurnCards();
-            this.showMassageNextPlayer();
             this.controller.callVale4();
+            this.showMassageNextPlayer();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -255,8 +257,8 @@ public class SixPlayersGame extends JFrame{
     private void retrucoButtonClicked() {
         try {
             this.controller.cleanPlayerInTurnCards();
-            this.showMassageNextPlayer();
             this.controller.callReTruco();
+            this.showMassageNextPlayer();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -271,8 +273,8 @@ public class SixPlayersGame extends JFrame{
     private void trucoButtonClicked() {
         try {
             this.controller.cleanPlayerInTurnCards();
-            this.showMassageNextPlayer();
             this.controller.callTruco();
+            this.showMassageNextPlayer();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException | TeamDoesntExistException e) {
@@ -285,8 +287,8 @@ public class SixPlayersGame extends JFrame{
     private void faltaEnvidoButtonClicked() {
         try {
             this.controller.cleanPlayerInTurnCards();
-            this.showMassageNextPlayer();
             this.controller.callFaltaEnvido();
+            this.showMassageNextPlayer();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException | TeamDoesntExistException e) {
@@ -299,8 +301,8 @@ public class SixPlayersGame extends JFrame{
     private void realEnvidoButtonClicked() {
         try {
             this.controller.cleanPlayerInTurnCards();
-            this.showMassageNextPlayer();
             this.controller.callRealEnvido();
+            this.showMassageNextPlayer();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException | TeamDoesntExistException e) {
@@ -313,8 +315,8 @@ public class SixPlayersGame extends JFrame{
     private void envidoButtonClicked() {
         try {
             this.controller.cleanPlayerInTurnCards();
-            this.showMassageNextPlayer();
             this.controller.callEnvido();
+            this.showMassageNextPlayer();
         } catch (InvalidGameCallException e) {
             this.showMessage( "No podes jugar Envido en este momento" );
         } catch (NotYourTurnException e) {
@@ -323,6 +325,7 @@ public class SixPlayersGame extends JFrame{
             e.printStackTrace();
         }
     }
+
 
     private void showMessage(String message) {
         JOptionPane.showMessageDialog( null, message );
