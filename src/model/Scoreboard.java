@@ -35,7 +35,7 @@ public class Scoreboard {
 
     private Score getScore(Player whomWantedScoreIs) throws TeamDoesntExistException {
         for (Score scoreActual : this.scores)
-            if (scoreActual.getMember().isMember( whomWantedScoreIs ) ) {
+            if (scoreActual.getTeam().isMember( whomWantedScoreIs ) ) {
                 return scoreActual;
             }
         throw new TeamDoesntExistException();
@@ -62,11 +62,11 @@ public class Scoreboard {
         Team winnerTeam = null;
         for(Score actualScore : this.scores){
             if (actualScore.getScore() >= 30){
-                winnerTeam = actualScore.getMember();
+                winnerTeam = actualScore.getTeam();
             }
         }
 
-        if (winnerTeam == this.scores.getFirst().getMember()){
+        if (winnerTeam == this.scores.getFirst().getTeam()){
             throw new FirstTeamWonException();
         } else if (winnerTeam == null) {
             throw new NobodyWonYetException();
@@ -79,7 +79,7 @@ public class Scoreboard {
     public LinkedList<Team> getPlayers() {
         LinkedList<Team> players = new LinkedList<>();
         for (Score actualScore : this.scores){
-            players.add( actualScore.getMember());
+            players.add( actualScore.getTeam());
         }
         return players;
     }
@@ -88,7 +88,7 @@ public class Scoreboard {
 
     	for (Score actualScore :scores){
 
-    		if (actualScore.getMember() != team){
+    		if (actualScore.getTeam() != team){
 
     			actualScore.increaseScoreBy(game.giveUpPoints());
     		}
@@ -110,7 +110,7 @@ public class Scoreboard {
 		
 		for (Score actualScore :scores) {
 			
-			if (actualScore.getMember() == whoWantedScoreIs){
+			if (actualScore.getTeam() == whoWantedScoreIs){
 				
 				return actualScore;
 			}
@@ -123,7 +123,7 @@ public class Scoreboard {
 		boolean increase = false;
 		for (Score actualScore :scores){
 			
-			if (actualScore.getMember() == team){
+			if (actualScore.getTeam() == team){
 				
 				actualScore.increaseScoreBy(game.getPoints());
 				increase = true;
@@ -136,4 +136,7 @@ public class Scoreboard {
 		
 	}
 
+    public Team getFirstTeam(){
+       return this.scores.getFirst().getTeam();
+    }
 }
