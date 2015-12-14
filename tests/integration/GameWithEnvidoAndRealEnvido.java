@@ -221,7 +221,7 @@ public class GameWithEnvidoAndRealEnvido {
 
             player1.playCard(card1);
         }
-        
+
         Assert.assertEquals( 1 , scoreboard.getPointsOf( player2 ) );
         Assert.assertEquals( 0 ,scoreboard.getPointsOf( player1 ));
     }
