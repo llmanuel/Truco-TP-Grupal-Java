@@ -11,11 +11,9 @@ import java.util.LinkedList;
  */
 public class GameWithCpuPlayerTest {
 
-    private Card card1,card2,card3,card4,card5,card6;
-    private LinkedList<Card> hand1Cards;
-    private LinkedList<Card> hand2Cards;
-    private Hand hand1;
-    private Hand hand2;
+    private Card card1,card2,card3,card4,card5,card6, card7, card8, card9, card10, card11, card12;
+    private LinkedList<Card> hand1Cards, hand2Cards, hand3Cards, hand4Cards;
+    private Hand hand1, hand2, hand3, hand4;
     private HumanPlayer player1;
     private CpuPlayer player2;
     private Table table;
@@ -28,6 +26,7 @@ public class GameWithCpuPlayerTest {
     private Scoreboard scoreboard;
     private Judge judge;
 
+
     @Before
     public void setup() throws InvalidNumberOfPlayersException {
         card1 = new Card(1, "BASTO", 13);
@@ -38,15 +37,38 @@ public class GameWithCpuPlayerTest {
         card5 = new Card(4, "ORO", 1);
         card6 = new Card(7, "ORO", 11);
 
+        card7 = new Card(4, "ORO", 1);
+        card8 = new Card(5, "ORO", 2);
+        card9 = new Card(2, "ORO", 9);
+
+        card10 = new Card(11, "ESPADA", 6);
+        card11 = new Card(6, "ORO", 3);
+        card12 = new Card(1, "ORO", 8);
+
         hand1Cards = new LinkedList<Card>();
-        hand1Cards.add( card1 );
-        hand1Cards.add( card2 );
-        hand1Cards.add( card3 );
+        hand1Cards.add(card1);
+        hand1Cards.add(card2);
+        hand1Cards.add(card3);
 
         hand2Cards = new LinkedList<Card>();
-        hand2Cards.add( card4 );
-        hand2Cards.add( card5 );
-        hand2Cards.add( card6 );
+        hand2Cards.add(card4);
+        hand2Cards.add(card5);
+        hand2Cards.add(card6);
+
+        hand3Cards = new LinkedList<Card>();
+        hand3Cards.add(card7);
+        hand3Cards.add(card8);
+        hand3Cards.add(card9);
+
+        hand4Cards = new LinkedList<Card>();
+        hand4Cards.add(card10);
+        hand4Cards.add(card11);
+        hand4Cards.add(card12);
+
+        hand1 = new Hand(hand1Cards);
+        hand2 = new Hand(hand2Cards);
+        hand3 = new Hand(hand3Cards);
+        hand4 = new Hand(hand4Cards);
 
         hand1 = new Hand( hand1Cards );
         hand2 = new Hand( hand2Cards );
@@ -58,7 +80,6 @@ public class GameWithCpuPlayerTest {
         player2 = new CpuPlayer( 2 );
         player2team = new LinkedList<Player>( );
         player2team.add( player2 );
-
 
 
         playersList = new LinkedList<Player>();
@@ -173,5 +194,46 @@ public class GameWithCpuPlayerTest {
         Assert.assertEquals( 2 , scoreboard.getPointsOf( player2 ));
     }
 
+    @Test
+    public void CpuPlayerWontCallEnvidoIfFlorWasCall() throws TeamDoesntExistException, NotYourTurnException, InvalidGameCallException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, DonTHaveThatCardException {
 
+        this.table.setGame();
+
+        player1.setHand( hand3 );
+        player2.setHand( hand4 );
+
+        player1.callFlor();
+
+        player1.callTruco();
+
+        player1.playCard(card7);
+
+        player1.playCard(card9);
+
+        player1.playCard(card8);
+
+        Assert.assertEquals( 3 , scoreboard.getPointsOf( player1 ));
+        Assert.assertEquals( 2 , scoreboard.getPointsOf( player2 ));
+
+    }
+
+    @Test
+    public void CpuPlayerCallFlorAndHumanPlayerCallsTruco() throws TeamDoesntExistException, NotYourTurnException, InvalidGameCallException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, DonTHaveThatCardException {
+
+        this.table.setGame();
+
+        player1.setHand( hand4 );
+        player2.setHand( hand3 );
+
+        player1.playCard(card10);
+
+        player1.callTruco();
+
+        player1.playCard(card11);
+
+        player1.playCard(card12);
+
+        Assert.assertEquals( 2 , scoreboard.getPointsOf( player1 ));
+        Assert.assertEquals( 3 , scoreboard.getPointsOf( player2 ));
+    }
 }
