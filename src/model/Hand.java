@@ -6,14 +6,19 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Hand {
+
     /* We call Hand to the three cards that a player possess */
     private LinkedList<Card> cards;
+    private boolean isFlor;
+    private int envido;
 
     public Hand(LinkedList<Card> cards) {
         this.cards = cards;
+        this.isFlor = this.lookForFlor();
+        this.envido = this.lookForEnvido();
     }
 
-    public boolean isFlor() {
+    private boolean lookForFlor(){
         String suit = cards.get(0).getSuit();
         for (Card card : cards) {
             if (!card.getSuit().equals(suit))
@@ -22,14 +27,21 @@ public class Hand {
         return true;
     }
 
+    public boolean isFlor() {
+        return isFlor;
+    }
+
     public int calculateEnvido() {
+        return this.envido;
+    }
+
+    private int lookForEnvido(){
         if (allSuitsAreDifferent()){
             return (maxCardNumber());
         }else{
             return getEnvidoFrom(getCardsOfTheSameSuit());
         }
     }
-
     private boolean allSuitsAreDifferent() {
         ArrayList<String> suits = new ArrayList<String>();
         for (Card card : cards) {
