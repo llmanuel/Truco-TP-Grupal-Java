@@ -110,9 +110,14 @@ public class TwoPlayersMatchController  {
         }
     }
 
-    public void acceptCall() throws NotCardThrownException, NotYourTurnException, TeamDoesntExistException, InvalidGameCallException {
-        table.getActualPlayer().acceptCall();
-        this.drawRound();
+    public void acceptCall() throws NotCardThrownException, NotYourTurnException, TeamDoesntExistException, InvalidGameCallException, NothingToAcceptException {
+        try {
+            table.getActualPlayer().acceptCall();
+            this.drawRound();
+        }catch (NothingToAcceptException e){
+            this.drawRound();
+            throw new NothingToAcceptException();
+        }
     }
 
     public void giveUpGame() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
