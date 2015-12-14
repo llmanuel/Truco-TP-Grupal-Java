@@ -236,6 +236,8 @@ public class FourPlayersGame extends JFrame {
 
         } catch (InvalidGameCallException e) {
             e.printStackTrace();
+        } catch (NothingToAcceptException e) {
+            this.showMessage( "No se hizo ningun canto" );
         }
     }
 
