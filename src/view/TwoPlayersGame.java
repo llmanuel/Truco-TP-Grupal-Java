@@ -114,9 +114,7 @@ public class TwoPlayersGame extends JFrame {
         });
         meVoyAlMazoButton.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent mouseEvent) {
-                meVoyAlMazoButtonClicked();
-            }
+            public void mouseClicked(MouseEvent mouseEvent) {meVoyAlMazoButtonClicked();}
         });
 
         card1PlayerInTurn.addMouseListener(new MouseAdapter() {
@@ -165,22 +163,22 @@ public class TwoPlayersGame extends JFrame {
 
     private void card1PlayerInTurnClicked() {
         this.controller.cleanPlayerInTurnCards();
-        this.showMassageNextPlayer();
         this.controller.playCard(1);
+        this.showMassageNextPlayer();
     }
 
-    private void card2PlayerInTurnClicked() {
+    private void card2PlayerInTurnClicked()  {
 
         this.cleanPlayerInTurnCards();
-        this.showMassageNextPlayer();
         this.controller.playCard(2);
+        this.showMassageNextPlayer();
     }
 
     private void card3PlayerInTurnClicked() {
 
         this.cleanPlayerInTurnCards();
-        this.showMassageNextPlayer();
         this.controller.playCard(3);
+        this.showMassageNextPlayer();
     }
 
     private void meVoyAlMazoButtonClicked() {
