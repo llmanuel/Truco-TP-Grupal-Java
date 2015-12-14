@@ -206,8 +206,8 @@ public class GameWithTrucoRetrucoAndVale4 {
 
         player2.playCard(card6);
 
-        Assert.assertEquals( 6 , scoreboard.getPointsOf( player2 ) );
-        Assert.assertEquals( 0 ,  scoreboard.getPointsOf( player1 ));
+        Assert.assertEquals( 4 , scoreboard.getPointsOf( player2 ) );
+        Assert.assertEquals( 2 ,  scoreboard.getPointsOf( player1 ));
 
     }
 
