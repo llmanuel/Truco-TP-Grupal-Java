@@ -83,6 +83,7 @@ public class TableAndJudgeTest {
         this.scoreboard = new Scoreboard( twoPlayersTeam, this.table );
 
         this.table.letSitThese( twoPlayers );
+        this.table.setTeams(teamMyPlayer,teamOtherPlayer);
         this.table.setGame();
 
         this.judge = new Judge( this.scoreboard );
