@@ -225,6 +225,7 @@ public class SixPlayersGame extends JFrame{
         } catch (InvalidGameCallException e) {
             e.printStackTrace();
         } catch (NothingToAcceptException e) {
+            this.controller.drawRound();
             this.showMessage( "No se hizo ningun canto" );
         }
     }
@@ -236,6 +237,7 @@ public class SixPlayersGame extends JFrame{
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (InvalidGameCallException | TeamDoesntExistException e) {
+            this.controller.drawRound();
             this.showMessage( "No puedes cantar Flor en este momento" );
         }
     }
@@ -253,6 +255,7 @@ public class SixPlayersGame extends JFrame{
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
         } catch (InvalidGameCallException e) {
+            this.controller.drawRound();
             this.showMessage( "No podes jugar Vale 4 en este momento" );
         }
     }
@@ -270,6 +273,7 @@ public class SixPlayersGame extends JFrame{
         } catch (TeamDoesntExistException e) {
             e.printStackTrace();
         } catch (InvalidGameCallException e) {
+            this.controller.drawRound();
             this.showMessage( "No podes jugar Retruco en este momento" );
         }
     }
@@ -285,6 +289,7 @@ public class SixPlayersGame extends JFrame{
         } catch (NotCardThrownException | TeamDoesntExistException e) {
             e.printStackTrace();
         } catch (InvalidGameCallException e) {
+            this.controller.drawRound();
             this.showMessage( "No podes jugar Truco en este momento" );
         }
     }
@@ -300,6 +305,7 @@ public class SixPlayersGame extends JFrame{
         } catch (NotCardThrownException | TeamDoesntExistException e) {
             e.printStackTrace();
         } catch (InvalidGameCallException e) {
+            this.controller.drawRound();
             this.showMessage( "No podes jugar Falta Envido en este momento" );
         }
     }
@@ -315,6 +321,7 @@ public class SixPlayersGame extends JFrame{
         } catch (NotCardThrownException | TeamDoesntExistException e) {
             e.printStackTrace();
         } catch (InvalidGameCallException e) {
+            this.controller.drawRound();
             this.showMessage( "No podes jugar Real Envido en este momento" );
         }
     }
@@ -326,6 +333,7 @@ public class SixPlayersGame extends JFrame{
             this.showMassageNextPlayer();
             this.controller.drawRound();
         } catch (InvalidGameCallException e) {
+            this.controller.drawRound();
             this.showMessage( "No podes jugar Envido en este momento" );
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
