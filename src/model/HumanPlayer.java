@@ -127,7 +127,7 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void acceptCall() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
+    public void acceptCall() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, NothingToAcceptException {
         if(this.table.tellMeIfItsMyTurn(this)) {
             this.table.acceptCall();
         }

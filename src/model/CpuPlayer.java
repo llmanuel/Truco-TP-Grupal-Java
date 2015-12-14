@@ -235,7 +235,7 @@ public class CpuPlayer implements Player {
         if(this.table.tellMeIfItsMyTurn(this))  {
             try {
                 this.table.acceptCall();
-            } catch (TeamDoesntExistException e) {}
+            } catch (NothingToAcceptException e) {}
         } else throw new NotYourTurnException();
     }
 

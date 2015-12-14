@@ -152,7 +152,7 @@ public class Table {
         this.gameState = nextGame;
     }
 
-    public void acceptCall() throws TeamDoesntExistException {
+    public void acceptCall() throws  NothingToAcceptException {
         this.gameState.acceptCall();
     }
 
