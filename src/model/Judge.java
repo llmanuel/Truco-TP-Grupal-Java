@@ -58,10 +58,15 @@ public class Judge {
     }
 
     public void setWinnerOfGame(LinkedList<Slot> slots, Games actualGame) throws TeamDoesntExistException {
-        if (roundWinsPerTeam[0] > roundWinsPerTeam[1]) {
-            scoreboard.increaseTheScoreOf( slots.get( 0 ).getPlayer(), actualGame );
-        } else {
-            scoreboard.increaseTheScoreOf( slots.get( 1 ).getPlayer(), actualGame );
+        try {
+            this.setWinnerOfTheRound(slots);
+        } catch (NotCardThrownException e) {} catch (SomebodyWonTheGame somebodyWonTheGame) {
+
+            if (roundWinsPerTeam[0] > roundWinsPerTeam[1]) {
+                scoreboard.increaseTheScoreOf( slots.get( 0 ).getPlayer(), actualGame );
+            } else {
+                scoreboard.increaseTheScoreOf( slots.get( 1 ).getPlayer(), actualGame );
+            }
         }
 
     }
