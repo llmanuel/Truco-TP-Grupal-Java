@@ -215,6 +215,7 @@ public class SixPlayersGame extends JFrame{
             this.controller.cleanPlayerInTurnCards();
             this.controller.acceptCall();
             this.showMassageNextPlayer();
+            this.controller.drawRound();
         } catch (NotCardThrownException e) {
             this.showMessage( "No se ha tirado carta alguna" );
         } catch (NotYourTurnException e) {
@@ -231,6 +232,7 @@ public class SixPlayersGame extends JFrame{
     private void florButtonClicked() {
         try {
             this.controller.callFlor();
+            this.controller.drawRound();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (InvalidGameCallException | TeamDoesntExistException e) {
@@ -243,6 +245,7 @@ public class SixPlayersGame extends JFrame{
             this.controller.cleanPlayerInTurnCards();
             this.controller.callVale4();
             this.showMassageNextPlayer();
+            this.controller.drawRound();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -259,6 +262,7 @@ public class SixPlayersGame extends JFrame{
             this.controller.cleanPlayerInTurnCards();
             this.controller.callReTruco();
             this.showMassageNextPlayer();
+            this.controller.drawRound();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException e) {
@@ -275,6 +279,7 @@ public class SixPlayersGame extends JFrame{
             this.controller.cleanPlayerInTurnCards();
             this.controller.callTruco();
             this.showMassageNextPlayer();
+            this.controller.drawRound();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException | TeamDoesntExistException e) {
@@ -289,6 +294,7 @@ public class SixPlayersGame extends JFrame{
             this.controller.cleanPlayerInTurnCards();
             this.controller.callFaltaEnvido();
             this.showMassageNextPlayer();
+            this.controller.drawRound();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException | TeamDoesntExistException e) {
@@ -303,6 +309,7 @@ public class SixPlayersGame extends JFrame{
             this.controller.cleanPlayerInTurnCards();
             this.controller.callRealEnvido();
             this.showMassageNextPlayer();
+            this.controller.drawRound();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
         } catch (NotCardThrownException | TeamDoesntExistException e) {
@@ -317,6 +324,7 @@ public class SixPlayersGame extends JFrame{
             this.controller.cleanPlayerInTurnCards();
             this.controller.callEnvido();
             this.showMassageNextPlayer();
+            this.controller.drawRound();
         } catch (InvalidGameCallException e) {
             this.showMessage( "No podes jugar Envido en este momento" );
         } catch (NotYourTurnException e) {
