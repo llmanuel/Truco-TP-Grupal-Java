@@ -15,7 +15,7 @@ public class Scoreboard {
 
 
     public Scoreboard(LinkedList<Team> teams, Table table) {
-		this.scores = new LinkedList<>();
+        this.scores = new LinkedList<>();
 
         for(Team actualTeam : teams){
             this.scores.add(new Score(actualTeam));
