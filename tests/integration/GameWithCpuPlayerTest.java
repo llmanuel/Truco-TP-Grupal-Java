@@ -125,7 +125,7 @@ public class GameWithCpuPlayerTest {
 
 
     @Test
-    public void CpuPlayerAcceptTruco() throws TeamDoesntExistException, NotYourTurnException, InvalidGameCallException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, DonTHaveThatCardException {
+    public void CpuPlayerAcceptTruco() throws TeamDoesntExistException, NotYourTurnException, InvalidGameCallException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, DonTHaveThatCardException, MustAcceptCallFirstException {
 
         this.table.setGame();
 
@@ -173,7 +173,7 @@ public class GameWithCpuPlayerTest {
     }
 
     @Test
-    public void CpuPlayerAcceptEnvidoAndTrucoOnARound() throws TeamDoesntExistException, NotYourTurnException, InvalidGameCallException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, DonTHaveThatCardException {
+    public void CpuPlayerAcceptEnvidoAndTrucoOnARound() throws TeamDoesntExistException, NotYourTurnException, InvalidGameCallException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, DonTHaveThatCardException, MustAcceptCallFirstException {
 
         this.table.setGame();
 
@@ -190,12 +190,12 @@ public class GameWithCpuPlayerTest {
 
         player1.playCard(card3);
 
-        Assert.assertEquals( 2 , scoreboard.getPointsOf( player1 ) );
+        Assert.assertEquals( 2 , scoreboard.getPointsOf( player1 ));
         Assert.assertEquals( 2 , scoreboard.getPointsOf( player2 ));
     }
 
     @Test
-    public void CpuPlayerWontCallEnvidoIfFlorWasCall() throws TeamDoesntExistException, NotYourTurnException, InvalidGameCallException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, DonTHaveThatCardException {
+    public void CpuPlayerWontCallEnvidoIfFlorWasCall() throws TeamDoesntExistException, NotYourTurnException, InvalidGameCallException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, DonTHaveThatCardException, MustAcceptCallFirstException {
 
         this.table.setGame();
 
@@ -218,7 +218,7 @@ public class GameWithCpuPlayerTest {
     }
 
     @Test
-    public void CpuPlayerCallFlorAndHumanPlayerCallsTruco() throws TeamDoesntExistException, NotYourTurnException, InvalidGameCallException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, DonTHaveThatCardException {
+    public void CpuPlayerCallFlorAndHumanPlayerCallsTruco() throws TeamDoesntExistException, NotYourTurnException, InvalidGameCallException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, DonTHaveThatCardException, MustAcceptCallFirstException {
 
         this.table.setGame();
 

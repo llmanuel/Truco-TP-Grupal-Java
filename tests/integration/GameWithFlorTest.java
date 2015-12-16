@@ -105,7 +105,7 @@ public class GameWithFlorTest {
     }
 
     @Test
-    public void secondPlayerTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException, DonTHaveThatCardException, SecondTeamWonException, FirstTeamWonException {
+    public void secondPlayerTest() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException, DonTHaveThatCardException, SecondTeamWonException, FirstTeamWonException, MustAcceptCallFirstException {
         this.table.setGame();
 
         player1.setHand( hand1 );

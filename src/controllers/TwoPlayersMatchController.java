@@ -27,7 +27,7 @@ public class TwoPlayersMatchController  {
         this.table = builder.getTable();
         this.player1 = builder.getPlayers().getFirst();
         this.player2 = builder.getPlayers().getLast();
-        
+
         this.drawRound();
     }
 
@@ -36,14 +36,13 @@ public class TwoPlayersMatchController  {
         LinkedList<Player> players = new LinkedList<>();
         players.addFirst( this.player1 );
         players.addLast( this.player2 );
-
         this.gameView.drawScores(table.getScoreboard(), players);
     }
 
 
     public void callEnvido() throws InvalidGameCallException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException {
 
-        table.getActualPlayer().callEnvido();
+            table.getActualPlayer().callEnvido();
    }
 
     public void callRealEnvido() throws NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException {
@@ -99,13 +98,12 @@ public class TwoPlayersMatchController  {
     }
 
 
-    public void playCard(int i) {
+    public void playCard(int i) throws MustAcceptCallFirstException {
         try {
-            table.getActualPlayer().playCard( table.getActualPlayer().getHand().getCards().get(i-1) );
-            this.drawRound();
-        } catch (Exception ignored) {
+            table.getActualPlayer().playCard(table.getActualPlayer().getHand().getCards().get(i - 1));
+        } catch (NotYourTurnException e) {}catch(TeamDoesntExistException e){
 
-        }
+        }catch(NotCardThrownException e){}catch(DonTHaveThatCardException e){}
     }
 
     private Player getOtherPlayer() {
@@ -120,11 +118,10 @@ public class TwoPlayersMatchController  {
     }
 
     public void drawRound() {
-        if(this.table.getActualPlayer().getIdNumber() == 2){this.player2.play();}
-        this.drawSlotPlayerInTurn();
-        this.drawSlotOtherPlayer();
-        this.drawCardsPlayerInTurn();
-        this.drawScores();
+            this.drawSlotPlayerInTurn();
+            this.drawSlotOtherPlayer();
+            this.drawCardsPlayerInTurn();
+            this.drawScores();
     }
 
     public void cleanPlayerInTurnCards() {

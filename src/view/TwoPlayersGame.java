@@ -159,26 +159,43 @@ public class TwoPlayersGame extends JFrame {
         return cardPicture;
     }
 
-
-
+    
     private void card1PlayerInTurnClicked() {
         this.controller.cleanPlayerInTurnCards();
-        this.showMassageNextPlayer();
-        this.controller.playCard(1);
+        try {
+            this.controller.playCard(1);
+            this.showMassageNextPlayer();
+            this.controller.drawRound();
+        } catch (MustAcceptCallFirstException e) {
+            this.controller.drawRound();
+            this.showMessage( "Responde al canto antes de jugar" );
+        }
     }
 
     private void card2PlayerInTurnClicked()  {
 
         this.cleanPlayerInTurnCards();
-        this.showMassageNextPlayer();
-        this.controller.playCard(2);
+        try {
+            this.controller.playCard(2);
+            this.showMassageNextPlayer();
+            this.controller.drawRound();
+        } catch (MustAcceptCallFirstException e) {
+            this.controller.drawRound();
+            this.showMessage( "Responde al canto antes de jugar" );
+        }
     }
 
     private void card3PlayerInTurnClicked() {
 
         this.cleanPlayerInTurnCards();
-        this.showMassageNextPlayer();
-        this.controller.playCard(3);
+        try {
+            this.controller.playCard(3);
+            this.showMassageNextPlayer();
+            this.controller.drawRound();
+        } catch (MustAcceptCallFirstException e) {
+            this.controller.drawRound();
+            this.showMessage( "Responde al canto antes de jugar" );
+        }
     }
 
     private void meVoyAlMazoButtonClicked() {
@@ -210,9 +227,9 @@ public class TwoPlayersGame extends JFrame {
     private void quieroButtonClicked() {
         try {
             this.controller.cleanPlayerInTurnCards();
-
             this.controller.acceptCall();
             this.showMassageNextPlayer();
+            this.showMessage( "QUIERO" );
             this.controller.drawRound();
         } catch (NotCardThrownException e) {
             this.showMessage( "No se ha tirado carta alguna" );
@@ -243,9 +260,9 @@ public class TwoPlayersGame extends JFrame {
     private void vale4ButtonClicked() {
         try {
             this.controller.cleanPlayerInTurnCards();
-
             this.controller.callVale4();
             this.showMassageNextPlayer();
+            this.showMessage( "VALE 4" );
             this.controller.drawRound();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
@@ -262,9 +279,9 @@ public class TwoPlayersGame extends JFrame {
     private void retrucoButtonClicked() {
         try {
             this.controller.cleanPlayerInTurnCards();
-
             this.controller.callReTruco();
             this.showMassageNextPlayer();
+            this.showMessage( "RE TRUCO" );
             this.controller.drawRound();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
@@ -284,6 +301,7 @@ public class TwoPlayersGame extends JFrame {
 
             this.controller.callTruco();
             this.showMassageNextPlayer();
+            this.showMessage( "TRUCO" );
             this.controller.drawRound();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
@@ -301,6 +319,7 @@ public class TwoPlayersGame extends JFrame {
 
             this.controller.callFaltaEnvido();
             this.showMassageNextPlayer();
+            this.showMessage( "FALTA ENVIDO" );
             this.controller.drawRound();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
@@ -318,6 +337,7 @@ public class TwoPlayersGame extends JFrame {
 
             this.controller.callRealEnvido();
             this.showMassageNextPlayer();
+            this.showMessage( "REAL ENVIDO" );
             this.controller.drawRound();
         } catch (NotYourTurnException e) {
             this.showMessage( "No es tu turno para jugar" );
@@ -335,6 +355,7 @@ public class TwoPlayersGame extends JFrame {
 
             this.controller.callEnvido();
             this.showMassageNextPlayer();
+            this.showMessage( "ENVIDO" );
             this.controller.drawRound();
         } catch (InvalidGameCallException e) {
             this.controller.drawRound();

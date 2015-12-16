@@ -32,13 +32,14 @@ public class CpuPlayer implements Player {
     }
 
     @Override
-    public void playCard(Card cardToPlay) throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException {
+    public void playCard(Card cardToPlay) throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException, MustAcceptCallFirstException {
 
         if ((this.table.tellMeIfItsMyTurn(this)) && (this.table.tellMeIfCallWasAccepted())) {
             this.decideOfMakingACall();
             try {this.slot.receiveCard(this.hand.getCard(cardToPlay));} catch (DonTHaveThatCardException e) {}
             this.table.finishTurn();
-        } else throw new NotYourTurnException();
+        } else if(!this.table.tellMeIfItsMyTurn(this)) throw new NotYourTurnException();
+        else throw new MustAcceptCallFirstException();
     }
 
     @Override
@@ -47,15 +48,12 @@ public class CpuPlayer implements Player {
         try {
             cardToPlay = this.chooseCardToPlay();
             this.playCard(cardToPlay);
-        } catch (NotYourTurnException e) {
+        } catch (Exception e) {
             try {
                 this.acceptCall();
             } catch (NotYourTurnException e1) {
+                e1.printStackTrace();
             }
-        } catch (NotCardThrownException e) {
-            e.printStackTrace();
-        } catch (TeamDoesntExistException e) {
-            e.printStackTrace();
         }
     }
 

@@ -36,11 +36,12 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public void playCard(Card cardToPlay) throws NotYourTurnException, DonTHaveThatCardException, TeamDoesntExistException, NotCardThrownException {
+    public void playCard(Card cardToPlay) throws NotYourTurnException, DonTHaveThatCardException, TeamDoesntExistException, NotCardThrownException, MustAcceptCallFirstException {
         if ((this.table.tellMeIfItsMyTurn(this)) && (this.table.tellMeIfCallWasAccepted())) {
             this.slot.receiveCard( this.hand.getCard( cardToPlay ) );
             this.table.finishTurn();
-        } else throw new NotYourTurnException();
+        } else if(!this.table.tellMeIfItsMyTurn(this)) throw new NotYourTurnException();
+        else throw new MustAcceptCallFirstException();
     }
 
     @Override

@@ -99,7 +99,7 @@ public class TableAndJudgeTest {
     }
 
     @Test
-    public void judgeReturnWinnerOfARoundCorrectly() throws NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException {
+    public void judgeReturnWinnerOfARoundCorrectly() throws NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException, MustAcceptCallFirstException {
         myPlayer.setHand( hand1 );
         otherPLayer.setHand( hand2 );
 

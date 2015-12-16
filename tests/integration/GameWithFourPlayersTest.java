@@ -92,7 +92,7 @@ public class GameWithFourPlayersTest {
     }
 
     @Test
-    public void CanPlayASimpleGame() throws NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException, SecondTeamWonException, FirstTeamWonException {
+    public void CanPlayASimpleGame() throws NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException, SecondTeamWonException, FirstTeamWonException, MustAcceptCallFirstException {
 
         Player player1 = players.get(0);
         Player player2 = players.get(1);
@@ -114,7 +114,7 @@ public class GameWithFourPlayersTest {
     }
 
     @Test
-    public void secondTeamWinTruco() throws NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException {
+    public void secondTeamWinTruco() throws NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException, MustAcceptCallFirstException {
 
         Player player1 = players.get(0);
         Player player2 = players.get(1);
@@ -139,7 +139,7 @@ public class GameWithFourPlayersTest {
     }
 
     @Test
-    public void theGameRotatesCorrectly() throws NotYourTurnException, InvalidGameCallException, NotCardThrownException, TeamDoesntExistException, DonTHaveThatCardException {
+    public void theGameRotatesCorrectly() throws NotYourTurnException, InvalidGameCallException, NotCardThrownException, TeamDoesntExistException, DonTHaveThatCardException, MustAcceptCallFirstException {
 
         Card newcard1 = new Card(5, "BASTO", 2);
         Card newcard2 = new Card(7, "ORO", 11);
@@ -175,7 +175,7 @@ public class GameWithFourPlayersTest {
     }
 
     @Test
-    public void firstTeamWinEnvido() throws NotYourTurnException, InvalidGameCallException, NotCardThrownException, TeamDoesntExistException, DonTHaveThatCardException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException {
+    public void firstTeamWinEnvido() throws NotYourTurnException, InvalidGameCallException, NotCardThrownException, TeamDoesntExistException, DonTHaveThatCardException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException, MustAcceptCallFirstException {
 
         Player player1 = players.get(0);
         Player player2 = players.get(1);
