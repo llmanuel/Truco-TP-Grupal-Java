@@ -200,7 +200,7 @@ public class GameWithEnvidoAndRealEnvido {
     }
 
     @Test
-    public void aPlayerCallRealEnvidoWhenHeShouldntButHisTurnContinues() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, DonTHaveThatCardException {
+    public void aPlayerCallRealEnvidoWhenHeShouldntButHisTurnContinues() throws TeamDoesntExistException, NotYourTurnException, NotCardThrownException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, DonTHaveThatCardException, MustAcceptCallFirstException {
         this.table.setGame();
 
         player1.setHand( hand1 );

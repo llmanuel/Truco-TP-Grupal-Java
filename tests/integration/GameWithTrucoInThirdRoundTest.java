@@ -87,7 +87,7 @@ public class GameWithTrucoInThirdRoundTest {
     }
 
     @Test
-    public void gameWithTrucoTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, NothingToAcceptException {
+    public void gameWithTrucoTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, NothingToAcceptException, MustAcceptCallFirstException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -127,7 +127,7 @@ public class GameWithTrucoInThirdRoundTest {
     }
 
     @Test
-    public void gameWithNoQuieroTrucoTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
+    public void gameWithNoQuieroTrucoTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, MustAcceptCallFirstException {
         this.table.setGame();
 
         player1.setHand( hand1 );

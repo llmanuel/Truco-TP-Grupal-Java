@@ -86,7 +86,7 @@ public class GameWithTrucoAndRetruco {
     }
 
     @Test
-    public void gameWithTrucoAndRetrucoInFirstRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException {
+    public void gameWithTrucoAndRetrucoInFirstRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException, MustAcceptCallFirstException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -117,7 +117,7 @@ public class GameWithTrucoAndRetruco {
     }
 
     @Test
-    public void gameWithTrucoAndRetrucoInSecondRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException {
+    public void gameWithTrucoAndRetrucoInSecondRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException, MustAcceptCallFirstException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -147,7 +147,7 @@ public class GameWithTrucoAndRetruco {
     }
 
     @Test
-    public void gameWithTrucoAndRetrucoInThirdRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException {
+    public void gameWithTrucoAndRetrucoInThirdRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException, MustAcceptCallFirstException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -178,7 +178,7 @@ public class GameWithTrucoAndRetruco {
     }
 
     @Test
-    public void gameWithTrucoInFirstRoundAndRetrucoInSecondRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException {
+    public void gameWithTrucoInFirstRoundAndRetrucoInSecondRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException, MustAcceptCallFirstException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -210,7 +210,7 @@ public class GameWithTrucoAndRetruco {
     }
 
     @Test
-    public void gameWithTrucoInFirstRoundAndRetrucoInThirdRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException {
+    public void gameWithTrucoInFirstRoundAndRetrucoInThirdRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException, MustAcceptCallFirstException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -240,7 +240,7 @@ public class GameWithTrucoAndRetruco {
     }
 
     @Test
-    public void gameWithTrucoInSecondRoundAndRetrucoInThirdRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException {
+    public void gameWithTrucoInSecondRoundAndRetrucoInThirdRoundTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException, MustAcceptCallFirstException {
         this.table.setGame();
 
         player1.setHand( hand1 );
@@ -271,7 +271,7 @@ public class GameWithTrucoAndRetruco {
     }
 
     @Test (expected = InvalidGameCallException.class)
-    public void cantCallReTrucoBeforeTrucoTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException {
+    public void cantCallReTrucoBeforeTrucoTest() throws DonTHaveThatCardException, NotYourTurnException, NotCardThrownException, TeamDoesntExistException, InvalidGameCallException, SecondTeamWonException, FirstTeamWonException, MustAcceptCallFirstException {
         this.table.setGame();
 
         player1.setHand( hand1 );

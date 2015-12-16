@@ -88,7 +88,7 @@ public class PlayersAndTableTests {
     }
 
     @Test
-    public void playersCanPlayCardsInTheirTurn() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException {
+    public void playersCanPlayCardsInTheirTurn() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException, MustAcceptCallFirstException {
         /*With setgame() the turn belongs directly to player1 because he is the first on the List*/
         table.setGame();
 
@@ -105,7 +105,7 @@ public class PlayersAndTableTests {
     }
 
     @Test (expected = NotYourTurnException.class)
-    public void playersCantPlayMoreThanACardInTheirTurn() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException {
+    public void playersCantPlayMoreThanACardInTheirTurn() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException, MustAcceptCallFirstException {
         table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
 
         player1.setHand( hand1 );
@@ -119,7 +119,7 @@ public class PlayersAndTableTests {
     }
 
     @Test (expected = NotYourTurnException.class)
-    public void playersCanTPlayCardsOutOfTheirTurn() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException {
+    public void playersCanTPlayCardsOutOfTheirTurn() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException, MustAcceptCallFirstException {
         table.setGame();
         /*With setgame() the turn belongs directly to player1 because he is the first on the List*/
 
@@ -128,7 +128,7 @@ public class PlayersAndTableTests {
     }
 
     @Test
-    public void whenPlayersFinishThierTurnTheOtherOneCanPlay() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException {
+    public void whenPlayersFinishThierTurnTheOtherOneCanPlay() throws NotYourTurnException, NotCardThrownException, DonTHaveThatCardException, TeamDoesntExistException, MustAcceptCallFirstException {
         table.setGame();/*With setgame() the turn belongs directly to player1 because he is the first on the List*/
 
         player1.setHand( hand1 );

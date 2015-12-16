@@ -142,7 +142,7 @@ public class GameWithSixPlayersTest {
     }
 
     @Test
-    public void roundGoesNormal() throws NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException, SecondTeamWonException, FirstTeamWonException {
+    public void roundGoesNormal() throws NotYourTurnException, DonTHaveThatCardException, NotCardThrownException, TeamDoesntExistException, SecondTeamWonException, FirstTeamWonException, MustAcceptCallFirstException {
 
         player1.playCard(card1);
         player2.playCard(card4);
