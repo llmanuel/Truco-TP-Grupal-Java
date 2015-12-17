@@ -122,12 +122,13 @@ public class SixPlayersController {
             table.getActualPlayer().callEnvido();
     }
 
-    public void playCard(int i) {
+    public void playCard(int i) throws MustAcceptCallFirstException {
         try {
             table.getActualPlayer().playCard(table.getActualPlayer().getHand().getCards().get(i - 1));
             this.drawRound();
-        } catch (Exception ignored) {
-        }
+        } catch (NotYourTurnException e) {}catch(TeamDoesntExistException e){
+
+        }catch(NotCardThrownException e){}catch(DonTHaveThatCardException e){}
     }
 
     private void drawScores() {

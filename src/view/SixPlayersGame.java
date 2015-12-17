@@ -161,27 +161,39 @@ public class SixPlayersGame extends JFrame{
     }
 
     private void card3HandPlayerInTurnClicked() {
-
-        this.controller.cleanPlayerInTurnCards();
-        this.showMassageNextPlayer();
-        this.controller.playCard(3);
+        try {
+            this.controller.playCard(3);
+            this.showMassageNextPlayer();
+            this.controller.drawRound();
+        } catch (MustAcceptCallFirstException e) {
+            this.controller.drawRound();
+            this.showMessage("Responde al canto antes de jugar");
+        }
 
     }
 
     private void card2HandPlayerInTurnClicked() {
 
-        this.controller.cleanPlayerInTurnCards();
-        this.showMassageNextPlayer();
-        this.controller.playCard(2);
+        try {
+            this.controller.playCard(2);
+            this.showMassageNextPlayer();
+            this.controller.drawRound();
+        } catch (MustAcceptCallFirstException e) {
+            this.controller.drawRound();
+            this.showMessage("Responde al canto antes de jugar");
+        }
 
     }
 
     private void card1HandPlayerInTurnClicked() {
-
-        this.controller.cleanPlayerInTurnCards();
-        this.showMassageNextPlayer();
-        this.controller.playCard(1);
-
+        try {
+            this.controller.playCard(1);
+            this.showMassageNextPlayer();
+            this.controller.drawRound();
+        } catch (MustAcceptCallFirstException e) {
+            this.controller.drawRound();
+            this.showMessage("Responde al canto antes de jugar");
+        }
     }
 
     private void meVoyAlMazoButtonClicked() {
