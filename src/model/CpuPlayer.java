@@ -10,9 +10,11 @@ public class CpuPlayer implements Player {
     private Hand hand;
     private Slot slot;
     private Table table;
+    private boolean iMadeACall;
 
     public CpuPlayer(int idNumber) {
         playerId = idNumber;
+        this.iMadeACall=false;
     }
 
     @Override
@@ -32,54 +34,56 @@ public class CpuPlayer implements Player {
     }
 
     @Override
-    public void playCard(Card cardToPlay) throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException, MustAcceptCallFirstException {
-
+    public void playCard(Card cardToPlay) throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException, MustAcceptCallFirstException, DonTHaveThatCardException {
         if ((this.table.tellMeIfItsMyTurn(this)) && (this.table.tellMeIfCallWasAccepted())) {
-            this.decideOfMakingACall();
-            try {this.slot.receiveCard(this.hand.getCard(cardToPlay));} catch (DonTHaveThatCardException e) {}
+            this.slot.receiveCard(this.hand.getCard(cardToPlay));
             this.table.finishTurn();
         } else if(!this.table.tellMeIfItsMyTurn(this)) throw new NotYourTurnException();
         else throw new MustAcceptCallFirstException();
     }
 
     @Override
-    public void play(){
+    public void play() throws NotYourTurnException {
         Card cardToPlay;
         try {
-            cardToPlay = this.chooseCardToPlay();
-            this.playCard(cardToPlay);
-        } catch (Exception e) {
-            try {
-                this.acceptCall();
-            } catch (NotYourTurnException e1) {
-                e1.printStackTrace();
-            }
-        }
+            if(!iMadeACall)this.decideOfMakingACall();
+            if(this.table.tellMeIfItsMyTurn(this)){
+                cardToPlay = this.chooseCardToPlay();
+                iMadeACall = false;
+                this.playCard(cardToPlay);
+            } else throw new NotYourTurnException();
+        } catch (MustAcceptCallFirstException e) {this.acceptCall();
+
+        }catch (Exception e1){}
     }
 
-    private void decideOfMakingACall(){
+    private void decideOfMakingACall() throws NotCardThrownException, NotYourTurnException {
         try {
-            this.thinkEnvidos();
-        } catch (TeamDoesntExistException e) {} catch (NotYourTurnException e) {}
+           this.thinkEnvidos();
+        } catch (TeamDoesntExistException e) {}
     }
 
 
-    private void thinkEnvidos() throws TeamDoesntExistException, NotYourTurnException {
-
+    private boolean thinkEnvidos() throws TeamDoesntExistException, NotYourTurnException {
+        iMadeACall = false;
             if(this.getHand().isFlor()){
                 try {
                     this.callFlor();
+                    iMadeACall = true;
                 } catch (InvalidGameCallException e) {}
             }
+        if(!iMadeACall) {
             try {
-                if(this.getHand().calculateEnvido() > 30){
+                if (this.getHand().calculateEnvido() > 30) {
                     this.callRealEnvido();
-                }else if(this.getHand().calculateEnvido() > 25){
+                    iMadeACall = true;
+                } else if (this.getHand().calculateEnvido() > 25) {
                     this.callEnvido();
+                    iMadeACall = true;
                 }
             } catch (InvalidGameCallException e1) {}
-
-
+        }
+        return iMadeACall;
     }
 
     public int searchHigherCardInTheRound(){

@@ -53,6 +53,10 @@ public class Slot {
         cards = new LinkedList<>();
     }
 
+    public int getNumberOfCardsThrown(){
+        return this.cards.size();
+    }
+
     public Player getPlayer() {
         return this.player;
     }

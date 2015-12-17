@@ -344,4 +344,8 @@ public class Table {
         return  humanSlot;
     }
 
+    public int getRoundCounter(){
+        return this.roundCounter;
+    }
+
 }

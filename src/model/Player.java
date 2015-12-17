@@ -10,7 +10,7 @@ public interface Player {
     void setTable(Table table);
     void setHand(Hand newHand);
     void playCard(Card cardToPlay) throws NotYourTurnException, DonTHaveThatCardException, TeamDoesntExistException, NotCardThrownException, MustAcceptCallFirstException;
-    void play();
+    void play() throws NotYourTurnException;
     void callEnvido() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException, InvalidGameCallException;
     void callRealEnvido() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException, InvalidGameCallException;
     void callFaltaEnvido() throws NotYourTurnException, TeamDoesntExistException, NotCardThrownException, InvalidGameCallException;
