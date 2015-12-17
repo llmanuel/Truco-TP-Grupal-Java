@@ -160,50 +160,48 @@ public class TwoPlayersGame extends JFrame {
         return cardPicture;
     }
 
+    private void playCard(int i) {
+        try {
+            this.controller.playCard(1);
+            this.showMassageNextPlayer();
+            this.controller.drawRound();
+        } catch (MustAcceptCallFirstException e) {
+            this.controller.drawRound();
+            this.showMessage("Responde al canto antes de jugar");
+        }
+    }
 
     private void card1PlayerInTurnClicked() {
-        this.controller.cleanPlayerInTurnCards();
 
         if(this.card1PlayerInTurn.getIcon() != EMPTY_ICON) {
-            try {
-                this.controller.playCard(1);
-                this.showMassageNextPlayer();
-                this.controller.drawRound();
-            } catch (MustAcceptCallFirstException e) {
-                this.controller.drawRound();
-                this.showMessage("Responde al canto antes de jugar");
-            }
+            this.playCard(1);
         }
+
+        this.controller.cleanPlayerInTurnCards();
+
+        this.controller.drawRound();
     }
 
     private void card2PlayerInTurnClicked()  {
-        this.cleanPlayerInTurnCards();
 
         if (this.card2PlayerInTurn.getIcon() != EMPTY_ICON) {
-            try {
-                this.controller.playCard(2);
-                this.showMassageNextPlayer();
-                this.controller.drawRound();
-            } catch (MustAcceptCallFirstException e) {
-                this.controller.drawRound();
-                this.showMessage("Responde al canto antes de jugar");
-            }
+            this.playCard(2);
         }
+
+        this.cleanPlayerInTurnCards();
+
+        this.controller.drawRound();
     }
 
     private void card3PlayerInTurnClicked() {
+        
+        if (this.card3PlayerInTurn.getIcon() != EMPTY_ICON) {
+            this.playCard(3);
+        }
+
         this.cleanPlayerInTurnCards();
 
-        if (this.card3PlayerInTurn.getIcon() != EMPTY_ICON) {
-            try {
-                this.controller.playCard(3);
-                this.showMassageNextPlayer();
-                this.controller.drawRound();
-            } catch (MustAcceptCallFirstException e) {
-                this.controller.drawRound();
-                this.showMessage("Responde al canto antes de jugar");
-            }
-        }
+        this.controller.drawRound();
     }
 
     private void meVoyAlMazoButtonClicked() {
