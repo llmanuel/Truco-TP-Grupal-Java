@@ -203,6 +203,9 @@ public class Table {
 //          this.cursor.play();
       }catch (SomebodyWonTheGame e){this.judge.setWinnerOfGame(this.slotsInGame, this.gameState);
           beginNextGame();
+      }catch(WasATieException e1){
+          /*The cursor is already placed on the one that must play*/
+          this.gameState.nextRound();
       }
     }
 

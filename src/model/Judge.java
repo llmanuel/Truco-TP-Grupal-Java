@@ -12,7 +12,7 @@ public class Judge {
 
     public Judge(Scoreboard scoreboard) {
         this.scoreboard = scoreboard;
-        roundWinsPerTeam = new long[]{0, 0};
+        roundWinsPerTeam = new long[]{0, 0, 0};
     }
 
 
@@ -35,15 +35,25 @@ public class Judge {
 
     }
 
-    public Player setWinnerOfTheRound(LinkedList<Slot> slots) throws NotCardThrownException, SomebodyWonTheGame {
+    public Player setWinnerOfTheRound(LinkedList<Slot> slots) throws NotCardThrownException, SomebodyWonTheGame, WasATieException {
         int maximumCardInRound = 0;
         Player roundWinner = null;
+        boolean wasATie = false;
 
         for (Slot actualSlot : slots) {
             if (actualSlot.getLastOne().getValue() > maximumCardInRound) {
                 maximumCardInRound = actualSlot.getLastOne().getValue();
                 roundWinner = actualSlot.getPlayer();
+                wasATie = false;
+            }else if (actualSlot.getLastOne().getValue() == maximumCardInRound){
+                wasATie = true;
             }
+        }
+
+        if(wasATie){
+            this.roundWinsPerTeam[2]++;
+            this.checkIfAnyoneWonTwoRounds();
+            throw new WasATieException();
         }
         assert roundWinner != null;
         this.setRoundWinsPerTeam(roundWinner);
@@ -60,7 +70,7 @@ public class Judge {
     }
 
     private void checkIfAnyoneWonTwoRounds() throws SomebodyWonTheGame {
-        if ( this.roundWinsPerTeam[0] == 2 || this.roundWinsPerTeam[1] == 2)
+        if (( this.roundWinsPerTeam[0] == 2 || this.roundWinsPerTeam[1] == 2) || ( this.roundWinsPerTeam[0] == 1 || this.roundWinsPerTeam[1] == 1) && (this.roundWinsPerTeam[2] > 0))
             throw new SomebodyWonTheGame();
 
     }
