@@ -110,7 +110,7 @@ public class GameWithCpuPlayerTest {
     }
 
     @Test
-    public void CpuPlayerAcceptEnvido() throws TeamDoesntExistException, NotYourTurnException, InvalidGameCallException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException {
+    public void CpuPlayerRaiseEnvidoToRealEnvido() throws TeamDoesntExistException, NotYourTurnException, InvalidGameCallException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, NothingToAcceptException {
 
         this.table.setGame();
 
@@ -121,8 +121,10 @@ public class GameWithCpuPlayerTest {
 
         player2.play();
 
+        player1.acceptCall();
+
         Assert.assertEquals( 0 , scoreboard.getPointsOf( player1 ) );
-        Assert.assertEquals( 2 , scoreboard.getPointsOf( player2 ));
+        Assert.assertEquals( 5 , scoreboard.getPointsOf( player2 ));
     }
 
 
@@ -161,11 +163,13 @@ public class GameWithCpuPlayerTest {
         this.table.setGame();
 
         player1.setHand( hand1 );
-        player2.setHand( hand2 );
+        player2.setHand( hand4 );
 
         player1.callRealEnvido();
 
         player2.play();
+
+
 
         Assert.assertEquals( 0 , scoreboard.getPointsOf( player1 ) );
         Assert.assertEquals( 3 , scoreboard.getPointsOf( player2 ));
@@ -188,7 +192,7 @@ public class GameWithCpuPlayerTest {
     }
 
     @Test
-    public void CpuPlayerAcceptEnvidoAndTrucoOnARound() throws TeamDoesntExistException, NotYourTurnException, InvalidGameCallException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, DonTHaveThatCardException, MustAcceptCallFirstException {
+    public void CpuPlayerAcceptEnvidoRaiseToRealEnvidoAndAcceptsTrucoOnARound() throws TeamDoesntExistException, NotYourTurnException, InvalidGameCallException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, DonTHaveThatCardException, MustAcceptCallFirstException, NothingToAcceptException {
 
         this.table.setGame();
 
@@ -197,6 +201,8 @@ public class GameWithCpuPlayerTest {
 
         player1.callEnvido();
         player2.play();
+        player1.acceptCall();
+
         player1.callTruco();
         player2.play();
 
@@ -210,7 +216,7 @@ public class GameWithCpuPlayerTest {
         player1.playCard(card3);
 
         Assert.assertEquals( 2 , scoreboard.getPointsOf( player1 ));
-        Assert.assertEquals( 2 , scoreboard.getPointsOf( player2 ));
+        Assert.assertEquals( 5 , scoreboard.getPointsOf( player2 ));
     }
 
     @Test
@@ -266,7 +272,7 @@ public class GameWithCpuPlayerTest {
         Assert.assertEquals( 3 , scoreboard.getPointsOf( player2 ));
     }
 
-    @Test (expected = NotYourTurnException.class)
+    @Test
     public void CpuPlayerCantThrowMoreThanOneCardForTurn() throws TeamDoesntExistException, InvalidGameCallException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, DonTHaveThatCardException, MustAcceptCallFirstException, NotYourTurnException {
 
         this.table.setGame();
@@ -282,7 +288,7 @@ public class GameWithCpuPlayerTest {
         Assert.assertEquals(0, player2.getSlot().getNumberOfCardsThrown());
     }
 
-    @Test (expected = NotYourTurnException.class)
+    @Test
     public void CpuPlayerCantThrowMoreThanOneCardForTurn2() throws TeamDoesntExistException, InvalidGameCallException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, DonTHaveThatCardException, MustAcceptCallFirstException, NotYourTurnException {
 
         this.table.setGame();
@@ -329,5 +335,37 @@ public class GameWithCpuPlayerTest {
         } catch (NotYourTurnException e) {}
 
         Assert.assertEquals(2, player2.getSlot().getNumberOfCardsThrown());
+    }
+
+    @Test
+    public void CpuPlayerCantThrowMoreThanOneCardForTurnInTheSecondRound() throws TeamDoesntExistException, InvalidGameCallException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, DonTHaveThatCardException, MustAcceptCallFirstException, NotYourTurnException, NothingToAcceptException {
+        this.table.setGame();
+
+        player1.setHand( hand4 );
+        player2.setHand( hand2 );
+
+        player1.callEnvido();
+        player2.play();
+        player1.acceptCall();
+
+        player1.callTruco();
+        player2.play();
+
+        player1.playCard(card10);
+        player2.play();
+
+        player2.play();
+        player1.playCard(card11);
+
+
+        /*Aca termina la primer ronda*/
+
+        player1.setHand( hand3 );
+        player2.setHand( hand1 );
+
+        player2.play();
+        player2.play();
+
+        Assert.assertEquals(1, player2.getSlot().getNumberOfCardsThrown());
     }
 }
