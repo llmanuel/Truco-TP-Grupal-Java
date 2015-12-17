@@ -40,6 +40,7 @@ public class TwoPlayersGame extends JFrame {
     private JLabel firstPlayerScore;
     private JLabel secondPlayerScore;
     private TwoPlayersMatchController controller;
+    private static final Icon EMPTY_ICON = new ImageIcon( );
 
     public TwoPlayersGame(boolean withCpu) {
         super("Truco");
@@ -162,39 +163,46 @@ public class TwoPlayersGame extends JFrame {
 
     private void card1PlayerInTurnClicked() {
         this.controller.cleanPlayerInTurnCards();
-        try {
-            this.controller.playCard(1);
-            this.showMassageNextPlayer();
-            this.controller.drawRound();
-        } catch (MustAcceptCallFirstException e) {
-            this.controller.drawRound();
-            this.showMessage( "Responde al canto antes de jugar" );
+
+        if(this.card1PlayerInTurn.getIcon() != EMPTY_ICON) {
+            try {
+                this.controller.playCard(1);
+                this.showMassageNextPlayer();
+                this.controller.drawRound();
+            } catch (MustAcceptCallFirstException e) {
+                this.controller.drawRound();
+                this.showMessage("Responde al canto antes de jugar");
+            }
         }
     }
 
     private void card2PlayerInTurnClicked()  {
-
         this.cleanPlayerInTurnCards();
-        try {
-            this.controller.playCard(2);
-            this.showMassageNextPlayer();
-            this.controller.drawRound();
-        } catch (MustAcceptCallFirstException e) {
-            this.controller.drawRound();
-            this.showMessage( "Responde al canto antes de jugar" );
+
+        if (this.card2PlayerInTurn.getIcon() != EMPTY_ICON) {
+            try {
+                this.controller.playCard(2);
+                this.showMassageNextPlayer();
+                this.controller.drawRound();
+            } catch (MustAcceptCallFirstException e) {
+                this.controller.drawRound();
+                this.showMessage("Responde al canto antes de jugar");
+            }
         }
     }
 
     private void card3PlayerInTurnClicked() {
-
         this.cleanPlayerInTurnCards();
-        try {
-            this.controller.playCard(3);
-            this.showMassageNextPlayer();
-            this.controller.drawRound();
-        } catch (MustAcceptCallFirstException e) {
-            this.controller.drawRound();
-            this.showMessage( "Responde al canto antes de jugar" );
+
+        if (this.card3PlayerInTurn.getIcon() != EMPTY_ICON) {
+            try {
+                this.controller.playCard(3);
+                this.showMassageNextPlayer();
+                this.controller.drawRound();
+            } catch (MustAcceptCallFirstException e) {
+                this.controller.drawRound();
+                this.showMessage("Responde al canto antes de jugar");
+            }
         }
     }
 
@@ -373,19 +381,19 @@ public class TwoPlayersGame extends JFrame {
         try {
             this.card1PlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerHand.getCards().get(0) ) ) ) ;
         } catch (IndexOutOfBoundsException e){
-            this.card1PlayerInTurn.setIcon( new ImageIcon(  ) );
+            this.card1PlayerInTurn.setIcon( EMPTY_ICON );
         }
 
         try {
             this.card2PlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerHand.getCards().get(1) ) ) ) ;
         } catch (IndexOutOfBoundsException e){
-            this.card2PlayerInTurn.setIcon( new ImageIcon(  ) );
+            this.card2PlayerInTurn.setIcon( EMPTY_ICON );
         }
 
         try {
             this.card3PlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerHand.getCards().get(2) ) ) ) ;
         } catch (IndexOutOfBoundsException e ){
-            this.card3PlayerInTurn.setIcon( new ImageIcon(  ) );
+            this.card3PlayerInTurn.setIcon( EMPTY_ICON );
         }
     }
 
@@ -393,19 +401,19 @@ public class TwoPlayersGame extends JFrame {
         try {
             this.card1SlotPlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerSlot.getFirstOne() ) ) );
         } catch (NotCardThrownException e) {
-            this.card1SlotPlayerInTurn.setIcon( new ImageIcon(  ) );
+            this.card1SlotPlayerInTurn.setIcon( EMPTY_ICON );
         }
 
         try {
             this.card2SlotPlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerSlot.getSecondOne() ) ) ) ;
         } catch (NotCardThrownException e) {
-            this.card2SlotPlayerInTurn.setIcon( new ImageIcon(  ) );
+            this.card2SlotPlayerInTurn.setIcon( EMPTY_ICON );
         }
 
         try {
             this.card3SlotPlayerInTurn.setIcon( new ImageIcon( this.getCardImage( playerSlot.getThirdOne() ) ) )   ;
         } catch (NotCardThrownException e) {
-            this.card3SlotPlayerInTurn.setIcon( new ImageIcon(  ) );
+            this.card3SlotPlayerInTurn.setIcon( EMPTY_ICON );
         }
     }
 
@@ -413,19 +421,19 @@ public class TwoPlayersGame extends JFrame {
         try {
             this.firstCardPlayedByOtherPlayer.setIcon( new ImageIcon( this.getCardImage( otherPlayerSlot.getFirstOne() ) ) );
         } catch (NotCardThrownException e) {
-            this.firstCardPlayedByOtherPlayer.setIcon( new ImageIcon(  ) );
+            this.firstCardPlayedByOtherPlayer.setIcon( EMPTY_ICON );
         }
 
         try {
             this.secondCardPlayedByOtherPlayer.setIcon( new ImageIcon( this.getCardImage( otherPlayerSlot.getSecondOne() ) ) );
         } catch (NotCardThrownException e) {
-            this.secondCardPlayedByOtherPlayer.setIcon( new ImageIcon(  ) );
+            this.secondCardPlayedByOtherPlayer.setIcon( EMPTY_ICON );
         }
 
         try {
             this.thirdCardPlayedByOtherPlayer.setIcon( new ImageIcon( this.getCardImage( otherPlayerSlot.getThirdOne() ) ) ) ;
         } catch (NotCardThrownException e) {
-            this.thirdCardPlayedByOtherPlayer.setIcon( new ImageIcon(  ) );
+            this.thirdCardPlayedByOtherPlayer.setIcon( EMPTY_ICON );
         }
     }
 
@@ -448,8 +456,8 @@ public class TwoPlayersGame extends JFrame {
 
     public void cleanPlayerInTurnCards() {
 
-        this.card1PlayerInTurn.setIcon( new ImageIcon(  ) );
-        this.card2PlayerInTurn.setIcon( new ImageIcon(  ) );
-        this.card3PlayerInTurn.setIcon( new ImageIcon(  ) );
+        this.card1PlayerInTurn.setIcon( EMPTY_ICON );
+        this.card2PlayerInTurn.setIcon( EMPTY_ICON );
+        this.card3PlayerInTurn.setIcon( EMPTY_ICON );
     }
 }
