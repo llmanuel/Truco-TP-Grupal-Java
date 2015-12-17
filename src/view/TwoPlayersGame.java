@@ -162,7 +162,7 @@ public class TwoPlayersGame extends JFrame {
 
     private void playCard(int i) {
         try {
-            this.controller.playCard(1);
+            this.controller.playCard(i);
             this.showMassageNextPlayer();
             this.controller.drawRound();
         } catch (MustAcceptCallFirstException e) {
