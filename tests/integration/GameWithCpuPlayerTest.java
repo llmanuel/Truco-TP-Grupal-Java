@@ -365,6 +365,7 @@ public class GameWithCpuPlayerTest {
 
         player2.play();
         player2.play();
+        player2.play();
 
         Assert.assertEquals(1, player2.getSlot().getNumberOfCardsThrown());
     }
