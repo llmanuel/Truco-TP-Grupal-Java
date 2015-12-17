@@ -118,6 +118,10 @@ public class TwoPlayersMatchController  {
     }
 
     public void drawRound() {
+        if (this.table.getActualPlayer().getIdNumber() == 2){
+            this.table.getActualPlayer().play();
+            this.drawRound();
+        }
             this.drawSlotPlayerInTurn();
             this.drawSlotOtherPlayer();
             this.drawCardsPlayerInTurn();

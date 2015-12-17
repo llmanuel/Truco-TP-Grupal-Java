@@ -159,7 +159,7 @@ public class TwoPlayersGame extends JFrame {
         return cardPicture;
     }
 
-    
+
     private void card1PlayerInTurnClicked() {
         this.controller.cleanPlayerInTurnCards();
         try {
