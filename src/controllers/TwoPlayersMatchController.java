@@ -163,7 +163,7 @@ public class TwoPlayersMatchController  {
     }
 
     public void drawRound() {
-        if (this.table.getActualPlayer().getIdNumber() == 2){
+        if ((this.table.getActualPlayer().getIdNumber() == 2) && (this.withCpu)){
             try {
                 this.table.getActualPlayer().play();
             } catch (NotYourTurnException e) {drawRound();}
