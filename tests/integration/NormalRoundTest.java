@@ -117,5 +117,131 @@ public class NormalRoundTest {
 
     }
 
+    @Test
+    public void withATieTheSecondRoundDecides() throws DonTHaveThatCardException, NotYourTurnException, TeamDoesntExistException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, MustAcceptCallFirstException {
+        this.table.setGame();
 
+        card1 = new Card(12, "BASTO", 7);
+        card2 = new Card(7, "ESPADA", 12);
+        card3 = new Card(7, "BASTO", 4);
+
+        card4 = new Card(12, "ESPADA", 7);
+        card5 = new Card(7, "ORO", 11);
+        card6 = new Card(3, "ORO", 10);
+
+        hand1Cards = new LinkedList<Card>();
+        hand1Cards.add( card1 );
+        hand1Cards.add( card2 );
+        hand1Cards.add( card3 );
+
+        hand2Cards = new LinkedList<Card>();
+        hand2Cards.add( card4 );
+        hand2Cards.add( card5 );
+        hand2Cards.add( card6 );
+
+        hand1 = new Hand( hand1Cards );
+        hand2 = new Hand( hand2Cards );
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.playCard(card1);
+
+        player2.playCard(card4);
+
+        player1.playCard(card2);
+
+        player2.playCard(card5);
+
+        Assert.assertEquals(0, scoreboard.getPointsOf( player2 ) );
+        Assert.assertEquals(1, scoreboard.getPointsOf( player1 ));
+
+    }
+
+    @Test
+    public void withATieInTheSecondRoundFinishTheGame() throws DonTHaveThatCardException, NotYourTurnException, TeamDoesntExistException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, MustAcceptCallFirstException {
+        this.table.setGame();
+
+        card1 = new Card(12, "BASTO", 7);
+        card2 = new Card(7, "ESPADA", 12);
+        card3 = new Card(7, "BASTO", 4);
+
+        card4 = new Card(12, "ESPADA", 7);
+        card5 = new Card(7, "ORO", 11);
+        card6 = new Card(3, "ORO", 10);
+
+        hand1Cards = new LinkedList<Card>();
+        hand1Cards.add( card1 );
+        hand1Cards.add( card2 );
+        hand1Cards.add( card3 );
+
+        hand2Cards = new LinkedList<Card>();
+        hand2Cards.add( card4 );
+        hand2Cards.add( card5 );
+        hand2Cards.add( card6 );
+
+        hand1 = new Hand( hand1Cards );
+        hand2 = new Hand( hand2Cards );
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+
+        player1.playCard(card2);
+
+        player2.playCard(card5);
+
+        player1.playCard(card1);
+
+        player2.playCard(card4);
+
+
+        Assert.assertEquals(0, scoreboard.getPointsOf( player2 ) );
+        Assert.assertEquals(1, scoreboard.getPointsOf( player1 ));
+
+    }
+
+    @Test
+    public void withATieInFirstAndTheSecondRoundTheThirdsDecides() throws DonTHaveThatCardException, NotYourTurnException, TeamDoesntExistException, NotCardThrownException, SecondTeamWonException, FirstTeamWonException, MustAcceptCallFirstException {
+        this.table.setGame();
+
+        card1 = new Card(12, "BASTO", 7);
+        card2 = new Card(7, "ESPADA", 12);
+        card3 = new Card(3, "BASTO", 10);
+
+        card4 = new Card(12, "ESPADA", 7);
+        card5 = new Card(7, "ORO", 11);
+        card6 = new Card(3, "ORO", 10);
+
+        hand1Cards = new LinkedList<Card>();
+        hand1Cards.add( card1 );
+        hand1Cards.add( card2 );
+        hand1Cards.add( card3 );
+
+        hand2Cards = new LinkedList<Card>();
+        hand2Cards.add( card4 );
+        hand2Cards.add( card5 );
+        hand2Cards.add( card6 );
+
+        hand1 = new Hand( hand1Cards );
+        hand2 = new Hand( hand2Cards );
+
+        player1.setHand( hand1 );
+        player2.setHand( hand2 );
+        
+        player1.playCard(card1);
+
+        player2.playCard(card4);
+
+        player1.playCard(card3);
+
+        player2.playCard(card6);
+
+        player1.playCard(card2);
+
+        player2.playCard(card5);
+
+        Assert.assertEquals(0, scoreboard.getPointsOf( player2 ) );
+        Assert.assertEquals(1, scoreboard.getPointsOf( player1 ));
+
+    }
 }
