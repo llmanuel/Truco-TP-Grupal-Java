@@ -13,11 +13,14 @@ public class TwoPlayersMatchController  {
     private final Player player2;
     private Table table;
     private final TwoPlayersGame gameView;
+    private boolean withCpu;
 
     public TwoPlayersMatchController(TwoPlayersGame newGameView, boolean withCpu) throws InvalidNumberOfPlayersException {
         gameView = newGameView;
 
         Builder builder;
+
+        this.withCpu = withCpu;
 
         if ( withCpu )
             builder = new Builder(1,1);
@@ -86,15 +89,57 @@ public class TwoPlayersMatchController  {
     }
 
     private void drawCardsPlayerInTurn(){
-        this.gameView.drawCardsPlayerInTurn(table.getActualPlayer().getHand() , table.getActualPlayer());
+        if(withCpu){
+            this.drawCardsHumanPlayer();
+        }else {
+            this.gameView.drawCardsPlayerInTurn(table.getActualPlayer().getHand(), table.getActualPlayer());
+        }
+    }
+
+    private void drawCardsHumanPlayer() {
+        Player playerToDraw;
+        if (this.table.getActualPlayer().getIdNumber() == 2){
+            playerToDraw = this.getOtherPlayer();
+        }
+        else playerToDraw = this.table.getActualPlayer();
+
+        this.gameView.drawCardsPlayerInTurn(playerToDraw.getHand(), playerToDraw);
     }
 
     private void drawSlotPlayerInTurn(){
-        this.gameView.drawSlotPlayerInTurn( table.getActualPlayer().getSlot());
+        if(withCpu){
+            this.drawSlotHumanPlayer();
+        }else {
+            this.gameView.drawSlotPlayerInTurn(table.getActualPlayer().getSlot());
+        }
+    }
+
+    private void drawSlotHumanPlayer() {
+        Player playerToDraw;
+        if (this.table.getActualPlayer().getIdNumber() == 2){
+            playerToDraw = this.getOtherPlayer();
+        }
+        else playerToDraw = this.table.getActualPlayer();
+
+        this.gameView.drawSlotPlayerInTurn( playerToDraw.getSlot());
     }
 
     private void drawSlotOtherPlayer(){
-        this.gameView.drawSlotOtherPlayer( this.getOtherPlayer().getSlot() );
+        if(withCpu){
+            this.drawSlotCpuPlayer();
+        }else {
+            this.gameView.drawSlotOtherPlayer(this.getOtherPlayer().getSlot());
+        }
+    }
+
+    private void drawSlotCpuPlayer() {
+        Player playerToDraw;
+        if (this.table.getActualPlayer().getIdNumber() == 2){
+            playerToDraw = this.table.getActualPlayer();
+        }
+        else playerToDraw = this.getOtherPlayer();
+
+        this.gameView.drawSlotOtherPlayer( playerToDraw.getSlot() );
     }
 
 
@@ -119,8 +164,10 @@ public class TwoPlayersMatchController  {
 
     public void drawRound() {
         if (this.table.getActualPlayer().getIdNumber() == 2){
-            this.table.getActualPlayer().play();
-            this.drawRound();
+            try {
+                this.table.getActualPlayer().play();
+            } catch (NotYourTurnException e) {drawRound();}
+            drawRound();
         }
             this.drawSlotPlayerInTurn();
             this.drawSlotOtherPlayer();
