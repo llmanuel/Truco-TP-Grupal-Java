@@ -166,8 +166,9 @@ public class TwoPlayersMatchController  {
         if ((this.table.getActualPlayer().getIdNumber() == 2) && (this.withCpu)){
             try {
                 this.table.getActualPlayer().play();
-            } catch (NotYourTurnException e) {drawRound();}
-            drawRound();
+            } catch (NotYourTurnException ignored) {
+            }
+
         }
             this.drawSlotPlayerInTurn();
             this.drawSlotOtherPlayer();
