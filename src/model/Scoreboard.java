@@ -15,7 +15,7 @@ public class Scoreboard {
 
 
     public Scoreboard(LinkedList<Team> teams, Table table) {
-		this.scores = new LinkedList<>();
+        this.scores = new LinkedList<>();
 
         for(Team actualTeam : teams){
             this.scores.add(new Score(actualTeam));
@@ -53,7 +53,9 @@ public class Scoreboard {
         try {
             if(this.getPointsOf(teamWhoLost) < 15 ){
                 pointsToAsign = 15 - this.getPointsOf(teamWhoLost);
-            } else pointsToAsign = 30 - (this.getPointsOf(teamWhoLost) - 15);
+            } else {
+                pointsToAsign = 30 - (this.getPointsOf(teamWhoLost));
+            }
         } catch (SecondTeamWonException | FirstTeamWonException ignored) {}
         return pointsToAsign;
     }
