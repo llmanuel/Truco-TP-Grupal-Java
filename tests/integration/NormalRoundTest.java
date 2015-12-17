@@ -227,7 +227,7 @@ public class NormalRoundTest {
 
         player1.setHand( hand1 );
         player2.setHand( hand2 );
-        
+
         player1.playCard(card1);
 
         player2.playCard(card4);

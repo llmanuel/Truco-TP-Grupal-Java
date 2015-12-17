@@ -200,7 +200,6 @@ public class Table {
               this.gameState.nextRound();
               this.setRoundBeginner(nextBeginner);
           }
-//          this.cursor.play();
       }catch (SomebodyWonTheGame e){this.judge.setWinnerOfGame(this.slotsInGame, this.gameState);
           beginNextGame();
       }catch(WasATieException e1){
@@ -226,7 +225,6 @@ public class Table {
     public void continueWithRound(){
 
         this.setCursorAt(this.cursorForCalls);
-//        this.cursor.play();
     }
 
     public Player getActualPlayer(){
@@ -302,7 +300,6 @@ public class Table {
     private void verifyOthersTeamDecision(){
         teamsCursor = this.getTheEnemyTeamOf(this.cursor);
         setCursorAt(teamsCursor.getFirstMember());
-//        this.cursor.play();
     }
 
     public Team getTheEnemyTeamOf(Player thisPlayer) {
