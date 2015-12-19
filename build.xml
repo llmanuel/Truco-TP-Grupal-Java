@@ -5,7 +5,21 @@
 	<property name="libs" location="libs" />
 	<property name="reports.dir" location="${build}/reports" />
     <property name="jar" location="JAR" />
-	
+    <property name="javac2.home" value="${libs}/java2c"/>
+
+    <path id="javac2.classpath">
+        <pathelement location="${javac2.home}/javac2.jar"/>
+        <pathelement location="${javac2.home}/jdom.jar"/>
+        <pathelement location="${javac2.home}/asm-all.jar"/>
+        <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+        <pathelement location="${javac2.home}/forms_rt.jar"/>
+    </path>
+
+    <target name="register.custom.compilers">
+        <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+        <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+    </target>
+
 	<path id="classpath">
 		<fileset dir="${libs}">
 			<include name="*.jar" />
@@ -13,9 +27,8 @@
 		<pathelement location="${build}" />
 		<pathelement location="${build}/tests" />
 	</path>
-	
-	
-	<target name="setup">
+
+	<target name="setup" >
 		<delete dir="${build}" />
 		<mkdir dir="${build}" />
 		<mkdir dir="${build}/classes" />
@@ -24,9 +37,13 @@
         <mkdir dir="${jar}" />
 	</target>
 
-	<target name="compilar.aplicacion" depends="setup">
-		<javac srcdir="src" destdir="${build}" includeantruntime="false" debug="yes" target="1.8">
-		</javac>
+    <target name="uncompress.rt" depends="setup">
+        <unjar src="${javac2.home}/forms_rt.jar" dest="${build}/" />
+    </target>
+
+	<target name="compilar.aplicacion" depends="setup,register.custom.compilers,uncompress.rt">
+        <javac2 srcdir="src" destdir="${build}" fork="true" classpath="javac2.classpath"/>
+
 	</target>
 	
 	<target name="compilar.tests" depends="compilar.aplicacion">
@@ -54,18 +71,10 @@
             <fileset dir="${build}" />
             <fileset dir="${src.dir}" includes="**/*.java"/>
 
-
             <manifest>
                 <attribute name="Main-Class" value="view.InitialDataEntry"/>
             </manifest>
-
-
         </jar>
+    </target>
 
-
-
-
-	</target>
-
-    
  </project>
