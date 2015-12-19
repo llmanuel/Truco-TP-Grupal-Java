@@ -1,9 +1,10 @@
-<project name="TP_Grupal_Java" basedir="." default="correr.tests">
+<project name="TP_Grupal_Java" basedir="." default="preparar.jar">
 	<property name="build" location="build" />
 	<property name="classes.dir" location="build" />
 	<property name="src.dir" location="src" />
 	<property name="libs" location="libs" />
 	<property name="reports.dir" location="${build}/reports" />
+    <property name="jar" location="JAR" />
 	
 	<path id="classpath">
 		<fileset dir="${libs}">
@@ -20,6 +21,7 @@
 		<mkdir dir="${build}/classes" />
 		<mkdir dir="${build}/tests" />
 		<mkdir dir="${reports.dir}" />
+        <mkdir dir="${jar}" />
 	</target>
 
 	<target name="compilar.aplicacion" depends="setup">
@@ -46,6 +48,24 @@
         </junit>
         <fail message="Pruebas fallidas" if="test.failure" />
     </target>
-	
+
+	<target name="preparar.jar" depends="correr.tests">
+		<jar destfile = "${jar}/Truco.jar">
+            <fileset dir="${build}" />
+            <fileset dir="${src.dir}" includes="**/*.java"/>
+
+
+            <manifest>
+                <attribute name="Main-Class" value="view.InitialDataEntry"/>
+            </manifest>
+
+
+        </jar>
+
+
+
+
+	</target>
+
     
  </project>
