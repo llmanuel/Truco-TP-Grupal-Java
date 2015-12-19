@@ -4,7 +4,6 @@
 	<property name="src.dir" location="src" />
 	<property name="libs" location="libs" />
 	<property name="reports.dir" location="${build}/reports" />
-    <property name="jar" location="JAR" />
     <property name="javac2.home" value="${libs}/java2c"/>
 
     <path id="javac2.classpath">
@@ -67,7 +66,7 @@
     </target>
 
 	<target name="preparar.jar" depends="correr.tests">
-		<jar destfile = "${jar}/Truco.jar">
+		<jar destfile = "Truco.jar">
             <fileset dir="${build}" />
             <fileset dir="${src.dir}" includes="**/*.java"/>
 
