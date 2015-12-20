@@ -33,7 +33,6 @@
 		<mkdir dir="${build}/classes" />
 		<mkdir dir="${build}/tests" />
 		<mkdir dir="${reports.dir}" />
-        <mkdir dir="${jar}" />
 	</target>
 
     <target name="uncompress.rt" depends="setup">
